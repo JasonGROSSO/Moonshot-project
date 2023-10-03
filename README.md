@@ -10,5 +10,5 @@ Once done the tool will generate the rest of the images and ask for validation, 
 At the end the user will be returned a file that he will be able to use as a wallpaper.
 
 Objectives:
-    - Provide a animated wallpapers, 
-    - Provide a personalised product,
+- Provide a animated wallpapers,
+- Provide a personalised product,
