@@ -1,14 +1,14 @@
 # Moonshot-project
 
-Animated Wallpaper Generator (AWG) is a tool that allows you to create animated wallpaper with a simple prompt.
+Animated Wallpaper Generator (AWG) is a tool that allows its users to create animated wallpaper via a prompt.
 
 The AWG uses AI in order to generate the images for the wallpaper.
 
-The user enters a prompt in the tool, and is returned a first image, that he will be able to modify to his hearts content.
-Once done the tool will generate the rest of the images and ask for validation, rinse and repeat.
+The user enters a prompt and the tool will return to the user the first image of the loop, the user will the be able to modify the image via the prompt.
+Once the first image is validated the tool will generate the rest of the loop, diplay it to the user, ask for confirmation, and save the loop plus the prompt.
 
-At the end the user will be returned a file that he will be able to use as a wallpaper.
+At the end the user will be returned a file that he will be able to use as an animated wallpaper.
 
 Objectives:
-- Provide a animated wallpapers,
-- Provide a personalised product,
+- Provide animated wallpapers,
+- Provide personalised products,
