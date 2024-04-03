@@ -13,6 +13,7 @@
     - [Out of Scope](#out-of-scope)
   - [Use Cases](#use-cases)
   - [Requirement](#requirement)
+  - [Testing Strategy](#testing-strategy)
   - [Future Improvement](#future-improvement)
 
 </details>
@@ -23,7 +24,7 @@
 
 ### Context
 
-This document will describe the functions and capabilities of the project.
+This document will describe the functions and capabilities of this project. This Project is a to create a sorter that could sort through an entire project and return this project under the form of a catalog of said project contents.
 
 ## Scope
 
@@ -34,5 +35,7 @@ This document will describe the functions and capabilities of the project.
 ## Use Cases
 
 ## Requirement
+
+## Testing Strategy
 
 ## Future Improvement
