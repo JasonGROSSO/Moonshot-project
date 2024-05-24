@@ -6,6 +6,6 @@ All of those files will be available in a folder that has no guarentie to either
 
 This tool is independant of any other external program.
 
-Language supported: N/A
+Language supported: C (WIP)
 
-Developement language: TBD
+Developement language: C
