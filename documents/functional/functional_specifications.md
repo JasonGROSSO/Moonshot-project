@@ -11,6 +11,9 @@
   - [Scope](#scope)
   - [Personas](#personas)
   - [Use Cases](#use-cases)
+    - [Use Case n°1: Outdated / No Documentation](#use-case-n1-outdated--no-documentation)
+    - [Use Case n°2 Creating Documentation](#use-case-n2-creating-documentation)
+    - [Use Case n°3 Working on Complex Projects](#use-case-n3-working-on-complex-projects)
   - [Requirement](#requirement)
   - [Testing Strategy](#testing-strategy)
   - [Future Improvement](#future-improvement)
@@ -31,7 +34,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 | Scope | Functionalities |
 | :--- | --- |
-| In Scope | Each type has its own file <br> Sort by type <br> Sort by return type <br> The base folder is left untouched after the sort <br> The elements in the return folder have comments detailling where they are in the base folder | 
+| In Scope | Each type has its own file <br> Sort by type <br> Sort by return type <br> The base folder is left untouched after the sort <br> The elements in the return folder have comments detailling where they were in the base folder | 
 | Out of Scope | Front End <br> Explanations on the Elements |
 
 ## Personas
@@ -40,6 +43,42 @@ This Project's objectives is to create a sorter that could sort through an entir
 - **Tech Debt Specialist**: A software engineer working on legacy code / code with lots of tech debts; 
 
 ## Use Cases
+
+### Use Case n°1: Outdated / No Documentation
+
+**Description:** A new arrival in a team finds no documentation or an outdated documentation.
+
+Actor: User
+
+Stakeholder: Project Manager and the User
+
+Preconditions: 
+
+- The documentation is outdated / absent
+- The User has the program installed on his computer
+- The project is in C
+  
+Trigger: There is someone new in the team
+
+Basic Flow:
+
+1. A User arrives in the team and is given an outdated documentation or no documentation of the project;
+2. The User turns on his computer and open the program executable;
+3. The User gives the source code of the project to the program;
+4. The program return a folder with the source code organised as a catalog;
+5. The User browse throught the catalog to understand the project.
+  
+Alternative Path:
+
+- If the program encounter a problem, the User is returned an error message explanning what went wrong;
+- If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
+- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product;
+
+### Use Case n°2 Creating Documentation
+
+
+### Use Case n°3 Working on Complex Projects
+
 
 ## Requirement
 
