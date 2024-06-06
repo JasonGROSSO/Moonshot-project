@@ -105,6 +105,31 @@ Alternative Path:
 
 ### Use Case n°3 Working on Complex Projects
 
+Description: A User working on a complex project and is looking for a specific componant
+
+Actor: User
+
+Stakeholder: User and future User
+
+Preconditions: 
+
+- the project is in C
+- the User has the program installed on his computer
+  
+Trigger: The project is complex and extensive
+
+Basic Flow:
+1. The User is looking for a specific componant in an extansive project;
+2. The User turns on his computer and open the program's executable;
+3. The User gives the source code of the project to the program as input;
+4. The program returns a folder with the source code organised as a catalog;
+5. The User browse through the catalog until he finds the componant that he is looking for.
+
+Alternative Path:
+
+- If the program encounter a problem, the User is returned an error message explanning what went wrong;
+- If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
+- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product;
 
 ## Requirement
 
