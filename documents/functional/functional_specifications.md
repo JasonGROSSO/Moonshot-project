@@ -8,6 +8,7 @@
 - [Functional Specification | Moonshot Project](#functional-specification--moonshot-project)
   - [Introduction](#introduction)
     - [Context](#context)
+    - [Description of Operations](#description-of-operations)
   - [Scope](#scope)
   - [Personas](#personas)
   - [Use Cases](#use-cases)
@@ -29,6 +30,18 @@
 This document will describe the functions and capabilities of this project. 
 
 This Project's objectives is to create a sorter that could sort through an entire project and return this project under the form of a catalog of said project contents.
+
+### Description of Operations
+
+input: path to the project's source code folder
+
+output: path to a folder which contains a catalog of the input
+
+catalog: a series of files named after a type of componant(e.g. variable)
+
+file: each file contains the each instance of the type of componants it is named after (e.g. in the variable file you would have all the variables of the input)
+
+componant: each componant is accompanied of a comment explaining in which file the componant is from and which line in that file 
 
 ## Scope
 
