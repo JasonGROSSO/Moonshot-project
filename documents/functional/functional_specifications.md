@@ -26,7 +26,7 @@
 
 ### Context
 
-This document will describe the functions and capabilities of this project. 
+This document will describe the functions and capabilities of this project.
 
 This Project's objectives is to create a sorter that could sort through an entire project and return this project under the form of a catalog of said project contents.
 
@@ -34,13 +34,13 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 | Scope | Functionalities |
 | :--- | --- |
-| In Scope | Each type has its own file <br> Sort by type <br> Sort by return type <br> The base folder is left untouched after the sort <br> The elements in the return folder have comments detailling where they were in the base folder | 
+| In Scope | Each type has its own file <br> Sort by type <br> Sort by return type <br> The base folder is left untouched after the sort <br> The elements in the return folder have comments detailling where they were in the base folder |
 | Out of Scope | Front End <br> Explanations on the Elements |
 
 ## Personas
 
 - **New Arrival**: A software engineer arriving in a new project with little to no documentation on the project;
-- **Tech Debt Specialist**: A software engineer working on legacy code / code with lots of tech debts; 
+- **Tech Debt Specialist**: A software engineer working on legacy code / code with lots of tech debts;
 
 ## Use Cases
 
@@ -52,7 +52,7 @@ Actor: User
 
 Stakeholder: Project Manager and the User
 
-Preconditions: 
+Preconditions:
 
 - The documentation is outdated / absent
 - The User has the program installed on his computer
@@ -111,7 +111,7 @@ Actor: User
 
 Stakeholder: User and future User
 
-Preconditions: 
+Preconditions:
 
 - the project is in C
 - the User has the program installed on his computer
@@ -119,6 +119,7 @@ Preconditions:
 Trigger: The project is complex and extensive
 
 Basic Flow:
+
 1. The User is looking for a specific componant in an extansive project;
 2. The User turns on his computer and open the program's executable;
 3. The User gives the source code of the project to the program as input;
