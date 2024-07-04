@@ -1,11 +1,10 @@
-#include <stdio.h>
-#include <string.h>
-#include <main.c>
+#include <src/main.c>
+
+FILE *in_file = fopen(filePath, "r");
 
 void file_exist(char)
 {
-    FILE *in_file = fopen(filePath, "r");
-
+    
     if (!in_file)
     {
         printf("file %s not found", filePath);

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 char filePath[];
 
@@ -9,4 +10,5 @@ int main()
     scanf("%s", filePath);
     file_exist(filePath);
     is_c(filePath);
+
 }
