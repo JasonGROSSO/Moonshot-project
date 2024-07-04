@@ -4,7 +4,7 @@ FILE *in_file = fopen(filePath, "r");
 
 void file_exist(char)
 {
-    
+
     if (!in_file)
     {
         printf("file %s not found", filePath);

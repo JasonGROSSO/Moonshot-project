@@ -10,5 +10,4 @@ int main()
     scanf("%s", filePath);
     file_exist(filePath);
     is_c(filePath);
-
 }
