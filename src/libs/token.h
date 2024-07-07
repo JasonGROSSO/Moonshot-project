@@ -1,4 +1,7 @@
-#include <src/main.c>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 typedef enum
 {
@@ -113,10 +116,10 @@ void tokenise(char *sourceCode)
                 column++;
             }
             char *substr = strndup(sourceCode + start, i - start);
-            Token *token = createToken(TOKEN_LITERAL, substr, line, column - (i - start));
+            Token *token = create_token(TOKEN_LITERAL, substr, line, column - (i - start));
             free(substr);
             printf("Token: %d, Value: %s, Line: %d, Column: %d\n", token->type, token->value, token->line, token->column);
-            freeToken(token);
+            free_token(token);
             continue;
         }
 
@@ -130,26 +133,26 @@ void tokenise(char *sourceCode)
             }
             char *substr = strndup(sourceCode + start, i - start);
             TokenType type = isKeyword(substr) ? TOKEN_KEYWORD : TOKEN_IDENTIFIER;
-            Token *token = createToken(type, substr, line, column - (i - start));
+            Token *token = create_token(type, substr, line, column - (i - start));
             free(substr);
             printf("Token: %d, Value: %s, Line: %d, Column: %d\n", token->type, token->value, token->line, token->column);
-            freeToken(token);
+            free_token(token);
             continue;
         }
         if (ispunct(c))
         {
             char substr[2] = {c, '\0'};
-            Token *token = createToken(TOKEN_PUNCTUATION, substr, line, column);
+            Token *token = create_token(TOKEN_PUNCTUATION, substr, line, column);
             printf("Token: %d, Value: %s, Line: %d, Column: %d\n", token->type, token->value, token->line, token->column);
-            freeToken(token);
+            free_token(token);
             i++;
             column++;
             continue;
         }
         char substr[2] = {c, '\0'};
-        Token *token = createToken(TOKEN_UNKNOWN, substr, line, column);
+        Token *token = create_token(TOKEN_UNKNOWN, substr, line, column);
         printf("Token: %d, Value: %s, Line: %d, Column: %d\n", token->type, token->value, token->line, token->column);
-        freeToken(token);
+        free_token(token);
         i++;
         column++;
     }

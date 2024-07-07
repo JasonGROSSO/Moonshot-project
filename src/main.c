@@ -7,11 +7,12 @@ char filePath[];
 
 int main()
 {
-
-    printf("please enter the path to the project you want cataloged");
+    // ask for the path to the file to catalog
+    printf("please enter the path to the project you want to catalog");
     scanf("%s", filePath);
-    file_exist(filePath);
-    is_c(filePath);
-    const char *sourceCode = filePath;
+    // check the path
+    input_file_verification(filePath);
+    // start the cataloging process (WIP)
+    char *sourceCode = filePath;
     tokenise(sourceCode);
 }
