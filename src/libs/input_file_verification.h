@@ -5,7 +5,7 @@ It verify if the input file is:
 - is a c file
 */
 
-void input_file_verification(char *)
+void input_file_verification(char *filePath)
 {
     // variable declaration for part 2 of the function
     int path_length = strlen(filePath);

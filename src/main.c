@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include <./libs/input_file_verification.h>
-#include <./libs/token.h>
+#include "libs/input_file_verification.h"
+#include "libs/token.h"
 
-char filePath[];
+char filePath[] = "";
 
 int main()
 {

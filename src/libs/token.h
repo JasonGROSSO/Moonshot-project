@@ -29,6 +29,17 @@ typedef struct
 Token *create_token(TokenType type, const char *value, int line, int column);
 void free_token(Token *token);
 void tokenise(char *sourceCode);
+char* my_strndup(const char *src, size_t n);
+
+// Custom implementation of strndup
+char* my_strndup(const char *src, size_t n) {
+    char *dst = (char*)malloc(n + 1);
+    if (dst) {
+        strncpy(dst, src, n);
+        dst[n] = '\0';
+    }
+    return dst;
+}
 
 // Function that fill the tokens informations when it is created
 Token *create_token(TokenType type, const char *value, int line, int column)
@@ -155,7 +166,7 @@ void tokenise(char *sourceCode)
                 column++;
             }
             // Duplicate the whole literal
-            char *substr = strndup(sourceCode + start, i - start);
+            char *substr = my_strndup(sourceCode + start, i - start);
             // Create the token
             Token *token = create_token(TOKEN_LITERAL, substr, line, column - (i - start));
             // Free the value of the literal
@@ -176,7 +187,7 @@ void tokenise(char *sourceCode)
                 column++;
             }
             // Duplicate the whole string
-            char *substr = strndup(sourceCode + start, i - start);
+            char *substr = my_strndup(sourceCode + start, i - start);
             // Determine if the string is a keyword or an identifier
             TokenType type = isKeyword(substr) ? TOKEN_KEYWORD : TOKEN_IDENTIFIER;
             // Create the token
