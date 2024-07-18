@@ -1,0 +1,3 @@
+// global variables
+
+char filePath[] = "";
