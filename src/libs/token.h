@@ -2,19 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
-// The different token types
-typedef enum
-{
-    TOKEN_KEYWORD,
-    TOKEN_IDENTIFIER,
-    TOKEN_OPERATOR,
-    TOKEN_LITERAL,
-    TOKEN_PUNCTUATION,
-    TOKEN_COMMENT,
-    TOKEN_WHITESPACE,
-    TOKEN_UNKNOWN,
-} TokenType;
+#include "libs/utils.h"
 
 // The token struct
 typedef struct
@@ -45,7 +33,7 @@ char* my_strndup(const char *src, size_t n) {
 Token *create_token(TokenType type, const char *value, int line, int column)
 {
     Token *token = (Token *)malloc(sizeof(Token));
-    token->type = type;
+    token->type = type; // ngl I dont get why I have an error here
     token->value = strdup(value);
     token->line = line;
     token->column = column;
@@ -74,7 +62,6 @@ int isKeywordChar(char c)
 // Function that check if a string is a keyword
 int isKeyword(const char *str)
 {
-    const char *keywords[] = {"int", "void", "char", "double", "float", "const"};
     for (int i = 0; i < sizeof(keywords) / sizeof(char *); i++)
     {
         if (strcmp(str, keywords[i]) == 0)
