@@ -9,8 +9,9 @@ int main()
     // ask for the path to the file to catalog
     printf("please enter the path to the project you want to catalog \n");
     scanf("%s", filePath);
-    // start the cataloging process (WIP)
+    // from the path get the source code of the input file
     char *sourceCode = read_file(filePath);
+    // if source code !null start tokenising else exit the program
     if (sourceCode) {
         tokenise(sourceCode);
         free(sourceCode);

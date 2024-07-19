@@ -4,14 +4,9 @@
 #include <ctype.h>
 #include "libs/utils.h"
 
-// The token struct
-typedef struct
-{
-    TokenType type;
-    char *value;
-    int line;
-    int column;
-} Token;
+/*
+This file contains the functions of the tokenisation process of the source code of the input file
+*/
 
 // Prototypes of the main functions
 Token *create_token(TokenType type, const char *value, int line, int column);
@@ -33,7 +28,7 @@ char* my_strndup(const char *src, size_t n) {
 Token *create_token(TokenType type, const char *value, int line, int column)
 {
     Token *token = (Token *)malloc(sizeof(Token));
-    token->type = type; // ngl I dont get why I have an error here
+    token->type = type;
     token->value = strdup(value);
     token->line = line;
     token->column = column;
@@ -81,6 +76,7 @@ void tokenise(char *sourceCode)
     int i = 0;                       // the function's char pointer
     int length = strlen(sourceCode); // the size of the file to tokenise
 
+    // as long as we have been throught the entirety of the source code's length continue the process
     while (i < length)
     {
         char c = sourceCode[i];

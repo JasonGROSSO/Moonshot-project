@@ -1,12 +1,15 @@
+/*
+This is a test file used to test that the program is working as intended
+*/
+
 #include <stdio.h>
 
-int a;
+const int a = 5;
 int b;
 int c;
 
 int main() {
     
-    int a = 5;
     int b = 4;
     int c = a * b;
 
