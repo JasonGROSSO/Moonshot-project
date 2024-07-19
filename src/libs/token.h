@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "libs/utils.h"
+#include "utils.h"
 
 /*
 This file contains the functions of the tokenisation process of the source code of the input file
