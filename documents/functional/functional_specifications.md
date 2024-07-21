@@ -15,7 +15,7 @@
     - [Use Case n°1: Outdated / No Documentation](#use-case-n1-outdated--no-documentation)
     - [Use Case n°2 Creating Documentation](#use-case-n2-creating-documentation)
     - [Use Case n°3 Working on Complex Projects](#use-case-n3-working-on-complex-projects)
-  - [Requirement](#requirement)
+  - [Requirements](#requirements)
   - [Testing Strategy](#testing-strategy)
   - [Future Improvement](#future-improvement)
 
@@ -145,11 +145,11 @@ This Project's objectives is to create a sorter that could sort through an entir
 - If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
 - If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product;
 
-## Requirement
+## Requirements
 
 ### Minimum Viable Product
 
-- one file
+- one file in input
 - output folder created manualy
 - handle:
   - constants
@@ -158,7 +158,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 ### Version 1.0
 
-- one folder
+- one folder in input
 - output folder automatically created
 - auto comment componants location
 - handle:
@@ -173,7 +173,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 ### Version 2.0
 
-- one folder
+- one folder in input
 - output folder automatically created
 - auto comment componants location
 - in output files sorting (TDB)
