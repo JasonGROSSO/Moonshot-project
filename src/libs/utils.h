@@ -3,21 +3,19 @@
 
 #include <stdio.h>
 
-#endif 
-
 /*
-This file will contain all the informations that are used across multiple files
-If an information is used in different file there is a good chance that it will be defined here
+This file will contain all the information that is used across multiple files.
+If an information is used in different files, there is a good chance that it will be defined here.
 */
 
-// global variables
+// Global variables
 /*------------------------------------------------------------------------------*/
 
-char filePath[] = ""; // the path to the input file
+extern char filePath[];
 
 /*------------------------------------------------------------------------------*/
 
-// enumerations
+// Enumerations
 /*------------------------------------------------------------------------------*/
 
 // The different token types
@@ -30,20 +28,20 @@ typedef enum
     TOKEN_PUNCTUATION,
     TOKEN_COMMENT,
     TOKEN_WHITESPACE,
-    TOKEN_UNKNOWN,
+    TOKEN_UNKNOWN
 } TokenType;
 
 /*------------------------------------------------------------------------------*/
 
-// arrays
+// Arrays
 /*------------------------------------------------------------------------------*/
 
-// the lists of the different keywords used by the tokeniser
-const char *keywords[] = {"int", "void", "char", "double", "float", "const"};
+// The list of different keywords used by the tokenizer
+extern const char *keywords[]; 
 
 /*------------------------------------------------------------------------------*/
 
-// structs
+// Structs
 /*------------------------------------------------------------------------------*/
 
 // The token struct
@@ -56,3 +54,5 @@ typedef struct
 } Token;
 
 /*------------------------------------------------------------------------------*/
+
+#endif // UTILS_H

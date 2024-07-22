@@ -9,6 +9,12 @@
 
 #endif
 
+// Define the global variables
+char filePath[] = "";
+
+// Define the keywords array
+const char *keywords[] = {"int", "void", "char", "double", "float", "const"};
+
 int main()
 {
     // ask for the path to the file to catalog
