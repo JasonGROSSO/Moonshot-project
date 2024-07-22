@@ -1,8 +1,13 @@
+#ifndef MAIN_C
+#define MAIN_C
+
 #include <stdio.h>
 #include <string.h>
 #include "libs/input_file_handling.h"
 #include "libs/token.h"
 #include "libs/utils.h"
+
+#endif
 
 int main()
 {

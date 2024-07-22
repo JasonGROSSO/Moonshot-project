@@ -1,4 +1,10 @@
+#ifndef INPUT_FILE_HANDLING_H
+#define INPUT_FILE_HANDLING_H
+
+#include <stdio.h>
 #include "utils.h"
+
+#endif
 
 /*
 This function is a 3 part function

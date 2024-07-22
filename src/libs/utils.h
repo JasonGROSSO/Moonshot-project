@@ -1,3 +1,10 @@
+#ifndef UTILS_H
+#define UTILS_H
+
+#include <stdio.h>
+
+#endif 
+
 /*
 This file will contain all the informations that are used across multiple files
 If an information is used in different file there is a good chance that it will be defined here

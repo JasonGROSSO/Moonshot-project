@@ -1,8 +1,13 @@
+#ifndef TOKEN_H
+#define TOKEN_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include "utils.h"
+
+#endif
 
 /*
 This file contains the functions of the tokenisation process of the source code of the input file
