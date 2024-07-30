@@ -62,6 +62,7 @@ int isKeywordChar(char c)
 // Function that check if a string is a keyword
 int isKeyword(const char *str)
 {
+    const char *keywords[] = {"int", "void", "char", "double", "float", "const"};
     for (int i = 0; i < sizeof(keywords) / sizeof(char *); i++)
     {
         if (strcmp(str, keywords[i]) == 0)
