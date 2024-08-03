@@ -40,11 +40,11 @@ char* read_file(char *filePath) {
     // Start of part 3
     // get respectively the end, the length and the start of the file
     fseek(file, 0, SEEK_END);
-    long length = ftell(file);
+    size_t length = ftell(file);
     fseek(file, 0, SEEK_SET);
 
     // allocate enought memory to copy the whole file
-    char *buffer = (char*)malloc(length + 1);
+    char *buffer = (char *)malloc(length);
     // if no memory is allocated, buffer = null return an error
     if (!buffer) {
         perror("Failed to allocate memory");
