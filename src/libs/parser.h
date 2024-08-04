@@ -9,20 +9,18 @@
 
 #endif
 
-/*
-This file contains the functions of the tokenisation process of the source code of the input file
-*/
-
 // Prototypes of the main functions
 Token *create_token(TokenType type, const char *value, int line, int column);
 void free_token(Token *token);
 void tokenise(char *sourceCode);
-char* my_strndup(const char *src, size_t n);
+char *my_strndup(const char *src, size_t n);
 
 // Custom implementation of strndup
-char* my_strndup(const char *src, size_t n) {
-    char *dst = (char*)malloc(n + 1);
-    if (dst) {
+char *my_strndup(const char *src, size_t n)
+{
+    char *dst = (char *)malloc(n + 1);
+    if (dst)
+    {
         strncpy(dst, src, n);
         dst[n] = '\0';
     }
@@ -53,16 +51,16 @@ void free_token(Token *token)
     }
 }
 
-// Function that check if a char is a keyword character
-int isKeywordChar(char c)
+// Function that check if a char is a keyword character or a "_"
+int is_keyword_char(char c)
 {
     return isalpha(c) || c == '_';
 }
 
 // Function that check if a string is a keyword
-int isKeyword(const char *str)
+int is_type(const char *str)
 {
-    const char *keywords[] = {"int", "void", "char", "double", "float", "const"};
+    const char *keywords[] = {"int", "void", "char", "double", "float"};
     for (int i = 0; i < sizeof(keywords) / sizeof(char *); i++)
     {
         if (strcmp(str, keywords[i]) == 0)
@@ -73,18 +71,44 @@ int isKeyword(const char *str)
     return 0;
 }
 
-// Tokenise function
+int is_punct(const char *str)
+{
+    const char *punctuations[] = {"{", "=", ";", "}"};
+    for (int i = 0; i < sizeof(punctuations) / sizeof(char *); i++)
+    {
+        if (strcmp(str, punctuations[i]) == 0)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int is_const(const char *str)
+{
+    const char *constKeyword[] = "const";
+    for (int i = 0; i < sizeof(constKeyword) / sizeof(char *); i++)
+    {
+        if (strcmp(str, constKeyword[i]) == 0)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 void tokenise(char *sourceCode)
 {
+
     // Initialise variables for the functions
     int line = 1;                    // the line counter
     int column = 1;                  // the column counter
     int i = 0;                       // the function's char pointer
     int length = strlen(sourceCode); // the size of the file to tokenise
 
-    // as long as we have been throught the entirety of the source code's length continue the process
     while (i < length)
     {
+
         char c = sourceCode[i];
 
         // look if the char is a space or an end of line
@@ -143,73 +167,63 @@ void tokenise(char *sourceCode)
             }
             continue;
         }
-        // Literals handling
-        if (isdigit(c))
+        if (isalpha(c))
         {
-            // Get the full length of the number
-            // Have a token whose value is '102' and not 3 tokens with these values '1', '0', '2'
             int start = i;
-            while (i < length && isdigit(sourceCode[i]))
+            while (i < length && is_keyword_char(sourceCode[i]))
             {
                 i++;
                 column++;
             }
-            // Duplicate the whole literal
             char *substr = my_strndup(sourceCode + start, i - start);
-            // Create the token
-            Token *token = create_token(TOKEN_LITERAL, substr, line, column - (i - start));
-            // Free the value of the literal
-            free(substr);
-            // Insert the token in the AST (NIY)
-            printf("Token: %d, Value: %s, Line: %d, Column: %d\n", token->type, token->value, token->line, token->column);
-            free_token(token);
-            continue;
-        }
-        // Keyword and Identifiers handling
-        if (isalpha(c) || c == '_')
-        {
-            // Get the whole string
-            int start = i;
-            while (i < length && isKeywordChar(sourceCode[i]))
+            if (is_const(substr))
             {
-                i++;
-                column++;
+                while (i < length && isspace(c) != "\n")
+                {
+                    i++;
+                    column++;
+                }
+                char *constStr = my_strdup(sourceCode + start, i - start);
+                TokenType type = TOKEN_CONST;
+                Token *token = create_token(type, constStr, line, column - (i - start));
             }
-            // Duplicate the whole string
-            char *substr = my_strndup(sourceCode + start, i - start);
-            // Determine if the string is a keyword or an identifier
-            TokenType type = isKeyword(substr) ? TOKEN_KEYWORD : TOKEN_IDENTIFIER;
-            // Create the token
-            Token *token = create_token(type, substr, line, column - (i - start));
-            // Free the value of the string
-            free(substr);
-            // Insert the token in the AST (NIY)
-            printf("Token: %d, Value: %s, Line: %d, Column: %d\n", token->type, token->value, token->line, token->column);
-            free_token(token);
+            else if (is_type)
+            {
+                int start = i;
+                while (i < length && !is_punct(sourceCode[i]))
+                {
+                    i++;
+                    column++;
+                }
+                if (c == ";" || "=")
+                {
+                    char *varStr = my_strndup(sourceCode + start, i - start);
+                    TokenType type = TOKEN_VARIABLE;
+                    Token *token = create_token(type, varStr, line, column - (i - start));
+                }
+                else if (c == "{")
+                {
+                    start = i;
+                    int mustacheCounter = 1;
+                    while (i < length && mustacheCounter != 0)
+                    {
+                        if (c == "{")
+                        {
+                            mustacheCounter++;
+                        }
+                        else if (c == "}")
+                        {
+                            mustacheCounter--;
+                        }
+                        i++;
+                        column++;
+                    }
+                    char *funcStr = my_strndup(sourceCode + start, i - start);
+                    TokenType type = TOKEN_FUNCTION;
+                    Token *token = create_token(type, funcStr, line, column - (i - start));
+                }
+            }
             continue;
         }
-        // Punctuation handling
-        if (ispunct(c))
-        {
-            // Get the punctuation
-            char substr[2] = {c, '\0'};
-            // Create the token
-            Token *token = create_token(TOKEN_PUNCTUATION, substr, line, column);
-            // Insert the token into the AST (NIY)
-            printf("Token: %d, Value: %s, Line: %d, Column: %d\n", token->type, token->value, token->line, token->column);
-            free_token(token);
-            i++;
-            column++;
-            continue;
-        }
-        // Unknown handling
-        char substr[2] = {c, '\0'};
-        // create the token
-        Token *token = create_token(TOKEN_UNKNOWN, substr, line, column);
-        // Insert the token in the AST (NIY)
-        printf("Token: %d, Value: %s, Line: %d, Column: %d\n", token->type, token->value, token->line, token->column);
-        free_token(token);
-        i++;
-        column++;
     }
 }

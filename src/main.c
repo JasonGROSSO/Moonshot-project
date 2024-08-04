@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "libs/input_file_handling.h"
-#include "libs/token.h"
+#include "libs/parser.h"
 #include "libs/utils.h"
 
 #endif
@@ -20,7 +20,8 @@ int main()
     // from the path get the source code of the input file
     char *sourceCode = read_file(filePath);
     // if source code !null start tokenising else exit the program
-    if (sourceCode) {
+    if (sourceCode)
+    {
         tokenise(sourceCode);
         free(sourceCode);
     }

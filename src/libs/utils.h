@@ -21,13 +21,10 @@ extern char filePath[];
 // The different token types
 typedef enum
 {
-    TOKEN_KEYWORD,
-    TOKEN_IDENTIFIER,
-    TOKEN_OPERATOR,
-    TOKEN_LITERAL,
-    TOKEN_PUNCTUATION,
+    TOKEN_CONST,
+    TOKEN_VARIABLE,
+    TOKEN_FUNCTION,
     TOKEN_COMMENT,
-    TOKEN_WHITESPACE,
     TOKEN_UNKNOWN
 } TokenType;
 
