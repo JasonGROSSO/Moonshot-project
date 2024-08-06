@@ -9,8 +9,6 @@
 
 #endif
 
-// Define the global variables
-char filePath[] = "";
 
 int main()
 {

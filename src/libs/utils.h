@@ -11,7 +11,7 @@ If an information is used in different files, there is a good chance that it wil
 // Global variables
 /*------------------------------------------------------------------------------*/
 
-extern char filePath[];
+char filePath[] = "";
 
 /*------------------------------------------------------------------------------*/
 

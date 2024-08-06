@@ -86,7 +86,7 @@ int is_punct(const char *str)
 
 int is_const(const char *str)
 {
-    const char *constKeyword[] = "const";
+    const char *constKeyword[] = {"const"};
     for (int i = 0; i < sizeof(constKeyword) / sizeof(char *); i++)
     {
         if (strcmp(str, constKeyword[i]) == 0)
@@ -178,40 +178,44 @@ void tokenise(char *sourceCode)
             char *substr = my_strndup(sourceCode + start, i - start);
             if (is_const(substr))
             {
-                while (i < length && isspace(c) != "\n")
+                while (i < length && c != '\n')
                 {
                     i++;
                     column++;
                 }
-                char *constStr = my_strdup(sourceCode + start, i - start);
+                char *constStr = my_strndup(sourceCode + start, i - start);
                 TokenType type = TOKEN_CONST;
                 Token *token = create_token(type, constStr, line, column - (i - start));
+                printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                free_token(token);
             }
             else if (is_type)
             {
                 int start = i;
-                while (i < length && !is_punct(sourceCode[i]))
+                while (i < length && is_punct(&c))
                 {
                     i++;
                     column++;
                 }
-                if (c == ";" || "=")
+                if (c == ';' || c == '=')
                 {
                     char *varStr = my_strndup(sourceCode + start, i - start);
                     TokenType type = TOKEN_VARIABLE;
                     Token *token = create_token(type, varStr, line, column - (i - start));
+                    printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                    free_token(token);
                 }
-                else if (c == "{")
+                else if (c == '{')
                 {
                     start = i;
                     int mustacheCounter = 1;
                     while (i < length && mustacheCounter != 0)
                     {
-                        if (c == "{")
+                        if (c == '{')
                         {
                             mustacheCounter++;
                         }
-                        else if (c == "}")
+                        else if (c == '}')
                         {
                             mustacheCounter--;
                         }
@@ -221,6 +225,8 @@ void tokenise(char *sourceCode)
                     char *funcStr = my_strndup(sourceCode + start, i - start);
                     TokenType type = TOKEN_FUNCTION;
                     Token *token = create_token(type, funcStr, line, column - (i - start));
+                    printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                    free_token(token);
                 }
             }
             continue;
