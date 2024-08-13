@@ -20,7 +20,7 @@ char* read_file(char *filePath) {
     char last_char_path = filePath[path_length - 1];
 
     // opening the file with the provided path
-    FILE *file = fopen(filePath, "r");
+    FILE *file = fopen(filePath, "r+");
 
     // Start of part 1
     // Check if the file exist
@@ -35,7 +35,7 @@ char* read_file(char *filePath) {
     // If diffrent from "c" or "h" return an error (to be implemented)
     if (last_char_path != 'c' | 'h')
     {
-        printf("file %s is not a file", filePath);
+        printf("file %s is not a c file \n", filePath);
     }
 
     // Start of part 3
@@ -48,7 +48,7 @@ char* read_file(char *filePath) {
     char *buffer = (char *)malloc(length);
     // if no memory is allocated, buffer = null return an error
     if (!buffer) {
-        perror("Failed to allocate memory");
+        perror("Failed to allocate memory \n");
         fclose(file);
         return NULL;
     }
