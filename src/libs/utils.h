@@ -8,6 +8,10 @@ This file will contain all the information that is used across multiple files.
 If an information is used in different files, there is a good chance that it will be defined here.
 */
 
+List listFunc;
+List listConst;
+List listVar;
+
 // Global variables
 /*------------------------------------------------------------------------------*/
 
@@ -41,6 +45,18 @@ typedef struct
     int line;
     int column;
 } Token;
+
+typedef struct node
+{
+    Token token;
+    struct node *next;
+} Node;
+
+typedef struct list
+{
+    Node *head;
+    int size;
+} List;
 
 /*------------------------------------------------------------------------------*/
 

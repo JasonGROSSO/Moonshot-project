@@ -6,12 +6,14 @@
 #include "libs/input_file_handling.h"
 #include "libs/parser.h"
 #include "libs/utils.h"
+#include "libs/storage.h"
 
 #endif
 
 
 int main()
 {
+
     // ask for the path to the file to catalog
     printf("please enter the path to the project you want to catalog \n");
     scanf("%s", filePath);

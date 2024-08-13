@@ -4,46 +4,54 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "utils.h"
 
 #endif
 
-typedef struct node
-{
-    char data;
-    struct node *next;
-} node_t;
+void print_list(List aList);
+void add_to_list(List *aList, Token token);
+void clear_list(List *aList);
 
-node_t *create_node(char data)
+void print_list(List *aList)
 {
-    node_t *newNode = (node_t *)malloc(sizeof(node_t));
-    newNode->data = data;
+    Node *current = aList->head;
+    while (current != NULL)
+    {
+        printf("%s\n", current->token);
+        current = current->next;
+    }
+}
+
+void add_to_list(List *aList, Token token)
+{
+    Node *newNode = malloc(sizeof(Node));
+    newNode->token = token;
     newNode->next = NULL;
-    return newNode;
+
+    if (aList->head == NULL)
+    {
+        aList->head = newNode;
+    }
+    else
+    {
+        Node *current = aList->head;
+        while (current->next != NULL)
+        {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
+    aList->size++;
 }
 
-void insert_at_end(node_t **head, int data)
+void clear_list(List* aList)
 {
-    node_t *newNode = create_node(data);
-    if (*head == NULL)
+    Node* current = aList->head;
+    while (current != NULL)
     {
-        *head = newNode;
-        return;
+        Node* temp = current->next;
+        free(current);
+        current = temp;
     }
-    node_t *temp = *head;
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-    }
-    temp->next = newNode;
-}
-
-void print_list(node_t *head)
-{
-    node_t *temp = head;
-
-    while (temp != NULL)
-    {
-        printf("%s\n", temp->data);
-        temp = temp->next;
-    }
+    aList->size = 0;
 }

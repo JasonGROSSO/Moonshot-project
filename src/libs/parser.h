@@ -6,6 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "utils.h"
+#include "storage.h"
 
 #endif
 
@@ -187,6 +188,7 @@ void tokenise(char *sourceCode)
                 TokenType type = TOKEN_CONST;
                 Token *token = create_token(type, constStr, line, column - (i - start));
                 printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                add_to_list(&listConst, *token);
                 free_token(token);
             }
             else if (is_type)
@@ -197,12 +199,13 @@ void tokenise(char *sourceCode)
                     i++;
                     column++;
                 }
-                if (c == ';' || c == '=')
+                if (c == ';')
                 {
                     char *varStr = my_strndup(sourceCode + start, i - start);
                     TokenType type = TOKEN_VARIABLE;
                     Token *token = create_token(type, varStr, line, column - (i - start));
                     printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                    add_to_list(&listVar, *token);
                     free_token(token);
                 }
                 else if (c == '{')
@@ -226,6 +229,7 @@ void tokenise(char *sourceCode)
                     TokenType type = TOKEN_FUNCTION;
                     Token *token = create_token(type, funcStr, line, column - (i - start));
                     printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                    add_to_list(&listFunc, *token);
                     free_token(token);
                 }
             }
