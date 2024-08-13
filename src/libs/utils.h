@@ -11,7 +11,7 @@ If an information is used in different files, there is a good chance that it wil
 // Global variables
 /*------------------------------------------------------------------------------*/
 
-extern char filePath[];
+char filePath[] = "";
 
 /*------------------------------------------------------------------------------*/
 
@@ -21,13 +21,10 @@ extern char filePath[];
 // The different token types
 typedef enum
 {
-    TOKEN_KEYWORD,
-    TOKEN_IDENTIFIER,
-    TOKEN_OPERATOR,
-    TOKEN_LITERAL,
-    TOKEN_PUNCTUATION,
+    TOKEN_CONST,
+    TOKEN_VARIABLE,
+    TOKEN_FUNCTION,
     TOKEN_COMMENT,
-    TOKEN_WHITESPACE,
     TOKEN_UNKNOWN
 } TokenType;
 
