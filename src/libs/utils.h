@@ -8,10 +8,6 @@ This file will contain all the information that is used across multiple files.
 If an information is used in different files, there is a good chance that it will be defined here.
 */
 
-List listFunc;
-List listConst;
-List listVar;
-
 // Global variables
 /*------------------------------------------------------------------------------*/
 
@@ -59,5 +55,9 @@ typedef struct list
 } List;
 
 /*------------------------------------------------------------------------------*/
+
+List listFunc;
+List listConst;
+List listVar;
 
 #endif // UTILS_H

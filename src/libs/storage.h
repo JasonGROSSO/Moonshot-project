@@ -8,7 +8,8 @@
 
 #endif
 
-void print_list(List aList);
+// Prototypes of the main functions
+void print_list(List *aList);
 void add_to_list(List *aList, Token token);
 void clear_list(List *aList);
 
