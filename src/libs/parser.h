@@ -8,13 +8,14 @@
 #include "utils.h"
 #include "storage.h"
 
-#endif
-
 // Prototypes of the main functions
+char *my_strdup(const char *src, size_t n);
 Token *create_token(TokenType type, const char *value, int line, int column);
 void free_token(Token *token);
+int is_keyword_char(char c);
+int is_type(const char *str);
+int is_const(const char *str);
 void tokenise(char *sourceCode);
-char *my_strndup(const char *src, size_t n);
 
 // Custom implementation of strndup
 char *my_strndup(const char *src, size_t n)
@@ -237,3 +238,5 @@ void tokenise(char *sourceCode)
         }
     }
 }
+
+#endif

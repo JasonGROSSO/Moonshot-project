@@ -13,7 +13,8 @@ The first two parts make sure the file is existing and if it exists that the fil
 The third part takes the content of the file and puts into a string
 */
 
-char* read_file(char *filePath) {
+char *read_file(char *filePath)
+{
 
     // variable declaration for part 2 of the function
     int path_length = strlen(filePath);
@@ -27,7 +28,11 @@ char* read_file(char *filePath) {
     // If it fails return an error (to be implemented)
     if (!file)
     {
-        printf("file %s not found", filePath);
+        printf("file %s not found \n", filePath);
+    }
+    else
+    {
+        printf("file %s found\n", filePath);
     }
 
     // Start of part 2
@@ -36,6 +41,10 @@ char* read_file(char *filePath) {
     if (last_char_path != 'c' | 'h')
     {
         printf("file %s is not a c file \n", filePath);
+    }
+    else
+    {
+        printf("file %s is a c file \n", filePath);
     }
 
     // Start of part 3
@@ -47,10 +56,15 @@ char* read_file(char *filePath) {
     // allocate enought memory to copy the whole file
     char *buffer = (char *)malloc(length);
     // if no memory is allocated, buffer = null return an error
-    if (!buffer) {
+    if (!buffer)
+    {
         perror("Failed to allocate memory \n");
         fclose(file);
         return NULL;
+    }
+    else
+    {
+        printf("memory allocation succesfull \n");
     }
 
     // assign the content of the file to the buffer

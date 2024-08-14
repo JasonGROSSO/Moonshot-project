@@ -1,12 +1,10 @@
-#ifndef INPUT_FILE_HANDLING_H
-#define INPUT_FILE_HANDLING_H
+#ifndef STORAGE_H
+#define STORAGE_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "utils.h"
-
-#endif
 
 // Prototypes of the main functions
 void print_list(List *aList);
@@ -45,14 +43,16 @@ void add_to_list(List *aList, Token token)
     aList->size++;
 }
 
-void clear_list(List* aList)
+void clear_list(List *aList)
 {
-    Node* current = aList->head;
+    Node *current = aList->head;
     while (current != NULL)
     {
-        Node* temp = current->next;
+        Node *temp = current->next;
         free(current);
         current = temp;
     }
     aList->size = 0;
 }
+
+#endif
