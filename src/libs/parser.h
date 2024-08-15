@@ -6,14 +6,16 @@
 #include <string.h>
 #include <ctype.h>
 #include "utils.h"
-
-#endif
+#include "storage.h"
 
 // Prototypes of the main functions
+char *my_strdup(const char *src, size_t n);
 Token *create_token(TokenType type, const char *value, int line, int column);
 void free_token(Token *token);
+int is_keyword_char(char c);
+int is_type(const char *str);
+int is_const(const char *str);
 void tokenise(char *sourceCode);
-char *my_strndup(const char *src, size_t n);
 
 // Custom implementation of strndup
 char *my_strndup(const char *src, size_t n)
@@ -187,6 +189,7 @@ void tokenise(char *sourceCode)
                 TokenType type = TOKEN_CONST;
                 Token *token = create_token(type, constStr, line, column - (i - start));
                 printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                add_to_list(&listConst, *token);
                 free_token(token);
             }
             else if (is_type)
@@ -197,12 +200,13 @@ void tokenise(char *sourceCode)
                     i++;
                     column++;
                 }
-                if (c == ';' || c == '=')
+                if (c == ';')
                 {
                     char *varStr = my_strndup(sourceCode + start, i - start);
                     TokenType type = TOKEN_VARIABLE;
                     Token *token = create_token(type, varStr, line, column - (i - start));
                     printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                    add_to_list(&listVar, *token);
                     free_token(token);
                 }
                 else if (c == '{')
@@ -226,6 +230,7 @@ void tokenise(char *sourceCode)
                     TokenType type = TOKEN_FUNCTION;
                     Token *token = create_token(type, funcStr, line, column - (i - start));
                     printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                    add_to_list(&listFunc, *token);
                     free_token(token);
                 }
             }
@@ -233,3 +238,5 @@ void tokenise(char *sourceCode)
         }
     }
 }
+
+#endif

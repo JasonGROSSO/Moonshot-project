@@ -42,6 +42,22 @@ typedef struct
     int column;
 } Token;
 
+typedef struct node
+{
+    Token token;
+    struct node *next;
+} Node;
+
+typedef struct list
+{
+    Node *head;
+    int size;
+} List;
+
 /*------------------------------------------------------------------------------*/
+
+List listFunc;
+List listConst;
+List listVar;
 
 #endif // UTILS_H
