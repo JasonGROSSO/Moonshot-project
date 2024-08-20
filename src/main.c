@@ -7,6 +7,7 @@
 #include "libs/parser.h"
 #include "libs/utils.h"
 #include "libs/storage.h"
+#include "libs/output_file_handling.h"
 
 #endif
 
@@ -24,5 +25,7 @@ int main()
         tokenise(sourceCode);
         free(sourceCode);
     }
+    write_output_files();
+    clear_all_list();
     return 0;
 }
