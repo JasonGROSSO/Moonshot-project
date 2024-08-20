@@ -26,5 +26,6 @@ int main()
         free(sourceCode);
     }
     write_output_files();
+    clear_all_list();
     return 0;
 }

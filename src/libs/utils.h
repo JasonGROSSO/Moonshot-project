@@ -16,6 +16,9 @@ char constPath[] = "Moonshot-Project/output_files/constants.txt";
 char funcPath[] = "Moonshot-Project/output_files/functions.txt";
 char varPath[] =  "Moonshot-Project/output_files/variables.txt";
 
+char out[] = "";
+
+
 /*------------------------------------------------------------------------------*/
 
 // Enumerations
