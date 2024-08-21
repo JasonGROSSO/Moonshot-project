@@ -17,7 +17,7 @@ int is_type(const char *str);
 int is_const(const char *str);
 void tokenise(char *sourceCode);
 
-// Custom implementation of strndup
+// Custom implementation of strndup to allow for size precision
 char *my_strndup(const char *src, size_t n)
 {
     char *dst = (char *)malloc(n + 1);
@@ -73,6 +73,7 @@ int is_type(const char *str)
     return 0;
 }
 
+// Function that check if a char is a punctuation
 int is_punct(const char *str)
 {
     const char *punctuations[] = {"{", "=", ";", "}"};
@@ -86,6 +87,7 @@ int is_punct(const char *str)
     return 0;
 }
 
+// function that check if a string is "const"
 int is_const(const char *str)
 {
     const char *constKeyword[] = {"const"};
@@ -99,6 +101,7 @@ int is_const(const char *str)
     return 0;
 }
 
+// Main tokenisation function
 void tokenise(char *sourceCode)
 {
 
@@ -169,6 +172,7 @@ void tokenise(char *sourceCode)
             }
             continue;
         }
+        // If it's c is a char
         if (isalpha(c))
         {
             int start = i;
@@ -177,9 +181,12 @@ void tokenise(char *sourceCode)
                 i++;
                 column++;
             }
+            // When at the end of the word check if the word is const / a type or something else
             char *substr = my_strndup(sourceCode + start, i - start);
             if (is_const(substr))
             {
+                // if it's a const
+                // Select the whole ligne and save it as a const in the List listConst
                 while (i < length && c != '\n')
                 {
                     i++;
@@ -194,6 +201,7 @@ void tokenise(char *sourceCode)
             }
             else if (is_type)
             {
+                // if its a type find out if its a variable or a function
                 int start = i;
                 while (i < length && is_punct(&c))
                 {
@@ -202,6 +210,7 @@ void tokenise(char *sourceCode)
                 }
                 if (c == ';')
                 {
+                    // if it's a variable copy the whole line and store it into the List listVar
                     char *varStr = my_strndup(sourceCode + start, i - start);
                     TokenType type = TOKEN_VARIABLE;
                     Token *token = create_token(type, varStr, line, column - (i - start));
@@ -211,6 +220,7 @@ void tokenise(char *sourceCode)
                 }
                 else if (c == '{')
                 {
+                    // if it's a function copy the whole function and store it into the List listFunc
                     start = i;
                     int mustacheCounter = 1;
                     while (i < length && mustacheCounter != 0)

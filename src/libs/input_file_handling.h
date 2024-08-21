@@ -5,8 +5,6 @@
 #include <stdlib.h>
 #include "utils.h"
 
-#endif
-
 /*
 This function is a 3 part function
 The first two parts make sure the file is existing and if it exists that the file is written in c
@@ -75,3 +73,5 @@ char *read_file(char *filePath)
     fclose(file);
     return buffer;
 }
+
+#endif // INPUT_FILE_HANDLING_H

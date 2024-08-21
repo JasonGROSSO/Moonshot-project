@@ -11,13 +11,13 @@ If an information is used in different files, there is a good chance that it wil
 // Global variables
 /*------------------------------------------------------------------------------*/
 
+// Path to the input file, to be filled
 char filePath[] = "";
+
+// paths to the differents output files
 char constPath[] = "Moonshot-Project/output_files/constants.txt";
 char funcPath[] = "Moonshot-Project/output_files/functions.txt";
 char varPath[] =  "Moonshot-Project/output_files/variables.txt";
-
-char out[] = "";
-
 
 /*------------------------------------------------------------------------------*/
 
@@ -48,12 +48,14 @@ typedef struct
     int column;
 } Token;
 
+// The Node struct
 typedef struct node
 {
     Token token;
     struct node *next;
 } Node;
 
+// The List struct
 typedef struct list
 {
     Node *head;
@@ -61,6 +63,8 @@ typedef struct list
 } List;
 
 /*------------------------------------------------------------------------------*/
+
+// declaration of the Lists
 
 List listFunc;
 List listConst;
