@@ -12,6 +12,13 @@
     - [Technicalities](#technicalities)
     - [Naming Conventions](#naming-conventions)
     - [File Organisation](#file-orgarnisation)
+    - [Program Organisation](#program-organisation)
+  - [Parts](#parts)
+    - [Main](#main)
+    - [Input](#input)
+    - [Recognising and Isolating Componants](#recognising-and-isolating-componants)
+    - [Storage](#storage)
+    - [Output](#output)
 
 </details>
 
@@ -66,24 +73,50 @@ Moonshot-project
     └── functional
     └── management
     └── technical
+    └── QA
+└──output_files
 └── src
     └── main.c
     └── libs
-        └── input_file_handling.h
-        └── token.h
-        └── utils.h
 └── test_files
-    └── test_file_n°1.c
 └── .gitignore
 └── LICENSE
 └── README.md
 
 ```
 
-- the functional, management and technical folders contains respectively the functional specification, the artifacts of the management and the technical specifactions
+- the functional, management, technical and QA folders contains respectively the functional specifications, the artifacts of the management, the technical specifications and the testing documents
 
 - src contain the main.c file that will contain the main function of the project as well as the libs folder
 
 - the libs folder will contain all the libraries (.h files) created for the project
 
 - the test_files folder will contain all the files used to test the program (see the test plan for more informations)
+
+### Program Organisation
+
+The program will be organised in the following parts:
+
+- a main file that will call the other parts of the program
+
+- a part responsible for handling the input file and copying it's source code
+
+- a part responsible for going through the code recognising and isolating it's componants
+
+- a part responsible for storing these componants
+
+- a part responsible for handling the output files and their informations
+
+## Parts
+
+### Main
+
+Calling the different parts of the program, has some built in error handling.
+
+### Input
+
+### Recognising and Isolating Componants
+
+### Storage
+
+### Output
