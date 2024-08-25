@@ -99,7 +99,7 @@ The program will be organised in the following parts:
 
 - a main file that will call the other parts of the program
 
-- a part responsible for handling the input file and copying it's source code
+- a part responsible for handling the input file(s) and copying it's source code
 
 - a part responsible for going through the code recognising and isolating it's componants
 
@@ -111,9 +111,52 @@ The program will be organised in the following parts:
 
 ### Main
 
-Calling the different parts of the program, has some built in error handling.
+```c
+int main()
+{
+  input_file_handling();
+  get_componants();
+  output_file_handling();
+  return 0
+}
+```
 
 ### Input
+
+```c
+char input_file_handling()
+{
+  // get the users input
+  scanf("%s", inputPath);
+  // handle differently if it's one file or one folder
+  if (inputPath == oneFile) // one file case
+  {
+    if(inputPath == c file || h file) // if it's a c file
+    {
+      // copy it's content into one variable
+    }
+    else // if it's not
+    {
+      // throw error
+    }
+  }
+  else if (inputPath == oneFolder) // one folder case
+  {
+    for(file in oneFolder) // go through the list of files
+    {
+      if (filePath == c file || h file) // if it's a c file
+      {
+      // copy it's content into one variable
+      }
+      else // if it's not a c file
+      {
+        continue // there are multiple files so no errors here
+      }
+    }
+  }
+  // check the number of variables and if there are none / they are empty throw an error
+}
+```
 
 ### Recognising and Isolating Componants
 
