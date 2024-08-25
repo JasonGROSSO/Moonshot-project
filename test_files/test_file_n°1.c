@@ -19,5 +19,5 @@ int main()
 
 /*
 path to the file:
-test_files_n°1.c
+test_file_n°1.c
 */

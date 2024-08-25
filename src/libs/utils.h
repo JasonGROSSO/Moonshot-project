@@ -12,7 +12,7 @@ If an information is used in different files, there is a good chance that it wil
 /*------------------------------------------------------------------------------*/
 
 // Path to the input file, to be filled
-char filePath[] = "";
+char filePath[256];
 
 // paths to the differents output files
 char constPath[] = "Moonshot-Project/output_files/constants.txt";
