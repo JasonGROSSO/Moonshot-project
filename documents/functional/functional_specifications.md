@@ -189,4 +189,6 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 ## Testing Strategy
 
+The Testing strategy will be develloped in the Test Plan.
+
 ## Future Improvement
