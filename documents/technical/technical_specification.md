@@ -16,7 +16,10 @@
   - [Parts](#parts)
     - [Main](#main)
     - [Input](#input)
-    - [Recognising and Isolating Componants](#recognising-and-isolating-componants)
+    - [Identifying and Isolating Componants](#identifying-and-isolating-componants)
+      - [Setup](#setup)
+      - [Handle Undesirable](#handle-undesirable)
+      - [The Process](#the-process)
     - [Storage](#storage)
     - [Output](#output)
 
@@ -158,7 +161,103 @@ char input_file_handling()
 }
 ```
 
-### Recognising and Isolating Componants
+### Identifying and Isolating Componants
+
+#### Setup
+
+Before starting the I&I process (Identifying and Isolating Process) we have a few things to prepare
+
+```c
+typedef struct
+{
+  TokenType type; // an enumeration of all the types of token
+  char *value;    // the componant
+  // the position of the componant
+  int line;      
+  int column;
+} Token
+
+// function that creates the token 
+Token create_token (TokenType type, char *value, int line, int column)
+{
+  Token *token = (Token *)malloc(sizeof(Token)); // allocate memory for the token
+    token->type = type;
+    token->value = strdup(value);
+    token->line = line;
+    token->column = column;
+    return token;
+}
+
+// since we allocated memory somewhere we must free somewhere else
+void free_token(Token *token)
+{
+    if (token)
+    {
+        if (token->value)
+        {
+            free(token->value); // the value of the token is also allocated so we take care of that here too
+        }
+        free(token);
+    }
+}
+
+// Initialise variables for the functions
+    int line = 1;                    // the line counter
+    int column = 1;                  // the column counter
+    int i = 0;                       // the function's char pointer
+    int length = strlen(sourceCode); // the size of the file
+    char c = sourceCode[i];          // the char associated to the current position
+```
+
+#### Handle undesirable
+
+By principle, we know that the source we will have to work with will not be composed only of the componants that interest us, such as comments, empty lines or indentation, the program must be able to identify them and skip them.
+
+```c
+if (c = "/" && c++ = "/")
+{
+  // skip the line
+}
+else if (c = "/" && c++ = "*")
+{
+  // skip until you encounter "*/"
+}
+else if (c = "\n")
+{
+  // go to the next line
+}
+```
+
+#### The Process
+
+**/!\\** Is subjective to changes with the versions
+
+```c
+// find a word
+if(word = "const") // is it a constant?
+{
+  // copy the whole line
+  // put it into a token
+  // go to the next line
+}
+else if(is_type(word) = true) // is it a type?
+{
+  // we have two possibilities:
+  // it's either a function or a variable
+  if (next_punctuation(c) = ";" || "=") // indicates a variable
+  {
+    // copy the whole line
+    // put it into a token
+    // go to the next line
+  }
+  else if (next_puctuation(c) = "(") // indicates a function
+  {
+    // copy the function
+    // put it into a token
+    // go to the next line
+  }
+}
+```
 
 ### Storage
 
