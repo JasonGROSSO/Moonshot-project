@@ -2,9 +2,8 @@
 #define INPUT_FILE_HANDLING_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "utils.h"
-
-#endif
 
 /*
 This function is a 3 part function
@@ -12,21 +11,26 @@ The first two parts make sure the file is existing and if it exists that the fil
 The third part takes the content of the file and puts into a string
 */
 
-char* read_file(char *filePath) {
+char *read_file(char *filePath)
+{
 
     // variable declaration for part 2 of the function
     int path_length = strlen(filePath);
     char last_char_path = filePath[path_length - 1];
 
     // opening the file with the provided path
-    FILE *file = fopen(filePath, "r");
+    FILE *file = fopen(filePath, "r+");
 
     // Start of part 1
     // Check if the file exist
     // If it fails return an error (to be implemented)
     if (!file)
     {
-        printf("file %s not found", filePath);
+        printf("file %s not found \n", filePath);
+    }
+    else
+    {
+        printf("file %s found\n", filePath);
     }
 
     // Start of part 2
@@ -34,7 +38,11 @@ char* read_file(char *filePath) {
     // If diffrent from "c" or "h" return an error (to be implemented)
     if (last_char_path != 'c' | 'h')
     {
-        printf("file %s is not a file", filePath);
+        printf("file %s is not a c file \n", filePath);
+    }
+    else
+    {
+        printf("file %s is a c file \n", filePath);
     }
 
     // Start of part 3
@@ -46,10 +54,15 @@ char* read_file(char *filePath) {
     // allocate enought memory to copy the whole file
     char *buffer = (char *)malloc(length);
     // if no memory is allocated, buffer = null return an error
-    if (!buffer) {
-        perror("Failed to allocate memory");
+    if (!buffer)
+    {
+        perror("Failed to allocate memory \n");
         fclose(file);
         return NULL;
+    }
+    else
+    {
+        printf("memory allocation succesfull \n");
     }
 
     // assign the content of the file to the buffer
@@ -60,3 +73,5 @@ char* read_file(char *filePath) {
     fclose(file);
     return buffer;
 }
+
+#endif // INPUT_FILE_HANDLING_H

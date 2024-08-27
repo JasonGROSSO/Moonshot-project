@@ -11,7 +11,13 @@ If an information is used in different files, there is a good chance that it wil
 // Global variables
 /*------------------------------------------------------------------------------*/
 
-extern char filePath[];
+// Path to the input file, to be filled
+char filePath[256];
+
+// paths to the differents output files
+char constPath[] = "Moonshot-Project/output_files/constants.txt";
+char funcPath[] = "Moonshot-Project/output_files/functions.txt";
+char varPath[] =  "Moonshot-Project/output_files/variables.txt";
 
 /*------------------------------------------------------------------------------*/
 
@@ -21,13 +27,10 @@ extern char filePath[];
 // The different token types
 typedef enum
 {
-    TOKEN_KEYWORD,
-    TOKEN_IDENTIFIER,
-    TOKEN_OPERATOR,
-    TOKEN_LITERAL,
-    TOKEN_PUNCTUATION,
+    TOKEN_CONST,
+    TOKEN_VARIABLE,
+    TOKEN_FUNCTION,
     TOKEN_COMMENT,
-    TOKEN_WHITESPACE,
     TOKEN_UNKNOWN
 } TokenType;
 
@@ -45,6 +48,26 @@ typedef struct
     int column;
 } Token;
 
+// The Node struct
+typedef struct node
+{
+    Token token;
+    struct node *next;
+} Node;
+
+// The List struct
+typedef struct list
+{
+    Node *head;
+    int size;
+} List;
+
 /*------------------------------------------------------------------------------*/
+
+// declaration of the Lists
+
+List listFunc;
+List listConst;
+List listVar;
 
 #endif // UTILS_H
