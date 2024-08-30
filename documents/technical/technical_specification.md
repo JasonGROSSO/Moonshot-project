@@ -22,6 +22,11 @@
       - [The Process](#the-process)
     - [Storage](#storage)
     - [Output](#output)
+  - [Technology Used](#technology-used)
+    - [In the I&I Process](#in-the-ii-process)
+      - [Tokens](#tokens)
+      - [The Process in Itself](#the-process-in-itself)
+    - [In the Storage](#in-the-storage)
 
 </details>
 
@@ -177,10 +182,11 @@ typedef struct
   int column;
 } Token
 
-// function that creates the token 
+// function that creates the Token 
 Token create_token (TokenType type, char *value, int line, int column)
 {
-  Token *token = (Token *)malloc(sizeof(Token)); // allocate memory for the token
+  Token *token = (Token *)malloc(sizeof(Token)); // allocate memory for the Token
+    // assign input value to the Token
     token->type = type;
     token->value = strdup(value);
     token->line = line;
@@ -202,11 +208,11 @@ void free_token(Token *token)
 }
 
 // Initialise variables for the functions
-    int line = 1;                    // the line counter
-    int column = 1;                  // the column counter
-    int i = 0;                       // the function's char pointer
-    int length = strlen(sourceCode); // the size of the file
-    char c = sourceCode[i];          // the char associated to the current position
+  // the line counter
+  // the column counter
+  // the function's char pointer
+  // the size of the file
+  // the char associated to the current position
 ```
 
 #### Handle undesirable
@@ -261,4 +267,68 @@ else if(is_type(word) = true) // is it a type?
 
 ### Storage
 
+The different componants will be stored in linked lists, on for each type of componants:
+
+```c
+// The Node struct
+typedef struct node
+{
+    Token token;
+    struct node *next;
+} Node;
+
+// The List struct
+typedef struct list
+{
+    Node *head;
+    int size;
+} List;
+
+// print a List into a file
+void print_list(List *aList, char *fileName)
+{
+  // open the file
+  // Go through the List, printing each node in the file
+  // close the file
+}
+
+// add a componant token to a List
+void add_to_list(List *aList, Token token) 
+{
+  // Create the node and it's content
+  // place the Node in the List
+  // if there is no head in the List, the new Node becomes the head
+  // increase the size of the List
+}
+
+void clear_list(List *aList)
+{
+  // free all the Nodes in the List
+  // put the size to 0
+}
+```
+
 ### Output
+
+**/!\\** Is subjective to changes with the versions
+
+Since the output files are created manually, we call for the Lists to be printed into their respective files, and we clear all the Lists.
+
+## Technology Used
+
+**/!\\** Is subjective to changes with the versions
+
+### In the I&I Process
+
+#### Tokens
+
+The use of Tokens allow's us to collect and store more data than just the value of the componant.
+Additionally we store it's position in the file; and in the future, the name of the file the componants is in.
+
+#### The Process in Itself
+
+The process as it currently is, is unfinished, unrefined and unstable, this part is scheduled to have a massive makeover before the launch of 1.0.
+
+### In the Storage
+
+Linked List are List in which every elements points to the next one, this allows us to handle a large number of componants because Linked List are not limited in size when declared.
