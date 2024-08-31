@@ -73,20 +73,6 @@ int is_type(const char *str)
     return 0;
 }
 
-// Function that checks if a string is a punctuation
-int is_punct(const char *str)
-{
-    const char *punctuations[] = {"{", "=", ";", "}"};
-    for (int i = 0; i < sizeof(punctuations) / sizeof(char *); i++)
-    {
-        if (strcmp(str, punctuations[i]) == 0)
-        {
-            return 1;
-        }
-    }
-    return 0;
-}
-
 // Function that checks if a string is "const"
 int is_const(const char *str)
 {
@@ -97,6 +83,30 @@ int is_const(const char *str)
         {
             return 1;
         }
+    }
+    return 0;
+}
+
+int is_var(char c) {
+    const char *punctuations = ";=";
+    
+    while (*punctuations) {
+        if (c == *punctuations) {
+            return 1;
+        }
+        punctuations++;
+    }
+    return 0;
+}
+
+int is_func(char c) {
+    const char *punctuations = "{";
+    
+    while (*punctuations) {
+        if (c == *punctuations) {
+            return 1;
+        }
+        punctuations++;
     }
     return 0;
 }
@@ -187,7 +197,7 @@ void tokenise(char *sourceCode)
             if (is_const(substr))
             {
                 // Handle const keyword
-                while (i < length && c != '\n')
+                while (i < length && sourceCode[i] != '\n')
                 {
                     i++;
                     column++;
@@ -204,15 +214,16 @@ void tokenise(char *sourceCode)
             {
                 // Handle types
                 int start = i;
-                while (i < length && !is_punct(&c))
+                while (i < length && ispunct(c) == 0)
                 {
                     i++;
                     column++;
                 }
-
-                if (c == ';')
+                printf("pear\n");
+                if (is_var(c))
                 {
                     // Handle variable declaration
+                    printf("peach\n");
                     char *varStr = my_strdup(sourceCode + start, i - start);
                     TokenType type = TOKEN_VARIABLE;
                     Token *token = create_token(type, varStr, line, column - (i - start));
@@ -221,8 +232,9 @@ void tokenise(char *sourceCode)
                     free_token(token);
                     free(varStr);
                 }
-                else if (c == '{')
+                else if (is_func(c))
                 {
+                    printf("mango\n");
                     // Handle function declaration
                     start = i;
                     int mustacheCounter = 1;
@@ -247,6 +259,7 @@ void tokenise(char *sourceCode)
                     free_token(token);
                     free(funcStr);
                 }
+                printf("chestnut\n");
             }
             free(substr);
             continue;
