@@ -18,18 +18,18 @@ int is_const(const char *str);
 void tokenise(char *sourceCode);
 
 // Custom implementation of strndup to allow for size precision
-char *my_strndup(const char *src, size_t n)
+char *my_strdup(const char *src, size_t n)
 {
-    char *dst = (char *)malloc(n + 1);
+    char *dst = (char *)malloc(n + 1); // Allocate memory
     if (dst)
     {
-        strncpy(dst, src, n);
-        dst[n] = '\0';
+        strncpy(dst, src, n); // Copy up to n characters
+        dst[n] = '\0';        // Null-terminate the string
     }
     return dst;
 }
 
-// Function that fill the tokens informations when it is created
+// Function that fills the token's information when it is created
 Token *create_token(TokenType type, const char *value, int line, int column)
 {
     Token *token = (Token *)malloc(sizeof(Token));
@@ -40,7 +40,7 @@ Token *create_token(TokenType type, const char *value, int line, int column)
     return token;
 }
 
-// Function that free the token
+// Function that frees the token
 void free_token(Token *token)
 {
     if (token)
@@ -53,13 +53,13 @@ void free_token(Token *token)
     }
 }
 
-// Function that check if a char is a keyword character or a "_"
+// Function that checks if a char is a keyword character or "_"
 int is_keyword_char(char c)
 {
     return isalpha(c) || c == '_';
 }
 
-// Function that check if a string is a keyword
+// Function that checks if a string is a type
 int is_type(const char *str)
 {
     const char *keywords[] = {"int", "void", "char", "double", "float"};
@@ -73,7 +73,7 @@ int is_type(const char *str)
     return 0;
 }
 
-// Function that check if a char is a punctuation
+// Function that checks if a string is a punctuation
 int is_punct(const char *str)
 {
     const char *punctuations[] = {"{", "=", ";", "}"};
@@ -87,7 +87,7 @@ int is_punct(const char *str)
     return 0;
 }
 
-// function that check if a string is "const"
+// Function that checks if a string is "const"
 int is_const(const char *str)
 {
     const char *constKeyword[] = {"const"};
@@ -104,8 +104,7 @@ int is_const(const char *str)
 // Main tokenisation function
 void tokenise(char *sourceCode)
 {
-
-    // Initialise variables for the functions
+    // Initialise variables for the function
     int line = 1;                    // the line counter
     int column = 1;                  // the column counter
     int i = 0;                       // the function's char pointer
@@ -113,19 +112,17 @@ void tokenise(char *sourceCode)
 
     while (i < length)
     {
-
         char c = sourceCode[i];
 
-        // look if the char is a space or an end of line
+        // Look if the char is a space or an end of line
         if (isspace(c))
         {
-            // in case it's an end of line
+            // In case it's an end of line
             if (c == '\n')
             {
                 line++;
                 column = 1;
             }
-            // in case it's just a normal space
             else
             {
                 column++;
@@ -133,10 +130,11 @@ void tokenise(char *sourceCode)
             i++;
             continue;
         }
-        // handle single line comments
+
+        // Handle single line comments
         if (c == '/' && sourceCode[i + 1] == '/')
         {
-            // while you're not at the end of the line
+            // While you're not at the end of the line
             while (i < length && sourceCode[i] != '\n')
             {
                 i++;
@@ -144,15 +142,15 @@ void tokenise(char *sourceCode)
             }
             continue;
         }
-        // handle multiple line comments
+
+        // Handle multi-line comments
         if (c == '/' && sourceCode[i + 1] == '*')
         {
             i += 2;
             column += 2;
-            // while you've not encoutered the end of the multiple line comment
+            // While you've not encountered the end of the multi-line comment
             while (i < length && !(sourceCode[i] == '*' && sourceCode[i + 1] == '/'))
             {
-                // in case of end of line
                 if (sourceCode[i] == '\n')
                 {
                     line++;
@@ -164,7 +162,7 @@ void tokenise(char *sourceCode)
                 }
                 i++;
             }
-            // if it's the end of the document
+            // If it's the end of the document
             if (i < length)
             {
                 i += 2;
@@ -172,7 +170,8 @@ void tokenise(char *sourceCode)
             }
             continue;
         }
-        // If it's c is a char
+
+        // If c is a letter (potentially a keyword or identifier)
         if (isalpha(c))
         {
             int start = i;
@@ -181,46 +180,50 @@ void tokenise(char *sourceCode)
                 i++;
                 column++;
             }
-            // When at the end of the word check if the word is const / a type or something else
-            char *substr = my_strndup(sourceCode + start, i - start);
+
+            // Extract the substring
+            char *substr = my_strdup(sourceCode + start, i - start);
+
             if (is_const(substr))
             {
-                // if it's a const
-                // Select the whole ligne and save it as a const in the List listConst
+                // Handle const keyword
                 while (i < length && c != '\n')
                 {
                     i++;
                     column++;
                 }
-                char *constStr = my_strndup(sourceCode + start, i - start);
+                char *constStr = my_strdup(sourceCode + start, i - start);
                 TokenType type = TOKEN_CONST;
                 Token *token = create_token(type, constStr, line, column - (i - start));
-                printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, constStr, line, column - (i - start));
                 add_to_list(&listConst, *token);
                 free_token(token);
+                free(constStr);
             }
-            else if (is_type)
+            else if (is_type(substr))
             {
-                // if its a type find out if its a variable or a function
+                // Handle types
                 int start = i;
-                while (i < length && is_punct(&c))
+                while (i < length && !is_punct(&c))
                 {
                     i++;
                     column++;
                 }
+
                 if (c == ';')
                 {
-                    // if it's a variable copy the whole line and store it into the List listVar
-                    char *varStr = my_strndup(sourceCode + start, i - start);
+                    // Handle variable declaration
+                    char *varStr = my_strdup(sourceCode + start, i - start);
                     TokenType type = TOKEN_VARIABLE;
                     Token *token = create_token(type, varStr, line, column - (i - start));
-                    printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                    printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, varStr, line, column - (i - start));
                     add_to_list(&listVar, *token);
                     free_token(token);
+                    free(varStr);
                 }
                 else if (c == '{')
                 {
-                    // if it's a function copy the whole function and store it into the List listFunc
+                    // Handle function declaration
                     start = i;
                     int mustacheCounter = 1;
                     while (i < length && mustacheCounter != 0)
@@ -236,16 +239,19 @@ void tokenise(char *sourceCode)
                         i++;
                         column++;
                     }
-                    char *funcStr = my_strndup(sourceCode + start, i - start);
+                    char *funcStr = my_strdup(sourceCode + start, i - start);
                     TokenType type = TOKEN_FUNCTION;
                     Token *token = create_token(type, funcStr, line, column - (i - start));
-                    printf("Token: %d, Value: %s, Line: %d, Column: %d");
+                    printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, funcStr, line, column - (i - start));
                     add_to_list(&listFunc, *token);
                     free_token(token);
+                    free(funcStr);
                 }
             }
+            free(substr);
             continue;
         }
+        i++;
     }
 }
 

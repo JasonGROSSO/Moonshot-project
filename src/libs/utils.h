@@ -12,12 +12,12 @@ If an information is used in different files, there is a good chance that it wil
 /*------------------------------------------------------------------------------*/
 
 // Path to the input file, to be filled
-char filePath[256];
+char filePath[] = "../test_files/test_file_n1.c";
 
 // paths to the differents output files
-char constPath[] = "Moonshot-Project/output_files/constants.txt";
-char funcPath[] = "Moonshot-Project/output_files/functions.txt";
-char varPath[] =  "Moonshot-Project/output_files/variables.txt";
+char constPath[] = "../output_files/constants.txt";
+char funcPath[] = "../output_files/functions.txt";
+char varPath[] =  "../output_files/variables.txt";
 
 /*------------------------------------------------------------------------------*/
 

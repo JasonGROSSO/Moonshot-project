@@ -19,7 +19,7 @@ char *read_file(char *filePath)
     char last_char_path = filePath[path_length - 1];
 
     // opening the file with the provided path
-    FILE *file = fopen(filePath, "r+");
+    FILE *file = fopen(filePath, "r");
 
     // Start of part 1
     // Check if the file exist
