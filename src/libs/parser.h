@@ -87,28 +87,14 @@ int is_const(const char *str)
     return 0;
 }
 
-int is_var(char c) {
-    const char *punctuations = ";=";
-    
-    while (*punctuations) {
-        if (c == *punctuations) {
-            return 1;
-        }
-        punctuations++;
-    }
-    return 0;
+// Function to check if a char is a punctuation related to variables
+int is_var_punct(char c) {
+    return c == ';' || c == '=';
 }
 
-int is_func(char c) {
-    const char *punctuations = "{";
-    
-    while (*punctuations) {
-        if (c == *punctuations) {
-            return 1;
-        }
-        punctuations++;
-    }
-    return 0;
+// Function to check if a char is a punctuation related to functions
+int is_func_punct(char c) {
+    return c == '{';
 }
 
 // Main tokenisation function
@@ -220,7 +206,7 @@ void tokenise(char *sourceCode)
                     column++;
                 }
                 printf("pear\n");
-                if (is_var(c))
+                if (is_var_punct(c))
                 {
                     // Handle variable declaration
                     printf("peach\n");
@@ -232,7 +218,7 @@ void tokenise(char *sourceCode)
                     free_token(token);
                     free(varStr);
                 }
-                else if (is_func(c))
+                else if (is_func_punct(c))
                 {
                     printf("mango\n");
                     // Handle function declaration
