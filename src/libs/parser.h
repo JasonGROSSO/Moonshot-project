@@ -234,17 +234,19 @@ void tokenise(char *sourceCode)
                     int mustacheCounter = 1;
                     while (i < length && mustacheCounter != 0)
                     {
-                        if (c == '{')
+                        i++;
+                        column++;
+                        if (sourceCode[i] == '{')
                         {
                             mustacheCounter++;
                         }
-                        else if (c == '}')
+                        else if (sourceCode[i] == '}')
                         {
                             mustacheCounter--;
                         }
-                        i++;
-                        column++;
                     }
+                    i++;
+                    column++;
                     char *funcStr = my_strdup(sourceCode + start, i - start);
                     TokenType type = TOKEN_FUNCTION;
                     Token *token = create_token(type, funcStr, line, column - (i - start));
