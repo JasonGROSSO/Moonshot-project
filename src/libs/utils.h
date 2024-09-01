@@ -64,7 +64,7 @@ typedef struct list
 
 /*------------------------------------------------------------------------------*/
 
-// declaration of the Lists
+// Declaration of the Lists
 
 List listFunc;
 List listConst;
