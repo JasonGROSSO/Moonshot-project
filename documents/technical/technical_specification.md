@@ -104,7 +104,7 @@ The program will be organised in the following parts:
 
 - a part responsible for handling the input file(s) and copying it's source code
 
-- a part responsible for going through the code recognising and isolating it's componants
+- a part responsible for going through the code identifying and isolating it's componants
 
 - a part responsible for storing these componants
 
