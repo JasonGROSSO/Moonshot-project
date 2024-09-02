@@ -37,17 +37,6 @@ void print_list_to_file(List *aList, char *fileName)
     fclose(file);
 }
 
-void print_list(List *aList)
-{
-    Node *current = aList->head;
-    while (current != NULL)
-    {
-        printf("%s\n", current->token);
-        current = current->next;
-    }
-    
-}
-
 // Add a new node to a List
 void add_to_list(List *aList, Token token)
 {

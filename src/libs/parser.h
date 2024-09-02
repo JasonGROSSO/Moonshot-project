@@ -15,7 +15,11 @@ void free_token(Token *token);
 int is_keyword_char(char c);
 int is_type(const char *str);
 int is_const(const char *str);
+int is_punct(char c);
+int is_var_punct(char c);
+int is_func_punct(char c);
 void tokenise(char *sourceCode);
+
 
 // Custom implementation of strndup to allow for size precision
 char *my_strdup(const char *src, size_t n)
@@ -196,11 +200,11 @@ void tokenise(char *sourceCode)
                     i++;
                     column++;
                 }
-                char *constStr = my_strdup(sourceCode + start, i - start);
-                TokenType type = TOKEN_CONST;
-                Token *token = create_token(type, constStr, line, column - (i - start));
-                printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, constStr, line, column - (i - start));
-                add_to_list(&listConst, *token);
+                char *constStr = my_strdup(sourceCode + start, i - start); // Get the line and copy it
+                TokenType type = TOKEN_CONST; // Assign the type
+                Token *token = create_token(type, constStr, line, column - (i - start)); // Create the token
+                printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, constStr, line, column - (i - start)); // Print it for UX
+                add_to_list(&listConst, *token); // Add it to the List
             }
             else if (is_type(substr))
             {
@@ -210,6 +214,7 @@ void tokenise(char *sourceCode)
                     i++;
                     column++;
                 }
+                // Handle variables
                 if (is_var_punct(sourceCode[i]))
                 {
                     while (i < length && sourceCode[i] != '\n')
@@ -217,37 +222,36 @@ void tokenise(char *sourceCode)
                         i++;
                         column++;
                     }
-                    // Handle variable declaration
-                    char *varStr = my_strdup(sourceCode + start, i - start);
-                    TokenType type = TOKEN_VARIABLE;
-                    Token *token = create_token(type, varStr, line, column - (i - start));
-                    printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, varStr, line, column - (i - start));
-                    add_to_list(&listVar, *token);
+                    char *varStr = my_strdup(sourceCode + start, i - start); // Get the Line
+                    TokenType type = TOKEN_VARIABLE; // Assigne the type
+                    Token *token = create_token(type, varStr, line, column - (i - start)); // Create the Token
+                    printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, varStr, line, column - (i - start)); // Print it for UX purposes
+                    add_to_list(&listVar, *token); // Add it to the List
                 }
                 else if (is_func_punct(sourceCode[i]))
                 {
                     // Handle function declaration
-                    int mustacheCounter = 1;
-                    while (i < length && mustacheCounter != 0)
+                    int curlyBracketsCounter = 1;
+                    while (i < length && curlyBracketsCounter != 0)
                     {
                         i++;
                         column++;
                         if (sourceCode[i] == '{')
                         {
-                            mustacheCounter++;
+                            curlyBracketsCounter++;
                         }
                         else if (sourceCode[i] == '}')
                         {
-                            mustacheCounter--;
+                            curlyBracketsCounter--;
                         }
                     }
                     i++;
                     column++;
-                    char *funcStr = my_strdup(sourceCode + start, i - start);
-                    TokenType type = TOKEN_FUNCTION;
-                    Token *token = create_token(type, funcStr, line, column - (i - start));
-                    printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, funcStr, line, column - (i - start));
-                    add_to_list(&listFunc, *token);
+                    char *funcStr = my_strdup(sourceCode + start, i - start); // Get the lines
+                    TokenType type = TOKEN_FUNCTION; // Assign the type
+                    Token *token = create_token(type, funcStr, line, column - (i - start)); // Create the Token
+                    printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, funcStr, line, column - (i - start)); // Print it for UX purposes
+                    add_to_list(&listFunc, *token); // Add it to the List
                 }
             }
             free(substr);
@@ -257,4 +261,4 @@ void tokenise(char *sourceCode)
     }
 }
 
-#endif
+#endif // PARSER_H

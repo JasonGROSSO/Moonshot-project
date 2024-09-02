@@ -20,13 +20,6 @@ void write_output_files()
     print_list_to_file(&listVar, varPath);
 }
 
-void print_all_lists()
-{
-    print_list(&listConst);
-    print_list(&listFunc);
-    print_list(&listVar);
-}
-
 // Free all the Lists
 void clear_all_list(){
     clear_list(&listConst);
