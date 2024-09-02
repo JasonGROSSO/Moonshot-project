@@ -19,7 +19,7 @@ char *read_file(char *filePath)
     char last_char_path = filePath[path_length - 1];
 
     // opening the file with the provided path
-    FILE *file = fopen(filePath, "r+");
+    FILE *file = fopen(filePath, "r");
 
     // Start of part 1
     // Check if the file exist
@@ -36,13 +36,13 @@ char *read_file(char *filePath)
     // Start of part 2
     // Look at the last charactere of the path provided
     // If diffrent from "c" or "h" return an error (to be implemented)
-    if (last_char_path != 'c' | 'h')
+    if (last_char_path == 'c' || 'h')
     {
-        printf("file %s is not a c file \n", filePath);
+        printf("file %s is a c file \n", filePath);
     }
     else
     {
-        printf("file %s is a c file \n", filePath);
+        printf("file %s is not a c file \n", filePath);
     }
 
     // Start of part 3
@@ -62,7 +62,7 @@ char *read_file(char *filePath)
     }
     else
     {
-        printf("memory allocation succesfull \n");
+        printf("memory allocation successfull \n");
     }
 
     // assign the content of the file to the buffer
