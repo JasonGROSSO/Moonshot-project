@@ -14,9 +14,6 @@
   - [Use Cases](#use-cases)
     - [Use Case n°1: Outdated / No Documentation](#use-case-n1-outdated--no-documentation)
     - [Use Case n°2: Working on Complex Project](#use-case-n2-working-on-complex-projects)
-  - [Requirements](#requirements)
-  - [Testing Strategy](#testing-strategy)
-  - [Future Improvement](#future-improvement)
 
 </details>
 
@@ -115,7 +112,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 - If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
 - If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product;
 
-## Requirements
+## Requirements and Future Versions
 
 ### Minimum Viable Product
 
@@ -156,9 +153,3 @@ This Project's objectives is to create a sorter that could sort through an entir
   - for loops
   - while loops
   - arrays
-
-## Testing Strategy
-
-The Testing strategy will be develloped in the Test Plan.
-
-## Future Improvement

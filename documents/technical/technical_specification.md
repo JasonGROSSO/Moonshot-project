@@ -22,11 +22,6 @@
       - [The Process](#the-process)
     - [Storage](#storage)
     - [Output](#output)
-  - [Technology Used](#technology-used)
-    - [In the I&I Process](#in-the-ii-process)
-      - [Tokens](#tokens)
-      - [The Process in Itself](#the-process-in-itself)
-    - [In the Storage](#in-the-storage)
 
 </details>
 
@@ -117,6 +112,8 @@ The program will be organised in the following parts:
 
 ## Parts
 
+**/!\\** Is subjective to changes with the versions
+
 ### Main
 
 ```c
@@ -170,7 +167,7 @@ char input_file_handling()
 
 #### Setup
 
-Before starting the I&I process (Identifying and Isolating Process) we have a few things to prepare
+Before starting the I&I process (Identifying and Isolating Process) we have a few things to prepare:
 
 ```c
 typedef struct
@@ -215,6 +212,9 @@ void free_token(Token *token)
   // the char associated to the current position
 ```
 
+The use of Tokens allow's us to collect and store more data than just the value of the componant.
+Additionally we store it's position in the file; and in the future, the name of the file the componants is in.
+
 #### Handle undesirable
 
 By principle, we know that the source we will have to work with will not be composed only of the componants that interest us, such as comments, empty lines or indentation, the program must be able to identify them and skip them.
@@ -236,7 +236,7 @@ else if (c = "\n")
 
 #### The Process
 
-**/!\\** Is subjective to changes with the versions
+The process as it currently is, is unfinished, unrefined and unstable, this part is scheduled to have a massive makeover before the launch of 1.0.
 
 ```c
 // find a word
@@ -308,27 +308,8 @@ void clear_list(List *aList)
 }
 ```
 
+Linked List are List in which every elements points to the next one, this allows us to handle a large number of componants because they are not limited in size when declared.
+
 ### Output
 
-**/!\\** Is subjective to changes with the versions
-
 Since the output files are created manually, we call for the Lists to be printed into their respective files, and we clear all the Lists.
-
-## Technology Used
-
-**/!\\** Is subjective to changes with the versions
-
-### In the I&I Process
-
-#### Tokens
-
-The use of Tokens allow's us to collect and store more data than just the value of the componant.
-Additionally we store it's position in the file; and in the future, the name of the file the componants is in.
-
-#### The Process in Itself
-
-The process as it currently is, is unfinished, unrefined and unstable, this part is scheduled to have a massive makeover before the launch of 1.0.
-
-### In the Storage
-
-Linked List are List in which every elements points to the next one, this allows us to handle a large number of componants because Linked List are not limited in size when declared.
