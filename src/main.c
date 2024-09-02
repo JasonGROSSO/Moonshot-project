@@ -30,5 +30,5 @@ int main()
     write_output_files();
     // Free the storage before exiting the program
     clear_all_list();
-    return 0;
+    return 1;
 }

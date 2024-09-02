@@ -201,8 +201,6 @@ void tokenise(char *sourceCode)
                 Token *token = create_token(type, constStr, line, column - (i - start));
                 printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, constStr, line, column - (i - start));
                 add_to_list(&listConst, *token);
-                free_token(token);
-                free(constStr);
             }
             else if (is_type(substr))
             {
@@ -225,8 +223,6 @@ void tokenise(char *sourceCode)
                     Token *token = create_token(type, varStr, line, column - (i - start));
                     printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, varStr, line, column - (i - start));
                     add_to_list(&listVar, *token);
-                    free_token(token);
-                    free(varStr);
                 }
                 else if (is_func_punct(sourceCode[i]))
                 {
@@ -252,8 +248,6 @@ void tokenise(char *sourceCode)
                     Token *token = create_token(type, funcStr, line, column - (i - start));
                     printf("Token: %d, Value: %s, Line: %d, Column: %d\n", type, funcStr, line, column - (i - start));
                     add_to_list(&listFunc, *token);
-                    free_token(token);
-                    free(funcStr);
                 }
             }
             free(substr);
