@@ -79,3 +79,11 @@ We used:
 - C 17 as our programing language
 - GCC as our Compiler
 - GitHub as our Source Control Management
+
+## Retrospective
+
+This project was really challenging as I had to learn a lot in a short period of time and had many hurdles to overcome. But it allowed me to learn more bout myself and what I was able to accomplish in two months. I also had a lot of help from my entourage as well as from online resources and the online community. If I did this project again I would try to put more emphasys on properly defining the documentation before starting to code as well as testing the program after each feature.
+
+## Conclusion
+
+This project intends to help developers who are working on complex coding project be it by their sizes or their organisations. Making such projects more accessible would encourage people on working on them and improve systems that are decayed yet still used today. I'm confident that this project will have a positive impact on the quality and efficiency of past and future projects.

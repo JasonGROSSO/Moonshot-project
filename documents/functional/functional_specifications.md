@@ -77,7 +77,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 - one folder in input
 - output folder automatically created
 - auto comment componants location
-- in output files sorting (TDB)
+- in output files sorting (TBD)
 - handle:
   - constants
   - functions
@@ -114,7 +114,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 ### Use Case n°1: Outdated / No Documentation
 
-**Description**: A new arrival in a team finds no documentation or an outdated documentation.
+**Description**: A new arrival in a team finds no documentation or an outdated documentation
 
 **Actor**: User
 
@@ -140,7 +140,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 - If the program encounter a problem, the User is returned an error message explanning what went wrong;
 - If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
-- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product;
+- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product.
 
 ### Use Case n°2 Working on Complex Projects
 
@@ -152,8 +152,8 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 **Preconditions**:
 
-- the project is in C
-- the User has the program installed on his computer
+- The project is in C
+- The User has the program installed on his computer
   
 **Trigger**: The project is complex and extensive
 
@@ -169,4 +169,4 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 - If the program encounter a problem, the User is returned an error message explanning what went wrong;
 - If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
-- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product;
+- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product.

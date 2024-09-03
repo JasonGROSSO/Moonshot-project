@@ -50,7 +50,7 @@ We will use:
 GitHub:
 
 - branches: kebab-case
-- folders: snake-case
+- folders: snake_case
 - files: snake_case
 
 In Files:
