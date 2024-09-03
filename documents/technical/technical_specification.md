@@ -33,6 +33,8 @@
 
 This document will detail how the different functions defined in the functional specification will be implemented, as well as some specifities in how the code will be written.
 
+---
+
 ## Architecture
 
 ### Technicalities
@@ -50,7 +52,7 @@ We will use:
 GitHub:
 
 - branches: kebab-case
-- folders: snake-case
+- folders: snake_case
 - files: snake_case
 
 In Files:
@@ -104,11 +106,13 @@ The program will be organised in the following parts:
 
 - a part responsible for handling the input file(s) and copying it's source code
 
-- a part responsible for going through the code recognising and isolating it's componants
+- a part responsible for going through the code identifying and isolating it's componants
 
 - a part responsible for storing these componants
 
 - a part responsible for handling the output files and their informations
+
+---
 
 ## Parts
 
@@ -215,6 +219,30 @@ void free_token(Token *token)
 The use of Tokens allow's us to collect and store more data than just the value of the componant.
 Additionally we store it's position in the file; and in the future, the name of the file the componants is in.
 
+##### Function Specification
+
+Because function are multiline we can't just copy until the end of line.
+So we have to implement something different:
+
+```c
+int curlyBracketsCounter = 1;
+  while (i < length && curlyBracketsCounter != 0)
+  {
+  i++;
+  column++;
+  if (sourceCode[i] == '{')
+  {
+    curlyBracketsCounter++;
+  }
+  else if (sourceCode[i] == '}')
+  {
+    curlyBracketsCounter--;
+  }
+}
+i++;
+column++;
+```
+
 #### Handle undesirable
 
 By principle, we know that the source we will have to work with will not be composed only of the componants that interest us, such as comments, empty lines or indentation, the program must be able to identify them and skip them.
@@ -313,3 +341,5 @@ Linked List are List in which every elements points to the next one, this allows
 ### Output
 
 Since the output files are created manually, we call for the Lists to be printed into their respective files, and we clear all the Lists.
+
+---
