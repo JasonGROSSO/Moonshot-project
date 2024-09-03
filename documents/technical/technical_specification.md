@@ -219,30 +219,6 @@ void free_token(Token *token)
 The use of Tokens allow's us to collect and store more data than just the value of the componant.
 Additionally we store it's position in the file; and in the future, the name of the file the componants is in.
 
-##### Function Specification
-
-Because function are multiline we can't just copy until the end of line.
-So we have to implement something different:
-
-```c
-int curlyBracketsCounter = 1;
-  while (i < length && curlyBracketsCounter != 0)
-  {
-  i++;
-  column++;
-  if (sourceCode[i] == '{')
-  {
-    curlyBracketsCounter++;
-  }
-  else if (sourceCode[i] == '}')
-  {
-    curlyBracketsCounter--;
-  }
-}
-i++;
-column++;
-```
-
 #### Handle undesirable
 
 By principle, we know that the source we will have to work with will not be composed only of the componants that interest us, such as comments, empty lines or indentation, the program must be able to identify them and skip them.
@@ -291,6 +267,30 @@ else if(is_type(word) = true) // is it a type?
     // go to the next line
   }
 }
+```
+
+#### Function Specification
+
+Because function are multiline we can't just copy until the end of line.
+So we have to implement something different:
+
+```c
+int curlyBracketsCounter = 1;
+  while (i < length && curlyBracketsCounter != 0)
+  {
+  i++;
+  column++;
+  if (sourceCode[i] == '{')
+  {
+    curlyBracketsCounter++;
+  }
+  else if (sourceCode[i] == '}')
+  {
+    curlyBracketsCounter--;
+  }
+}
+i++;
+column++;
 ```
 
 ### Storage
