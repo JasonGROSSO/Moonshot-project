@@ -39,12 +39,16 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 *componant*: each componant is accompanied of a comment explaining in which file the componant is from and which line in that file
 
+---
+
 ## Scope
 
 | Scope | Functionalities |
 | :--- | --- |
 | In Scope | Each type has its own file <br> Sort by type <br> Sort by return type <br> The base folder is left untouched after the sort <br> The elements in the return folder have comments detailling where they were in the base folder |
 | Out of Scope | Front End <br> Comments explainning the use / working of the componant |
+
+---
 
 ## Requirements and Future Versions
 
@@ -88,6 +92,8 @@ This Project's objectives is to create a sorter that could sort through an entir
   - while loops
   - arrays
 
+---
+
 ## Personas
 
 ### New Arrival
@@ -109,6 +115,8 @@ This Project's objectives is to create a sorter that could sort through an entir
 - Challenge: The code is looking more like a pot of spaghetti bolognese than code;
 
 - Need: A tool that speeds the process of going through the whole project and understanding how it works;
+
+---
 
 ## Use Cases
 
@@ -170,3 +178,5 @@ This Project's objectives is to create a sorter that could sort through an entir
 - If the program encounter a problem, the User is returned an error message explanning what went wrong;
 - If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
 - If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product.
+
+---

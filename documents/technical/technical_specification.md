@@ -33,6 +33,8 @@
 
 This document will detail how the different functions defined in the functional specification will be implemented, as well as some specifities in how the code will be written.
 
+---
+
 ## Architecture
 
 ### Technicalities
@@ -109,6 +111,8 @@ The program will be organised in the following parts:
 - a part responsible for storing these componants
 
 - a part responsible for handling the output files and their informations
+
+---
 
 ## Parts
 
@@ -337,3 +341,5 @@ Linked List are List in which every elements points to the next one, this allows
 ### Output
 
 Since the output files are created manually, we call for the Lists to be printed into their respective files, and we clear all the Lists.
+
+---
