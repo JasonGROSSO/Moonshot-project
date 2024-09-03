@@ -10,14 +10,14 @@
     - [Context](#context)
     - [Description of Operations](#description-of-operations)
   - [Scope](#scope)
+  - [Requirement and Future Versions](#requirements-and-future-versions)
+    - [Minimum Viable Product](#minimum-viable-product)
+    - [Version 1.0](#version-10)
+    - [Version 2.0](#version-20)
   - [Personas](#personas)
   - [Use Cases](#use-cases)
     - [Use Case n°1: Outdated / No Documentation](#use-case-n1-outdated--no-documentation)
-    - [Use Case n°2 Creating Documentation](#use-case-n2-creating-documentation)
-    - [Use Case n°3 Working on Complex Projects](#use-case-n3-working-on-complex-projects)
-  - [Requirement](#requirement)
-  - [Testing Strategy](#testing-strategy)
-  - [Future Improvement](#future-improvement)
+    - [Use Case n°2: Working on Complex Project](#use-case-n2-working-on-complex-projects)
 
 </details>
 
@@ -43,6 +43,8 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 *componant*: each componant is accompanied of a comment explaining in which file the componant is from and which line in that file
 
+---
+
 ## Scope
 
 | Scope | Functionalities |
@@ -50,16 +52,81 @@ This Project's objectives is to create a sorter that could sort through an entir
 | In Scope | Each type has its own file <br> Sort by type <br> Sort by return type <br> The base folder is left untouched after the sort <br> The elements in the return folder have comments detailling where they were in the base folder |
 | Out of Scope | Front End <br> Comments explainning the use / working of the componant |
 
+---
+
+## Requirements and Future Versions
+
+### Minimum Viable Product
+
+- one file in input
+- output folder created manualy
+- handle:
+  - constants
+  - functions
+  - global variables
+
+### Version 1.0
+
+- one folder in input
+- output folder automatically created
+- auto comment componants location
+- handle:
+  - constants
+  - functions
+  - global variables
+  - if...else
+  - switch
+  - for loops
+  - while loops
+  - arrays
+
+### Version 2.0
+
+- one folder in input
+- output folder automatically created
+- auto comment componants location
+- in output files sorting (TBD)
+- handle:
+  - constants
+  - functions
+  - global variables
+  - if...else
+  - switch
+  - for loops
+  - while loops
+  - arrays
+
+---
+
 ## Personas
 
-- **New Arrival**: A software engineer arriving in a new project with little to no documentation on the project;
-- **Tech Debt Specialist**: A software engineer working on legacy code / code with lots of tech debts;
+### New Arrival
+
+- Who: A software engineer arriving in a new project with little to no documentation on the project;
+
+- Want: Understand the team's current project, to start working on it as soon as possible;
+
+- Challenge: The project has little to no documentation which slows down the speed of understanding how the project works;
+
+- Need: A tool that speeds the process of going through the project and understanding how it works;
+
+### Tech Debt Specialist
+
+- Who: A software engineer working on legacy code / code with lots of tech debts;
+
+- Want: Understand how the code works, to start fixing it as soon as possible;
+
+- Challenge: The code is looking more like a pot of spaghetti bolognese than code;
+
+- Need: A tool that speeds the process of going through the whole project and understanding how it works;
+
+---
 
 ## Use Cases
 
 ### Use Case n°1: Outdated / No Documentation
 
-**Description**: A new arrival in a team finds no documentation or an outdated documentation.
+**Description**: A new arrival in a team finds no documentation or an outdated documentation
 
 **Actor**: User
 
@@ -85,38 +152,9 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 - If the program encounter a problem, the User is returned an error message explanning what went wrong;
 - If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
-- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product;
+- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product.
 
-### Use Case n°2 Creating Documentation
-
-**Description**: A User wants to create a documentation for his project.
-
-**Actor**: User
-
-**Stakeholder**: User and future User
-
-**Preconditions**:
-
-- The project is in C
-- The User has the program installed on his computer
-
-**Trigger**: The User has a project he wants documented
-
-**Basic Flow**:
-
-1. The User wants his project to be documented;
-2. The User turns on his computer and open the program's executable;
-3. The User gives the source code of his project to the program as input;
-4. The program returns a folder with the source code organised as a catalog;
-5. The User can use the catalog as documentation for his project.
-
-**Alternative Path**:
-
-- If the program encounter a problem, the User is returned an error message explanning what went wrong;
-- If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
-- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product;
-
-### Use Case n°3 Working on Complex Projects
+### Use Case n°2 Working on Complex Projects
 
 **Description**: A User working on a complex project and is looking for a specific componant
 
@@ -126,8 +164,8 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 **Preconditions**:
 
-- the project is in C
-- the User has the program installed on his computer
+- The project is in C
+- The User has the program installed on his computer
   
 **Trigger**: The project is complex and extensive
 
@@ -143,50 +181,6 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 - If the program encounter a problem, the User is returned an error message explanning what went wrong;
 - If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
-- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product;
+- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product.
 
-## Requirement
-
-### Minimum Viable Product
-
-- one file
-- output folder created manualy
-- handle:
-  - constants
-  - functions
-  - global variables
-
-### Version 1.0
-
-- one folder
-- output folder automatically created
-- auto comment componants location
-- handle:
-  - constants
-  - functions
-  - global variables
-  - if...else
-  - switch
-  - for loops
-  - while loops
-  - arrays
-
-### Version 2.0
-
-- one folder
-- output folder automatically created
-- auto comment componants location
-- in output files sorting (TDB)
-- handle:
-  - constants
-  - functions
-  - global variables
-  - if...else
-  - switch
-  - for loops
-  - while loops
-  - arrays
-
-## Testing Strategy
-
-## Future Improvement
+---
