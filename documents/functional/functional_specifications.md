@@ -27,21 +27,21 @@
 
 ### Context
 
-This document will describe the functions and capabilities of this project.
+This document will describe the What, Why and When of this Project, the How will be described in the [Technical Specifications](/documents/technical/technical_specification.md).
 
-This Project's objectives is to create a sorter that could sort through an entire project and return this project under the form of a catalog of said project contents.
+This Project main deliverable will be a tool capable of creating a *Dictionary* of any TBD project's components.
 
 ### Description of Operations
 
-*input*: path to the project's source code folder
+*input*: A project's source code folder
 
-*output*: path to a folder which contains a catalog of the input
+*output*: Folder which contains a dictionary of the input
 
-*catalog*: a series of files named after a type of componant(e.g. variable)
+*Dictionary*: a series of files named after a type of component(e.g. variable)
 
-*file*: each file contains the each instance of the type of componants it is named after (e.g. in the variable file you would have all the variables of the input)
+*file*: each file contains each instance of the type of components it is named after (e.g. in the variable file you would have all the variables of the input)
 
-*componant*: each componant is accompanied of a comment explaining in which file the componant is from and which line in that file
+*component*: each component is accompanied of a comment explaining in which file the component is from and which line in that file
 
 ---
 
@@ -49,8 +49,8 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 | Scope | Functionalities |
 | :--- | --- |
-| In Scope | Each type has its own file <br> Sort by type <br> Sort by return type <br> The base folder is left untouched after the sort <br> The elements in the return folder have comments detailling where they were in the base folder |
-| Out of Scope | Front End <br> Comments explainning the use / working of the componant |
+| In Scope | Each component has his own file <br> The tool does not modify the input <br> Comments detailling the base location of each components  |
+| Out of Scope | Front End <br> Comments explainning the use / working of the component |
 
 ---
 
@@ -59,7 +59,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 ### Minimum Viable Product
 
 - one file in input
-- output folder created manualy
+- output folder created manually
 - handle:
   - constants
   - functions
@@ -69,7 +69,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 - one folder in input
 - output folder automatically created
-- auto comment componants location
+- auto comment components location
 - handle:
   - constants
   - functions
@@ -84,7 +84,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 - one folder in input
 - output folder automatically created
-- auto comment componants location
+- auto comment components location
 - in output files sorting (TBD)
 - handle:
   - constants
@@ -102,7 +102,7 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 ### New Arrival
 
-- Who: A software engineer arriving in a new project with little to no documentation on the project;
+- Who: A software engineer working on a new project with little to no documentation on the project;
 
 - Want: Understand the team's current project, to start working on it as soon as possible;
 
@@ -136,27 +136,27 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 - The documentation is outdated / absent
 - The User has the program installed on his computer
-- The project is in C
+- The project is in TBD
   
 **Trigger**: There is someone new in the team
 
 **Basic Flow**:
 
-1. The User arrives in the team and is given an outdated documentation or no documentation of the project;
-2. The User turns on his computer and open the program's executable;
+1. The User arrives in the team and is given outdated documentation or no documentation of the project;
+2. The User turns on his computer and opens the program's executable;
 3. The User gives the source code of the project to the program as input;
-4. The program return a folder with the source code organised as a catalog;
-5. The User browse throught the catalog to understand the project.
+4. The program returns a folder with the source code organised as a catalog;
+5. The User browse through the catalog to understand the project.
   
 **Alternative Path**:
 
-- If the program encounter a problem, the User is returned an error message explanning what went wrong;
-- If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
-- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product.
+- If the program encounter a problem, the User is returned an error message explaning what went wrong;
+- If the User has a question concerning the program, he can contact the creator via the GitHub Repository of the product;
+- If the User encounters a problem with the program, he can contact the creator via the GitHub Repository of the product.
 
 ### Use Case n°2 Working on Complex Projects
 
-**Description**: A User working on a complex project and is looking for a specific componant
+**Description**: A User working on a complex project and is looking for a specific component
 
 **Actor**: User
 
@@ -171,16 +171,16 @@ This Project's objectives is to create a sorter that could sort through an entir
 
 **Basic Flow**:
 
-1. The User is looking for a specific componant in an extansive project;
-2. The User turns on his computer and open the program's executable;
+1. The User is looking for a specific component in an extensive project;
+2. The User turns on his computer and opens the program's executable;
 3. The User gives the source code of the project to the program as input;
 4. The program returns a folder with the source code organised as a catalog;
-5. The User browse through the catalog until he finds the componant that he is looking for.
+5. The User browse through the catalog until he finds the component that he is looking for.
 
 **Alternative Path**:
 
-- If the program encounter a problem, the User is returned an error message explanning what went wrong;
-- If the User has a question concerning the program he can contact the creator via the GitHub Repository of the product;
-- If the User encounters a problem with the program he can contact the creator via the GitHub Repository of the product.
+- If the program encounters a problem, the User is returned an error message explaning what went wrong;
+- If the User has a question concerning the program, he can contact the creator via the GitHub Repository of the product;
+- If the User encounters a problem with the program, he can contact the creator via the GitHub Repository of the product.
 
 ---

@@ -1,6 +1,6 @@
 # Moonshot-project
 
-This project aim to help developpers working on complexe project by providing them a catalog of said project's componants; as way to often you have to scroll / use CRTL + F for hours to gain an understanding of the project you're working on.
+This project aim to help developpers working on complexe project by providing them a dictionary of said project's componants; as way to often you have to scroll / use CRTL + F for hours to gain an understanding of the project you're working on.
 
 This tool is independant of any other external program.
 
