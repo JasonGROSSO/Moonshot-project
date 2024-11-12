@@ -10,9 +10,9 @@ This tool is independant of any other external program.
 
 Name: WIP
 
-Language supported: C
+Language supported: TBD
 
-Developement language: C
+Developement language: TBD
 
 The Team:
 
