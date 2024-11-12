@@ -1,10 +1,6 @@
 # Moonshot-project
 
-This project objective is to provide a tool to help developers working on a new old project with no available/up to date documentation.
-
-This tool will create a catalog of the projects componants: it will make a file containing all the functions, one containing all the variables...
-
-All of those files will be available in a folder that has no guarentie to either compile / run; however the project do not need to be compiling/running for them to be processed with this tool.
+This project aim to help developpers working on complexe project by providing them a catalog of said project's componants; as way to often you have to scroll / use CRTL + F for hours to gain an understanding of the project you're working on.
 
 This tool is independant of any other external program.
 
