@@ -1,22 +1,19 @@
-# Moonshot-project
+# Moonshot Project
 
-This project aim to help developpers working on complexe project by providing them a dictionary of said project's componants; as way to often you have to scroll / use CRTL + F for hours to gain an understanding of the project you're working on.
+## Overview
 
-This tool is independant of any other external program.
+This project's aim is to create a Visual Studio Code extension that will allow it's users to get informations about the code they are working on.
+The extension will be able to track data changes, the execution path as well as get the location of each instance of each component of the code.
 
-Name: WIP
+---
 
-Language supported: TBD
+## Visual Studio Code Extension
 
-Developement language: TBD
+A Visual Studio Code extension is a set of components that can be added to the editor to add new features or extend existing ones. Extensions can be written in either JavaScript or TypeScript and can use the full range of functionality available in Visual Studio Code.
 
-The Team:
+---
 
-| Name | Role | Image | GitHub | Linkedin|
-| :----- | :----------: | :----------: | :---------- | :------ |
-| Jason GROSSO | Project Manager | <img src="https://avatars.githubusercontent.com/u/114397870?v=4" width = "100px" alt="Jason Avatar" > | [Jason's GitHub](https://github.com/JasonGROSSO) | [Jason's Linkedin](https://www.linkedin.com/in/jason-grosso-847b39251/) |
-| Jason GROSSO | Program Manager | <img src="https://avatars.githubusercontent.com/u/114397870?v=4" width = "100px" alt="Jason Avatar"> | [Jason's GitHub](https://github.com/JasonGROSSO) | [Jason's Linkedin](https://www.linkedin.com/in/jason-grosso-847b39251/) |
-| Jason GROSSO | Tech Lead | <img src="https://avatars.githubusercontent.com/u/114397870?v=4" width = "100px" alt="Jason Avatar"> | [Jason's GitHub](https://github.com/JasonGROSSO) | [Jason's Linkedin](https://www.linkedin.com/in/jason-grosso-847b39251/) |
-| Jason GROSSO | Technical Writer | <img src="https://avatars.githubusercontent.com/u/114397870?v=4" width = "100px" alt="Jason Avatar"> | [Jason's GitHub](https://github.com/JasonGROSSO) | [Jason's Linkedin](https://www.linkedin.com/in/jason-grosso-847b39251/) |
-| Jason GROSSO | Software Engineer |<img src="https://avatars.githubusercontent.com/u/114397870?v=4" width = "100px" alt="Jason Avatar"> | [Jason's GitHub](https://github.com/JasonGROSSO) | [Jason's Linkedin](https://www.linkedin.com/in/jason-grosso-847b39251/) |
-| Jason GROSSO | Quality Assurance | <img src="https://avatars.githubusercontent.com/u/114397870?v=4" width = "100px" alt="Jason Avatar"> | [Jason's GitHub](https://github.com/JasonGROSSO) | [Jason's Linkedin](https://www.linkedin.com/in/jason-grosso-847b39251/) |
+## Project Documents
+
+- [Functional Specifications](/documents/functional/functional_specifications.md)
+- [Technical Specifications](/documents/technical/technical_specifications.md)
