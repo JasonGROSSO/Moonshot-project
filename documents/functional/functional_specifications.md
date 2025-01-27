@@ -1,4 +1,4 @@
-# Functional Specifications
+# Functional Specifications | Moonshot Project
 
 ## Overview
 
