@@ -4,54 +4,31 @@
   "description": "Moonshot Project",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.61.0"
+    "vscode": "^1.97.0"
   },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onCommand:vscodeSidebar.openview",
-    "onView:vscodeSidebar.openview"
+    "onView:mySidebarView"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "custom-activitybar",
-          "title": "VSCode Extension",
+          "id": "mySidebar",
+          "title": "My Sidebar",
           "icon": "assets/icon.png"
         }
       ]
     },
     "views": {
-      "custom-activitybar": [
+      "mySidebar": [
         {
-          "type": "webview",
-          "id": "vscodeSidebar.openview",
-          "name": "View",
-          "contextualTitle": "View"
-        }
-      ]
-    },
-    "commands": [
-      {
-        "command": "vscodeSidebar.openview",
-        "title": "Sidebar View"
-      },
-      {
-        "command": "vscodeSidebar.menu.view",
-        "category": "vscode-extension-sidebar-html",
-        "title": "Sample WebView in VS Code Sidebar",
-        "icon": "$(clear-all)"
-      }
-    ],
-    "menus": {
-      "view/title": [
-        {
-          "command": "vscodeSidebar.menu.view",
-          "group": "navigation",
-          "when": "view == vscodeSidebar.openview"
+          "id": "mySidebarView",
+          "name": "My Sidebar View",
+          "icon": "assets/icon.png"
         }
       ]
     }
@@ -61,20 +38,18 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "lint": "eslint src",
+    "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.61.0",
-    "@types/glob": "^7.1.4",
-    "@types/mocha": "^9.0.0",
-    "@types/node": "14.x",
-    "@typescript-eslint/eslint-plugin": "^4.31.1",
-    "@typescript-eslint/parser": "^4.31.1",
-    "eslint": "^7.32.0",
-    "glob": "^7.1.7",
-    "mocha": "^9.1.1",
-    "typescript": "^4.4.3",
-    "@vscode/test-electron": "^1.6.2"
+    "@types/vscode": "^1.97.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
   }
 }
