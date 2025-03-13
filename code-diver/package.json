@@ -9,29 +9,48 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onView:mySidebarView"
-  ],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "mySidebar",
-          "title": "My Sidebar",
-          "icon": "assets/icon.png"
-        }
-      ]
+   "viewsContainers": {
+    "activitybar": [
+      {
+        "id": "code-diver",
+        "title": "Code Diver",
+        "icon": "assets/icon.png"
+      }
+    ]
+   },
+   "views": {
+    "code-diver": [
+      {
+        "type": "webview",
+        "id": "code-diver.openview",
+        "name": "view"
+      }
+    ]
+   },
+   "commands": [
+    {
+      "command": "code-diver.openview",
+      "title": "Open Sidebar View"
     },
-    "views": {
-      "mySidebar": [
-        {
-          "id": "mySidebarView",
-          "name": "My Sidebar View",
-          "icon": "assets/icon.png"
-        }
-      ]
+    {
+      "command": "code-diver.menu.view",
+        "category": "code-diver-extension-sidebar-html",
+        "title": "Code Diver webview",
+        "icon": "$(clear-all)"
     }
+   ],
+   "menus": {
+    "view/title": [
+      {
+        "command": "code-diver.menu.view",
+        "group": "navigation",
+        "when": "view == code-diver.openview"
+      }
+    ]
+   }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
