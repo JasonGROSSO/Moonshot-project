@@ -1,4 +1,6 @@
 import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as path from 'path';
 
 export class CodeDiverSidebarViewProvider implements vscode.WebviewViewProvider {
   public static readonly viewType = 'code-diver.openview';
@@ -23,18 +25,7 @@ export class CodeDiverSidebarViewProvider implements vscode.WebviewViewProvider 
   }
 
   private getHtmlForWebview(webview: vscode.Webview): string {
-    return ` <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Sidebar</title>
-      </head>
-      <body>
-        <h1>Welcome to My Sidebar!</h1>
-        <p>This is custom content in your sidebar.</p>
-      </body>
-      </html>
-    `;
+    const htmlPath = path.join(this._extensionUri.fsPath, 'assets', 'index.html');
+    return fs.readFileSync(htmlPath, 'utf8');
   }
 }
