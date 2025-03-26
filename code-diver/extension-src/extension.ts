@@ -6,6 +6,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const provider = new CodeDiverSidebarViewProvider(context.extensionUri);
 
+	// Display the sidebar view
 	context.subscriptions.push(
 		vscode.window.registerWebviewViewProvider(
 			CodeDiverSidebarViewProvider.viewType,
@@ -13,9 +14,10 @@ export function activate(context: vscode.ExtensionContext) {
 		)
 	);
 
+	// Display a button in the header of the sidebar view
 	context.subscriptions.push(
-		vscode.commands.registerCommand('code-diver.menu.view', () => {
-			const message = "Menu/Title of extension is clicked !";
+		vscode.commands.registerCommand('code-diver.menu.close', () => {
+			const message = "Close Button is clicked";
 			vscode.window.showInformationMessage(message);
 		})
 	);

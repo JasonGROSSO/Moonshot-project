@@ -36,16 +36,16 @@
       "title": "Open Sidebar View"
     },
     {
-      "command": "code-diver.menu.view",
+      "command": "code-diver.menu.close",
         "category": "code-diver-extension-sidebar-html",
-        "title": "Code Diver webview",
+        "title": "Code Diver Close Button",
         "icon": "$(clear-all)"
     }
    ],
    "menus": {
     "view/title": [
       {
-        "command": "code-diver.menu.view",
+        "command": "code-diver.menu.close",
         "group": "navigation",
         "when": "view == code-diver.openview"
       }
