@@ -1,0 +1,66 @@
+import { Scanner } from "./scanner";
+import { Token } from "./token";
+
+export class Lox {
+
+    static hadError: boolean = false;
+
+    public static main(args: string[]): void {
+        if (args.length > 1) {
+            console.log("Usage: jlox [script]");
+            process.exit(64);
+        } else if (args.length === 1) {
+            this.runFile(args[0]);
+        } else {
+            this.runPrompt();
+        }
+    }
+
+    private static runFile(path: string): void {
+        const bytes = require('fs').readFileSync(path);
+        this.run(bytes.toString());
+        if (Lox.hadError) process.exit(65);
+    }
+
+    private static runPrompt(): void {
+        const readline = require('readline');
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+
+        const prompt = () => {
+            process.stdout.write("> ");
+            rl.question("", (line: string) => {
+                if (line === null || line.trim() === "") {
+                    rl.close();
+                } else {
+                    this.run(line);
+                    prompt();
+                }
+            });
+        };
+
+        prompt();
+        Lox.hadError = false;
+    }
+
+    private static run(source: string): void {
+        const scanner = new Scanner(source);
+        const tokens: Token[] = scanner.scanTokens();
+
+        // For now, just print the tokens.
+        for (const token of tokens) {
+            console.log(token);
+        }
+    }
+
+    public static error(line: number, message: string): void {
+        this.report(line, "", message);
+    }
+
+    private static report(line: number, where: string, message: string): void {
+        console.error(`[line ${line}] Error${where}: ${message}`);
+        this.hadError = true;
+    }
+}
