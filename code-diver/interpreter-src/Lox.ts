@@ -1,5 +1,6 @@
 import { Scanner } from "./scanner";
 import { Token } from "./token";
+import { Parser } from "./parser";
 
 export class Lox {
 
@@ -44,23 +45,26 @@ export class Lox {
         prompt();
         Lox.hadError = false;
     }
-
     private static run(source: string): void {
         const scanner = new Scanner(source);
-        const tokens: Token[] = scanner.scanTokens();
+        const tokens = scanner.scanTokens();
 
-        // For now, just print the tokens.
-        for (const token of tokens) {
-            console.log(token);
-        }
+        const parser = new Parser(tokens);
+        const expression = parser.parse();
+
+        // Stop if there was a syntax error.
+        if (Lox.hadError) return;
+
     }
-
-    public static error(line: number, message: string): void {
-        this.report(line, "", message);
-    }
-
     private static report(line: number, where: string, message: string): void {
         console.error(`[line ${line}] Error${where}: ${message}`);
         this.hadError = true;
+    }
+    public static error(token: Token, message: string): void {
+        if (token.type === "EOF") {
+            this.report(token.line, " at end", message);
+        } else {
+            this.report(token.line, ` at '${token.lexeme}'`, message);
+        }
     }
 }

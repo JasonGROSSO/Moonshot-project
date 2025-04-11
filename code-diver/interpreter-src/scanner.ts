@@ -1,6 +1,6 @@
 import { TokenType } from './token-type';
 import { Token } from './token';
-import { Lox } from './Lox';
+import { Lox } from './lox';
 
 export class Scanner {
     private source: string;
@@ -93,7 +93,7 @@ export class Scanner {
                 } else if (this.isAlpha(c)) {
                     this.identifier();
                 } else {
-                    Lox.error(this.line, "Unexpected character.");
+                    Lox.error(new Token(TokenType[TokenType.IDENTIFIER], "", null, this.line), "Unexpected character.");
                 }
                 break;
         }
@@ -152,7 +152,7 @@ export class Scanner {
         }
 
         if (this.isAtEnd()) {
-            Lox.error(this.line, "Unterminated string.");
+            Lox.error(new Token(TokenType[TokenType.STRING], "", null, this.line), "Unterminated string.");
             return;
         }
 
