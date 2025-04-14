@@ -1,10 +1,12 @@
 import { Scanner } from "./scanner";
 import { Token } from "./token";
 import { Parser } from "./parser";
+import { RuntimeError } from "./runtime-error";
 
 export class Lox {
 
     static hadError: boolean = false;
+    static hadRuntimeError: boolean = false;
 
     public static main(args: string[]): void {
         if (args.length > 1) {
@@ -21,6 +23,7 @@ export class Lox {
         const bytes = require('fs').readFileSync(path);
         this.run(bytes.toString());
         if (Lox.hadError) process.exit(65);
+        if (Lox.hadRuntimeError) process.exit(70);
     }
 
     private static runPrompt(): void {
@@ -67,4 +70,9 @@ export class Lox {
             this.report(token.line, ` at '${token.lexeme}'`, message);
         }
     }
+    static runtimeError(error: RuntimeError): void {
+        console.error(error.message +
+            "\n[line " + error.token.line + "]");
+        Lox.hadRuntimeError = true;
+      }
 }

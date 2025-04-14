@@ -12,6 +12,9 @@ export abstract class Expr {
             this.operator = operator;
             this.right = right;
         }
+        accept<R>(visitor: Expr.Visitor<R>): R {
+            return visitor.visitBinaryExpr(this);
+        }
     };
 
     static Grouping = class extends Expr {
@@ -21,6 +24,10 @@ export abstract class Expr {
             super();
             this.expression = expression;
         }
+        accept<R>(visitor: Expr.Visitor<R>): R {
+            return visitor.visitGroupingExpr(this);
+        }
+
     };
 
     static Literal = class extends Expr {
@@ -29,6 +36,9 @@ export abstract class Expr {
         constructor(value: unknown) {
             super();
             this.value = value;
+        }
+        accept<R>(visitor: Expr.Visitor<R>): R {
+            return visitor.visitLiteralExpr(this);
         }
     };
 
@@ -41,6 +51,22 @@ export abstract class Expr {
             this.operator = operator;
             this.right = right;
         }
+        accept<R>(visitor: Expr.Visitor<R>): R {
+            return visitor.visitUnaryExpr(this);
+        }
     };
+    abstract accept<R>(visitor: Expr.Visitor<R>): R;
 }
 
+export namespace Expr {
+    export interface Visitor<R> {
+        visitBinaryExpr(expr: InstanceType<typeof Expr.Binary>): R;
+        visitGroupingExpr(expr: InstanceType<typeof Expr.Grouping>): R;
+        visitLiteralExpr(expr: InstanceType<typeof Expr.Literal>): R;
+        visitUnaryExpr(expr: InstanceType<typeof Expr.Unary>): R;
+    }
+    export type Binary = InstanceType<typeof Expr.Binary>;
+    export type Grouping = InstanceType<typeof Expr.Grouping>;
+    export type Literal = InstanceType<typeof Expr.Literal>;
+    export type Unary = InstanceType<typeof Expr.Unary>;
+}
