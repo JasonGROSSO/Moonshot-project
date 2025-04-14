@@ -2,9 +2,10 @@ import { Scanner } from "./scanner";
 import { Token } from "./token";
 import { Parser } from "./parser";
 import { RuntimeError } from "./runtime-error";
+import { Interpreter } from "./interpreter";
 
 export class Lox {
-
+    private static interpreter: Interpreter = new Interpreter();
     static hadError: boolean = false;
     static hadRuntimeError: boolean = false;
 
@@ -57,6 +58,10 @@ export class Lox {
 
         // Stop if there was a syntax error.
         if (Lox.hadError) return;
+
+        if (expression !== null) {
+            Lox.interpreter.interpret(expression);
+        }
 
     }
     private static report(line: number, where: string, message: string): void {
