@@ -3,6 +3,7 @@ import { Token } from "./token";
 import { Parser } from "./parser";
 import { RuntimeError } from "./runtime-error";
 import { Interpreter } from "./interpreter";
+import { Stmt } from "./stmt";
 
 export class Lox {
     private static interpreter: Interpreter = new Interpreter();
@@ -54,14 +55,12 @@ export class Lox {
         const tokens = scanner.scanTokens();
 
         const parser = new Parser(tokens);
-        const expression = parser.parse();
+        let statements = parser.parse();
 
         // Stop if there was a syntax error.
         if (Lox.hadError) return;
 
-        if (expression !== null) {
-            Lox.interpreter.interpret(expression);
-        }
+        Lox.interpreter.interpret(statements);
 
     }
     private static report(line: number, where: string, message: string): void {
@@ -79,5 +78,5 @@ export class Lox {
         console.error(error.message +
             "\n[line " + error.token.line + "]");
         Lox.hadRuntimeError = true;
-      }
+    }
 }

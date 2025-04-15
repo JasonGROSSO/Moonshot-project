@@ -3,18 +3,22 @@ import { Token } from './token.ts';
 import { TokenType } from './token-type.ts'
 import { RuntimeError } from './runtime-error.ts';
 import { Expr } from './expr.ts';
+import { Stmt } from './stmt.ts';
+import { Environment } from './environement.ts';
 
-export class Interpreter implements Expr.Visitor<any> {
+export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
-    interpret(expression: Expr): void {
+    private environment: Environment = new Environment();
+
+    interpret(statements: Stmt[]): void {
         try {
-            let value: any = this.evaluate(expression) ?? {};
-            console.log(this.stringify(value));
-        } catch (error: unknown) {
-            if (error instanceof RuntimeError) {
-                return Lox.runtimeError(error);;
+            for (let statement of statements) {
+                this.execute(statement);
             }
-
+        } catch (error) {
+            if (error instanceof RuntimeError) {
+                Lox.runtimeError(error);
+            }
         }
     }
 
@@ -80,6 +84,14 @@ export class Interpreter implements Expr.Visitor<any> {
         // Unreachable.
         return {};
     }
+    public visitVariableExpr(expr: Expr.Variable): Object {
+        return this.environment.get(expr.name);
+    }
+    public visitAssignExpr(expr: Expr.Assign): Object {
+        let value: Object = this.evaluate(expr.value);
+        this.environment.assign(expr.name, value);
+        return value;
+    }
     private isTruthy(object: any): boolean {
         if (object == null) return false;
         if (typeof object === "boolean") return object;
@@ -102,6 +114,43 @@ export class Interpreter implements Expr.Visitor<any> {
     }
     private evaluate(expr: Expr): any | null {
         return expr.accept(this);
+    }
+    private execute(stmt: Stmt): void {
+        stmt.accept(this);
+    }
+    executeBlock(statements: Stmt[], environment: Environment): void {
+        let previous: Environment = this.environment;
+        try {
+            this.environment = environment;
+
+            for (let statement of statements) {
+                this.execute(statement);
+            }
+        } finally {
+            this.environment = previous;
+        }
+    }
+    public visitBlockStmt(stmt: Stmt.Block): null {
+        this.executeBlock(stmt.statements, new Environment(this.environment));
+        return null;
+    }
+    public visitExpressionStmt(stmt: Stmt.Expression): null {
+        this.evaluate(stmt.expression);
+        return null;
+    }
+    public visitPrintStmt(stmt: Stmt.Print): null {
+        let value: Object = this.evaluate(stmt.expression);
+        console.log(this.stringify(value));
+        return null;
+    }
+    public visitVarStmt(stmt: Stmt.Var): null {
+        let value: Object | null = null;
+        if (stmt.initializer != null) {
+            value = this.evaluate(stmt.initializer);
+        }
+
+        this.environment.define(stmt.name.lexeme, value ?? {});
+        return null;
     }
     private stringify(object: any): String {
         if (object == null) return "nil";
