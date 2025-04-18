@@ -54,7 +54,21 @@ export abstract class Expr {
             return visitor.visitLiteralExpr(this);
         }
     };
+    static Logical = class extends Expr {
+        left: Expr;
+        operator: Token;
+        right: Expr;
 
+        constructor(left: Expr, operator: Token, right: Expr) {
+            super();
+            this.left = left;
+            this.operator = operator;
+            this.right = right;
+        }
+        accept<R>(visitor: Expr.Visitor<R>): R {
+            return visitor.visitLogicalExpr(this);
+        }
+    }
     static Unary = class extends Expr {
         operator: Token;
         right: Expr;
@@ -84,17 +98,19 @@ export abstract class Expr {
 
 export namespace Expr {
     export interface Visitor<R> {
+        visitAssignExpr(expr: InstanceType<typeof Expr.Assign>): R;
         visitBinaryExpr(expr: InstanceType<typeof Expr.Binary>): R;
         visitGroupingExpr(expr: InstanceType<typeof Expr.Grouping>): R;
         visitLiteralExpr(expr: InstanceType<typeof Expr.Literal>): R;
+        visitLogicalExpr(expr: InstanceType<typeof Expr.Logical>): R;
         visitUnaryExpr(expr: InstanceType<typeof Expr.Unary>): R;
         visitVariableExpr(expr: InstanceType<typeof Expr.Variable>): R;
-        visitAssignExpr(expr: InstanceType<typeof Expr.Assign>): R;
     }
+    export type Assign = InstanceType<typeof Expr.Assign>;
     export type Binary = InstanceType<typeof Expr.Binary>;
     export type Grouping = InstanceType<typeof Expr.Grouping>;
     export type Literal = InstanceType<typeof Expr.Literal>;
+    export type Logical = InstanceType<typeof Expr.Logical>;
     export type Unary = InstanceType<typeof Expr.Unary>;
     export type Variable = InstanceType<typeof Expr.Variable>;
-    export type Assign = InstanceType<typeof Expr.Assign>;
 }

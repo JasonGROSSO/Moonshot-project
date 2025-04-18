@@ -21,26 +21,10 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
             }
         }
     }
-
-    public visitLiteralExpr(expr: Expr.Literal): Object | null {
-        return expr.value as Object | null;
-    }
-    public visitUnaryExpr(expr: Expr.Unary): any {
-        let right: any = this.evaluate(expr.right) ?? {};
-
-        switch (expr.operator.type as unknown as TokenType) {
-            case TokenType.MINUS:
-                this.checkNumberOperand(expr.operator, right);
-                return -Number(right);
-            case TokenType.BANG:
-                return !this.isTruthy(right);
-        }
-
-        // Unreachable.
-        return {};
-    }
-    public visitGroupingExpr(expr: Expr.Grouping): any {
-        return this.evaluate(expr.expression) ?? {};
+    public visitAssignExpr(expr: Expr.Assign): Object {
+        let value: Object = this.evaluate(expr.value);
+        this.environment.assign(expr.name, value);
+        return value;
     }
     public visitBinaryExpr(expr: Expr.Binary): any {
         let left: any = this.evaluate(expr.left) ?? {};
@@ -84,14 +68,46 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         // Unreachable.
         return {};
     }
+    public visitGroupingExpr(expr: Expr.Grouping): any {
+        return this.evaluate(expr.expression) ?? {};
+    }
+    public visitLiteralExpr(expr: Expr.Literal): Object | null {
+        return expr.value as Object | null;
+    }
+    public visitLogicalExpr(expr: Expr.Logical): Object {
+        let left: any = this.evaluate(expr.left);
+    
+        if (expr.operator.type === TokenType.OR as unknown as string) {
+          if (this.isTruthy(left)) return left;
+        } else {
+          if (!this.isTruthy(left)) return left;
+        }
+    
+        return this.evaluate(expr.right);
+      }
+    public visitUnaryExpr(expr: Expr.Unary): any {
+        let right: any = this.evaluate(expr.right) ?? {};
+
+        switch (expr.operator.type as unknown as TokenType) {
+            case TokenType.MINUS:
+                this.checkNumberOperand(expr.operator, right);
+                return -Number(right);
+            case TokenType.BANG:
+                return !this.isTruthy(right);
+        }
+
+        // Unreachable.
+        return {};
+    }
     public visitVariableExpr(expr: Expr.Variable): Object {
         return this.environment.get(expr.name);
     }
-    public visitAssignExpr(expr: Expr.Assign): Object {
-        let value: Object = this.evaluate(expr.value);
-        this.environment.assign(expr.name, value);
-        return value;
-    }
+    public visitWhileStmt(stmt: Stmt.While): null {
+        while (this.isTruthy(this.evaluate(stmt.condition))) {
+          this.execute(stmt.body);
+        }
+        return null;
+      }
     private isTruthy(object: any): boolean {
         if (object == null) return false;
         if (typeof object === "boolean") return object;
@@ -137,6 +153,14 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     public visitExpressionStmt(stmt: Stmt.Expression): null {
         this.evaluate(stmt.expression);
         return null;
+    }
+    public visitIfStmt(stmt: Stmt.If): null {
+        if (this.isTruthy(this.evaluate(stmt.condition))) {
+            this.execute(stmt.thenBranch);
+          } else if (stmt.elseBranch != null) {
+            this.execute(stmt.elseBranch);
+          }
+          return null;
     }
     public visitPrintStmt(stmt: Stmt.Print): null {
         let value: Object = this.evaluate(stmt.expression);
