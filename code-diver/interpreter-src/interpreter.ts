@@ -4,11 +4,31 @@ import { TokenType } from './token-type.ts'
 import { RuntimeError } from './runtime-error.ts';
 import { Expr } from './expr.ts';
 import { Stmt } from './stmt.ts';
-import { Environment } from './environement.ts';
+import { Environment } from './environment.ts';
+import { LoxCallable } from './lox-callable.ts';
+import { LoxFunction } from './lox-function.ts';
+import { Return } from './return.ts';
 
 export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
-    private environment: Environment = new Environment();
+    public globals: Environment = new Environment();
+    private environment: Environment = this.globals;
+
+    constructor() {
+        this.globals.define("clock", new (class implements LoxCallable {
+            arity(): number {
+                return 0;
+            }
+
+            call(interpreter: Interpreter, args: Object[]): Object {
+                return Date.now() / 1000.0;
+            }
+
+            toString(): string {
+                return "<native fn>";
+            }
+        })());
+    }
 
     interpret(statements: Stmt[]): void {
         try {
@@ -68,6 +88,24 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         // Unreachable.
         return {};
     }
+    public visitCallExpr(expr: Expr.Call): Object {
+        let callee: Object = this.evaluate(expr.callee);
+
+        let args: Object[] = [];
+        for (let arg of expr.args) {
+            args.push(this.evaluate(arg));
+        }
+
+        if (typeof callee !== "object" || typeof (callee as LoxCallable).call !== "function") {
+            throw new RuntimeError(expr.paren, "Can only call functions and classes.");
+        }
+
+        let functionCallee: LoxCallable = callee as LoxCallable;
+        if (args.length !== functionCallee.arity()) {
+            throw new RuntimeError(expr.paren, `Expected ${functionCallee.arity()} arguments but got ${args.length}.`);
+        }
+        return functionCallee.call(this, args);
+    }
     public visitGroupingExpr(expr: Expr.Grouping): any {
         return this.evaluate(expr.expression) ?? {};
     }
@@ -76,15 +114,15 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     }
     public visitLogicalExpr(expr: Expr.Logical): Object {
         let left: any = this.evaluate(expr.left);
-    
+
         if (expr.operator.type === TokenType.OR as unknown as string) {
-          if (this.isTruthy(left)) return left;
+            if (this.isTruthy(left)) return left;
         } else {
-          if (!this.isTruthy(left)) return left;
+            if (!this.isTruthy(left)) return left;
         }
-    
+
         return this.evaluate(expr.right);
-      }
+    }
     public visitUnaryExpr(expr: Expr.Unary): any {
         let right: any = this.evaluate(expr.right) ?? {};
 
@@ -104,10 +142,10 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     }
     public visitWhileStmt(stmt: Stmt.While): null {
         while (this.isTruthy(this.evaluate(stmt.condition))) {
-          this.execute(stmt.body);
+            this.execute(stmt.body);
         }
         return null;
-      }
+    }
     private isTruthy(object: any): boolean {
         if (object == null) return false;
         if (typeof object === "boolean") return object;
@@ -154,18 +192,29 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         this.evaluate(stmt.expression);
         return null;
     }
+    public visitFunctionStmt(stmt: Stmt.Function): null {
+        let functionLox: LoxFunction = new LoxFunction(stmt, this.environment);
+        this.environment.define(stmt.name.lexeme, functionLox);
+        return null;
+    }
     public visitIfStmt(stmt: Stmt.If): null {
         if (this.isTruthy(this.evaluate(stmt.condition))) {
             this.execute(stmt.thenBranch);
-          } else if (stmt.elseBranch != null) {
+        } else if (stmt.elseBranch != null) {
             this.execute(stmt.elseBranch);
-          }
-          return null;
+        }
+        return null;
     }
     public visitPrintStmt(stmt: Stmt.Print): null {
         let value: Object = this.evaluate(stmt.expression);
         console.log(this.stringify(value));
         return null;
+    }
+    public visitReturnStmt(stmt: Stmt.Return): null {
+        let value: Object | null = null;
+        if (stmt.value != null) value = this.evaluate(stmt.value);
+
+        throw new Return(value ?? {});
     }
     public visitVarStmt(stmt: Stmt.Var): null {
         let value: Object | null = null;

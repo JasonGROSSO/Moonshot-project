@@ -26,8 +26,8 @@ export class Parser {
     }
     private declaration(): Stmt {
         try {
+            if (this.match(TokenType.FUN)) return this.function("function");
             if (this.match(TokenType.VAR)) return this.varDeclaration();
-
             return this.statement();
         } catch (error: unknown) {
             this.synchronize();
@@ -38,6 +38,7 @@ export class Parser {
         if (this.match(TokenType.FOR)) return this.forStatement();
         if (this.match(TokenType.IF)) return this.ifStatement();
         if (this.match(TokenType.PRINT)) return this.printStatement();
+        if (this.match(TokenType.RETURN)) return this.returnStatement();
         if (this.match(TokenType.WHILE)) return this.whileStatement();
         if (this.match(TokenType.LEFT_BRACE)) return new Stmt.Block(this.block());
 
@@ -96,6 +97,16 @@ export class Parser {
         this.consume(TokenType.SEMICOLON, "Expect ';' after value.");
         return new Stmt.Print(value);
     }
+    private returnStatement(): Stmt {
+        let keyword: Token = this.previous();
+        let value: Expr | null = null;
+        if (!this.check(TokenType.SEMICOLON)) {
+            value = this.expression();
+        }
+
+        this.consume(TokenType.SEMICOLON, "Expect ';' after return value.");
+        return new Stmt.Return(keyword, value ?? new Expr.Literal(null));
+    }
     private varDeclaration(): Stmt {
         let name: Token = this.consume(TokenType.IDENTIFIER, "Expect variable name.");
 
@@ -119,6 +130,25 @@ export class Parser {
         let expr: Expr = this.expression();
         this.consume(TokenType.SEMICOLON, "Expect ';' after expression.");
         return new Stmt.Expression(expr);
+    }
+    private function(kind: String): Stmt.Function {
+        let name: Token = this.consume(TokenType.IDENTIFIER, "Expect " + kind + " name.");
+        this.consume(TokenType.LEFT_PAREN, "Expect '(' after " + kind + " name.");
+        let parameters: Token[] = [];
+        if (!this.check(TokenType.RIGHT_PAREN)) {
+            do {
+                if (parameters.length >= 255) {
+                    this.error(this.peek(), "Can't have more than 255 parameters.");
+                }
+
+                parameters.push(
+                    this.consume(TokenType.IDENTIFIER, "Expect parameter name."));
+            } while (this.match(TokenType.COMMA));
+        }
+        this.consume(TokenType.RIGHT_PAREN, "Expect ')' after parameters.");
+        this.consume(TokenType.LEFT_BRACE, "Expect '{' before " + kind + " body.");
+        let body: Stmt[] = this.block();
+        return new Stmt.Function(name, parameters, body);
     }
     private block(): Stmt[] {
         let statements: Stmt[] = [];
@@ -210,7 +240,36 @@ export class Parser {
             return new Expr.Unary(operator, right);
         }
 
-        return this.primary();
+        return this.call();
+    }
+    private finishCall(callee: Expr): Expr {
+
+        let args: Expr[] = [];
+        if (!this.check(TokenType.RIGHT_PAREN)) {
+            do {
+                if (args.length >= 255) {
+                    this.error(this.peek(), "Can't have more than 255 arguments.");
+                }
+                args.push(this.expression());
+            } while (this.match(TokenType.COMMA));
+        }
+
+        let paren: Token = this.consume(TokenType.RIGHT_PAREN, "Expect ')' after arguments.")
+
+        return new Expr.Call(callee, paren, args);
+    }
+    private call(): Expr {
+        let expr: Expr = this.primary();
+
+        while (true) {
+            if (this.match(TokenType.LEFT_PAREN)) {
+                expr = this.finishCall(expr);
+            } else {
+                break;
+            }
+        }
+
+        return expr;
     }
     private primary(): Expr {
         if (this.match(TokenType.FALSE)) return new Expr.Literal(false);

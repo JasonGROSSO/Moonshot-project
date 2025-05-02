@@ -29,7 +29,21 @@ export abstract class Expr {
             return visitor.visitBinaryExpr(this);
         }
     };
+    static Call = class extends Expr {
+        callee: Expr;
+        paren: Token;
+        args: Expr[];
 
+        constructor(callee: Expr, paren: Token, args: Expr[]) {
+            super();
+            this.callee = callee;
+            this.paren = paren;
+            this.args = args;
+        }
+        accept<R>(visitor: Expr.Visitor<R>): R {
+            return visitor.visitCallExpr(this);
+        }
+    }
     static Grouping = class extends Expr {
         expression: Expr;
 
@@ -42,7 +56,6 @@ export abstract class Expr {
         }
 
     };
-
     static Literal = class extends Expr {
         value: unknown;
 
@@ -68,7 +81,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitLogicalExpr(this);
         }
-    }
+    };
     static Unary = class extends Expr {
         operator: Token;
         right: Expr;
@@ -92,7 +105,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitVariableExpr(this);
         }
-    }
+    };
     abstract accept<R>(visitor: Expr.Visitor<R>): R;
 }
 
@@ -100,6 +113,7 @@ export namespace Expr {
     export interface Visitor<R> {
         visitAssignExpr(expr: InstanceType<typeof Expr.Assign>): R;
         visitBinaryExpr(expr: InstanceType<typeof Expr.Binary>): R;
+        visitCallExpr(expr: InstanceType<typeof Expr.Call>): R; 
         visitGroupingExpr(expr: InstanceType<typeof Expr.Grouping>): R;
         visitLiteralExpr(expr: InstanceType<typeof Expr.Literal>): R;
         visitLogicalExpr(expr: InstanceType<typeof Expr.Logical>): R;
@@ -108,6 +122,7 @@ export namespace Expr {
     }
     export type Assign = InstanceType<typeof Expr.Assign>;
     export type Binary = InstanceType<typeof Expr.Binary>;
+    export type Call = InstanceType<typeof Expr.Call>;
     export type Grouping = InstanceType<typeof Expr.Grouping>;
     export type Literal = InstanceType<typeof Expr.Literal>;
     export type Logical = InstanceType<typeof Expr.Logical>;
