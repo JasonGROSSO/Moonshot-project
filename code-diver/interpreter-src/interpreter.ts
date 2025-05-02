@@ -13,6 +13,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
     public globals: Environment = new Environment();
     private environment: Environment = this.globals;
+    private locals: Map<Expr, number> = new Map();
 
     constructor() {
         this.globals.define("clock", new (class implements LoxCallable {
@@ -43,8 +44,12 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     }
     public visitAssignExpr(expr: Expr.Assign): Object {
         let value: Object = this.evaluate(expr.value);
-        this.environment.assign(expr.name, value);
-        return value;
+        let distance: number | undefined = this.locals.get(expr);
+        if (distance !== undefined) {
+            this.environment.assignAt(distance, expr.name, value);
+        } else {
+            this.globals.assign(expr.name, value);
+        } return value;
     }
     public visitBinaryExpr(expr: Expr.Binary): any {
         let left: any = this.evaluate(expr.left) ?? {};
@@ -138,7 +143,15 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return {};
     }
     public visitVariableExpr(expr: Expr.Variable): Object {
-        return this.environment.get(expr.name);
+        return this.lookUpVariable(expr.name, expr);
+    }
+    private lookUpVariable(name: Token, expr: Expr): Object {
+        let distance: number | undefined = this.locals.get(expr);
+        if (distance !== undefined) {
+            return this.environment.getAt(distance, name.lexeme);
+        } else {
+            return this.globals.get(name);
+        }
     }
     public visitWhileStmt(stmt: Stmt.While): null {
         while (this.isTruthy(this.evaluate(stmt.condition))) {
@@ -171,6 +184,9 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     }
     private execute(stmt: Stmt): void {
         stmt.accept(this);
+    }
+    resolve(expr: Expr, depth: number): void {
+        this.locals.set(expr, depth);
     }
     executeBlock(statements: Stmt[], environment: Environment): void {
         let previous: Environment = this.environment;

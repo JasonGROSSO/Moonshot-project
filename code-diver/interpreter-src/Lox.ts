@@ -1,9 +1,9 @@
-import { Scanner } from "./scanner";
-import { Token } from "./token";
-import { Parser } from "./parser";
-import { RuntimeError } from "./runtime-error";
-import { Interpreter } from "./interpreter";
-import { Stmt } from "./stmt";
+import { Scanner } from "./scanner.ts";
+import { Token } from "./token.ts";
+import { Parser } from "./parser.ts";
+import { RuntimeError } from "./runtime-error.ts";
+import { Interpreter } from "./interpreter.ts";
+import { Resolver } from "./resolver.ts";
 
 export class Lox {
     private static interpreter: Interpreter = new Interpreter();
@@ -60,6 +60,12 @@ export class Lox {
         // Stop if there was a syntax error.
         if (Lox.hadError) return;
 
+        let resolver: Resolver = new Resolver(Lox.interpreter);
+        resolver.resolve(statements);
+
+        // Stop if there was a resolution error.
+        if (Lox.hadError) return;
+
         Lox.interpreter.interpret(statements);
 
     }
@@ -75,8 +81,12 @@ export class Lox {
         }
     }
     static runtimeError(error: RuntimeError): void {
-        console.error(error.message +
-            "\n[line " + error.token.line + "]");
+        if (error.token) {
+            console.error(error.message +
+                "\n[line " + error.token.line + "]");
+        } else {
+            console.error(error.message);
+        }
         Lox.hadRuntimeError = true;
     }
 }

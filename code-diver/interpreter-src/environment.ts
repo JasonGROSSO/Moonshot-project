@@ -31,7 +31,7 @@ export class Environment {
         if (this.enclosing != null) {
             this.enclosing.assign(name, value);
             return;
-          }
+        }
 
         throw new RuntimeError(name,
             "Undefined variable '" + name.lexeme + "'.");
@@ -40,4 +40,24 @@ export class Environment {
     define(name: string, value: Object): void {
         this.values.set(name, value);
     }
+
+     ancestor(distance: number): Environment {
+        let environment: Environment = this;
+        for (let i = 0; i < distance; i++) {
+            if (environment.enclosing === null) {
+                throw new Error("Enclosing environment is null.");
+            }
+            environment = environment.enclosing;
+        }
+
+        return environment;
+    }
+
+    getAt(distance: number, name: string): Object {
+        return this.ancestor(distance).values.get(name);
+    }
+
+    assignAt(distance: number, name: Token, value: Object): void {
+        this.ancestor(distance).values.set(name.lexeme, value);
+      }
 }
