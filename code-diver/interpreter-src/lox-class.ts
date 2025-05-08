@@ -5,10 +5,12 @@ import { LoxFunction } from "./lox-function.ts";
 
 export class LoxClass implements LoxCallable {
     name: string;
+    superclass: LoxClass;
     private methods: Map<String, LoxFunction>;
 
-    constructor(name: string, methods?: Map<String, LoxFunction>) {
+    constructor(name: string, superclass: LoxClass, methods?: Map<String, LoxFunction>) {
         this.name = name;
+        this.superclass = superclass;
         this.methods = methods || new Map<String, LoxFunction>();
     }
 
@@ -35,6 +37,10 @@ export class LoxClass implements LoxCallable {
     findMethod(name: string): LoxFunction | null {
         if (this.methods.has(name)) {
             return this.methods.get(name) ?? null;
+        }
+
+        if (this.superclass != null) {
+            return this.superclass.findMethod(name);
         }
 
         return null;

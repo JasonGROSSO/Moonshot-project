@@ -110,6 +110,19 @@ export abstract class Expr {
             return visitor.visitSetExpr(this);
         }
     }
+    static Super = class extends Expr {
+        keyword: Token;
+        method: Token;
+
+        constructor(keyword: Token, method: Token) {
+            super();
+            this.keyword = keyword;
+            this.method = method;
+        }
+        accept<R>(visitor: Expr.Visitor<R>): R {
+            return visitor.visitSuperExpr(this);
+        }
+    }
     static This = class extends Expr {
         keyword: Token;
 
@@ -158,9 +171,10 @@ export namespace Expr {
         visitLiteralExpr(expr: InstanceType<typeof Expr.Literal>): R;
         visitLogicalExpr(expr: InstanceType<typeof Expr.Logical>): R;
         visitSetExpr(expr: InstanceType<typeof Expr.Set>): R;
+        visitSuperExpr(expr: InstanceType<typeof Expr.Super>): R;
         visitThisExpr(expr: InstanceType<typeof Expr.This>): R;
         visitUnaryExpr(expr: InstanceType<typeof Expr.Unary>): R;
-        visitVariableExpr(expr: InstanceType<typeof Expr.Variable>): R;
+        visitVariableExpr(expr: Expr.Variable): R;
     }
     export type Assign = InstanceType<typeof Expr.Assign>;
     export type Binary = InstanceType<typeof Expr.Binary>;
@@ -170,6 +184,7 @@ export namespace Expr {
     export type Literal = InstanceType<typeof Expr.Literal>;
     export type Logical = InstanceType<typeof Expr.Logical>;
     export type Set = InstanceType<typeof Expr.Set>;
+    export type Super = InstanceType<typeof Expr.Super>;
     export type This = InstanceType<typeof Expr.This>;
     export type Unary = InstanceType<typeof Expr.Unary>;
     export type Variable = InstanceType<typeof Expr.Variable>;

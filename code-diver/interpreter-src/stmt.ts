@@ -15,11 +15,13 @@ export abstract class Stmt {
     }
     static Class = class extends Stmt {
         name: Token;
+        superclass: Expr.Variable | null;
         methods: Stmt.Function[];
 
-        constructor(name: Token, methods: Stmt.Function[]) {
+        constructor(name: Token, superclass: Expr.Variable | null, methods: Stmt.Function[]) {
             super();
             this.name = name;
+            this.superclass = superclass
             this.methods = methods
         }
         accept<R>(visitor: Stmt.Visitor<R>): R {

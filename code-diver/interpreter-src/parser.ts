@@ -37,6 +37,11 @@ export class Parser {
     }
     private classDeclaration(): Stmt {
         let name: Token = this.consume(TokenType.IDENTIFIER, "Expect class name.");
+        let superclass: Expr.Variable | null = null;
+        if (this.match(TokenType.LESS)) {
+            this.consume(TokenType.IDENTIFIER, "Expect superclass name.");
+            superclass = new Expr.Variable(this.previous());
+        }
         this.consume(TokenType.LEFT_BRACE, "Expect '{' before class body.");
 
         let methods: Stmt.Function[] = [];
@@ -46,7 +51,7 @@ export class Parser {
 
         this.consume(TokenType.RIGHT_BRACE, "Expect '}' after class body.");
 
-        return new Stmt.Class(name, methods);
+        return new Stmt.Class(name, superclass, methods);
     }
     private statement(): Stmt {
         if (this.match(TokenType.FOR)) return this.forStatement();
@@ -182,7 +187,7 @@ export class Parser {
             let value: Expr = this.assignment();
 
             if (expr instanceof Expr.Variable) {
-                let name: Token = expr.name;
+                let name: Token = (expr as Expr.Variable).name;
                 return new Expr.Assign(name, value);
             } else if (expr instanceof Expr.Get) {
                 let get: Expr.Get = expr as Expr.Get;
@@ -299,6 +304,14 @@ export class Parser {
 
         if (this.match(TokenType.NUMBER, TokenType.STRING)) {
             return new Expr.Literal(this.previous().literal);
+        }
+
+        if (this.match(TokenType.SUPER)) {
+            let keyword: Token = this.previous();
+            this.consume(TokenType.DOT, "Expect '.' after 'super'.");
+            let method: Token = this.consume(TokenType.IDENTIFIER,
+                "Expect superclass method name.");
+            return new Expr.Super(keyword, method);
         }
 
         if (this.match(TokenType.THIS)) return new Expr.This(this.previous());

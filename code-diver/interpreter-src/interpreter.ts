@@ -151,6 +151,29 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         (object as LoxInstance).set(expr.name, value);
         return value;
     }
+    public visitSuperExpr(expr: Expr.Super): Object {
+        let distance: number | undefined = this.locals.get(expr);
+        if (distance === undefined) {
+            throw new RuntimeError(expr.method, "Undefined variable distance.");
+        }
+        let superclass: LoxClass = this.environment.getAt(
+            distance, "super") as LoxClass;
+        let object: LoxInstance = this.environment.getAt(
+            distance - 1, "this") as LoxInstance;
+
+        let method: LoxFunction | null = superclass.findMethod(expr.method.lexeme);
+        if (method === null) {
+            throw new RuntimeError(expr.method, "Undefined property '" + expr.method.lexeme + "'.");
+        }
+
+        if (method == null) {
+            throw new RuntimeError(expr.method,
+                "Undefined property '" + expr.method.lexeme + "'.");
+
+        }
+
+        return method.bind(object);
+    }
     public visitThisExpr(expr: Expr.This): Object {
         return this.lookUpVariable(expr.keyword, expr);
     }
@@ -231,8 +254,24 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return null;
     }
     public visitClassStmt(stmt: Stmt.Class): null {
+
+        let superclass: Object | null = null;
+        if (stmt.superclass != null) {
+            superclass = this.evaluate(stmt.superclass);
+            if (!(superclass instanceof LoxClass)) {
+                throw new RuntimeError(stmt.superclass.name,
+                    "Superclass must be a class.");
+            }
+        }
+
         this.environment.define(stmt.name.lexeme, {});
 
+        if (stmt.superclass != null) {
+            this.environment = new Environment(this.environment);
+            if (superclass !== null) {
+                this.environment.define("super", superclass);
+            }
+        }
 
         let methods: Map<String, LoxFunction> = new Map();
         for (const method of stmt.methods) {
@@ -240,7 +279,16 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
             methods.set(method.name.lexeme, func);
         }
 
-        let klass: LoxClass = new LoxClass(stmt.name.lexeme, methods);
+        let klass: LoxClass = new LoxClass(stmt.name.lexeme,
+            superclass as LoxClass, methods);
+
+        if (superclass != null) {
+            if (this.environment.enclosing !== null) {
+                this.environment = this.environment.enclosing;
+            } else {
+                throw new Error("Enclosing environment is null.");
+            }
+        }
 
         this.environment.assign(stmt.name, klass);
         return null;
