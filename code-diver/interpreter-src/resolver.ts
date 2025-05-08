@@ -20,6 +20,29 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         return null;
     }
 
+    public visitClassStmt(stmt: Stmt.Class): null {
+
+        let enclosingClass: ClassType = currentClass;
+        currentClass = ClassType.CLASS;
+
+        this.declare(stmt.name);
+        this.define(stmt.name);
+
+        this.beginScope();
+        this.scopes[this.scopes.length - 1].set("this", true);
+
+        for (const method of stmt.methods) {
+            let declaration: FunctionType = FunctionType.METHOD;
+            this.resolveFunction(method, declaration);
+        }
+
+        this.endScope();
+
+        currentClass = enclosingClass;
+
+        return null;
+    }
+
     public visitExpressionStmt(stmt: Stmt.Expression): null {
         this.resolveExpr(stmt.expression);
         return null;
@@ -50,6 +73,11 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
             Lox.error(stmt.keyword, "Can't return from top-level code.");
         }
         if (stmt.value != null) {
+            if (this.currentFunction == FunctionType.INITIALIZER) {
+                Lox.error(stmt.keyword,
+                    "Can't return a value from an initializer.");
+            }
+
             this.resolveExpr(stmt.value);
         }
 
@@ -101,6 +129,10 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
 
         return null;
     }
+    public visitGetExpr(expr: Expr.Get): null {
+        this.resolveExpr(expr.object);
+        return null;
+    }
     public visitGroupingExpr(expr: Expr.Grouping): null {
         this.resolveExpr(expr.expression);
         return null;
@@ -111,6 +143,20 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     public visitLogicalExpr(expr: Expr.Logical): null {
         this.resolveExpr(expr.left);
         this.resolveExpr(expr.right);
+        return null;
+    }
+    public visitSetExpr(expr: Expr.Set): null {
+        this.resolveExpr(expr.value);
+        this.resolveExpr(expr.object);
+        return null;
+    }
+    public visitThisExpr(expr: Expr.This): null {
+        if (currentClass == ClassType.NONE) {
+            Lox.error(expr.keyword,
+                "Can't use 'this' outside of a class.");
+            return null;
+        }
+        this.resolveLocal(expr, expr.keyword);
         return null;
     }
     public visitUnaryExpr(expr: Expr.Unary): null {
@@ -177,7 +223,16 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
 
 enum FunctionType {
     NONE,
-    FUNCTION
+    FUNCTION,
+    INITIALIZER,
+    METHOD
 }
+
+enum ClassType {
+    NONE,
+    CLASS
+}
+
+let currentClass: ClassType = ClassType.NONE;
 
 

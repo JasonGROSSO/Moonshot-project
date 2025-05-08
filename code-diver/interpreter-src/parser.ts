@@ -26,6 +26,7 @@ export class Parser {
     }
     private declaration(): Stmt {
         try {
+            if (this.match(TokenType.CLASS)) return this.classDeclaration();
             if (this.match(TokenType.FUN)) return this.function("function");
             if (this.match(TokenType.VAR)) return this.varDeclaration();
             return this.statement();
@@ -33,6 +34,19 @@ export class Parser {
             this.synchronize();
             return new Stmt.Expression(new Expr.Literal(null)); // Return a dummy statement on error
         }
+    }
+    private classDeclaration(): Stmt {
+        let name: Token = this.consume(TokenType.IDENTIFIER, "Expect class name.");
+        this.consume(TokenType.LEFT_BRACE, "Expect '{' before class body.");
+
+        let methods: Stmt.Function[] = [];
+        while (!this.check(TokenType.RIGHT_BRACE) && !this.isAtEnd()) {
+            methods.push(this.function("method"));
+        }
+
+        this.consume(TokenType.RIGHT_BRACE, "Expect '}' after class body.");
+
+        return new Stmt.Class(name, methods);
     }
     private statement(): Stmt {
         if (this.match(TokenType.FOR)) return this.forStatement();
@@ -169,8 +183,10 @@ export class Parser {
 
             if (expr instanceof Expr.Variable) {
                 let name: Token = expr.name;
-                // Token name = ((Expr.Variable)expr).name;
                 return new Expr.Assign(name, value);
+            } else if (expr instanceof Expr.Get) {
+                let get: Expr.Get = expr as Expr.Get;
+                return new Expr.Set(get.object, get.name, value);
             }
 
             this.error(equals, "Invalid assignment target.");
@@ -264,6 +280,11 @@ export class Parser {
         while (true) {
             if (this.match(TokenType.LEFT_PAREN)) {
                 expr = this.finishCall(expr);
+
+            } else if (this.match(TokenType.DOT)) {
+                let name: Token = this.consume(TokenType.IDENTIFIER,
+                    "Expect property name after '.'.");
+                expr = new Expr.Get(expr, name);
             } else {
                 break;
             }
@@ -279,6 +300,8 @@ export class Parser {
         if (this.match(TokenType.NUMBER, TokenType.STRING)) {
             return new Expr.Literal(this.previous().literal);
         }
+
+        if (this.match(TokenType.THIS)) return new Expr.This(this.previous());
 
         if (this.match(TokenType.IDENTIFIER)) {
             return new Expr.Variable(this.previous());

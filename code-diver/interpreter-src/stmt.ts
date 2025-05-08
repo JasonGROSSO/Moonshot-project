@@ -13,6 +13,19 @@ export abstract class Stmt {
             return visitor.visitBlockStmt(this);
         }
     }
+    static Class = class extends Stmt {
+        name: Token;
+        methods: Stmt.Function[];
+
+        constructor(name: Token, methods: Stmt.Function[]) {
+            super();
+            this.name = name;
+            this.methods = methods
+        }
+        accept<R>(visitor: Stmt.Visitor<R>): R {
+            return visitor.visitClassStmt(this);
+        }
+    }
     static Expression = class extends Stmt {
         expression: Expr;
 
@@ -47,7 +60,7 @@ export abstract class Stmt {
         constructor(condition: Expr, thenBranch: Stmt, elseBranch: Stmt | null) {
             super();
             this.condition = condition;
-            this. thenBranch = thenBranch;
+            this.thenBranch = thenBranch;
             this.elseBranch = elseBranch;
         }
         accept<R>(visitor: Stmt.Visitor<R>): R {
@@ -111,6 +124,7 @@ export abstract class Stmt {
 export namespace Stmt {
     export interface Visitor<R> {
         visitBlockStmt(stmt: InstanceType<typeof Stmt.Block>): R;
+        visitClassStmt(stmt: InstanceType<typeof Stmt.Class>): R;
         visitExpressionStmt(stmt: InstanceType<typeof Stmt.Expression>): R;
         visitFunctionStmt(stmt: InstanceType<typeof Stmt.Function>): R;
         visitIfStmt(stmt: InstanceType<typeof Stmt.If>): R;
@@ -120,6 +134,7 @@ export namespace Stmt {
         visitWhileStmt(stmt: InstanceType<typeof Stmt.While>): R;
     }
     export type Block = InstanceType<typeof Stmt.Block>;
+    export type Class = InstanceType<typeof Stmt.Class>;
     export type Expression = InstanceType<typeof Stmt.Expression>;
     export type Function = InstanceType<typeof Stmt.Function>;
     export type If = InstanceType<typeof Stmt.If>;
