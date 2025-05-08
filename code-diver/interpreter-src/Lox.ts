@@ -1,11 +1,12 @@
-import { Scanner } from "./scanner.ts";
-import { Token } from "./token.ts";
+import { Interpreter } from "./interpreter.ts";
 import { Parser } from "./parser.ts";
 import { RuntimeError } from "./runtime-error.ts";
-import { Interpreter } from "./interpreter.ts";
 import { Resolver } from "./resolver.ts";
+import { Scanner } from "./scanner.ts";
+import { Token } from "./token.ts";
 
 export class Lox {
+    
     private static interpreter: Interpreter = new Interpreter();
     static hadError: boolean = false;
     static hadRuntimeError: boolean = false;
@@ -50,6 +51,7 @@ export class Lox {
         prompt();
         Lox.hadError = false;
     }
+
     private static run(source: string): void {
         const scanner = new Scanner(source);
         const tokens = scanner.scanTokens();
@@ -69,10 +71,12 @@ export class Lox {
         Lox.interpreter.interpret(statements);
 
     }
+
     private static report(line: number, where: string, message: string): void {
         console.error(`[line ${line}] Error${where}: ${message}`);
         this.hadError = true;
     }
+
     public static error(token: Token, message: string): void {
         if (token.type === "EOF") {
             this.report(token.line, " at end", message);
@@ -80,6 +84,7 @@ export class Lox {
             this.report(token.line, ` at '${token.lexeme}'`, message);
         }
     }
+
     static runtimeError(error: RuntimeError): void {
         if (error.token) {
             console.error(error.message +

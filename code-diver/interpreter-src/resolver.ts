@@ -1,11 +1,12 @@
 import { Expr } from "./expr.ts";
 import { Interpreter } from "./interpreter.ts";
+import { Lox } from "./lox.ts";
 import { Stmt } from "./stmt.ts";
 import { Token } from "./token.ts";
-import { Lox } from "./lox.ts";
 
 
 export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
+
     private interpreter: Interpreter;
     private scopes: Map<string, boolean>[] = [];
     private currentFunction: FunctionType = FunctionType.NONE;
@@ -13,6 +14,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     constructor(interpreter: Interpreter) {
         this.interpreter = interpreter;
     }
+
     public visitBlockStmt(stmt: Stmt.Block): null {
         this.beginScope();
         this.resolve(stmt.statements);
@@ -133,11 +135,13 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         this.resolveLocal(expr, expr.name);
         return null;
     }
+
     public visitBinaryExpr(expr: Expr.Binary): null {
         this.resolveExpr(expr.left);
         this.resolveExpr(expr.right);
         return null;
     }
+
     public visitCallExpr(expr: Expr.Call): null {
         this.resolveExpr(expr.callee);
 
@@ -147,27 +151,33 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
 
         return null;
     }
+
     public visitGetExpr(expr: Expr.Get): null {
         this.resolveExpr(expr.object);
         return null;
     }
+
     public visitGroupingExpr(expr: Expr.Grouping): null {
         this.resolveExpr(expr.expression);
         return null;
     }
+
     public visitLiteralExpr(expr: Expr.Literal): null {
         return null;
     }
+
     public visitLogicalExpr(expr: Expr.Logical): null {
         this.resolveExpr(expr.left);
         this.resolveExpr(expr.right);
         return null;
     }
+
     public visitSetExpr(expr: Expr.Set): null {
         this.resolveExpr(expr.value);
         this.resolveExpr(expr.object);
         return null;
     }
+
     public visitThisExpr(expr: Expr.This): null {
         if (currentClass == ClassType.NONE) {
             Lox.error(expr.keyword,
@@ -177,6 +187,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         this.resolveLocal(expr, expr.keyword);
         return null;
     }
+
     public visitUnaryExpr(expr: Expr.Unary): null {
         this.resolveExpr(expr.right);
         return null;
@@ -191,9 +202,11 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     private resolveStmt(stmt: Stmt): void {
         stmt.accept(this);
     }
+
     private resolveExpr(expr: Expr): void {
         expr.accept(this);
     }
+
     public visitSuperExpr(expr: Expr.Super): null {
         if (currentClass == ClassType.NONE) {
             Lox.error(expr.keyword,
@@ -205,6 +218,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         this.resolveLocal(expr, expr.keyword);
         return null;
     }
+
     private resolveFunction(func: Stmt.Function, type: FunctionType): null {
         let enclosingFunction: FunctionType = this.currentFunction;
         this.currentFunction = type;
@@ -218,12 +232,15 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         this.currentFunction = enclosingFunction;
         return null;
     }
+
     private beginScope(): void {
         this.scopes.push(new Map<string, boolean>());
     }
+
     private endScope(): void {
         this.scopes.pop();
     }
+
     private declare(name: Token): void {
         if (this.scopes.length === 0) return;
 
@@ -235,11 +252,13 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         }
         scope.set(name.lexeme, false);
     }
+
     private define(name: Token): void {
         if (this.scopes.length === 0) return;
         const scope = this.scopes[this.scopes.length - 1];
         scope.set(name.lexeme, true);
     }
+
     private resolveLocal(expr: Expr, name: Token): void {
         for (let i = this.scopes.length - 1; i >= 0; i--) {
             if (this.scopes[i].has(name.lexeme)) {
@@ -248,6 +267,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
             }
         }
     }
+    
 }
 
 enum FunctionType {

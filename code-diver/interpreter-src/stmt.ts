@@ -2,6 +2,7 @@ import { Expr } from './expr.ts';
 import { Token } from './token.ts';
 
 export abstract class Stmt {
+
     static Block = class extends Stmt {
         statements: Stmt[];
 
@@ -13,6 +14,7 @@ export abstract class Stmt {
             return visitor.visitBlockStmt(this);
         }
     }
+
     static Class = class extends Stmt {
         name: Token;
         superclass: Expr.Variable | null;
@@ -28,6 +30,7 @@ export abstract class Stmt {
             return visitor.visitClassStmt(this);
         }
     }
+
     static Expression = class extends Stmt {
         expression: Expr;
 
@@ -39,6 +42,7 @@ export abstract class Stmt {
             return visitor.visitExpressionStmt(this);
         }
     }
+
     static Function = class extends Stmt {
         name: Token;
         params: Token[]
@@ -54,6 +58,7 @@ export abstract class Stmt {
             return visitor.visitFunctionStmt(this);
         }
     }
+
     static If = class extends Stmt {
         condition: Expr;
         thenBranch: Stmt;
@@ -69,6 +74,7 @@ export abstract class Stmt {
             return visitor.visitIfStmt(this);
         }
     }
+
     static Print = class extends Stmt {
         expression: Expr;
 
@@ -81,6 +87,7 @@ export abstract class Stmt {
             return visitor.visitPrintStmt(this);
         }
     }
+
     static Return = class extends Stmt {
         keyword: Token;
         value: Expr | null;
@@ -94,6 +101,7 @@ export abstract class Stmt {
             return visitor.visitReturnStmt(this);
         }
     }
+
     static Var = class extends Stmt {
         name: Token;
         initializer: Expr | null;
@@ -107,6 +115,7 @@ export abstract class Stmt {
             return visitor.visitVarStmt(this);
         }
     }
+
     static While = class extends Stmt {
         condition: Expr;
         body: Stmt;
@@ -120,6 +129,7 @@ export abstract class Stmt {
             return visitor.visitWhileStmt(this);
         }
     }
+    
     abstract accept<R>(visitor: Stmt.Visitor<R>): R;
 }
 

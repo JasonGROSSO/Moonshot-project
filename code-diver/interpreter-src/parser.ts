@@ -1,10 +1,11 @@
-import { Token } from "./token.ts";
-import { TokenType } from "./token-type.ts"
 import { Expr } from "./expr.ts";
 import { Lox } from "./lox.ts";
 import { Stmt } from "./stmt.ts";
+import { Token } from "./token.ts";
+import { TokenType } from "./token-type.ts"
 
 export class Parser {
+
     static ParseError = class extends Error { };
     private tokens: Token[];
     private current: number = 0;
@@ -21,9 +22,11 @@ export class Parser {
     constructor(tokens: Token[]) {
         this.tokens = tokens;
     }
+
     private expression(): Expr {
         return this.assignment();
     }
+
     private declaration(): Stmt {
         try {
             if (this.match(TokenType.CLASS)) return this.classDeclaration();
@@ -35,6 +38,7 @@ export class Parser {
             return new Stmt.Expression(new Expr.Literal(null)); // Return a dummy statement on error
         }
     }
+
     private classDeclaration(): Stmt {
         let name: Token = this.consume(TokenType.IDENTIFIER, "Expect class name.");
         let superclass: Expr.Variable | null = null;
@@ -53,6 +57,7 @@ export class Parser {
 
         return new Stmt.Class(name, superclass, methods);
     }
+
     private statement(): Stmt {
         if (this.match(TokenType.FOR)) return this.forStatement();
         if (this.match(TokenType.IF)) return this.ifStatement();
@@ -63,6 +68,7 @@ export class Parser {
 
         return this.expressionStatement();
     }
+
     private forStatement(): Stmt {
         this.consume(TokenType.LEFT_PAREN, "Expect '(' after 'for'.");
         let initializer: Stmt | null = null;
@@ -98,6 +104,7 @@ export class Parser {
 
         return body;
     }
+
     private ifStatement(): Stmt {
         this.consume(TokenType.LEFT_PAREN, "Expect '(' after 'if'.");
         let condition: Expr = this.expression();
@@ -111,11 +118,13 @@ export class Parser {
 
         return new Stmt.If(condition, thenBranch, elseBranch);
     }
+
     private printStatement(): Stmt {
         let value: Expr = this.expression();
         this.consume(TokenType.SEMICOLON, "Expect ';' after value.");
         return new Stmt.Print(value);
     }
+
     private returnStatement(): Stmt {
         let keyword: Token = this.previous();
         let value: Expr | null = null;
@@ -126,6 +135,7 @@ export class Parser {
         this.consume(TokenType.SEMICOLON, "Expect ';' after return value.");
         return new Stmt.Return(keyword, value ?? new Expr.Literal(null));
     }
+
     private varDeclaration(): Stmt {
         let name: Token = this.consume(TokenType.IDENTIFIER, "Expect variable name.");
 
@@ -137,6 +147,7 @@ export class Parser {
         this.consume(TokenType.SEMICOLON, "Expect ';' after variable declaration.");
         return new Stmt.Var(name, initializer);
     }
+
     private whileStatement(): Stmt {
         this.consume(TokenType.LEFT_PAREN, "Expect '(' after 'while'.");
         let condition: Expr = this.expression();
@@ -145,11 +156,13 @@ export class Parser {
 
         return new Stmt.While(condition, body);
     }
+
     private expressionStatement(): Stmt {
         let expr: Expr = this.expression();
         this.consume(TokenType.SEMICOLON, "Expect ';' after expression.");
         return new Stmt.Expression(expr);
     }
+
     private function(kind: String): Stmt.Function {
         let name: Token = this.consume(TokenType.IDENTIFIER, "Expect " + kind + " name.");
         this.consume(TokenType.LEFT_PAREN, "Expect '(' after " + kind + " name.");
@@ -169,6 +182,7 @@ export class Parser {
         let body: Stmt[] = this.block();
         return new Stmt.Function(name, parameters, body);
     }
+
     private block(): Stmt[] {
         let statements: Stmt[] = [];
 
@@ -179,6 +193,7 @@ export class Parser {
         this.consume(TokenType.RIGHT_BRACE, "Expect '}' after block.");
         return statements;
     }
+
     private assignment(): Expr {
         let expr: Expr = this.or();
 
@@ -199,6 +214,7 @@ export class Parser {
 
         return expr;
     }
+
     private or(): Expr {
         let expr: Expr = this.and();
 
@@ -210,6 +226,7 @@ export class Parser {
 
         return expr;
     }
+
     private and(): Expr {
         let expr: Expr = this.equality();
 
@@ -221,6 +238,7 @@ export class Parser {
 
         return expr;
     }
+
     private equality(): Expr {
         let expr: Expr = this.comparison();
 
@@ -232,6 +250,7 @@ export class Parser {
 
         return expr;
     }
+
     private comparison(): Expr {
         let expr: Expr = this.term();
 
@@ -243,6 +262,7 @@ export class Parser {
 
         return expr;
     }
+
     private factor(): Expr {
         let expr: Expr = this.unary();
 
@@ -254,6 +274,7 @@ export class Parser {
 
         return expr;
     }
+
     private unary(): Expr {
         if (this.match(TokenType.BANG, TokenType.MINUS)) {
             let operator: Token = this.previous();
@@ -263,6 +284,7 @@ export class Parser {
 
         return this.call();
     }
+
     private finishCall(callee: Expr): Expr {
 
         let args: Expr[] = [];
@@ -279,6 +301,7 @@ export class Parser {
 
         return new Expr.Call(callee, paren, args);
     }
+
     private call(): Expr {
         let expr: Expr = this.primary();
 
@@ -297,6 +320,7 @@ export class Parser {
 
         return expr;
     }
+
     private primary(): Expr {
         if (this.match(TokenType.FALSE)) return new Expr.Literal(false);
         if (this.match(TokenType.TRUE)) return new Expr.Literal(true);
@@ -328,6 +352,7 @@ export class Parser {
 
         throw this.error(this.peek(), "Expect expression.");
     }
+
     private term(): Expr {
         let expr: Expr = this.factor();
 
@@ -339,6 +364,7 @@ export class Parser {
 
         return expr;
     }
+
     private match(...types: TokenType[]): boolean {
         for (const type of types) {
             if (this.check(type)) {
@@ -349,19 +375,23 @@ export class Parser {
 
         return false;
     }
+
     private consume(type: TokenType, message: string): Token {
         if (this.check(type)) return this.advance();
 
         throw this.error(this.peek(), message);
     }
+
     private check(type: TokenType) {
         if (this.isAtEnd()) return false;
         return this.peek().type === type as unknown as string;
     }
+
     private advance(): Token {
         if (!this.isAtEnd()) this.current++;
         return this.previous();
     }
+
     private isAtEnd(): boolean {
         return this.peek().type === TokenType.EOF as unknown as string;
     }
@@ -373,10 +403,12 @@ export class Parser {
     private previous(): Token {
         return this.tokens[this.current - 1];
     }
+
     private error(token: Token, message: string): typeof Parser.ParseError {
         Lox.error(token, message);
         throw new Parser.ParseError();
     }
+
     private synchronize(): void {
         this.advance();
 
@@ -398,4 +430,5 @@ export class Parser {
             this.advance();
         }
     }
+
 }

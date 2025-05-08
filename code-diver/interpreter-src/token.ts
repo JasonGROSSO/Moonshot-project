@@ -1,4 +1,5 @@
 export class Token {
+
     type: string;
     lexeme: string;
     literal: any;
@@ -18,4 +19,5 @@ export class Token {
     get(): string {
         return this.lexeme;
     }
+    
 }

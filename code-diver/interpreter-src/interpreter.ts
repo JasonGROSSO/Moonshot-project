@@ -1,15 +1,15 @@
+import { Environment } from './environment.ts';
+import { Expr } from './expr.ts';
 import { Lox } from './lox.ts';
+import { LoxCallable } from './lox-callable.ts';
+import { LoxClass } from './lox-class.ts';
+import { LoxFunction } from './lox-function.ts';
+import { LoxInstance } from './lox-instance.ts';
+import { Return } from './return.ts';
+import { RuntimeError } from './runtime-error.ts';
+import { Stmt } from './stmt.ts';
 import { Token } from './token.ts';
 import { TokenType } from './token-type.ts'
-import { RuntimeError } from './runtime-error.ts';
-import { Expr } from './expr.ts';
-import { Stmt } from './stmt.ts';
-import { Environment } from './environment.ts';
-import { LoxCallable } from './lox-callable.ts';
-import { LoxFunction } from './lox-function.ts';
-import { Return } from './return.ts';
-import { LoxClass } from './lox-class.ts';
-import { LoxInstance } from './lox-instance.ts';
 
 export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 

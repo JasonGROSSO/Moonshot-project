@@ -1,9 +1,10 @@
-import { LoxInstance } from "./lox-instance.ts";
 import { Interpreter } from "./interpreter.ts";
 import { LoxCallable } from "./lox-callable.ts";
 import { LoxFunction } from "./lox-function.ts";
+import { LoxInstance } from "./lox-instance.ts";
 
 export class LoxClass implements LoxCallable {
+    
     name: string;
     superclass: LoxClass;
     private methods: Map<String, LoxFunction>;

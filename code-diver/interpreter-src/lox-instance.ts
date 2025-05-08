@@ -2,9 +2,9 @@ import { LoxClass } from "./lox-class.ts";
 import { RuntimeError } from "./runtime-error.ts";
 import { Token } from "./token.ts";
 import { LoxFunction } from "./lox-function.ts";
-import { Environment } from "./environment.ts";
 
 export class LoxInstance {
+    
     private klass: LoxClass;
     private fields: Map<string, Object> = new Map<string, Object>();
 
@@ -32,6 +32,7 @@ export class LoxInstance {
         throw new RuntimeError(name,
             "Undefined property '" + name.lexeme + "'.");
     }
+
     set(name: Token, value: Object): void {
         this.fields.set(name.lexeme, value);
 

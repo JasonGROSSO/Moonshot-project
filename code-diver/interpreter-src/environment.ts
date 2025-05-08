@@ -1,7 +1,8 @@
-import { Token } from "./token.ts";
 import { RuntimeError } from "./runtime-error.ts";
+import { Token } from "./token.ts";
 
 export class Environment {
+
     enclosing: Environment | null;
     private values: Map<string, any> = new Map();
 
@@ -11,15 +12,16 @@ export class Environment {
         this.values = new Map();
     }
 
-    get(name: Token): Object {
-        if (this.values.has(name.lexeme)) {
-            return this.values.get(name.lexeme);
+    ancestor(distance: number): Environment {
+        let environment: Environment = this;
+        for (let i = 0; i < distance; i++) {
+            if (environment.enclosing === null) {
+                throw new Error("Enclosing environment is null.");
+            }
+            environment = environment.enclosing;
         }
 
-        if (this.enclosing != null) return this.enclosing.get(name);
-
-        throw new RuntimeError(name,
-            "Undefined variable '" + name.lexeme + "'.");
+        return environment;
     }
 
     assign(name: Token, value: Object): void {
@@ -37,27 +39,27 @@ export class Environment {
             "Undefined variable '" + name.lexeme + "'.");
     }
 
+    assignAt(distance: number, name: Token, value: Object): void {
+        this.ancestor(distance).values.set(name.lexeme, value);
+    }
+
     define(name: string, value: Object): void {
         this.values.set(name, value);
     }
 
-     ancestor(distance: number): Environment {
-        let environment: Environment = this;
-        for (let i = 0; i < distance; i++) {
-            if (environment.enclosing === null) {
-                throw new Error("Enclosing environment is null.");
-            }
-            environment = environment.enclosing;
+    get(name: Token): Object {
+        if (this.values.has(name.lexeme)) {
+            return this.values.get(name.lexeme);
         }
 
-        return environment;
+        if (this.enclosing != null) return this.enclosing.get(name);
+
+        throw new RuntimeError(name,
+            "Undefined variable '" + name.lexeme + "'.");
     }
 
     getAt(distance: number, name: string): Object {
         return this.ancestor(distance).values.get(name);
     }
 
-    assignAt(distance: number, name: Token, value: Object): void {
-        this.ancestor(distance).values.set(name.lexeme, value);
-      }
 }

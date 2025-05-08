@@ -1,11 +1,12 @@
-import { LoxCallable } from "./lox-callable";
-import { Stmt } from "./stmt.ts";
-import { Interpreter } from "./interpreter.ts";
 import { Environment } from "./environment.ts";
-import { Return } from "./return.ts";
+import { LoxCallable } from "./lox-callable";
 import { LoxInstance } from "./lox-instance.ts";
+import { Interpreter } from "./interpreter.ts";
+import { Return } from "./return.ts";
+import { Stmt } from "./stmt.ts";
 
 export class LoxFunction implements LoxCallable {
+    
     private declaration: Stmt.Function;
     private closure: Environment;
     private isInitializer: boolean = false;
@@ -16,18 +17,22 @@ export class LoxFunction implements LoxCallable {
         this.isInitializer = isInitializer;
 
     }
+
     bind(instance: LoxInstance): LoxFunction {
         let environment: Environment = new Environment(this.closure);
         environment.define("this", instance);
         return new LoxFunction(this.declaration, environment,
             this.isInitializer);
     }
+
     public toString(): string {
         return "<fn " + this.declaration.name.lexeme + ">";
     }
+
     public arity(): number {
         return this.declaration.params.length;
     }
+
     public call(interpreter: Interpreter,
         args: Object[]): Object {
 

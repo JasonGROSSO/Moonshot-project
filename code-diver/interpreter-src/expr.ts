@@ -1,6 +1,7 @@
 import { Token } from './token.ts';
 
 export abstract class Expr {
+
     static Assign = class extends Expr {
         name: Token;
         value: Expr;
@@ -14,6 +15,7 @@ export abstract class Expr {
             return visitor.visitAssignExpr(this);
         }
     }
+
     static Binary = class extends Expr {
         left: Expr;
         operator: Token;
@@ -29,6 +31,7 @@ export abstract class Expr {
             return visitor.visitBinaryExpr(this);
         }
     }
+
     static Call = class extends Expr {
         callee: Expr;
         paren: Token;
@@ -44,6 +47,7 @@ export abstract class Expr {
             return visitor.visitCallExpr(this);
         }
     }
+
     static Get = class extends Expr {
         object: Expr;
         name: Token;
@@ -57,6 +61,7 @@ export abstract class Expr {
             return visitor.visitGetExpr(this);
         }
     }
+
     static Grouping = class extends Expr {
         expression: Expr;
 
@@ -69,6 +74,7 @@ export abstract class Expr {
         }
 
     }
+
     static Literal = class extends Expr {
         value: unknown;
 
@@ -80,6 +86,7 @@ export abstract class Expr {
             return visitor.visitLiteralExpr(this);
         }
     }
+
     static Logical = class extends Expr {
         left: Expr;
         operator: Token;
@@ -95,6 +102,7 @@ export abstract class Expr {
             return visitor.visitLogicalExpr(this);
         }
     }
+
     static Set = class extends Expr {
         object: Expr;
         name: Token;
@@ -110,6 +118,7 @@ export abstract class Expr {
             return visitor.visitSetExpr(this);
         }
     }
+
     static Super = class extends Expr {
         keyword: Token;
         method: Token;
@@ -123,6 +132,7 @@ export abstract class Expr {
             return visitor.visitSuperExpr(this);
         }
     }
+
     static This = class extends Expr {
         keyword: Token;
 
@@ -134,6 +144,7 @@ export abstract class Expr {
             return visitor.visitThisExpr(this);
         }
     }
+
     static Unary = class extends Expr {
         operator: Token;
         right: Expr;
@@ -147,6 +158,7 @@ export abstract class Expr {
             return visitor.visitUnaryExpr(this);
         }
     }
+
     static Variable = class extends Expr {
         name: Token;
 
@@ -158,6 +170,7 @@ export abstract class Expr {
             return visitor.visitVariableExpr(this);
         }
     }
+    
     abstract accept<R>(visitor: Expr.Visitor<R>): R;
 }
 

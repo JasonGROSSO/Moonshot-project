@@ -1,6 +1,6 @@
+import { Lox } from './lox';
 import { TokenType } from './token-type';
 import { Token } from './token';
-import { Lox } from './lox';
 
 export class Scanner {
     private source: string;
@@ -31,6 +31,7 @@ export class Scanner {
     constructor(source: string) {
         this.source = source;
     }
+
     scanTokens(): Token[] {
         let start = 0;
         let current = 0;
@@ -115,9 +116,11 @@ export class Scanner {
         const text: string = this.source.substring(this.start, this.current);
         this.tokens.push(new Token(TokenType[type], text, literal, this.line));
     }
+
     private isAtEnd() {
         return this.current >= this.source.length;
     }
+
     private match(expected: string): boolean {
         if (this.isAtEnd()) return false;
         if (this.source.charAt(this.current) != expected) return false;
@@ -125,14 +128,17 @@ export class Scanner {
         this.current++;
         return true;
     }
+
     private peek(): string {
         if (this.isAtEnd()) return '\0';
         return this.source.charAt(this.current);
     }
+
     private peekNext(): string {
         if (this.current + 1 >= this.source.length) return '\0';
         return this.source.charAt(this.current + 1);
     }
+
     private isAlpha(c) {
         return (c >= 'a' && c <= 'z') ||
             (c >= 'A' && c <= 'Z') ||
@@ -142,9 +148,11 @@ export class Scanner {
     private isAlphaNumeric(c) {
         return this.isAlpha(c) || this.isDigit(c);
     }
+
     private isDigit(c: string): boolean {
         return c >= '0' && c <= '9';
     }
+
     private string(): void {
         while (this.peek() != '"' && !this.isAtEnd()) {
             if (this.peek() == '\n') this.line++;
@@ -163,6 +171,7 @@ export class Scanner {
         const value = this.source.substring(this.start + 1, this.current - 1);
         this.addToken(TokenType.STRING, value);
     }
+
     private number(): void {
         while (this.isDigit(this.peek())) this.advance();
 
@@ -177,4 +186,5 @@ export class Scanner {
         const value = parseFloat(this.source.substring(this.start, this.current));
         this.addToken(TokenType.NUMBER, value);
     }
+
 }
