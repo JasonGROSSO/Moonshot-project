@@ -39,14 +39,10 @@ export class Scanner {
 
         const isAtEnd = (): boolean => current >= this.source.length;
 
-        const scanToken = (): void => {
-            // Placeholder for token scanning logic
-        };
-
         while (!isAtEnd()) {
             // We are at the beginning of the next lexeme.
             start = current;
-            scanToken();
+            this.scanToken();
         }
 
         this.tokens.push(new Token("EOF", "", null, line));
@@ -54,7 +50,7 @@ export class Scanner {
     }
 
     private scanToken(): void {
-        const c: string = this.advance();
+        let c: string = this.advance();
         switch (c) {
             case '(': this.addToken(TokenType.LEFT_PAREN); break;
             case ')': this.addToken(TokenType.RIGHT_PAREN); break;
