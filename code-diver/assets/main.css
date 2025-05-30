@@ -12,7 +12,7 @@ body {
 	display: grid;
 	place-items: center;
   }
-  
+
 .container {
 	background-color: rgba(0, 0, 0, 0.178);
 	padding-right: 20px;
@@ -43,7 +43,7 @@ body {
 .title {
 	margin-bottom: 0.9em;
 }
-  
+
 .subtitle {
 	color: antiquewhite;
 	font-size: 0.9rem;
