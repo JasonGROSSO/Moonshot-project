@@ -1,6 +1,6 @@
-import { Lox } from './lox';
-import { TokenType } from './token-type';
-import { Token } from './token';
+import { Lox } from "./lox.ts";
+import { TokenType } from "./token-type.ts";
+import { Token } from "./token.ts";
 
 export class Scanner {
     private source: string;
@@ -33,19 +33,13 @@ export class Scanner {
     }
 
     scanTokens(): Token[] {
-        let start = 0;
-        let current = 0;
-        let line = 1;
-
-        const isAtEnd = (): boolean => current >= this.source.length;
-
-        while (!isAtEnd()) {
+        while (!this.isAtEnd()) {
             // We are at the beginning of the next lexeme.
-            start = current;
+            this.start = this.current;
             this.scanToken();
         }
 
-        this.tokens.push(new Token("EOF", "", null, line));
+        this.tokens.push(new Token(TokenType.EOF, "", null, this.line));
         return this.tokens;
     }
 
@@ -90,7 +84,7 @@ export class Scanner {
                 } else if (this.isAlpha(c)) {
                     this.identifier();
                 } else {
-                    Lox.error(new Token(TokenType[TokenType.IDENTIFIER], "", null, this.line), "Unexpected character.");
+                    Lox.error(new Token(TokenType.IDENTIFIER, "", null, this.line), "Unexpected character.");
                 }
                 break;
         }
@@ -110,7 +104,7 @@ export class Scanner {
 
     private addToken(type: TokenType, literal: any = null): void {
         const text: string = this.source.substring(this.start, this.current);
-        this.tokens.push(new Token(TokenType[type], text, literal, this.line));
+        this.tokens.push(new Token(type, text, literal, this.line));
     }
 
     private isAtEnd() {
@@ -156,7 +150,7 @@ export class Scanner {
         }
 
         if (this.isAtEnd()) {
-            Lox.error(new Token(TokenType[TokenType.STRING], "", null, this.line), "Unterminated string.");
+            Lox.error(new Token(TokenType.STRING, "", null, this.line), "Unterminated string.");
             return;
         }
 

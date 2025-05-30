@@ -1,11 +1,12 @@
-export class Token {
+import { TokenType } from "./token-type.ts";
 
-    type: string;
+export class Token {
+    type: TokenType;
     lexeme: string;
     literal: any;
     line: number;
 
-    constructor(type: string, lexeme: string, literal: any, line: number) {
+    constructor(type: TokenType, lexeme: string, literal: any, line: number) {
         this.type = type;
         this.lexeme = lexeme;
         this.literal = literal;

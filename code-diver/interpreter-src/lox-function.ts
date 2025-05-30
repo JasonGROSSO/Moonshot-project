@@ -1,5 +1,5 @@
 import { Environment } from "./environment.ts";
-import { LoxCallable } from "./lox-callable";
+import { LoxCallable } from "./lox-callable.ts";
 import { LoxInstance } from "./lox-instance.ts";
 import { Interpreter } from "./interpreter.ts";
 import { Return } from "./return.ts";

@@ -384,7 +384,7 @@ export class Parser {
 
     private check(type: TokenType) {
         if (this.isAtEnd()) return false;
-        return this.peek().type === type as unknown as string;
+        return this.peek().type === type;
     }
 
     private advance(): Token {
@@ -393,10 +393,13 @@ export class Parser {
     }
 
     private isAtEnd(): boolean {
-        return this.peek().type === TokenType.EOF as unknown as string;
+        return this.current >= this.tokens.length || this.peek().type === TokenType.EOF;
     }
 
     private peek(): Token {
+        if (this.current >= this.tokens.length) {
+            return this.tokens[this.tokens.length - 1];
+        }
         return this.tokens[this.current];
     }
 
@@ -413,17 +416,17 @@ export class Parser {
         this.advance();
 
         while (!this.isAtEnd()) {
-            if (this.previous().type == TokenType.SEMICOLON as unknown as string) return;
+            if (this.previous().type == TokenType.SEMICOLON) return;
 
             switch (this.peek().type) {
-                case TokenType.CLASS as unknown as string:
-                case TokenType.FUN as unknown as string:
-                case TokenType.VAR as unknown as string:
-                case TokenType.FOR as unknown as string:
-                case TokenType.IF as unknown as string:
-                case TokenType.WHILE as unknown as string:
-                case TokenType.PRINT as unknown as string:
-                case TokenType.RETURN as unknown as string:
+                case TokenType.CLASS:
+                case TokenType.FUN:
+                case TokenType.VAR:
+                case TokenType.FOR:
+                case TokenType.IF:
+                case TokenType.WHILE:
+                case TokenType.PRINT:
+                case TokenType.RETURN:
                     return;
             }
 

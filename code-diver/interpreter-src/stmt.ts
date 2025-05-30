@@ -1,5 +1,5 @@
-import { Expr } from './expr.ts';
-import { Token } from './token.ts';
+import { Expr } from "./expr.ts";
+import { Token } from "./token.ts";
 
 export abstract class Stmt {
 

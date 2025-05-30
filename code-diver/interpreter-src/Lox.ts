@@ -1,9 +1,10 @@
-import { Interpreter } from "./interpreter.ts";
-import { Parser } from "./parser.ts";
-import { RuntimeError } from "./runtime-error.ts";
-import { Resolver } from "./resolver.ts";
-import { Scanner } from "./scanner.ts";
-import { Token } from "./token.ts";
+import { Interpreter } from "./interpreter";
+import { Parser } from "./parser";
+import { RuntimeError } from "./runtime-error";
+import { Resolver } from "./resolver";
+import { Scanner } from "./scanner";
+import { Token } from "./token";
+import { TokenType } from "./token-type";
 
 export class Lox {
     
@@ -16,8 +17,10 @@ export class Lox {
             console.log("Usage: jlox [script]");
             process.exit(64);
         } else if (args.length === 1) {
+            console.log(`Running script: ${args[0]}`);
             this.runFile(args[0]);
         } else {
+            console.log("Entering REPL mode.")
             this.runPrompt();
         }
     }
@@ -37,7 +40,7 @@ export class Lox {
         });
 
         const prompt = () => {
-            process.stdout.write("> ");
+            console.log("> ");
             rl.question("", (line: string) => {
                 if (line === null || line.trim() === "") {
                     rl.close();
@@ -78,7 +81,7 @@ export class Lox {
     }
 
     public static error(token: Token, message: string): void {
-        if (token.type === "EOF") {
+        if (token.type === TokenType.EOF) {
             this.report(token.line, " at end", message);
         } else {
             this.report(token.line, ` at '${token.lexeme}'`, message);
