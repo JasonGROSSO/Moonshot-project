@@ -27,7 +27,7 @@ export class LoxInstance {
         }
 
         let method: LoxFunction | null = this.klass.findMethod(name.lexeme);
-        if (method != null) return method.bind(this);
+        if (method !== null) {return method.bind(this);}
 
         throw new RuntimeError(name,
             "Undefined property '" + name.lexeme + "'.");

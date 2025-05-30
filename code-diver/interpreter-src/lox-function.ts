@@ -6,7 +6,7 @@ import { Return } from "./return.ts";
 import { Stmt } from "./stmt.ts";
 
 export class LoxFunction implements LoxCallable {
-    
+
     private declaration: Stmt.Function;
     private closure: Environment;
     private isInitializer: boolean = false;
@@ -45,13 +45,13 @@ export class LoxFunction implements LoxCallable {
         try {
             interpreter.executeBlock(this.declaration.statement, environment);
         } catch (returnValue) {
-            if (this.isInitializer) return this.closure.getAt(0, "this");
+            if (this.isInitializer) {return this.closure.getAt(0, "this");}
             if (returnValue instanceof Return) {
                 return returnValue.value;
             }
             throw returnValue;
         }
-        if (this.isInitializer) return this.closure.getAt(0, "this");
+        if (this.isInitializer) {return this.closure.getAt(0, "this");}
         return {};
     }
 }

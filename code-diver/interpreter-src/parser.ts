@@ -2,7 +2,7 @@ import { Expr } from "./expr.ts";
 import { Lox } from "./lox.ts";
 import { Stmt } from "./stmt.ts";
 import { Token } from "./token.ts";
-import { TokenType } from "./token-type.ts"
+import { TokenType } from "./token-type.ts";
 
 export class Parser {
 
@@ -29,9 +29,9 @@ export class Parser {
 
     private declaration(): Stmt {
         try {
-            if (this.match(TokenType.CLASS)) return this.classDeclaration();
-            if (this.match(TokenType.FUN)) return this.function("function");
-            if (this.match(TokenType.VAR)) return this.varDeclaration();
+            if (this.match(TokenType.CLASS)) { return this.classDeclaration(); }
+            if (this.match(TokenType.FUN)) { return this.function("function"); }
+            if (this.match(TokenType.VAR)) { return this.varDeclaration(); }
             return this.statement();
         } catch (error: unknown) {
             this.synchronize();
@@ -59,12 +59,12 @@ export class Parser {
     }
 
     private statement(): Stmt {
-        if (this.match(TokenType.FOR)) return this.forStatement();
-        if (this.match(TokenType.IF)) return this.ifStatement();
-        if (this.match(TokenType.PRINT)) return this.printStatement();
-        if (this.match(TokenType.RETURN)) return this.returnStatement();
-        if (this.match(TokenType.WHILE)) return this.whileStatement();
-        if (this.match(TokenType.LEFT_BRACE)) return new Stmt.Block(this.block());
+        if (this.match(TokenType.FOR)) { return this.forStatement(); }
+        if (this.match(TokenType.IF)) { return this.ifStatement(); }
+        if (this.match(TokenType.PRINT)) { return this.printStatement(); }
+        if (this.match(TokenType.RETURN)) { return this.returnStatement(); }
+        if (this.match(TokenType.WHILE)) { return this.whileStatement(); }
+        if (this.match(TokenType.LEFT_BRACE)) { return new Stmt.Block(this.block()); }
 
         return this.expressionStatement();
     }
@@ -90,15 +90,15 @@ export class Parser {
         }
         this.consume(TokenType.RIGHT_PAREN, "Expect ')' after for clauses.");
         let body: Stmt = this.statement();
-        if (increment != null) {
+        if (increment !== null) {
             body = new Stmt.Block(
                 [body, new Stmt.Expression(increment)]);
         }
 
-        if (condition == null) condition = new Expr.Literal(true);
+        if (condition === null) { condition = new Expr.Literal(true); }
         body = new Stmt.While(condition, body);
 
-        if (initializer != null) {
+        if (initializer !== null) {
             body = new Stmt.Block([initializer, body]);
         }
 
@@ -297,7 +297,7 @@ export class Parser {
             } while (this.match(TokenType.COMMA));
         }
 
-        let paren: Token = this.consume(TokenType.RIGHT_PAREN, "Expect ')' after arguments.")
+        let paren: Token = this.consume(TokenType.RIGHT_PAREN, "Expect ')' after arguments.");
 
         return new Expr.Call(callee, paren, args);
     }
@@ -322,9 +322,9 @@ export class Parser {
     }
 
     private primary(): Expr {
-        if (this.match(TokenType.FALSE)) return new Expr.Literal(false);
-        if (this.match(TokenType.TRUE)) return new Expr.Literal(true);
-        if (this.match(TokenType.NIL)) return new Expr.Literal(null);
+        if (this.match(TokenType.FALSE)) { return new Expr.Literal(false); }
+        if (this.match(TokenType.TRUE)) { return new Expr.Literal(true); }
+        if (this.match(TokenType.NIL)) { return new Expr.Literal(null); }
 
         if (this.match(TokenType.NUMBER, TokenType.STRING)) {
             return new Expr.Literal(this.previous().literal);
@@ -338,7 +338,7 @@ export class Parser {
             return new Expr.Super(keyword, method);
         }
 
-        if (this.match(TokenType.THIS)) return new Expr.This(this.previous());
+        if (this.match(TokenType.THIS)) { return new Expr.This(this.previous()); }
 
         if (this.match(TokenType.IDENTIFIER)) {
             return new Expr.Variable(this.previous());
@@ -377,18 +377,18 @@ export class Parser {
     }
 
     private consume(type: TokenType, message: string): Token {
-        if (this.check(type)) return this.advance();
+        if (this.check(type)) { return this.advance(); }
 
         throw this.error(this.peek(), message);
     }
 
     private check(type: TokenType) {
-        if (this.isAtEnd()) return false;
+        if (this.isAtEnd()) { return false; }
         return this.peek().type === type;
     }
 
     private advance(): Token {
-        if (!this.isAtEnd()) this.current++;
+        if (!this.isAtEnd()) { this.current++; }
         return this.previous();
     }
 
@@ -416,7 +416,7 @@ export class Parser {
         this.advance();
 
         while (!this.isAtEnd()) {
-            if (this.previous().type == TokenType.SEMICOLON) return;
+            if (this.previous().type === TokenType.SEMICOLON) { return; }
 
             switch (this.peek().type) {
                 case TokenType.CLASS:

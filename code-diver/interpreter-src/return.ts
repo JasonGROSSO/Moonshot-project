@@ -8,5 +8,5 @@ export class Return extends RuntimeError {
         super(null, "Return exception");
         this.value = value;
     }
-    
+
 }

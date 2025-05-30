@@ -4,7 +4,7 @@ import { LoxFunction } from "./lox-function.ts";
 import { LoxInstance } from "./lox-instance.ts";
 
 export class LoxClass implements LoxCallable {
-    
+
     name: string;
     superclass: LoxClass;
     private methods: Map<String, LoxFunction>;
@@ -31,7 +31,7 @@ export class LoxClass implements LoxCallable {
 
     public arity(): number {
         let initializer: LoxFunction | null = this.findMethod("init");
-        if (initializer == null) return 0;
+        if (initializer === null) { return 0; }
         return initializer.arity();
     }
 
@@ -40,7 +40,7 @@ export class LoxClass implements LoxCallable {
             return this.methods.get(name) ?? null;
         }
 
-        if (this.superclass != null) {
+        if (this.superclass !== null) {
             return this.superclass.findMethod(name);
         }
 

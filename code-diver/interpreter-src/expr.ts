@@ -14,7 +14,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitAssignExpr(this);
         }
-    }
+    };
 
     static Binary = class extends Expr {
         left: Expr;
@@ -30,7 +30,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitBinaryExpr(this);
         }
-    }
+    };
 
     static Call = class extends Expr {
         callee: Expr;
@@ -46,7 +46,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitCallExpr(this);
         }
-    }
+    };
 
     static Get = class extends Expr {
         object: Expr;
@@ -60,7 +60,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitGetExpr(this);
         }
-    }
+    };
 
     static Grouping = class extends Expr {
         expression: Expr;
@@ -73,7 +73,7 @@ export abstract class Expr {
             return visitor.visitGroupingExpr(this);
         }
 
-    }
+    };
 
     static Literal = class extends Expr {
         value: unknown;
@@ -85,7 +85,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitLiteralExpr(this);
         }
-    }
+    };
 
     static Logical = class extends Expr {
         left: Expr;
@@ -101,7 +101,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitLogicalExpr(this);
         }
-    }
+    };
 
     static Set = class extends Expr {
         object: Expr;
@@ -117,7 +117,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitSetExpr(this);
         }
-    }
+    };
 
     static Super = class extends Expr {
         keyword: Token;
@@ -131,7 +131,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitSuperExpr(this);
         }
-    }
+    };
 
     static This = class extends Expr {
         keyword: Token;
@@ -143,7 +143,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitThisExpr(this);
         }
-    }
+    };
 
     static Unary = class extends Expr {
         operator: Token;
@@ -157,7 +157,7 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitUnaryExpr(this);
         }
-    }
+    };
 
     static Variable = class extends Expr {
         name: Token;
@@ -169,8 +169,8 @@ export abstract class Expr {
         accept<R>(visitor: Expr.Visitor<R>): R {
             return visitor.visitVariableExpr(this);
         }
-    }
-    
+    };
+
     abstract accept<R>(visitor: Expr.Visitor<R>): R;
 }
 

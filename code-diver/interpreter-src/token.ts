@@ -20,5 +20,5 @@ export class Token {
     get(): string {
         return this.lexeme;
     }
-    
+
 }

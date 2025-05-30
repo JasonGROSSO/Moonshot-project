@@ -1,13 +1,13 @@
-import { Interpreter } from "./interpreter";
-import { Parser } from "./parser";
-import { RuntimeError } from "./runtime-error";
-import { Resolver } from "./resolver";
-import { Scanner } from "./scanner";
-import { Token } from "./token";
-import { TokenType } from "./token-type";
+import { Interpreter } from "./interpreter.ts";
+import { Parser } from "./parser.ts";
+import { RuntimeError } from "./runtime-error.ts";
+import { Resolver } from "./resolver.ts";
+import { Scanner } from "./scanner.ts";
+import { Token } from "./token.ts";
+import { TokenType } from "./token-type.ts";
 
 export class Lox {
-    
+
     private static interpreter: Interpreter = new Interpreter();
     static hadError: boolean = false;
     static hadRuntimeError: boolean = false;
@@ -20,7 +20,7 @@ export class Lox {
             console.log(`Running script: ${args[0]}`);
             this.runFile(args[0]);
         } else {
-            console.log("Entering REPL mode.")
+            console.log("Entering REPL mode.");
             this.runPrompt();
         }
     }
@@ -28,8 +28,8 @@ export class Lox {
     private static runFile(path: string): void {
         const bytes = require('fs').readFileSync(path);
         this.run(bytes.toString());
-        if (Lox.hadError) process.exit(65);
-        if (Lox.hadRuntimeError) process.exit(70);
+        if (Lox.hadError) { process.exit(65); }
+        if (Lox.hadRuntimeError) { process.exit(70); }
     }
 
     private static runPrompt(): void {
@@ -63,13 +63,13 @@ export class Lox {
         let statements = parser.parse();
 
         // Stop if there was a syntax error.
-        if (Lox.hadError) return;
+        if (Lox.hadError) { return; }
 
         let resolver: Resolver = new Resolver(Lox.interpreter);
         resolver.resolve(statements);
 
         // Stop if there was a resolution error.
-        if (Lox.hadError) return;
+        if (Lox.hadError) { return; }
 
         Lox.interpreter.interpret(statements);
 

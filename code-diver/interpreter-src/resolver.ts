@@ -30,18 +30,18 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         this.declare(stmt.name);
         this.define(stmt.name);
 
-        if (stmt.superclass != null &&
+        if (stmt.superclass !== null &&
             stmt.name.lexeme === stmt.superclass.name.lexeme) {
             Lox.error(stmt.superclass.name,
                 "A class can't inherit from itself.");
         }
 
-        if (stmt.superclass != null) {
+        if (stmt.superclass !== null) {
             currentClass = ClassType.SUBCLASS;
             this.resolveExpr(stmt.superclass);
         }
 
-        if (stmt.superclass != null) {
+        if (stmt.superclass !== null) {
             this.beginScope();
             this.scopes[this.scopes.length - 1].set("super", true);
         }
@@ -56,7 +56,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
 
         this.endScope();
 
-        if (stmt.superclass != null) this.endScope();
+        if (stmt.superclass !== null) { this.endScope(); }
 
         currentClass = enclosingClass;
 
@@ -79,7 +79,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     public visitIfStmt(stmt: Stmt.If): null {
         this.resolveExpr(stmt.condition);
         this.resolveStmt(stmt.thenBranch);
-        if (stmt.elseBranch != null) this.resolveStmt(stmt.elseBranch);
+        if (stmt.elseBranch !== null) { this.resolveStmt(stmt.elseBranch); }
         return null;
     }
 
@@ -89,11 +89,11 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     public visitReturnStmt(stmt: Stmt.Return): null {
-        if (this.currentFunction == FunctionType.NONE) {
+        if (this.currentFunction === FunctionType.NONE) {
             Lox.error(stmt.keyword, "Can't return from top-level code.");
         }
-        if (stmt.value != null) {
-            if (this.currentFunction == FunctionType.INITIALIZER) {
+        if (stmt.value !== null) {
+            if (this.currentFunction === FunctionType.INITIALIZER) {
                 Lox.error(stmt.keyword,
                     "Can't return a value from an initializer.");
             }
@@ -106,7 +106,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
 
     public visitVarStmt(stmt: Stmt.Var): null {
         this.declare(stmt.name);
-        if (stmt.initializer != null) {
+        if (stmt.initializer !== null) {
             this.resolveExpr(stmt.initializer);
         }
         this.define(stmt.name);
@@ -179,7 +179,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     public visitThisExpr(expr: Expr.This): null {
-        if (currentClass == ClassType.NONE) {
+        if (currentClass === ClassType.NONE) {
             Lox.error(expr.keyword,
                 "Can't use 'this' outside of a class.");
             return null;
@@ -208,10 +208,10 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     public visitSuperExpr(expr: Expr.Super): null {
-        if (currentClass == ClassType.NONE) {
+        if (currentClass === ClassType.NONE) {
             Lox.error(expr.keyword,
                 "Can't use 'super' outside of a class.");
-        } else if (currentClass != ClassType.SUBCLASS) {
+        } else if (currentClass !== ClassType.SUBCLASS) {
             Lox.error(expr.keyword,
                 "Can't use 'super' in a class with no superclass.");
         }
@@ -242,7 +242,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     private declare(name: Token): void {
-        if (this.scopes.length === 0) return;
+        if (this.scopes.length === 0) { return; }
 
         const scope = this.scopes[this.scopes.length - 1];
 
@@ -254,7 +254,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     private define(name: Token): void {
-        if (this.scopes.length === 0) return;
+        if (this.scopes.length === 0) { return; }
         const scope = this.scopes[this.scopes.length - 1];
         scope.set(name.lexeme, true);
     }
@@ -267,7 +267,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
             }
         }
     }
-    
+
 }
 
 enum FunctionType {

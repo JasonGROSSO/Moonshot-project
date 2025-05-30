@@ -13,7 +13,7 @@ export abstract class Stmt {
         accept<R>(visitor: Stmt.Visitor<R>): R {
             return visitor.visitBlockStmt(this);
         }
-    }
+    };
 
     static Class = class extends Stmt {
         name: Token;
@@ -23,13 +23,13 @@ export abstract class Stmt {
         constructor(name: Token, superclass: Expr.Variable | null, methods: Stmt.Function[]) {
             super();
             this.name = name;
-            this.superclass = superclass
-            this.methods = methods
+            this.superclass = superclass;
+            this.methods = methods;
         }
         accept<R>(visitor: Stmt.Visitor<R>): R {
             return visitor.visitClassStmt(this);
         }
-    }
+    };
 
     static Expression = class extends Stmt {
         expression: Expr;
@@ -41,11 +41,11 @@ export abstract class Stmt {
         accept<R>(visitor: Stmt.Visitor<R>): R {
             return visitor.visitExpressionStmt(this);
         }
-    }
+    };
 
     static Function = class extends Stmt {
         name: Token;
-        params: Token[]
+        params: Token[];
         statement: Stmt[];
 
         constructor(name: Token, params: Token[], statement: Stmt[]) {
@@ -57,7 +57,7 @@ export abstract class Stmt {
         accept<R>(visitor: Stmt.Visitor<R>): R {
             return visitor.visitFunctionStmt(this);
         }
-    }
+    };
 
     static If = class extends Stmt {
         condition: Expr;
@@ -73,7 +73,7 @@ export abstract class Stmt {
         accept<R>(visitor: Stmt.Visitor<R>): R {
             return visitor.visitIfStmt(this);
         }
-    }
+    };
 
     static Print = class extends Stmt {
         expression: Expr;
@@ -86,7 +86,7 @@ export abstract class Stmt {
         accept<R>(visitor: Stmt.Visitor<R>): R {
             return visitor.visitPrintStmt(this);
         }
-    }
+    };
 
     static Return = class extends Stmt {
         keyword: Token;
@@ -100,7 +100,7 @@ export abstract class Stmt {
         accept<R>(visitor: Stmt.Visitor<R>): R {
             return visitor.visitReturnStmt(this);
         }
-    }
+    };
 
     static Var = class extends Stmt {
         name: Token;
@@ -114,7 +114,7 @@ export abstract class Stmt {
         accept<R>(visitor: Stmt.Visitor<R>): R {
             return visitor.visitVarStmt(this);
         }
-    }
+    };
 
     static While = class extends Stmt {
         condition: Expr;
@@ -128,8 +128,8 @@ export abstract class Stmt {
         accept<R>(visitor: Stmt.Visitor<R>): R {
             return visitor.visitWhileStmt(this);
         }
-    }
-    
+    };
+
     abstract accept<R>(visitor: Stmt.Visitor<R>): R;
 }
 

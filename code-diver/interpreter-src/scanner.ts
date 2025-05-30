@@ -63,7 +63,7 @@ export class Scanner {
             case '/':
                 if (this.match('/')) {
                     // A comment goes until the end of the line.
-                    while (this.peek() != '\n' && !this.isAtEnd()) this.advance();
+                    while (this.peek() !== '\n' && !this.isAtEnd()) { this.advance(); }
                 } else {
                     this.addToken(TokenType.SLASH);
                 }
@@ -91,7 +91,7 @@ export class Scanner {
     }
 
     private identifier(): void {
-        while (this.isAlphaNumeric(this.peek())) this.advance();
+        while (this.isAlphaNumeric(this.peek())) { this.advance(); }
 
         const text: string = this.source.substring(this.start, this.current);
         const type: TokenType = Scanner.keywords.get(text) || TokenType.IDENTIFIER;
@@ -112,27 +112,27 @@ export class Scanner {
     }
 
     private match(expected: string): boolean {
-        if (this.isAtEnd()) return false;
-        if (this.source.charAt(this.current) != expected) return false;
+        if (this.isAtEnd()) { return false; }
+        if (this.source.charAt(this.current) !== expected) { return false; }
 
         this.current++;
         return true;
     }
 
     private peek(): string {
-        if (this.isAtEnd()) return '\0';
+        if (this.isAtEnd()) { return '\0'; }
         return this.source.charAt(this.current);
     }
 
     private peekNext(): string {
-        if (this.current + 1 >= this.source.length) return '\0';
+        if (this.current + 1 >= this.source.length) { return '\0'; }
         return this.source.charAt(this.current + 1);
     }
 
     private isAlpha(c: string): boolean {
         return (c >= 'a' && c <= 'z') ||
             (c >= 'A' && c <= 'Z') ||
-            c == '_';
+            c === '_';
     }
 
     private isAlphaNumeric(c: string): boolean {
@@ -144,8 +144,8 @@ export class Scanner {
     }
 
     private string(): void {
-        while (this.peek() != '"' && !this.isAtEnd()) {
-            if (this.peek() == '\n') this.line++;
+        while (this.peek() !== '"' && !this.isAtEnd()) {
+            if (this.peek() === '\n') { this.line++; }
             this.advance();
         }
 
@@ -163,14 +163,14 @@ export class Scanner {
     }
 
     private number(): void {
-        while (this.isDigit(this.peek())) this.advance();
+        while (this.isDigit(this.peek())) { this.advance(); }
 
         // Look for a fractional part.
-        if (this.peek() == '.' && this.isDigit(this.peekNext())) {
+        if (this.peek() === '.' && this.isDigit(this.peekNext())) {
             // Consume the "."
             this.advance();
 
-            while (this.isDigit(this.peek())) this.advance();
+            while (this.isDigit(this.peek())) { this.advance(); }
         }
 
         const value = parseFloat(this.source.substring(this.start, this.current));

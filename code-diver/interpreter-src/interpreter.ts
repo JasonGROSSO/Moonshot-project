@@ -132,9 +132,9 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         let left: any = this.evaluate(expr.left);
 
         if (expr.operator.type === TokenType.OR) {
-            if (this.isTruthy(left)) return left;
+            if (this.isTruthy(left)) { return left; }
         } else {
-            if (!this.isTruthy(left)) return left;
+            if (!this.isTruthy(left)) { return left; }
         }
 
         return this.evaluate(expr.right);
@@ -166,7 +166,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
             throw new RuntimeError(expr.method, "Undefined property '" + expr.method.lexeme + "'.");
         }
 
-        if (method == null) {
+        if (method === null) {
             throw new RuntimeError(expr.method,
                 "Undefined property '" + expr.method.lexeme + "'.");
 
@@ -209,22 +209,22 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return null;
     }
     private isTruthy(object: any): boolean {
-        if (object == null) return false;
-        if (typeof object === "boolean") return object;
+        if (object === null) { return false; }
+        if (typeof object === "boolean") { return object; }
         return true;
     }
     private isEqual(a: any, b: any): boolean {
-        if (a == null && b == null) return true;
-        if (a == null) return false;
+        if (a === null && b === null) { return true; }
+        if (a === null) { return false; }
 
         return a === b;
     }
     private checkNumberOperand(operator: Token, operand: any): void {
-        if (typeof operand === "number") return;
+        if (typeof operand === "number") { return; }
         throw new RuntimeError(operator, "Operand must be a number.");
     }
     private checkNumberOperands(operator: Token, left: any, right: any): void {
-        if (typeof left === "number" && typeof right === "number") return;
+        if (typeof left === "number" && typeof right === "number") { return; }
 
         throw new RuntimeError(operator, "Operands must be numbers.");
     }
@@ -256,7 +256,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     public visitClassStmt(stmt: Stmt.Class): null {
 
         let superclass: Object | null = null;
-        if (stmt.superclass != null) {
+        if (stmt.superclass !== null) {
             superclass = this.evaluate(stmt.superclass);
             if (!(superclass instanceof LoxClass)) {
                 throw new RuntimeError(stmt.superclass.name,
@@ -266,7 +266,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
         this.environment.define(stmt.name.lexeme, {});
 
-        if (stmt.superclass != null) {
+        if (stmt.superclass !== null) {
             this.environment = new Environment(this.environment);
             if (superclass !== null) {
                 this.environment.define("super", superclass);
@@ -282,7 +282,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         let klass: LoxClass = new LoxClass(stmt.name.lexeme,
             superclass as LoxClass, methods);
 
-        if (superclass != null) {
+        if (superclass !== null) {
             if (this.environment.enclosing !== null) {
                 this.environment = this.environment.enclosing;
             } else {
@@ -305,7 +305,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     public visitIfStmt(stmt: Stmt.If): null {
         if (this.isTruthy(this.evaluate(stmt.condition))) {
             this.execute(stmt.thenBranch);
-        } else if (stmt.elseBranch != null) {
+        } else if (stmt.elseBranch !== null) {
             this.execute(stmt.elseBranch);
         }
         return null;
@@ -317,13 +317,13 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     }
     public visitReturnStmt(stmt: Stmt.Return): null {
         let value: Object | null = null;
-        if (stmt.value != null) value = this.evaluate(stmt.value);
+        if (stmt.value !== null) { value = this.evaluate(stmt.value); }
 
         throw new Return(value ?? {});
     }
     public visitVarStmt(stmt: Stmt.Var): null {
         let value: Object | null = null;
-        if (stmt.initializer != null) {
+        if (stmt.initializer !== null) {
             value = this.evaluate(stmt.initializer);
         }
 
@@ -331,7 +331,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return null;
     }
     private stringify(object: any): String {
-        if (object == null) return "nil";
+        if (object === null) { return "nil"; }
 
         if (object instanceof Number) {
             let text: String = object.toString();
