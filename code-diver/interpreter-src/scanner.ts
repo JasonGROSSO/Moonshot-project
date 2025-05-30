@@ -129,13 +129,13 @@ export class Scanner {
         return this.source.charAt(this.current + 1);
     }
 
-    private isAlpha(c) {
+    private isAlpha(c: string): boolean {
         return (c >= 'a' && c <= 'z') ||
             (c >= 'A' && c <= 'Z') ||
             c == '_';
     }
 
-    private isAlphaNumeric(c) {
+    private isAlphaNumeric(c: string): boolean {
         return this.isAlpha(c) || this.isDigit(c);
     }
 

@@ -1,6 +1,23 @@
 {
-    "compilerOptions": {
-        "allowImportingTsExtensions": true,
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "ES2020",
+		"outDir": "out",
+		"lib": [
+			"ES2020"
+		],
+		"sourceMap": true,
+		"rootDir": ".", // Set rootDir to project root to include all source files
+		"strict": true ,  /* enable all strict type-checking options */
+		"allowImportingTsExtensions": true,
         "noEmit": true
-    }
+	},
+	"exclude": [
+		"node_modules",
+		".vscode-test"
+	],
+	"include": [
+		"extension-src/**/*",
+		"interpreter-src/**/*"
+	]
 }

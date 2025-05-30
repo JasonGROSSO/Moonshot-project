@@ -6,6 +6,8 @@ function main() {
 
     Lox.main([]);
 
+    // Lox.main(["main.lox"]);
+
 }
 
 main();
