@@ -1,8 +1,8 @@
-import { Expr } from "./expr.ts";
-import { Lox } from "./lox.ts";
-import { Stmt } from "./stmt.ts";
-import { Token } from "./token.ts";
-import { TokenType } from "./token-type.ts";
+import { Expr } from "./expr";
+import { Lox } from "./lox";
+import { Stmt } from "./stmt";
+import { Token } from "./token";
+import { TokenType } from "./token-type";
 
 export class Parser {
 

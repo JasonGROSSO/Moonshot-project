@@ -1,5 +1,5 @@
-import { RuntimeError } from "./runtime-error.ts";
-import { Token } from "./token.ts";
+import { RuntimeError } from "./runtime-error";
+import { Token } from "./token";
 
 export class Environment {
 

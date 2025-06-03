@@ -1,4 +1,4 @@
-import { Lox } from "./lox.ts";
+import { Lox } from "./lox";
 
 function main() {
 

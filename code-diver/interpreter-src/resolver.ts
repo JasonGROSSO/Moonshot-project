@@ -1,8 +1,8 @@
-import { Expr } from "./expr.ts";
-import { Interpreter } from "./interpreter.ts";
-import { Lox } from "./lox.ts";
-import { Stmt } from "./stmt.ts";
-import { Token } from "./token.ts";
+import { Expr } from "./expr";
+import { Interpreter } from "./interpreter";
+import { Lox } from "./lox";
+import { Stmt } from "./stmt";
+import { Token } from "./token";
 
 
 export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {

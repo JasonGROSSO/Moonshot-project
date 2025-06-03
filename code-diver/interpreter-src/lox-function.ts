@@ -1,9 +1,9 @@
-import { Environment } from "./environment.ts";
-import { LoxCallable } from "./lox-callable.ts";
-import { LoxInstance } from "./lox-instance.ts";
-import { Interpreter } from "./interpreter.ts";
-import { Return } from "./return.ts";
-import { Stmt } from "./stmt.ts";
+import { Environment } from "./environment";
+import { LoxCallable } from "./lox-callable";
+import { LoxInstance } from "./lox-instance";
+import { Interpreter } from "./interpreter";
+import { Return } from "./return";
+import { Stmt } from "./stmt";
 
 export class LoxFunction implements LoxCallable {
 

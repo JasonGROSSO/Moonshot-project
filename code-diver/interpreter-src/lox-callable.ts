@@ -1,4 +1,4 @@
-import { Interpreter } from "./interpreter.ts";
+import { Interpreter } from "./interpreter";
 
 export interface LoxCallable {
 

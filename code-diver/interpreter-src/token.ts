@@ -1,4 +1,4 @@
-import { TokenType } from "./token-type.ts";
+import { TokenType } from "./token-type";
 
 export class Token {
     type: TokenType;

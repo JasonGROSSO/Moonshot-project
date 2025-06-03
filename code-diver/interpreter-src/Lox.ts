@@ -1,10 +1,10 @@
-import { Interpreter } from "./interpreter.ts";
-import { Parser } from "./parser.ts";
-import { RuntimeError } from "./runtime-error.ts";
-import { Resolver } from "./resolver.ts";
-import { Scanner } from "./scanner.ts";
-import { Token } from "./token.ts";
-import { TokenType } from "./token-type.ts";
+import { Interpreter } from "./interpreter";
+import { Parser } from "./parser";
+import { RuntimeError } from "./runtime-error";
+import { Resolver } from "./resolver";
+import { Scanner } from "./scanner";
+import { Token } from "./token";
+import { TokenType } from "./token-type";
 
 export class Lox {
 

@@ -1,7 +1,7 @@
-import { Interpreter } from "./interpreter.ts";
-import { LoxCallable } from "./lox-callable.ts";
-import { LoxFunction } from "./lox-function.ts";
-import { LoxInstance } from "./lox-instance.ts";
+import { Interpreter } from "./interpreter";
+import { LoxCallable } from "./lox-callable";
+import { LoxFunction } from "./lox-function";
+import { LoxInstance } from "./lox-instance";
 
 export class LoxClass implements LoxCallable {
 

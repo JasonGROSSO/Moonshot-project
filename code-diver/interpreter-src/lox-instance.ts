@@ -1,7 +1,7 @@
-import { LoxClass } from "./lox-class.ts";
-import { RuntimeError } from "./runtime-error.ts";
-import { Token } from "./token.ts";
-import { LoxFunction } from "./lox-function.ts";
+import { LoxClass } from "./lox-class";
+import { RuntimeError } from "./runtime-error";
+import { Token } from "./token";
+import { LoxFunction } from "./lox-function";
 
 export class LoxInstance {
     

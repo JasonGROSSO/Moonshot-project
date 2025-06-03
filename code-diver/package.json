@@ -12,45 +12,45 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-   "viewsContainers": {
-    "activitybar": [
-      {
-        "id": "code-diver",
-        "title": "Code Diver",
-        "icon": "assets/icon.png"
-      }
-    ]
-   },
-   "views": {
-    "code-diver": [
-      {
-        "type": "webview",
-        "id": "code-diver.openview",
-        "name": "view"
-      }
-    ]
-   },
-   "commands": [
-    {
-      "command": "code-diver.openview",
-      "title": "Open Sidebar View"
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "code-diver",
+          "title": "Code Diver",
+          "icon": "assets/icon.png"
+        }
+      ]
     },
-    {
-      "command": "code-diver.menu.close",
+    "views": {
+      "code-diver": [
+        {
+          "type": "webview",
+          "id": "code-diver.openview",
+          "name": "view"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "code-diver.openview",
+        "title": "Open Sidebar View"
+      },
+      {
+        "command": "code-diver.menu.close",
         "category": "code-diver-extension-sidebar-html",
         "title": "Code Diver Close Button",
         "icon": "$(clear-all)"
-    }
-   ],
-   "menus": {
-    "view/title": [
-      {
-        "command": "code-diver.menu.close",
-        "group": "navigation",
-        "when": "view == code-diver.openview"
       }
-    ]
-   }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "code-diver.menu.close",
+          "group": "navigation",
+          "when": "view == code-diver.openview"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -61,14 +61,14 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.97.0",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.15.23",
+    "@types/node": "^22.15.29",
+    "@types/vscode": "^1.97.0",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
-    "eslint": "^9.16.0",
-    "typescript": "^5.7.2",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2"
   }
 }

@@ -1,4 +1,4 @@
-import { RuntimeError } from "./runtime-error.ts";
+import { RuntimeError } from "./runtime-error";
 
 export class Return extends RuntimeError {
 
