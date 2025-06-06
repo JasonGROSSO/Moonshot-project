@@ -13,13 +13,13 @@ export class Lox {
     static hadRuntimeError: boolean = false;
 
     public static main(args: string[]): void {
-        if (args.length > 1) {
+        if (args.length > 1) { // if more than one file
             console.log("Usage: jlox [script]");
             process.exit(64);
-        } else if (args.length === 1) {
+        } else if (args.length === 1) { // if one file
             console.log(`Running script: ${args[0]}`);
             this.runFile(args[0]);
-        } else {
+        } else { // if no file
             console.log("Entering REPL mode.");
             this.runPrompt();
         }
