@@ -69,3 +69,24 @@ You can author your README using Visual Studio Code. Here are some useful editor
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
+
+create a .vscode folder, a launch.json file and copy this into it:
+
+``
+{
+"version": "0.2.0",
+    "configurations": [
+        {
+            "args": [
+                "--extensionDevelopmentPath=${workspaceFolder}"
+            ],
+            "name": "Launch Extension",
+            "outFiles": [
+                "${workspaceFolder}/out/*.js"
+            ],
+            "request": "launch",
+            "type": "extensionHost"
+        }
+    ]
+}
+``
