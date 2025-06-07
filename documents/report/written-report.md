@@ -23,11 +23,12 @@ Three productions are expected: all the source codes of the project, a written r
 
 My project, this project is a Visual Studio Code Extension (VS Code extension), Its name is Code Diver and it's objective is to help developers work more efficiently.
 The main functionality of Code Diver, is to follow the evolution of an component of a software throughout it's execution path.
+
 One of the major roadblock when joining a team to work on a piece of software, is understanding said the architecture, the inner working of said softaware.
 This problem of integrating new software developers into software developement team is a massive and well known problem of the industry, as such a multitude of software exist to fight this problem, and they are very varied too:
 
-- Documentation tools such as Doxygen, Sphinx or Read The Docs;
-- Impact Analysis tools such as ESLint, ArchUnit or Lizard;
+- Documentation tools such as Doxygen, Sphinx or Read The Docs,
+- Impact Analysis tools such as ESLint, ArchUnit or Lizard,
 - AI Assistants such as SonarQube, CapeGemini, Cobol Colleague or WatsonX pour Z.
 
 Code Diver is my humble contribution to these tools, it can be classified as a small scale Impact Analysis tool.
@@ -37,8 +38,86 @@ Code Diver is my humble contribution to these tools, it can be classified as a s
 ### Vision
 
 The vision for the Code Diver extension is to provide an intuitive tool to understand and visualise the lifecycle of a software's component.
-The extensions focus is to simplifie the work of developer as such it as been designed to be simple to use and understand for developers disregarding their proefficience.
+This project's focus is to simplifie the work of developer, as such it as been designed to be simple to use and understand for developers disregarding their level.
 
-When called the extension would open a new and dedicated term
-Exemple:
-``x was changed by f; at t; value was: y; value changed to z;``, in that case 'x' is the component, 'f' is a function thatchange the component, 't' is the time at which the component was changed, 'y' is the value of the component before it was changed and 'z' is the value of the component after it was changed.
+By creating a VS Code extension we make it so the users do not have to change windows when working, conserving focus and momentum.
+
+### Objectives
+
+- Improve Productivity: Increase the resolution speed of tasks,
+- Speed Up Integration: Reduce the time spent understanding the inner working of a software for newcomers,
+- Be Accessible: Software developers can use and understand how to use the app regarding of their level,
+- Maintain Momentum: Integrate Code Diver seamlessly into the work environment to maintain focus and concentration.
+
+### Scope
+
+Start the extension:
+
+- The extension must be found in the Comand Pallete ('Crtl' + 'Shift' + 'P') under the name 'Code Diver: Start Dive',
+- When activating the command a new terminal must be opened, and users can interact with the program.
+
+Input a file:
+
+- When in the graphical interface, users must be able to input a PATH to a file and get a confirmation that the file is found.
+
+Available in the extension panel:
+
+- The extension must be available in the extension market ('Crtl' + 'Shift' + 'X'),
+- Users must be able to install and launch the extension found in the extension market.
+
+Input parameter:
+
+- When prompted the user must be able to select which type of component he is searching for,
+- When prompted the user must be able to enter the name of a component that he is searching for.
+
+Get informations on component:
+
+- Once users have entered the file, the type of component and the name of said component, the extension starts interpreting the code while looking for the component,
+- If the interpreter encounters the component, it must print out information on the component,
+- In the case of a variable: component x, called by f; value was: y; value changed to z.
+
+### Out of Scope
+
+- Input multiple component: The extension cannot research multiple components at the same time,
+- Language support: The extension support the pseudo language Lox,
+- Component diversity: Variables are the only component that can be researched,
+- Webview interface: The extension does not have a dedicated webview (side panel),
+- Timing: The extension does not keep track of the execution time.
+
+> These features are not excluded permanently, they may appear in future updates.
+
+### Organisation
+
+#### Stakeholders
+
+| Stakeholder | Role |
+| --- | --- |
+| Jason GROSSO | In charge of leading and executing the project. |
+| ALGOSUP | Provide ressources and contacts |
+| Reviewers | Grade the project |
+
+#### Milstones
+
+| Milestone | Description |
+| --- | --- |
+| Functional Specifications | Write out the functionalities and requirement |
+| Technical Specifications | Specifie the technical stack and erchitecture |
+| Version 1 | Release the first version of the extension |
+| Written Report | Write a report on the project's conception |
+
+#### Risks and Assumptions
+
+##### Risks
+
+- Bugs: Functionalities might be impacted by bugs causing delay,
+- Lox: Only supporting a pseudo language might attract users,
+- VS Code Extensions: Low technical expertise on VS Code Extension might cause delay,
+- Licensing Compliance: Failure to comply with the licences of the different dependencies might compromise the project,
+- Juridic Compliance: Failure to comply with laws might compromise the project and the project manager.
+
+##### Assumptions
+
+- Users use Visual Studio Code as their IDE,
+- Users need to follow the life cycle of software components,
+- Users are using VS Code Extensions,
+- Users want to use an impact analysis tools.
