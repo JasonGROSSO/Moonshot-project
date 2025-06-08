@@ -57,6 +57,27 @@
     - [Dependencies](#dependencies)
     - [Extensibility and Maintainability](#extensibility-and-maintainability)
     - [Security and Compliance](#security-and-compliance)
+  - [Analysis and specifications of the software development project](#analysis-and-specifications-of-the-software-development-project)
+    - [1. Context and Problem Statement](#1-context-and-problem-statement)
+    - [2. Project Objectives](#2-project-objectives)
+    - [3. Stakeholders](#3-stakeholders)
+    - [4. Requirements Overview](#4-requirements-overview)
+      - [Functional Requirements II](#functional-requirements-ii)
+      - [Non-Functional Requirements](#non-functional-requirements)
+    - [5. Solution Overview](#5-solution-overview)
+    - [6. Design Choices and Rationale](#6-design-choices-and-rationale)
+    - [7. Risk Assessment and Mitigation](#7-risk-assessment-and-mitigation)
+    - [8. Project Management and Development Process](#8-project-management-and-development-process)
+    - [9. Conclusion](#9-conclusion)
+  - [Software architecture choices](#software-architecture-choices)
+    - [1. Modular Separation: Extension vs. Interpreter](#1-modular-separation-extension-vs-interpreter)
+    - [2. Technology Stack](#2-technology-stack)
+    - [3. Communication and Data Flow](#3-communication-and-data-flow)
+    - [4. Extensibility and Maintainability](#4-extensibility-and-maintainability)
+    - [5. Error Handling and Robustness](#5-error-handling-and-robustness)
+    - [6. Future-Proofing](#6-future-proofing)
+  - [Evolution made or planned for the software solution](#evolution-made-or-planned-for-the-software-solution)
+  - [Analysis of the project's management and oversight](#analysis-of-the-projects-management-and-oversight)
 
 </details>
 
@@ -622,9 +643,9 @@ Here you can find a breakdown of the grammar / syntax of Lox .[Link to the gramm
 ### Dependencies
 
 - The project relies on the following key dependencies:
-  - vscode: Provides the API for extension development and integration with the editor.
-  - typescript: Enables static typing and modern JavaScript features.
-  - eslint: Enforces code quality and style guidelines.
+  - **vscode**: Provides the API for extension development and integration with the editor.
+  - **typescript**: Enables static typing and modern JavaScript features.
+  - **eslint**: Enforces code quality and style guidelines.
 - All dependencies are managed via npm and locked using package-lock.json for reproducible builds.
 
 ---
@@ -646,3 +667,156 @@ Here you can find a breakdown of the grammar / syntax of Lox .[Link to the gramm
 ---
 
 ---
+
+## Analysis and specifications of the software development project
+
+### 1. Context and Problem Statement
+
+Modern software development teams face significant challenges when onboarding new developers and maintaining a clear understanding of complex codebases.
+The need to quickly grasp the lifecycle and interactions of software components is critical for productivity, maintainability, and reducing onboarding time.
+Existing solutions—such as documentation generators, static analysis tools, and AI assistants—address parts of this problem but often require context switching, steep learning curves, or are not tightly integrated into the developer's workflow.
+
+### 2. Project Objectives
+
+- Provide an integrated tool within Visual Studio Code to help developers visualize and understand the lifecycle of code components.
+- Reduce onboarding time for new team members by making component analysis accessible and intuitive.
+- Enable dynamic analysis of code through a custom interpreter, offering insights beyond static analysis.
+- Ensure ease of use and minimal disruption to existing workflows by leveraging familiar VS Code paradigms.
+
+### 3. Stakeholders
+
+- **Primary User**: Software developers using VS Code, especially those working with unfamiliar or legacy codebases.
+- **Project Owner**: Jason Grosso (developer, designer, and maintainer).
+- **Reviewers**: Academic and professional evaluators (e.g., ALGOSUP faculty, industry jury).
+- **Potential Future Users**: Open-source contributors, teams seeking lightweight impact analysis tools.
+
+### 4. Requirements Overview
+
+#### Functional Requirements II
+
+- The extension must be discoverable and installable from the VS Code Marketplace.
+- Users must be able to launch the extension via the Command Palette.
+- The extension must provide a graphical interface for inputting analysis parameters (file path, component type, component name).
+- The interpreter must process Lox files, track the specified component, and output relevant lifecycle information.
+- Results must be displayed clearly in the terminal or interface.
+
+#### Non-Functional Requirements
+
+- The tool must be performant (see Non-Functional Requirements section above).
+- It must be reliable, secure, and portable across major operating systems.
+- The codebase must be maintainable and extensible for future enhancements.
+
+### 5. Solution Overview
+
+The solution consists of two tightly integrated parts:
+
+- **VS Code Extension**: Handles user interaction, parameter collection, and result display. Built with TypeScript, leveraging VS Code's API for seamless integration.
+- **Lox Interpreter**: A modular, tree-walk interpreter for the Lox language, responsible for dynamic code analysis and component tracking. Communicates with the extension to receive parameters and return results.
+
+This architecture ensures a clear separation of concerns, allowing each part to be developed, tested, and extended independently.
+
+### 6. Design Choices and Rationale
+
+- **TypeScript**: Chosen for its type safety, maintainability, and first-class support in VS Code extension development.
+- **Lox Language**: Selected for its simplicity and suitability for demonstrating interpreter concepts and component analysis.
+- **Tree-walk Interpreter**: Enables dynamic, real-time analysis of code, providing insights that static analysis tools may miss.
+- **VS Code Integration**: Ensures the tool is accessible where developers already work, minimizing context switching.
+- **Modular Codebase**: Facilitates future enhancements, such as support for additional languages or more advanced analysis features.
+
+### 7. Risk Assessment and Mitigation
+
+- **Technical Complexity**: Building both an interpreter and a VS Code extension introduces complexity. Mitigated by following established patterns (e.g., "Crafting Interpreters") and leveraging scaffolding tools (Yeoman, VS Code Extension Generator).
+- **Limited Language Support**: Initially supports only Lox, which may limit adoption. The modular design allows for future language support.
+- **User Experience**: Risk of poor usability is addressed by adhering to VS Code UI/UX guidelines and iterative user testing.
+- **Compliance and Security**: Ensured by validating user input, avoiding execution of arbitrary code, and complying with open-source licenses and Marketplace policies.
+
+### 8. Project Management and Development Process
+
+- **Version Control**: All code and documentation are managed via GitHub, enabling collaboration, versioning, and issue tracking.
+- **Development Workflow**: Uses TypeScript, npm scripts, and ESLint for consistent, high-quality code. Debugging and testing are integrated into the VS Code environment.
+- **Documentation**: Comprehensive documentation (functional, technical, and user-facing) is maintained to support onboarding and future development.
+- **Milestones**: Defined for functional/technical specifications, first release, and report completion, ensuring structured progress.
+
+### 9. Conclusion
+
+The Code Diver project addresses a real and persistent challenge in software development: understanding and tracking the lifecycle of code components.
+By combining a custom interpreter with a user-friendly VS Code extension, it delivers actionable insights directly within the developer's workflow.
+The project's modular, extensible design and strong documentation position it for future growth and adaptation to evolving user needs.
+
+---
+
+---
+
+## Software architecture choices
+
+The architecture of Code Diver is designed to maximize modularity, maintainability, and extensibility, while leveraging the strengths of the VS Code extension ecosystem and the educational value of a custom interpreter. The following choices were made to address the project’s requirements and objectives:
+
+### 1. Modular Separation: Extension vs. Interpreter
+
+- **Extension Layer**: Handles all user interaction, command registration, and integration with VS Code APIs. It is responsible for collecting user input, launching the interpreter, and displaying results.
+- **Interpreter Layer**: Implements the logic for parsing and analyzing Lox code. It is a standalone module that can be tested and extended independently of the extension.
+- **Benefits**: This separation allows for independent development, testing, and future replacement or extension of either part (e.g., supporting new languages or analysis modes).
+
+### 2. Technology Stack
+
+- **TypeScript**: Used throughout for type safety, maintainability, and compatibility with VS Code extension development best practices.
+- **VS Code APIs**: Utilized for UI integration, command palette access, terminal management, and webview support.
+- **Lox Interpreter**: Based on the tree-walk model from "Crafting Interpreters," providing a clear, educational, and extensible foundation for code analysis.
+
+### 3. Communication and Data Flow
+
+- The extension collects parameters (file path, component type, component name) from the user and invokes the interpreter with these arguments.
+- The interpreter processes the file, tracks the specified component, and returns analysis results.
+Results are displayed in the VS Code terminal or interface, ensuring a seamless user experience.
+
+### 4. Extensibility and Maintainability
+
+- **Modular Codebase**: Each major concern (UI, command handling, interpretation, analysis) is encapsulated in its own module or file.
+- **Clear Interfaces**: Communication between the extension and interpreter is well-defined, making it easy to add new features (e.g., new analysis types, language support, or UI enhancements).
+- **Documentation and Diagrams**: The architecture is documented with mermaid diagrams and detailed explanations, supporting onboarding and future development.
+
+### 5. Error Handling and Robustness
+
+- The interpreter and extension both include robust error handling, providing clear feedback to the user in case of invalid input, runtime errors, or analysis failures.
+- The architecture anticipates future needs for more advanced error reporting or logging.
+
+### 6. Future-Proofing
+
+The architecture is designed to support future enhancements, such as:
+
+- Adding support for new languages or analysis techniques.
+- Introducing a richer graphical interface (e.g., webview-based visualization).
+- Integrating with external tools or APIs for advanced impact analysis.
+
+## Evolution made or planned for the software solution
+
+Significant changes made during the developement process:
+
+- **Graphical interface**: At first the grapical interface was planned to be a webview, owerver due to delays and several implementation diffulties, it was changed to a terminal interface.
+- **Target language**: Changed target language from C to Lox.
+- **Platform**: Originally was a standalone project and later changed it as a VS Code extension.
+
+Significant changes planed:
+
+- **Component Types**: Extend the interpreter to analyze not only variables but also functions, classes, and other code constructs.
+- **Language Support**:  Adapt the interpreter architecture to support additional languages beyond Lox.
+- **Automated Testing**: Introduce automated tests for both the extension and interpreter to ensure reliability and facilitate future development.
+
+## Analysis of the project's management and oversight
+
+**Timeline Management**:
+Although a formal, detailed timeline was not established at the outset, the project maintained consistent momentum from its initiation in October through to completion.
+The final deadline was confirmed in early March, providing a clear target for deliverables.
+Major progress was achieved during focused periods—particularly in November, January, February, May, and June—while other months, such as April and March, saw comparatively slower advancement.
+This reflects the typical rhythm of a long-term, self-managed project.
+
+**Challenges and Solutions**:
+A range of technical and organizational challenges arose throughout the development process.
+Most issues were resolved efficiently and did not significantly hinder progress.
+However, some recurring challenges—especially those related to the VS Code extension—required persistent troubleshooting and adaptation.
+Solutions were developed iteratively, drawing on documentation, community resources, and systematic debugging.
+
+**Key Obstacles**:
+The most significant obstacles involved mastering the complexities of VS Code extension development, particularly the implementation of webviews and integration with the extension APIs.
+Additionally, clearly defining the project’s scope and objectives at the outset proved challenging, necessitating several rounds of refinement.
+Overcoming these hurdles was instrumental in shaping the final direction and success of the project.
