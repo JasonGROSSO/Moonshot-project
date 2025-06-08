@@ -20,7 +20,7 @@
     - [Out of Scope](#out-of-scope)
     - [Organisation](#organisation)
       - [Stakeholders](#stakeholders)
-      - [Milstones](#milstones)
+      - [Milestones](#milestones)
       - [Risks and Assumptions](#risks-and-assumptions)
         - [Risks](#risks)
         - [Assumptions](#assumptions)
@@ -31,7 +31,7 @@
       - [Access the graphical interface](#access-the-graphical-interface)
       - [Input parameters](#input-parameters)
       - [Launch the interpreter](#launch-the-interpreter)
-      - [Print informations about the component](#print-informations-about-the-component)
+      - [Print information about the component](#print-information-about-the-component)
       - [Use Cases](#use-cases)
     - [Non-Functional Requirement](#non-functional-requirement)
       - [Performance](#performance)
@@ -47,7 +47,7 @@
       - [Extension](#extension)
       - [Interpreter](#interpreter)
       - [Lox](#lox)
-      - [Developement Tools](#developement-tools)
+      - [Development Tools](#development-tools)
     - [Architecture](#architecture)
       - [Flow](#flow)
       - [Interpreter Architecture](#interpreter-architecture)
@@ -60,15 +60,14 @@
   - [Analysis and specifications of the software development project](#analysis-and-specifications-of-the-software-development-project)
     - [1. Context and Problem Statement](#1-context-and-problem-statement)
     - [2. Project Objectives](#2-project-objectives)
-    - [3. Stakeholders](#3-stakeholders)
-    - [4. Requirements Overview](#4-requirements-overview)
-      - [Functional Requirements II](#functional-requirements-ii)
+    - [3. Requirements Overview](#3-requirements-overview)
+      - [Functional Requirements Overview](#functional-requirements-overview)
       - [Non-Functional Requirements](#non-functional-requirements)
-    - [5. Solution Overview](#5-solution-overview)
-    - [6. Design Choices and Rationale](#6-design-choices-and-rationale)
-    - [7. Risk Assessment and Mitigation](#7-risk-assessment-and-mitigation)
-    - [8. Project Management and Development Process](#8-project-management-and-development-process)
-    - [9. Conclusion](#9-conclusion)
+    - [4. Solution Overview](#4-solution-overview)
+    - [5. Design Choices and Rationale](#5-design-choices-and-rationale)
+    - [6. Risk Assessment and Mitigation](#6-risk-assessment-and-mitigation)
+    - [7. Project Management and Development Process](#7-project-management-and-development-process)
+    - [8. Conclusion](#8-conclusion)
   - [Software architecture choices](#software-architecture-choices)
     - [1. Modular Separation: Extension vs. Interpreter](#1-modular-separation-extension-vs-interpreter)
     - [2. Technology Stack](#2-technology-stack)
@@ -97,7 +96,7 @@
 - **Command Palette**: The quick-access menu in VS Code, opened with Ctrl+Shift+P, used to run commands and access features.
 - **Webview**: A custom user interface panel in VS Code extensions, rendered using HTML, CSS, and JavaScript.
 - **Marketplace**: The Visual Studio Code Extension Marketplace where users can find, install, and manage extensions.
-- **Impact Analysis**: The process of understanding the effects of changes or the flow of data/components in a codebase, helping developers assess consequences of modifications.
+- **Impact Analysis**: The process of understanding the effects of changes or the flow of data/components in a codebase, helping developers assess the consequences of modifications.
 - **Stakeholder**: Any person or group with an interest in the project (e.g., user, developer, reviewer, or sponsor).
 - **Moonshot Project**: A capstone project at ALGOSUP demonstrating a student's mastery of targeted skills, culminating in source code, a written report, and an oral presentation.
 
@@ -109,7 +108,7 @@
 
 This document is the written report on my Moonshot Project, it will contain:
 
-- An exhausitve presentation of the project,
+- An exhaustive presentation of the project,
 - Analysis and specifications of the software development project,
 - Software architecture choices,
 - An argument for the choice of algorithms and their relevance to the problems to be solved,
@@ -121,22 +120,22 @@ This document is the written report on my Moonshot Project, it will contain:
 
 ### What's a Moonshot Project
 
-A Moonshot Project is the showcase of your know-how, it spans the entirety of a students Journey at ALGOSUP, and allows students to validate, at the end of the course, that all the skills targeted by the training have been mastered.
+A Moonshot Project is the showcase of your know-how, it spans the entirety of a student's Journey at ALGOSUP, and allows students to validate, at the end of the course, that all the skills targeted by the training have been mastered.
 Three productions are expected: all the source codes of the project, a written report in English, and an oral presentation in English in front of a jury of professionals.
 
 ### What's my Moonshot Project
 
-My project, this project is a Visual Studio Code Extension (VS Code extension), Its name is Code Diver and it's objective is to help developers work more efficiently.
-The main functionality of Code Diver, is to follow the evolution of an component of a software throughout it's execution path.
+My project is a Visual Studio Code Extension (VS Code extension), its name is Code Diver and its objective is to help developers work more efficiently.
+The main functionality of Code Diver is to follow the evolution of a component of software throughout its execution path.
 
-One of the major roadblock when joining a team to work on a piece of software, is understanding said the architecture, the inner working of said softaware.
-This problem of integrating new software developers into software developement team is a massive and well known problem of the industry, as such a multitude of software exist to fight this problem, and they are very varied too:
+One of the major roadblocks when joining a team to work on a piece of software is understanding the architecture and the inner workings of said software.
+This problem of integrating new software developers into software development teams is a massive and well-known problem of the industry, as such a multitude of software exists to fight this problem, and they are very varied too:
 
 - Documentation tools such as Doxygen, Sphinx or Read The Docs,
 - Impact Analysis tools such as ESLint, ArchUnit or Lizard,
 - AI Assistants such as SonarQube, CapeGemini, Cobol Colleague or WatsonX pour Z.
 
-Code Diver is my humble contribution to these tools, it can be classified as a small scale Impact Analysis tool.
+Code Diver is my humble contribution to these tools, it can be classified as a small-scale Impact Analysis tool.
 
 ---
 
@@ -146,15 +145,15 @@ Code Diver is my humble contribution to these tools, it can be classified as a s
 
 ### Vision
 
-The vision for the Code Diver extension is to provide an intuitive tool to understand and visualise the lifecycle of a software's component.
-This project's focus is to simplifie the work of developer, as such it as been designed to be simple to use and understand for developers disregarding their level.
+The vision for the Code Diver extension is to provide an intuitive tool to understand and visualise the lifecycle of a software component.
+This project's focus is to simplify the work of developers, as such it has been designed to be simple to use and understand for developers regardless of their level.
 
 By creating a VS Code extension we make it so the users do not have to change windows when working, conserving focus and momentum.
 
 ### Objectives
 
 - Improve Productivity: Increase the resolution speed of tasks,
-- Speed Up Integration: Reduce the time spent understanding the inner working of a software for newcomers,
+- Speed Up Integration: Reduce the time spent understanding the inner workings of software for newcomers,
 - Be Accessible: Software developers can use and understand how to use the app regarding of their level,
 - Maintain Momentum: Integrate Code Diver seamlessly into the work environment to maintain focus and concentration.
 
@@ -181,18 +180,18 @@ Input parameter:
 - When prompted the user must be able to select which type of component he is searching for,
 - When prompted the user must be able to enter the name of a component that he is searching for.
 
-Get informations on component:
+Get information on components:
 
 - Once users have entered the file, the type of component and the name of said component, the extension starts interpreting the code while looking for the component,
 - If the interpreter encounters the component, it must print out information on the component,
-- In the case of a variable: component x, called by f; value was: y; value changed to z.
+- In the case of a variable: component x, called by f; the value was: y; the value changed to z.
 
 ### Out of Scope
 
 - Input multiple component: The extension cannot research multiple components at the same time,
-- Language support: The extension support the little language Lox,
+- Language support: The extension supports the little language Lox,
 - Component diversity: Variables are the only component that can be researched,
-- Webview interface: The extension does not have a dedicated webview (side panel),
+- Webview interface: The extension does not have a dedicated web view (side panel),
 - Timing: The extension does not keep track of the execution time.
 
 > These features are not excluded permanently, they may appear in future updates.
@@ -209,12 +208,12 @@ Get informations on component:
 | ALGOSUP | Provide ressources and contacts |
 | Reviewers | Grade the project |
 
-#### Milstones
+#### Milestones
 
 | Milestone | Description |
 | --- | --- |
-| Functional Specifications | Write out the functionalities and requirement |
-| Technical Specifications | Specifie the technical stack and erchitecture |
+| Functional Specifications | Write out the functionalities and requirements |
+| Technical Specifications | Specify the technical stack and architecture |
 | Version 1 | Release the first version of the extension |
 | Written Report | Write a report on the project's conception |
 
@@ -222,9 +221,9 @@ Get informations on component:
 
 ##### Risks
 
-- Bugs: Functionalities might be impacted by bugs causing delay,
+- Bugs: Functionalities might be impacted by bugs causing delays,
 - Lox: Only supporting a little language might attract users,
-- VS Code Extensions: Low technical expertise on VS Code Extension might cause delay,
+- VS Code Extensions: Low technical expertise on VS Code Extension might cause delays,
 - Licensing Compliance: Failure to comply with the licences of the different dependencies might compromise the project,
 - Juridic Compliance: Failure to comply with laws might compromise the project and the project manager.
 
@@ -233,7 +232,7 @@ Get informations on component:
 - Users use Visual Studio Code as their IDE,
 - Users need to follow the life cycle of software components,
 - Users are using VS Code Extensions,
-- Users want to use an impact analysis tools.
+- Users want to use impact analysis tools.
 
 #### Constraints
 
@@ -249,7 +248,7 @@ Get informations on component:
 This Project can be divided into 2 parts:
 
 - The Extension: Implemented into the IDE, sending and displaying information from the interpreter,
-- The Interpreter: Interpret files send by the extensions, sends information to the extention.
+- The Interpreter: Interpret files sent by the extensions, and send information to the extension.
 
 #### Install the extension
 
@@ -272,24 +271,24 @@ This Project can be divided into 2 parts:
 **Description**: Users can input parameters to give to the interpreter.
 **Requirement**:
 
-- The graphical interface must asks for the path to the file, the type of component and the name of the component,
-- The process must be blocked until the 3 parameters are filled with correct informations
+- The graphical interface must ask for the path to the file, the type of component and the name of the component,
+- The process must be blocked until the 3 parameters are filled with correct information
 
 #### Launch the interpreter
 
-**Description**: Once the parameters are filled the interpreter interpret the files and look for the component.
+**Description**: Once the parameters are filled the interpreter interprets the files and looks for the component.
 **Requirement**:
 
 - The graphical interface must start the interpreter with the parameters specified by the users,
 - The Interpreter must open the file specified and look for the component.
 
-#### Print informations about the component
+#### Print information about the component
 
-**Description**: When the interpreter encounter the specified component it prints information about the component.
+**Description**: When the interpreter encounters the specified component it prints information about the component.
 **Requirement**:
 
 - The interpreter must recognise the component,
-- The interpreter must print in a single line, relevant informations about the component,
+- The interpreter must print in a single line, relevant information about the component,
 - Who called the component, what value the component had, what value the component has after it has been called.
 
 #### Use Cases
@@ -298,11 +297,11 @@ This Project can be divided into 2 parts:
 
    - Actor: User
    - Goal: Install Code Diver from the VS Code Extension Marketplace.
-   - Preconditions: User has access to VS Code and the Marketplace.
+   - Preconditions: The user has access to VS Code and the Marketplace.
    - Main Flow:
-     1. User opens the Extensions panel in VS Code.
-     2. User searches for "Code Diver".
-     3. User clicks "Install".
+     1. The user opens the Extensions panel in VS Code.
+     2. The user searches for "Code Diver".
+     3. The user clicks "Install".
    - Postconditions: Code Diver is installed and available in VS Code.
 
 2. Access the Graphical Interface
@@ -311,10 +310,10 @@ This Project can be divided into 2 parts:
     - Goal: Open the Code Diver graphical interface.
     - Preconditions: Code Diver is installed.
     - Main Flow:
-        1. User opens the Command Palette (Ctrl+Shift+P).
-        2. User runs the command Code Diver: Start Dive.
+        1. The user opens the Command Palette (Ctrl+Shift+P).
+        2. The user runs the command Code Diver: Start Dive.
         3. The graphical interface appears.
-    - Postconditions: User sees the interface to interact with Code Diver.
+    - Postconditions: The user sees the interface to interact with Code Diver.
 
 3. Input Parameters
 
@@ -322,8 +321,8 @@ This Project can be divided into 2 parts:
     - Goal: Provide the path, component type, and component name to the interpreter.
     - Preconditions: The graphical interface is open.
     - Main Flow:
-        1. User is prompted for the file path, component type, and component name.
-        2. User enters each parameter.
+        1. The user is prompted for the file path, component type, and component name.
+        2. The user enters each parameter.
         3. The interface validates the inputs and blocks progress until all are valid.
     - Postconditions: All required parameters are provided and validated.
 
@@ -333,24 +332,24 @@ This Project can be divided into 2 parts:
     - Goal: Start the interpreter with the specified parameters.
     - Preconditions: All parameters are provided and valid.
     - Main Flow:
-        1. User clicks a button or confirms to start analysis.
+        1. The user clicks a button or confirms to start the analysis.
         2. The interpreter is launched with the given file and component details.
         3. The interpreter processes the file and searches for the component.
-    - Postconditions: Interpreter runs and analyzes the specified file/component.
+    - Postconditions: The interpreter runs and analyzes the specified file/component.
 
 5. Print Information About the Component
 
     - Actor: Interpreter (system)
     - Goal: Display relevant information about the specified component.
-    - Preconditions: Interpreter has found the component in the file.
+    - Preconditions: The interpreter has found the component in the file.
     - Main Flow:
-        1. Interpreter recognizes the component during analysis.
+        1. The interpreter recognizes the component during analysis.
         2. Interpreter prints a single line with:
             - Who called the component
             - The value before the call
             - The value after the call
-        3. User sees the output in the interface or terminal.
-    - Postconditions: User receives concise, relevant information about the component's lifecycle.
+        3. The user sees the output in the interface or terminal.
+    - Postconditions: The user receives concise, relevant information about the component's lifecycle.
 
 ---
 
@@ -380,7 +379,7 @@ No platform-specific dependencies should prevent installation or use.
 ##### Maintainability
 
 The codebase should be modular and documented to facilitate future updates and bug fixes.
-Automated tests should cover core functionality of the interpreter and extension commands.
+Automated tests should cover the core functionality of the interpreter and extension commands.
 
 #### Security
 
@@ -401,7 +400,7 @@ The extension must comply with VS Code Marketplace policies and relevant open-so
 
 #### Programming Language
 
-For the main programming language of this project, there was two options available: JavaScript and TypeScript; as these two languages that are used to build VS Code extensions, with TypeScript being recommended by VS Code.
+For the main programming language of this project, there were two options available: JavaScript and TypeScript; as these two languages are used to build VS Code extensions, with TypeScript being recommended by VS Code.
 Thus this project was programmed into TypeScript.
 
 #### Extension
@@ -421,7 +420,7 @@ Thus this project was programmed into TypeScript.
   - **Purpose**
     - The VS Code Extension Generator is a Yeoman generator specifically designed to scaffold the initial structure of a Visual Studio Code extension project. It provides all the essential files, configuration, and sample code needed to start developing an extension.
   - **Details**
-    - When run (typically via yo code), the generator prompts the user for details such as extension name, display name, description, and language (TypeScript or JavaScript). It then creates a ready-to-build VS Code extension project, including package.json, extension activation code, sample commands, and recommended configuration files. The generator supports different extension types (e.g., command, webview, color theme) and integrates with VS Code's recommended development workflow.
+    - When run (typically via yo code), the generator prompts the user for details such as extension name, display name, description, and language (TypeScript or JavaScript). It then creates a ready-to-build VS Code extension project, including package.json, extension activation code, sample commands, and recommended configuration files. The generator supports different extension types (e.g., command, web view, colour theme) and integrates with VS Code's recommended development workflow.
   - **Benefits**
     - Accelerates the creation of new VS Code extensions by providing a working template.
     - Reduces setup errors and ensures compliance with VS Code extension guidelines.
@@ -442,7 +441,7 @@ Thus this project was programmed into TypeScript.
 #### Lox
 
 - **Purpose**
-  - Lox is a simple, dynamically-typed programming language created for educational purposes. It serves as the target language for the interpreter in this project, providing a controlled environment for demonstrating code analysis and interpretation.
+  - Lox is a simple, dynamically typed programming language created for educational purposes. It serves as the target language for the interpreter in this project, providing a controlled environment for demonstrating code analysis and interpretation.
 - **Details**
   - Lox features a straightforward syntax and semantics, making it ideal for learning about interpreters and compilers. It supports variables, functions, control flow, and basic data types. The language specification is well-documented in "Crafting Interpreters" and is widely used in programming language courses and tutorials.
 - **Benefits**
@@ -451,7 +450,7 @@ Thus this project was programmed into TypeScript.
   - Reduces complexity, allowing focus on interpreter logic rather than language intricacies.
   - Well-supported by educational resources and community examples.
 
-#### Developement Tools
+#### Development Tools
 
 - GitHub
   - **Purpose**
@@ -491,7 +490,7 @@ Thus this project was programmed into TypeScript.
 
 ### Architecture
 
-As Code Diver is a 2 part program, the source code is divided in two folders and configuration/launching files:
+As Code Diver is a 2 part program, the source code is divided into two folders and configuration/launching files:
 
 ```md
 📁 code-diver
@@ -617,9 +616,9 @@ graph TD
 
 #### The Lox Language
 
-The Lox language was created by Robert NYSTROM for his book "Crafting Interpreters" it is a little language, it is a compact object oriented language with dynamic typing and automatic memory management, it's primary use is to serve as a basis for the interpreters of the book.
+The Lox language was created by Robert NYSTROM for his book "Crafting Interpreters".It is a little language, it is a compact object-oriented language with dynamic typing and automatic memory management, its primary use is to serve as a basis for the interpreters of the book.
 
-Here you can find a breakdown of the grammar / syntax of Lox .[Link to the grammar](../technical/lox.md)
+Here you can find a breakdown of the grammar/syntax of Lox.[Link to the grammar](../technical/lox.md)
 
 ---
 
@@ -652,7 +651,7 @@ Here you can find a breakdown of the grammar / syntax of Lox .[Link to the gramm
 
 ### Extensibility and Maintainability
 
-- The codebase is modular, with clear separation between extension logic and interpreter logic.
+- The codebase is modular, with a clear separation between extension logic and interpreter logic.
 - New features (such as additional language support or UI enhancements) can be added by extending the relevant modules in extension-src/ or interpreter-src/.
 - Documentation is provided in the documents directory, including functional and technical specifications, to support future development and onboarding.
 
@@ -683,16 +682,9 @@ Existing solutions—such as documentation generators, static analysis tools, an
 - Enable dynamic analysis of code through a custom interpreter, offering insights beyond static analysis.
 - Ensure ease of use and minimal disruption to existing workflows by leveraging familiar VS Code paradigms.
 
-### 3. Stakeholders
+### 3. Requirements Overview
 
-- **Primary User**: Software developers using VS Code, especially those working with unfamiliar or legacy codebases.
-- **Project Owner**: Jason Grosso (developer, designer, and maintainer).
-- **Reviewers**: Academic and professional evaluators (e.g., ALGOSUP faculty, industry jury).
-- **Potential Future Users**: Open-source contributors, teams seeking lightweight impact analysis tools.
-
-### 4. Requirements Overview
-
-#### Functional Requirements II
+#### Functional Requirements Overview
 
 - The extension must be discoverable and installable from the VS Code Marketplace.
 - Users must be able to launch the extension via the Command Palette.
@@ -706,7 +698,7 @@ Existing solutions—such as documentation generators, static analysis tools, an
 - It must be reliable, secure, and portable across major operating systems.
 - The codebase must be maintainable and extensible for future enhancements.
 
-### 5. Solution Overview
+### 4. Solution Overview
 
 The solution consists of two tightly integrated parts:
 
@@ -715,7 +707,7 @@ The solution consists of two tightly integrated parts:
 
 This architecture ensures a clear separation of concerns, allowing each part to be developed, tested, and extended independently.
 
-### 6. Design Choices and Rationale
+### 5. Design Choices and Rationale
 
 - **TypeScript**: Chosen for its type safety, maintainability, and first-class support in VS Code extension development.
 - **Lox Language**: Selected for its simplicity and suitability for demonstrating interpreter concepts and component analysis.
@@ -723,24 +715,24 @@ This architecture ensures a clear separation of concerns, allowing each part to 
 - **VS Code Integration**: Ensures the tool is accessible where developers already work, minimizing context switching.
 - **Modular Codebase**: Facilitates future enhancements, such as support for additional languages or more advanced analysis features.
 
-### 7. Risk Assessment and Mitigation
+### 6. Risk Assessment and Mitigation
 
 - **Technical Complexity**: Building both an interpreter and a VS Code extension introduces complexity. Mitigated by following established patterns (e.g., "Crafting Interpreters") and leveraging scaffolding tools (Yeoman, VS Code Extension Generator).
 - **Limited Language Support**: Initially supports only Lox, which may limit adoption. The modular design allows for future language support.
-- **User Experience**: Risk of poor usability is addressed by adhering to VS Code UI/UX guidelines and iterative user testing.
+- **User Experience**: The risk of poor usability is addressed by adhering to VS Code UI/UX guidelines and iterative user testing.
 - **Compliance and Security**: Ensured by validating user input, avoiding execution of arbitrary code, and complying with open-source licenses and Marketplace policies.
 
-### 8. Project Management and Development Process
+### 7. Project Management and Development Process
 
 - **Version Control**: All code and documentation are managed via GitHub, enabling collaboration, versioning, and issue tracking.
 - **Development Workflow**: Uses TypeScript, npm scripts, and ESLint for consistent, high-quality code. Debugging and testing are integrated into the VS Code environment.
 - **Documentation**: Comprehensive documentation (functional, technical, and user-facing) is maintained to support onboarding and future development.
 - **Milestones**: Defined for functional/technical specifications, first release, and report completion, ensuring structured progress.
 
-### 9. Conclusion
+### 8. Conclusion
 
 The Code Diver project addresses a real and persistent challenge in software development: understanding and tracking the lifecycle of code components.
-By combining a custom interpreter with a user-friendly VS Code extension, it delivers actionable insights directly within the developer's workflow.
+Combining a custom interpreter with a user-friendly VS Code extension delivers actionable insights directly within the developer's workflow.
 The project's modular, extensible design and strong documentation position it for future growth and adaptation to evolving user needs.
 
 ---
@@ -749,7 +741,7 @@ The project's modular, extensible design and strong documentation position it fo
 
 ## Software architecture choices
 
-The architecture of Code Diver is designed to maximize modularity, maintainability, and extensibility, while leveraging the strengths of the VS Code extension ecosystem and the educational value of a custom interpreter. The following choices were made to address the project’s requirements and objectives:
+The architecture of Code Diver is designed to maximize modularity, maintainability, and extensibility while leveraging the strengths of the VS Code extension ecosystem and the educational value of a custom interpreter. The following choices were made to address the project’s requirements and objectives:
 
 ### 1. Modular Separation: Extension vs. Interpreter
 
@@ -771,7 +763,7 @@ Results are displayed in the VS Code terminal or interface, ensuring a seamless 
 
 ### 4. Extensibility and Maintainability
 
-- **Modular Codebase**: Each major concern (UI, command handling, interpretation, analysis) is encapsulated in its own module or file.
+- **Modular Codebase**: Each major concern (UI, command handling, interpretation, analysis) is encapsulated in its module or file.
 - **Clear Interfaces**: Communication between the extension and interpreter is well-defined, making it easy to add new features (e.g., new analysis types, language support, or UI enhancements).
 - **Documentation and Diagrams**: The architecture is documented with mermaid diagrams and detailed explanations, supporting onboarding and future development.
 
@@ -790,13 +782,13 @@ The architecture is designed to support future enhancements, such as:
 
 ## Evolution made or planned for the software solution
 
-Significant changes made during the developement process:
+Significant changes made during the development process:
 
-- **Graphical interface**: At first the grapical interface was planned to be a webview, owerver due to delays and several implementation diffulties, it was changed to a terminal interface.
+- **Graphical interface**: At first the graphical interface was planned to be a webview, however, due to delays and several implementation difficulties, it was changed to a terminal interface.
 - **Target language**: Changed target language from C to Lox.
-- **Platform**: Originally was a standalone project and later changed it as a VS Code extension.
+- **Platform**: Originally was a standalone project but later changed as a VS Code extension.
 
-Significant changes planed:
+Significant changes planned:
 
 - **Component Types**: Extend the interpreter to analyze not only variables but also functions, classes, and other code constructs.
 - **Language Support**:  Adapt the interpreter architecture to support additional languages beyond Lox.
