@@ -13,6 +13,8 @@ import { TokenType } from "./token-type";
 
 export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
+    public componentType?: string;
+    public componentName?: string;
     public globals: Environment = new Environment();
     private environment: Environment = this.globals;
     private locals: Map<Expr, number> = new Map();
@@ -326,8 +328,10 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         if (stmt.initializer !== null) {
             value = this.evaluate(stmt.initializer);
         }
-
         this.environment.define(stmt.name.lexeme, value ?? {});
+        if (this.componentType === 'variable' && stmt.name.lexeme === this.componentName) {
+            console.log(`Tracked variable '${stmt.name.lexeme}' initialized with value:`, value);
+        }
         return null;
     }
     private stringify(object: any): String {
@@ -342,5 +346,9 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         }
 
         return object.toString();
+    }
+    setComponentTracking(type: string, name: string) {
+        this.componentType = type;
+        this.componentName = name;
     }
 }

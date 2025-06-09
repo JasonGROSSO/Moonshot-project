@@ -1,1 +1,4 @@
-print "Hello, world!";
+var name = "James";
+var lastName = "John";
+print name;
+print lastName;

@@ -13,9 +13,15 @@ export class Lox {
     static hadRuntimeError: boolean = false;
 
     public static main(args: string[]): void {
-        if (args.length > 1) { // if more than one file
+        if (args.length > 3) { // if more than one file
             console.log("Usage: jlox [script]");
             process.exit(64);
+        } else if (args.length === 3) {
+            const [path, componentType, componentName] = args;
+            console.log(`Running script: ${path}`);
+            console.log(`Component type: ${componentType}`);
+            console.log(`Component name: ${componentName}`);
+            this.runFileWithComponent(path, componentType, componentName);
         } else if (args.length === 1) { // if one file
             console.log(`Running script: ${args[0]}`);
             this.runFile(args[0]);
@@ -27,6 +33,14 @@ export class Lox {
 
     private static runFile(path: string): void {
         const bytes = require('fs').readFileSync(path);
+        this.run(bytes.toString());
+        if (Lox.hadError) { process.exit(65); }
+        if (Lox.hadRuntimeError) { process.exit(70); }
+    }
+
+    private static runFileWithComponent(path: string, componentType: string, componentName: string): void {
+        const bytes = require('fs').readFileSync(path);
+        this.interpreter.setComponentTracking(componentType, componentName);
         this.run(bytes.toString());
         if (Lox.hadError) { process.exit(65); }
         if (Lox.hadRuntimeError) { process.exit(70); }
