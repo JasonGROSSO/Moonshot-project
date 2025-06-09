@@ -11,12 +11,21 @@ import { Stmt } from "./stmt";
 import { Token } from "./token";
 import { TokenType } from "./token-type";
 
+// The Interpreter class executes parsed Lox statements and expressions
 export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
+    // Type and name of the component to track (e.g., variable)
+    public componentType?: string;
+    public componentName?: string;
+
+    // Global environment (top-level scope)
     public globals: Environment = new Environment();
+    // Current environment (can be nested for blocks/functions)
     private environment: Environment = this.globals;
+    // Map for resolving variable scopes
     private locals: Map<Expr, number> = new Map();
 
+    // Constructor: defines native functions (e.g., clock)
     constructor() {
         this.globals.define("clock", new (class implements LoxCallable {
             arity(): number {
@@ -33,6 +42,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         })());
     }
 
+    // Main entry: interprets a list of statements (the program)
     interpret(statements: Stmt[]): void {
         try {
             for (let statement of statements) {
@@ -192,7 +202,11 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return {};
     }
     public visitVariableExpr(expr: Expr.Variable): Object {
-        return this.lookUpVariable(expr.name, expr);
+        const value = this.lookUpVariable(expr.name, expr);
+        if (this.componentType === 'variable' && expr.name.lexeme === this.componentName) {
+            console.log(`Tracked variable '${expr.name.lexeme}' accessed with value:`, value);
+        }
+        return value;
     }
     private lookUpVariable(name: Token, expr: Expr): Object {
         let distance: number | undefined = this.locals.get(expr);
@@ -326,8 +340,10 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         if (stmt.initializer !== null) {
             value = this.evaluate(stmt.initializer);
         }
-
         this.environment.define(stmt.name.lexeme, value ?? {});
+        if (this.componentType === 'variable' && stmt.name.lexeme === this.componentName) {
+            console.log(`Tracked variable '${stmt.name.lexeme}' initialized with value:`, value);
+        }
         return null;
     }
     private stringify(object: any): String {
@@ -342,5 +358,9 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         }
 
         return object.toString();
+    }
+    setComponentTracking(type: string, name: string) {
+        this.componentType = type;
+        this.componentName = name;
     }
 }

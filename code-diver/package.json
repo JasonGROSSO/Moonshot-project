@@ -2,6 +2,7 @@
   "name": "code-diver",
   "displayName": "Code-Diver",
   "description": "Moonshot Project",
+  "publisher": "Jason",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.97.0"
@@ -10,55 +11,19 @@
     "Other"
   ],
   "activationEvents": [],
-  "main": "./out/extension.js",
+  "main": "./out/extension-src/extension.js",
   "contributes": {
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "code-diver",
-          "title": "Code Diver",
-          "icon": "assets/icon.png"
-        }
-      ]
-    },
-    "views": {
-      "code-diver": [
-        {
-          "type": "webview",
-          "id": "code-diver.openview",
-          "name": "view"
-        }
-      ]
-    },
     "commands": [
       {
-        "command": "code-diver.openview",
-        "title": "Open Sidebar View"
-      },
-      {
-        "command": "code-diver.menu.close",
-        "category": "code-diver-extension-sidebar-html",
-        "title": "Code Diver Close Button",
-        "icon": "$(clear-all)"
+        "command": "code-diver.startDive",
+        "title": "Code Diver: Start Dive"
       }
-    ],
-    "menus": {
-      "view/title": [
-        {
-          "command": "code-diver.menu.close",
-          "group": "navigation",
-          "when": "view == code-diver.openview"
-        }
-      ]
-    }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test"
+    "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
