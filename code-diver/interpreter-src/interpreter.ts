@@ -11,14 +11,21 @@ import { Stmt } from "./stmt";
 import { Token } from "./token";
 import { TokenType } from "./token-type";
 
+// The Interpreter class executes parsed Lox statements and expressions
 export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
+    // Type and name of the component to track (e.g., variable)
     public componentType?: string;
     public componentName?: string;
+
+    // Global environment (top-level scope)
     public globals: Environment = new Environment();
+    // Current environment (can be nested for blocks/functions)
     private environment: Environment = this.globals;
+    // Map for resolving variable scopes
     private locals: Map<Expr, number> = new Map();
 
+    // Constructor: defines native functions (e.g., clock)
     constructor() {
         this.globals.define("clock", new (class implements LoxCallable {
             arity(): number {
@@ -35,6 +42,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         })());
     }
 
+    // Main entry: interprets a list of statements (the program)
     interpret(statements: Stmt[]): void {
         try {
             for (let statement of statements) {
