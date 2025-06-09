@@ -29,3 +29,4 @@ To find out more about TypeScript, visit the [official website](https://www.type
 
 - [Functional Specifications](/documents/functional/functional_specifications.md)
 - [Technical Specifications](/documents/technical/technical_specifications.md)
+- [Written Report](/documents/report/written-report.md)
