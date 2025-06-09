@@ -194,7 +194,11 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return {};
     }
     public visitVariableExpr(expr: Expr.Variable): Object {
-        return this.lookUpVariable(expr.name, expr);
+        const value = this.lookUpVariable(expr.name, expr);
+        if (this.componentType === 'variable' && expr.name.lexeme === this.componentName) {
+            console.log(`Tracked variable '${expr.name.lexeme}' accessed with value:`, value);
+        }
+        return value;
     }
     private lookUpVariable(name: Token, expr: Expr): Object {
         let distance: number | undefined = this.locals.get(expr);
