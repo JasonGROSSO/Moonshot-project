@@ -1,4 +1,4 @@
-import { Lox } from "./lox";
+import { Lox } from "../interpreter-src/lox";
 
 function main() {
 
