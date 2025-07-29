@@ -79,7 +79,7 @@ Hang in there with me, its going to be a long one.
 6. Launch the testing by using the following command: ``npx ts-node testing-bed.ts``.
 
 > Explanation:
-    - the first command will create a test-files folder.
-    - the second one will find all files with extensions .cob, .cbl, .COB, or .CBL in all subfolders of COBOL_Files.
-    - and the third one will copy them into test-files.
+    - the first command will create a test-files folder. <br>
+    - the second one will find all files with extensions .cob, .cbl, .COB, or .CBL in all subfolders of COBOL_Files. <br>
+    - and the third one will copy them into test-files. <br>
 
