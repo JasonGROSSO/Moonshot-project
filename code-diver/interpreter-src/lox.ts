@@ -81,7 +81,7 @@ export class Lox {
     }
 
     // Core run logic: scan, parse, resolve, and interpret source code
-    private static run(source: string): void {
+    static run(source: string): void {
         const scanner = new Scanner(source);
         const tokens = scanner.scanTokens();
 

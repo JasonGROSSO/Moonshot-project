@@ -397,5 +397,9 @@ FodyWeavers.xsd
 
 # Output folder
 out/
+
+# test files
+test-files/
+*.cbl
 =======
 
