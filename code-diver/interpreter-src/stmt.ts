@@ -2,131 +2,138 @@ import { Expr } from "./expr";
 import { Token } from "./token";
 
 export abstract class Stmt {
-
-    static Block = class extends Stmt {
-        statements: Stmt[];
-
-        constructor(statements: Stmt[]) {
+    static Division = class extends Stmt {
+        divisionToken: Token;
+        sectionsOrStatements: Stmt[];
+        constructor(divisionToken: Token, sectionsOrStatements: Stmt[]) {
             super();
+            this.divisionToken = divisionToken;
+            this.sectionsOrStatements = sectionsOrStatements;
+        }
+        accept<R>(visitor: Stmt.Visitor<R>): R {
+            return visitor.visitDivisionStmt(this);
+        }
+    };
+
+    static Section = class extends Stmt {
+        sectionToken: Token;
+        statements: Stmt[];
+        constructor(sectionToken: Token, statements: Stmt[]) {
+            super();
+            this.sectionToken = sectionToken;
             this.statements = statements;
         }
         accept<R>(visitor: Stmt.Visitor<R>): R {
-            return visitor.visitBlockStmt(this);
+            return visitor.visitSectionStmt(this);
         }
     };
 
-    static Class = class extends Stmt {
-        name: Token;
-        superclass: Expr.Variable | null;
-        methods: Stmt.Function[];
-
-        constructor(name: Token, superclass: Expr.Variable | null, methods: Stmt.Function[]) {
+    static Move = class extends Stmt {
+        value: Expr;
+        target: Token;
+        constructor(value: Expr, target: Token) {
             super();
-            this.name = name;
-            this.superclass = superclass;
-            this.methods = methods;
+            this.value = value;
+            this.target = target;
         }
         accept<R>(visitor: Stmt.Visitor<R>): R {
-            return visitor.visitClassStmt(this);
+            return visitor.visitMoveStmt(this);
         }
     };
 
-    static Expression = class extends Stmt {
-        expression: Expr;
-
-        constructor(expression: Expr) {
+    static Add = class extends Stmt {
+        value: Expr;
+        target: Token;
+        constructor(value: Expr, target: Token) {
             super();
-            this.expression = expression;
+            this.value = value;
+            this.target = target;
         }
         accept<R>(visitor: Stmt.Visitor<R>): R {
-            return visitor.visitExpressionStmt(this);
+            return visitor.visitAddStmt(this);
         }
     };
 
-    static Function = class extends Stmt {
-        name: Token;
-        params: Token[];
-        statement: Stmt[];
-
-        constructor(name: Token, params: Token[], statement: Stmt[]) {
+    static Subtract = class extends Stmt {
+        value: Expr;
+        target: Token;
+        constructor(value: Expr, target: Token) {
             super();
-            this.name = name;
-            this.params = params;
-            this.statement = statement;
+            this.value = value;
+            this.target = target;
         }
         accept<R>(visitor: Stmt.Visitor<R>): R {
-            return visitor.visitFunctionStmt(this);
+            return visitor.visitSubtractStmt(this);
+        }
+    };
+
+    static Multiply = class extends Stmt {
+        value: Expr;
+        target: Token;
+        constructor(value: Expr, target: Token) {
+            super();
+            this.value = value;
+            this.target = target;
+        }
+        accept<R>(visitor: Stmt.Visitor<R>): R {
+            return visitor.visitMultiplyStmt(this);
+        }
+    };
+
+    static Divide = class extends Stmt {
+        value: Expr;
+        target: Token;
+        constructor(value: Expr, target: Token) {
+            super();
+            this.value = value;
+            this.target = target;
+        }
+        accept<R>(visitor: Stmt.Visitor<R>): R {
+            return visitor.visitDivideStmt(this);
         }
     };
 
     static If = class extends Stmt {
         condition: Expr;
-        thenBranch: Stmt;
-        elseBranch: Stmt | null;
-
-        constructor(condition: Expr, thenBranch: Stmt, elseBranch: Stmt | null) {
+        thenStatements: Stmt[];
+        constructor(condition: Expr, thenStatements: Stmt[]) {
             super();
             this.condition = condition;
-            this.thenBranch = thenBranch;
-            this.elseBranch = elseBranch;
+            this.thenStatements = thenStatements;
         }
         accept<R>(visitor: Stmt.Visitor<R>): R {
             return visitor.visitIfStmt(this);
         }
     };
 
-    static Print = class extends Stmt {
-        expression: Expr;
-
-        constructor(expression: Expr) {
+    static Perform = class extends Stmt {
+        target: Token;
+        constructor(target: Token) {
             super();
-            this.expression = expression;
+            this.target = target;
         }
-
         accept<R>(visitor: Stmt.Visitor<R>): R {
-            return visitor.visitPrintStmt(this);
+            return visitor.visitPerformStmt(this);
         }
     };
 
-    static Return = class extends Stmt {
-        keyword: Token;
-        value: Expr | null;
-
-        constructor(keyword: Token, value: Expr) {
+    static Display = class extends Stmt {
+        value: Expr;
+        constructor(value: Expr) {
             super();
-            this.keyword = keyword;
             this.value = value;
         }
         accept<R>(visitor: Stmt.Visitor<R>): R {
-            return visitor.visitReturnStmt(this);
+            return visitor.visitDisplayStmt(this);
         }
     };
 
-    static Var = class extends Stmt {
-        name: Token;
-        initializer: Expr | null;
-
-        constructor(name: Token, initializer: Expr | null) {
+    static Stop = class extends Stmt {
+        constructor() {
             super();
-            this.name = name;
-            this.initializer = initializer;
         }
         accept<R>(visitor: Stmt.Visitor<R>): R {
-            return visitor.visitVarStmt(this);
-        }
-    };
-
-    static While = class extends Stmt {
-        condition: Expr;
-        body: Stmt;
-
-        constructor(condition: Expr, body: Stmt) {
-            super();
-            this.condition = condition;
-            this.body = body;
-        }
-        accept<R>(visitor: Stmt.Visitor<R>): R {
-            return visitor.visitWhileStmt(this);
+            return visitor.visitStopStmt(this);
         }
     };
 
@@ -135,23 +142,27 @@ export abstract class Stmt {
 
 export namespace Stmt {
     export interface Visitor<R> {
-        visitBlockStmt(stmt: InstanceType<typeof Stmt.Block>): R;
-        visitClassStmt(stmt: InstanceType<typeof Stmt.Class>): R;
-        visitExpressionStmt(stmt: InstanceType<typeof Stmt.Expression>): R;
-        visitFunctionStmt(stmt: InstanceType<typeof Stmt.Function>): R;
+        visitDivisionStmt(stmt: InstanceType<typeof Stmt.Division>): R;
+        visitSectionStmt(stmt: InstanceType<typeof Stmt.Section>): R;
+        visitMoveStmt(stmt: InstanceType<typeof Stmt.Move>): R;
+        visitAddStmt(stmt: InstanceType<typeof Stmt.Add>): R;
+        visitSubtractStmt(stmt: InstanceType<typeof Stmt.Subtract>): R;
+        visitMultiplyStmt(stmt: InstanceType<typeof Stmt.Multiply>): R;
+        visitDivideStmt(stmt: InstanceType<typeof Stmt.Divide>): R;
         visitIfStmt(stmt: InstanceType<typeof Stmt.If>): R;
-        visitPrintStmt(stmt: InstanceType<typeof Stmt.Print>): R;
-        visitReturnStmt(stmt: InstanceType<typeof Stmt.Return>): R;
-        visitVarStmt(stmt: InstanceType<typeof Stmt.Var>): R;
-        visitWhileStmt(stmt: InstanceType<typeof Stmt.While>): R;
+        visitPerformStmt(stmt: InstanceType<typeof Stmt.Perform>): R;
+        visitDisplayStmt(stmt: InstanceType<typeof Stmt.Display>): R;
+        visitStopStmt(stmt: InstanceType<typeof Stmt.Stop>): R;
     }
-    export type Block = InstanceType<typeof Stmt.Block>;
-    export type Class = InstanceType<typeof Stmt.Class>;
-    export type Expression = InstanceType<typeof Stmt.Expression>;
-    export type Function = InstanceType<typeof Stmt.Function>;
+    export type Division = InstanceType<typeof Stmt.Division>;
+    export type Section = InstanceType<typeof Stmt.Section>;
+    export type Move = InstanceType<typeof Stmt.Move>;
+    export type Add = InstanceType<typeof Stmt.Add>;
+    export type Subtract = InstanceType<typeof Stmt.Subtract>;
+    export type Multiply = InstanceType<typeof Stmt.Multiply>;
+    export type Divide = InstanceType<typeof Stmt.Divide>;
     export type If = InstanceType<typeof Stmt.If>;
-    export type Print = InstanceType<typeof Stmt.Print>;
-    export type Return = InstanceType<typeof Stmt.Return>;
-    export type Var = InstanceType<typeof Stmt.Var>;
-    export type While = InstanceType<typeof Stmt.While>;
+    export type Perform = InstanceType<typeof Stmt.Perform>;
+    export type Display = InstanceType<typeof Stmt.Display>;
+    export type Stop = InstanceType<typeof Stmt.Stop>;
 }

@@ -1,4 +1,4 @@
-import { Interpreter } from "./interpreter";
+//import { Interpreter } from "./interpreter";
 import { Parser } from "./parser";
 import { RuntimeError } from "./runtime-error";
 import { Resolver } from "./resolver";
@@ -10,9 +10,10 @@ import { TokenType } from "./token-type";
 export class Lox {
 
     // Single interpreter instance for the program
-    private static interpreter: Interpreter = new Interpreter();
+    // private static interpreter: Interpreter = new Interpreter();
     static hadError: boolean = false;
     static hadRuntimeError: boolean = false;
+    public static errorLog: string[] = [];
 
     // Entry point: handles CLI arguments and dispatches execution
     public static main(args: string[]): void {
@@ -26,7 +27,7 @@ export class Lox {
             console.log(`Running script: ${path}`);
             console.log(`Component type: ${componentType}`);
             console.log(`Component name: ${componentName}`);
-            this.runFileWithComponent(path, componentType, componentName);
+            // this.runFileWithComponent(path, componentType, componentName);
         } else if (args.length === 1) {
             // One argument: just the script path
             console.log(`Running script: ${args[0]}`);
@@ -47,14 +48,14 @@ export class Lox {
     }
 
     // Run a Lox script from a file, tracking a specific component
-    private static runFileWithComponent(path: string, componentType: string, componentName: string): void {
-        const bytes = require('fs').readFileSync(path);
-         // Set the component tracking in the interpreter
-        this.interpreter.setComponentTracking(componentType, componentName);
-        this.run(bytes.toString());
-        if (Lox.hadError) { process.exit(65); }
-        if (Lox.hadRuntimeError) { process.exit(70); }
-    }
+    // private static runFileWithComponent(path: string, componentType: string, componentName: string): void {
+    //     const bytes = require('fs').readFileSync(path);
+    //      // Set the component tracking in the interpreter
+    //     this.interpreter.setComponentTracking(componentType, componentName);
+    //     this.run(bytes.toString());
+    //     if (Lox.hadError) { process.exit(65); }
+    //     if (Lox.hadRuntimeError) { process.exit(70); }
+    // }
 
     // Start a REPL (interactive prompt)
     private static runPrompt(): void {
@@ -78,33 +79,66 @@ export class Lox {
 
         prompt();
         Lox.hadError = false;
+        Lox.errorLog = [];
     }
 
     // Core run logic: scan, parse, resolve, and interpret source code
     static run(source: string): void {
+        Lox.errorLog = [];
         const scanner = new Scanner(source);
         const tokens = scanner.scanTokens();
 
         const parser = new Parser(tokens);
-        let statements = parser.parse();
+        let statements: any = undefined;
+        try {
+            statements = parser.parse();
+        } catch (e) {
+            Lox.hadError = true;
+            const msg = e instanceof Error ? "Syntax error: " + e.message : "Syntax error: " + String(e);
+            console.error(msg);
+            Lox.errorLog.push(msg);
+        }
 
         // Stop if there was a syntax error.
-        if (Lox.hadError) { return; }
+        if (Lox.hadError) {
+            if (Lox.errorLog.length === 0) {
+                const fallbackMsg = "Unknown syntax error: hadError was set but no error message was logged.";
+                Lox.errorLog.push(fallbackMsg);
+                console.error(fallbackMsg);
+            }
+            console.error("Syntax error(s) encountered:");
+            for (const err of Lox.errorLog) {
+                console.error(err);
+            }
+            return;
+        }
 
-        let resolver: Resolver = new Resolver(Lox.interpreter);
-        resolver.resolve(statements);
+        // let resolver: Resolver = new Resolver(Lox.interpreter);
+        // resolver.resolve(statements);
 
         // Stop if there was a resolution error.
-        if (Lox.hadError) { return; }
+        if (Lox.hadError) {
+            if (Lox.errorLog.length > 0) {
+                console.error("Resolution error(s) encountered:");
+                for (const err of Lox.errorLog) {
+                    console.error(err);
+                }
+            } else {
+                console.error("Resolution error(s) encountered. Aborting execution.");
+            }
+            return;
+        }
 
-        Lox.interpreter.interpret(statements);
+        // Lox.interpreter.interpret(statements);
 
     }
 
     // Error reporting for syntax errors
     private static report(line: number, where: string, message: string): void {
-        console.error(`[line ${line}] Error${where}: ${message}`);
+        const msg = `[line ${line}] Error${where}: ${message}`;
+        console.error(msg);
         this.hadError = true;
+        this.errorLog.push(msg);
     }
 
     // Error reporting for token errors

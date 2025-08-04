@@ -7,25 +7,52 @@ export class Scanner {
     private tokens: Token[] = [];
     private start: number = 0;
     private current: number = 0;
-    private line: number = 1;
+    private line: number = 0;
 
     private static keywords: Map<string, TokenType> = new Map([
-        ["and", TokenType.AND],
-        ["class", TokenType.CLASS],
-        ["else", TokenType.ELSE],
-        ["false", TokenType.FALSE],
-        ["for", TokenType.FOR],
-        ["fun", TokenType.FUN],
-        ["if", TokenType.IF],
-        ["nil", TokenType.NIL],
-        ["or", TokenType.OR],
-        ["print", TokenType.PRINT],
-        ["return", TokenType.RETURN],
-        ["super", TokenType.SUPER],
-        ["this", TokenType.THIS],
-        ["true", TokenType.TRUE],
-        ["var", TokenType.VAR],
-        ["while", TokenType.WHILE],
+        // COBOL Divisions & Sections
+        ["IDENTIFICATION DIVISION", TokenType.IDENTIFICATION_DIVISION],
+        ["ENVIRONMENT DIVISION", TokenType.ENVIRONMENT_DIVISION],
+        ["DATA DIVISION", TokenType.DATA_DIVISION],
+        ["PROCEDURE DIVISION", TokenType.PROCEDURE_DIVISION],
+        ["WORKING-STORAGE SECTION", TokenType.WORKING_STORAGE_SECTION],
+        ["SECTION", TokenType.SECTION],
+
+        // COBOL Statements
+        ["MOVE", TokenType.MOVE],
+        ["ADD", TokenType.ADD],
+        ["SUBTRACT", TokenType.SUBTRACT],
+        ["MULTIPLY", TokenType.MULTIPLY],
+        ["DIVIDE", TokenType.DIVIDE],
+        ["IF", TokenType.IF],
+        ["ELSE", TokenType.ELSE],
+        ["END-IF", TokenType.END_IF],
+        ["PERFORM", TokenType.PERFORM],
+        ["DISPLAY", TokenType.DISPLAY],
+        ["STOP", TokenType.STOP],
+        ["RUN", TokenType.RUN],
+        ["ACCEPT", TokenType.ACCEPT],
+        ["COMPUTE", TokenType.COMPUTE],
+        ["CALL", TokenType.CALL],
+        ["GOTO", TokenType.GOTO],
+
+        // Data declaration
+        ["PIC", TokenType.PIC],
+        ["VALUE", TokenType.VALUE],
+        ["TO", TokenType.TO],
+        ["FROM", TokenType.FROM],
+        ["USING", TokenType.USING],
+        ["BY", TokenType.BY],
+        ["AT", TokenType.AT],
+        ["OF", TokenType.OF],
+
+        // Boolean and relational
+        ["EQUALS", TokenType.EQUALS],
+        ["GREATER THAN", TokenType.GREATER_THAN],
+        ["LESS THAN", TokenType.LESS_THAN],
+        ["GREATER THAN OR EQUAL TO", TokenType.GREATER_EQUAL],
+        ["LESS THAN OR EQUAL TO", TokenType.LESS_EQUAL],
+        ["NOT", TokenType.NOT],
     ]);
 
     constructor(source: string) {
@@ -33,12 +60,40 @@ export class Scanner {
     }
 
     scanTokens(): Token[] {
-        while (!this.isAtEnd()) {
-            // We are at the beginning of the next lexeme.
-            this.start = this.current;
-            this.scanToken();
-        }
+        // COBOL: process line by line for column-based formatting
+        const lines = this.source.split(/\r?\n/);
+        for (let rawLine of lines) {
+            this.line++;
+            // Ignore columns 1-6 (sequence numbers, etc.)
+            let line = rawLine;
+            if (line.length > 6) {
+                // Column 7: comment (*) or continuation (-)
+                const col7 = line[6];
+                if (col7 === '*') {
+                    // Comment line, skip
+                    continue;
+                } else if (col7 === '-') {
+                    // Continuation line, treat as normal
+                    line = line.substring(7);
+                } else {
+                    // Normal code line, start from column 8
+                    line = line.substring(7);
+                }
+            } else {
+                // Short line, skip
+                continue;
+            }
 
+            // Reset scanner state for this line
+            this.start = 0;
+            this.current = 0;
+            // Scan tokens in the line
+            while (this.current < line.length) {
+                this.source = line;
+                this.start = this.current;
+                this.scanToken();
+            }
+        }
         this.tokens.push(new Token(TokenType.EOF, "", null, this.line));
         return this.tokens;
     }
@@ -46,56 +101,70 @@ export class Scanner {
     private scanToken(): void {
         let c: string = this.advance();
         switch (c) {
-            case '(': this.addToken(TokenType.LEFT_PAREN); break;
-            case ')': this.addToken(TokenType.RIGHT_PAREN); break;
-            case '{': this.addToken(TokenType.LEFT_BRACE); break;
-            case '}': this.addToken(TokenType.RIGHT_BRACE); break;
             case ',': this.addToken(TokenType.COMMA); break;
             case '.': this.addToken(TokenType.DOT); break;
             case '-': this.addToken(TokenType.MINUS); break;
             case '+': this.addToken(TokenType.PLUS); break;
-            case ';': this.addToken(TokenType.SEMICOLON); break;
             case '*': this.addToken(TokenType.STAR); break;
-            case '!': this.addToken(this.match('=') ? TokenType.BANG_EQUAL : TokenType.BANG); break;
-            case '=': this.addToken(this.match('=') ? TokenType.EQUAL_EQUAL : TokenType.EQUAL); break;
-            case '<': this.addToken(this.match('=') ? TokenType.LESS_EQUAL : TokenType.LESS); break;
-            case '>': this.addToken(this.match('=') ? TokenType.GREATER_EQUAL : TokenType.GREATER); break;
-            case '/':
-                if (this.match('/')) {
-                    // A comment goes until the end of the line.
-                    while (this.peek() !== '\n' && !this.isAtEnd()) { this.advance(); }
+            case '/': this.addToken(TokenType.SLASH); break;
+            case '<': this.addToken(TokenType.LESS_THAN); break;
+            case '>': this.addToken(TokenType.GREATER_THAN); break;
+            case '=': this.addToken(TokenType.EQUAL); break;
+            case '(': this.addToken(TokenType.LPAREN); break;
+            case ')': this.addToken(TokenType.RPAREN); break;
+            case ':':
+                // COBOL uses colon for PIC clauses, so handle it specially
+                if (this.match('=')) {
+                    this.addToken(TokenType.EQUALS);
                 } else {
-                    this.addToken(TokenType.SLASH);
+                    this.addToken(TokenType.COLON);
                 }
                 break;
+            // Handle whitespace and newlines
             case ' ':
             case '\r':
             case '\t':
                 // Ignore whitespace.
                 break;
-
             case '\n':
                 this.line++;
+                console.log("New line:", this.line);
                 break;
             case '"': this.string(); break;
+            case "'": this.string(); break;
+            case '*':
+                this.addToken(TokenType.STAR);
+                break;
             default:
                 if (this.isDigit(c)) {
                     this.number();
                 } else if (this.isAlpha(c)) {
-                    this.identifier();
+                    this.identifierOrKeyword();
+                } else if (c === '!') {
+                    // Treat '!' as the start of a comment, skip the rest of the line
+                    while (this.peek() !== '\n' && !this.isAtEnd()) { this.advance(); }
                 } else {
-                    Lox.error(new Token(TokenType.IDENTIFIER, "", null, this.line), "Unexpected character.");
+                    Lox.error(new Token(TokenType.IDENTIFIER, c, null, this.line), "Unexpected character.");
                 }
                 break;
         }
     }
 
-    private identifier(): void {
-        while (this.isAlphaNumeric(this.peek())) { this.advance(); }
+    // COBOL keywords can be multi-word, so scan for longest match
+    private identifierOrKeyword(): void {
+        while (this.isAlphaNumeric(this.peek()) || this.peek() === '-') { this.advance(); }
 
-        const text: string = this.source.substring(this.start, this.current);
-        const type: TokenType = Scanner.keywords.get(text) || TokenType.IDENTIFIER;
-        this.addToken(type);
+        let text: string = this.source.substring(this.start, this.current).toUpperCase();
+
+        // Try to match multi-word keywords (e.g., "IDENTIFICATION DIVISION")
+        let type: TokenType | undefined = undefined;
+        for (let [keyword, tokenType] of Scanner.keywords.entries()) {
+            if (text === keyword.toUpperCase()) {
+                type = tokenType;
+                break;
+            }
+        }
+        this.addToken(type || TokenType.IDENTIFIER);
     }
 
     private advance(): string {
@@ -144,7 +213,8 @@ export class Scanner {
     }
 
     private string(): void {
-        while (this.peek() !== '"' && !this.isAtEnd()) {
+        const quoteType = this.source.charAt(this.start);
+        while (this.peek() !== quoteType && !this.isAtEnd()) {
             if (this.peek() === '\n') { this.line++; }
             this.advance();
         }
@@ -154,7 +224,7 @@ export class Scanner {
             return;
         }
 
-        // The closing ".
+        // The closing quote.
         this.advance();
 
         // Trim the surrounding quotes.
