@@ -39,6 +39,9 @@ function tests() {
     }
     console.log("Testing completed.");
     console.log(`Total tests passed: ${successCount} out of ${COBOL_Files.length}`);
+
+    let minimal = readFileSync(join("test-files", "minimal.cob"), "utf-8");
+    Lox.run(minimal);
 }   
 
 tests();

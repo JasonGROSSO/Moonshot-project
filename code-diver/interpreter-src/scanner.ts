@@ -152,12 +152,20 @@ export class Scanner {
 
     // COBOL keywords can be multi-word, so scan for longest match
     private identifierOrKeyword(): void {
-        while (this.isAlphaNumeric(this.peek()) || this.peek() === '-') { this.advance(); }
+        // Advance through alphanumeric and '-' characters
+        while (this.isAlphaNumeric(this.peek()) || this.peek() === '-') {
+            this.advance();
+        }
 
         let text: string = this.source.substring(this.start, this.current).toUpperCase();
-
-        // Try to match multi-word keywords (e.g., "IDENTIFICATION DIVISION")
         let type: TokenType | undefined = undefined;
+
+        if (this.matchDivision(text)) {
+            return; // Handled in matchDivision
+        } else if (this.matchSection(text)) {
+            return; // Handled in matchSection
+        }
+
         for (let [keyword, tokenType] of Scanner.keywords.entries()) {
             if (text === keyword.toUpperCase()) {
                 type = tokenType;
@@ -186,6 +194,45 @@ export class Scanner {
 
         this.current++;
         return true;
+    }
+
+    private matchDivision(text: string): boolean {
+        let matched = false;
+
+        if (text === "DIVISION" && this.tokens.length > 0) {
+            const prevToken = this.tokens[this.tokens.length - 1];
+            const prevText = prevToken.lexeme.trim();
+            const combinedText = `${prevText} DIVISION`.toUpperCase();
+            const combinedType = Scanner.keywords.get(combinedText);
+
+            if (combinedType) {
+                this.tokens.pop();
+                this.start = this.start - prevText.length - 1; // -1 for the space
+                this.addToken(combinedType);
+                matched = true;
+            }
+        }
+        return matched;
+    }
+
+    private matchSection(text: string): boolean {
+        let matched = false;
+
+        if (text === "SECTION" && this.tokens.length > 0) {
+            const prevToken = this.tokens[this.tokens.length - 1];
+            const prevText = prevToken.lexeme.trim();
+            // Handle WORKING-STORAGE SECTION and other multi-word sections
+            const combinedText = `${prevText} SECTION`.toUpperCase();
+            const combinedType = Scanner.keywords.get(combinedText);
+
+            if (combinedType) {
+                this.tokens.pop();
+                this.start = this.start - prevText.length - 1; // -1 for the space
+                this.addToken(combinedType);
+                matched = true;
+            }
+        }
+        return matched;
     }
 
     private peek(): string {

@@ -88,6 +88,11 @@ export class Lox {
         const scanner = new Scanner(source);
         const tokens = scanner.scanTokens();
 
+        console.log("Tokens scanned:");
+        for (const token of tokens) {
+            console.log(`  ${token.type} (${token.lexeme})`);
+        }
+
         const parser = new Parser(tokens);
         let statements: any = undefined;
         try {

@@ -1,2893 +1,3 @@
-Errors for 3270test.cob:
-[line 7] Error at '$': Unexpected character.
-[line 19] Error at '': Unterminated string.
-[line 69] Error at '': Unterminated string.
-[line 96] Error at '$': Unexpected character.
-Errors for ABERTURAARQUIVOS.cbl:
-[line 11] Error at '': Unterminated string.
-Errors for ACCTCURR.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ACCTPTNR.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for Address.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for add_action_history_item.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for add_edit_item.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ADD_ERROR_V1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for AESCORE.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for AESGEN.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for AESMAIN.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for AESMPUT.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for AESTEST.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for AESTGET.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for AESTPUT.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for AESXGET.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for agarcob.cbl:
-[line 612] Error at '&': Unexpected character.
-[line 1486] Error at '&': Unexpected character.
-[line 1500] Error at '&': Unexpected character.
-Errors for Aggregated1_V1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for Aggregated2_V1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for AmsLocation.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for anslutdb.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for App.xaml.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for application_configurator.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for asdf-append-to-ledger.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for asdf-create-group.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for asdf-format-uuid.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for asdf-generate-uuid.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for asdf-list-ledger.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for asdf-log-in.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for asdf-parse-uuid.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for asdf-unit-test-uuid.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for assoc_api.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ASYNCPNT.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for bams.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for banking-test.cbl:
-[line 22] Error at '': Unterminated string.
-Errors for banking.cbl:
-[line 4] Error at '#': Unexpected character.
-[line 17] Error at '&': Unexpected character.
-[line 18] Error at '&': Unexpected character.
-[line 19] Error at '&': Unexpected character.
-[line 20] Error at '&': Unexpected character.
-[line 21] Error at '&': Unexpected character.
-[line 22] Error at '&': Unexpected character.
-[line 23] Error at '&': Unexpected character.
-[line 24] Error at '&': Unexpected character.
-[line 25] Error at '&': Unexpected character.
-[line 26] Error at '&': Unexpected character.
-[line 27] Error at '&': Unexpected character.
-[line 28] Error at '&': Unexpected character.
-[line 29] Error at '&': Unexpected character.
-[line 30] Error at '&': Unexpected character.
-[line 31] Error at '&': Unexpected character.
-[line 32] Error at '&': Unexpected character.
-[line 33] Error at '&': Unexpected character.
-[line 34] Error at '&': Unexpected character.
-[line 35] Error at '&': Unexpected character.
-[line 36] Error at '&': Unexpected character.
-[line 37] Error at '&': Unexpected character.
-[line 38] Error at '&': Unexpected character.
-[line 39] Error at '&': Unexpected character.
-[line 40] Error at '&': Unexpected character.
-[line 41] Error at '&': Unexpected character.
-[line 42] Error at '&': Unexpected character.
-[line 43] Error at '&': Unexpected character.
-[line 44] Error at '&': Unexpected character.
-[line 45] Error at '&': Unexpected character.
-[line 46] Error at '&': Unexpected character.
-[line 47] Error at '&': Unexpected character.
-[line 48] Error at '&': Unexpected character.
-[line 49] Error at '&': Unexpected character.
-[line 50] Error at '&': Unexpected character.
-[line 51] Error at '&': Unexpected character.
-[line 52] Error at '&': Unexpected character.
-[line 53] Error at '&': Unexpected character.
-[line 54] Error at '&': Unexpected character.
-[line 55] Error at '&': Unexpected character.
-[line 56] Error at '&': Unexpected character.
-[line 57] Error at '&': Unexpected character.
-[line 58] Error at '&': Unexpected character.
-[line 59] Error at '&': Unexpected character.
-[line 60] Error at '&': Unexpected character.
-[line 61] Error at '&': Unexpected character.
-[line 62] Error at '&': Unexpected character.
-[line 63] Error at '&': Unexpected character.
-[line 64] Error at '&': Unexpected character.
-[line 65] Error at '&': Unexpected character.
-[line 66] Error at '&': Unexpected character.
-[line 67] Error at '&': Unexpected character.
-[line 68] Error at '&': Unexpected character.
-[line 69] Error at '&': Unexpected character.
-[line 70] Error at '&': Unexpected character.
-[line 71] Error at '&': Unexpected character.
-[line 72] Error at '&': Unexpected character.
-[line 73] Error at '&': Unexpected character.
-[line 74] Error at '&': Unexpected character.
-[line 75] Error at '&': Unexpected character.
-[line 76] Error at '&': Unexpected character.
-[line 77] Error at '&': Unexpected character.
-[line 78] Error at '&': Unexpected character.
-[line 79] Error at '&': Unexpected character.
-[line 95] Error at '#': Unexpected character.
-[line 104] Error at '#': Unexpected character.
-[line 108] Error at '#': Unexpected character.
-[line 120] Error at '#': Unexpected character.
-Errors for BarnCampReport.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for bktort.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for BKU-RECD.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for BOOK.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for brainfuck.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for BRANCHLIST.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for browser_launcher.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for BubbleSort.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for Car_Rental.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBL_OC_DUMP.cob:
-[line 76] Error at '&': Unexpected character.
-[line 77] Error at '&': Unexpected character.
-[line 78] Error at '&': Unexpected character.
-[line 79] Error at '&': Unexpected character.
-[line 80] Error at '&': Unexpected character.
-[line 81] Error at '&': Unexpected character.
-[line 82] Error at '&': Unexpected character.
-[line 83] Error at '&': Unexpected character.
-[line 84] Error at '&': Unexpected character.
-[line 85] Error at '&': Unexpected character.
-[line 86] Error at '&': Unexpected character.
-[line 87] Error at '&': Unexpected character.
-[line 88] Error at '&': Unexpected character.
-[line 89] Error at '&': Unexpected character.
-[line 90] Error at '&': Unexpected character.
-[line 202] Error at '?': Unexpected character.
-[line 225] Error at '&': Unexpected character.
-[line 226] Error at '&': Unexpected character.
-[line 227] Error at '&': Unexpected character.
-Errors for CBU00000.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00001.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00002.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00003.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00004.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00005.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00006.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00007.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00008.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00009.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00011.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00012.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00020.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00025.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00030.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00040.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00050.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00060.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00080.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00100.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00101.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00102.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00103.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00200.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00300.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU00301.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBU0U001.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBUC0001.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CBUC0002.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cgi-add-betyg.cbl:
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 38] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-[line 57] Error at '#': Unexpected character.
-Errors for cgi-add-local.cbl:
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 40] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-[line 56] Error at '#': Unexpected character.
-Errors for cgi-add-user.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cgi-edit-betyg.cbl:
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 36] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 50] Error at '#': Unexpected character.
-[line 124] Error at '?': Unexpected character.
-[line 133] Error at '?': Unexpected character.
-[line 260] Error at '?': Unexpected character.
-[line 267] Error at '?': Unexpected character.
-Errors for cgi-edit-local.cbl:
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 129] Error at '?': Unexpected character.
-[line 138] Error at '?': Unexpected character.
-[line 148] Error at '?': Unexpected character.
-[line 275] Error at '?': Unexpected character.
-[line 282] Error at '?': Unexpected character.
-[line 289] Error at '?': Unexpected character.
-Errors for cgi-edit-profile.cbl:
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 254] Error at '?': Unexpected character.
-Errors for cgi-edit-user.cbl:
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 63] Error at '#': Unexpected character.
-[line 307] Error at '?': Unexpected character.
-Errors for cgi-list-betygalla.cbl:
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 105] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-[line 152] Error at '#': Unexpected character.
-Errors for cgi-list-betygelev.cbl:
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 89] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-[line 124] Error at '#': Unexpected character.
-Errors for cgi-list-local.cbl:
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 39] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-[line 55] Error at '#': Unexpected character.
-Errors for cgi-list-users.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cgi-remove-local.cbl:
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 43] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-[line 59] Error at '#': Unexpected character.
-Errors for cgi-remove-user.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cisp-error.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cisp.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for claimci0.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ClassCondition.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CLIENTES.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for clinkages.cbl:
-[line 90] Error at '': Unterminated string.
-Errors for cob-qalq.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cob-simpleinventory.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cob-todo.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBC3270.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCATTR.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCCOLOUR.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCEXTRA.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCKEYS.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCPARMS.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCRETC.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_ecvt_comp_1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_ecvt_comp_2.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_edit_comp1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_edit_comp2.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_format_comp1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_format_comp2.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_init_pathname.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_menu_sd_charsets.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_menu_sd_fields.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_menu_sd_menus.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_menu_sd_menu_items.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_menu_sd_mrefs.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_menu_sd_screens.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_menu_sd_states.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_sci_notation_comp_1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_sci_notation_comp_2.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobcurses_test_units.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCURSG.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCURSL.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCURSP.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCURSQ.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBCURSX.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobol-calc.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cobol.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for COBOLTEST1.cob:
-[line 6] Error at ';': Unexpected character.
-[line 7] Error at ';': Unexpected character.
-[line 8] Error at ';': Unexpected character.
-[line 14] Error at ';': Unexpected character.
-[line 16] Error at ';': Unexpected character.
-[line 19] Error at '': Unterminated string.
-[line 25] Error at ';': Unexpected character.
-[line 26] Error at ';': Unexpected character.
-[line 28] Error at ';': Unexpected character.
-[line 29] Error at ';': Unexpected character.
-[line 30] Error at ';': Unexpected character.
-Errors for cobweb-pipes.cob:
-[line 278] Error at '`': Unexpected character.
-[line 278] Error at '`': Unexpected character.
-[line 278] Error at '`': Unexpected character.
-[line 286] Error at '`': Unexpected character.
-[line 286] Error at '`': Unexpected character.
-Errors for Cob_CallTables_1of2.cbl:
-[line 111] Error at '': Unterminated string.
-[line 118] Error at '': Unterminated string.
-Errors for Cob_CallTables_2of2.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CombinedConditions.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for command-look.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for command_line_parser.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ConditionNameCondition.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ConditionStatement.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for config.cbl:
-[line 1] Error at '': Unterminated string.
-[line 2] Error at '': Unterminated string.
-[line 4] Error at '%': Unexpected character.
-[line 4] Error at '%': Unexpected character.
-[line 4] Error at '': Unterminated string.
-[line 5] Error at '': Unterminated string.
-[line 7] Error at '%': Unexpected character.
-[line 7] Error at '': Unterminated string.
-[line 8] Error at '': Unterminated string.
-Errors for ControlFlow_V1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for convert-bad.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for convert-bad2.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for copybook.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for core_basic_window.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for core_random_values.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for cow.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CRDTCHK.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for createAuthCode.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for createAuthCodeTest.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CRIANDOCAMPOSFORMULARIOHTML.cob:
-[line 2] Error at '%': Unexpected character.
-[line 9] Error at '%': Unexpected character.
-[line 18] Error at '&': Unexpected character.
-[line 18] Error at ';': Unexpected character.
-[line 20] Error at '%': Unexpected character.
-[line 21] Error at 'ó': Unexpected character.
-[line 21] Error at '&': Unexpected character.
-[line 21] Error at ';': Unexpected character.
-[line 32] Error at '&': Unexpected character.
-[line 32] Error at ';': Unexpected character.
-Errors for crl_editor.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for crl_engine.cbl:
-[line 238] Error at '&': Unexpected character.
-[line 380] Error at '': Unterminated string.
-[line 429] Error at '': Unterminated string.
-[line 540] Error at '': Unterminated string.
-[line 670] Error at '': Unterminated string.
-[line 726] Error at '?': Unexpected character.
-Errors for crl_item_creator.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for crssr.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CS00000F.cbl:
-[line 238] Error at '�': Unexpected character.
-[line 238] Error at '�': Unexpected character.
-[line 263] Error at '�': Unexpected character.
-[line 263] Error at '�': Unexpected character.
-Errors for CS00000M.cbl:
-[line 12] Error at '�': Unexpected character.
-[line 13] Error at '�': Unexpected character.
-[line 13] Error at '�': Unexpected character.
-[line 18] Error at '�': Unexpected character.
-[line 19] Error at '�': Unexpected character.
-[line 19] Error at '�': Unexpected character.
-[line 230] Error at '�': Unexpected character.
-[line 252] Error at '�': Unexpected character.
-[line 253] Error at '�': Unexpected character.
-[line 253] Error at '�': Unexpected character.
-Errors for CS00000S.cbl:
-[line 216] Error at '�': Unexpected character.
-Errors for CS00001M.cbl:
-[line 12] Error at '�': Unexpected character.
-[line 13] Error at '�': Unexpected character.
-[line 13] Error at '�': Unexpected character.
-[line 18] Error at '�': Unexpected character.
-[line 19] Error at '�': Unexpected character.
-[line 19] Error at '�': Unexpected character.
-[line 230] Error at '�': Unexpected character.
-[line 252] Error at '�': Unexpected character.
-[line 253] Error at '�': Unexpected character.
-[line 253] Error at '�': Unexpected character.
-Errors for CS00001S.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CS00002M.cbl:
-[line 12] Error at '�': Unexpected character.
-[line 13] Error at '�': Unexpected character.
-[line 13] Error at '�': Unexpected character.
-[line 18] Error at '�': Unexpected character.
-[line 19] Error at '�': Unexpected character.
-[line 19] Error at '�': Unexpected character.
-[line 230] Error at '�': Unexpected character.
-[line 252] Error at '�': Unexpected character.
-[line 253] Error at '�': Unexpected character.
-[line 253] Error at '�': Unexpected character.
-Errors for CS00002S.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CS00003M.cbl:
-[line 12] Error at '�': Unexpected character.
-[line 13] Error at '�': Unexpected character.
-[line 13] Error at '�': Unexpected character.
-[line 18] Error at '�': Unexpected character.
-[line 19] Error at '�': Unexpected character.
-[line 19] Error at '�': Unexpected character.
-[line 230] Error at '�': Unexpected character.
-[line 252] Error at '�': Unexpected character.
-[line 253] Error at '�': Unexpected character.
-[line 253] Error at '�': Unexpected character.
-Errors for CS00003S.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CS00004S.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CS00005S.cbl:
-[line 13] Error at '�': Unexpected character.
-[line 14] Error at '�': Unexpected character.
-[line 20] Error at '�': Unexpected character.
-[line 21] Error at '�': Unexpected character.
-[line 23] Error at '�': Unexpected character.
-[line 24] Error at '�': Unexpected character.
-[line 25] Error at '�': Unexpected character.
-[line 25] Error at '�': Unexpected character.
-[line 37] Error at '�': Unexpected character.
-[line 38] Error at '�': Unexpected character.
-[line 44] Error at '�': Unexpected character.
-[line 45] Error at '�': Unexpected character.
-[line 47] Error at '�': Unexpected character.
-[line 48] Error at '�': Unexpected character.
-[line 49] Error at '�': Unexpected character.
-[line 49] Error at '�': Unexpected character.
-[line 291] Error at '�': Unexpected character.
-[line 291] Error at '�': Unexpected character.
-[line 291] Error at '�': Unexpected character.
-[line 297] Error at '�': Unexpected character.
-[line 297] Error at '�': Unexpected character.
-[line 297] Error at '�': Unexpected character.
-[line 297] Error at '�': Unexpected character.
-[line 1059] Error at '�': Unexpected character.
-[line 1059] Error at '�': Unexpected character.
-[line 1059] Error at '�': Unexpected character.
-[line 1119] Error at '�': Unexpected character.
-[line 1120] Error at '�': Unexpected character.
-[line 1126] Error at '�': Unexpected character.
-[line 1127] Error at '�': Unexpected character.
-[line 1129] Error at '�': Unexpected character.
-[line 1130] Error at '�': Unexpected character.
-[line 1131] Error at '�': Unexpected character.
-[line 1131] Error at '�': Unexpected character.
-Errors for CS00006S.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CS00100S.cbl:
-[line 12] Error at '�': Unexpected character.
-[line 17] Error at '�': Unexpected character.
-Errors for CS00101S.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CS00103S.cbl:
-[line 13] Error at '�': Unexpected character.
-[line 19] Error at '�': Unexpected character.
-[line 315] Error at '�': Unexpected character.
-Errors for CS00104S.cbl:
-[line 56] Error at '�': Unexpected character.
-[line 56] Error at '�': Unexpected character.
-[line 57] Error at '�': Unexpected character.
-[line 57] Error at '�': Unexpected character.
-[line 57] Error at '�': Unexpected character.
-[line 57] Error at '�': Unexpected character.
-Errors for CS00105S.cbl:
-[line 111] Error at '�': Unexpected character.
-Errors for CS00106S.cbl:
-[line 327] Error at '�': Unexpected character.
-[line 531] Error at '�': Unexpected character.
-[line 833] Error at '�': Unexpected character.
-Errors for CS10001C.cbl:
-[line 740] Error at '�': Unexpected character.
-Errors for CS10001P.cbl:
-[line 436] Error at '�': Unexpected character.
-Errors for CS10002C.cbl:
-[line 402] Error at '�': Unexpected character.
-Errors for CS10003C.cbl:
-[line 498] Error at '�': Unexpected character.
-Errors for CS10004C.cbl:
-[line 582] Error at '�': Unexpected character.
-Errors for CS10005C.cbl:
-[line 672] Error at '�': Unexpected character.
-Errors for CS10006C.cbl:
-[line 780] Error at '�': Unexpected character.
-Errors for CS10007C.cbl:
-[line 590] Error at '�': Unexpected character.
-Errors for CS10008C.cbl:
-[line 434] Error at '�': Unexpected character.
-Errors for CS10009C.cbl:
-[line 352] Error at '�': Unexpected character.
-Errors for CS10010C.cbl:
-[line 437] Error at '�': Unexpected character.
-Errors for CS10011C.cbl:
-[line 484] Error at '�': Unexpected character.
-[line 614] Error at '�': Unexpected character.
-Errors for CS10012C.cbl:
-[line 561] Error at '�': Unexpected character.
-Errors for CS10013C.cbl:
-[line 100] Error at '�': Unexpected character.
-Errors for CS10014C.cbl:
-[line 86] Error at '�': Unexpected character.
-Errors for CS10015C.cbl:
-[line 252] Error at '�': Unexpected character.
-Errors for CS10016C.cbl:
-[line 86] Error at '�': Unexpected character.
-Errors for CS10017C.cbl:
-[line 97] Error at '�': Unexpected character.
-Errors for CS10018C.cbl:
-[line 270] Error at '�': Unexpected character.
-Errors for CS20001C.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CS20002C.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CS20003C.cbl:
-[line 367] Error at '�': Unexpected character.
-Errors for CS30001C.cbl:
-[line 216] Error at '�': Unexpected character.
-Errors for CS30002C.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CS30003C.cbl:
-[line 517] Error at '�': Unexpected character.
-[line 517] Error at '�': Unexpected character.
-[line 520] Error at '�': Unexpected character.
-[line 520] Error at '�': Unexpected character.
-[line 520] Error at '�': Unexpected character.
-[line 520] Error at '�': Unexpected character.
-[line 525] Error at '�': Unexpected character.
-[line 525] Error at '�': Unexpected character.
-[line 525] Error at '�': Unexpected character.
-[line 1053] Error at '�': Unexpected character.
-Errors for CSSTATS2.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CSSTATUS.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CTU000S1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CTU0S1T1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CTU0S1T2.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CTU0S2T1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CTU0S3T1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CTU0S3T2.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CTUC0001.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CTXTA3B.cob:
-[line 23] Error at '': Unterminated string.
-[line 24] Error at '': Unterminated string.
-Errors for CTXTA3N.cob:
-[line 18] Error at '': Unterminated string.
-[line 19] Error at '': Unterminated string.
-Errors for Custmnt2.cbl:
-[line 35] Error at '': Unterminated string.
-[line 348] Error at '': Unterminated string.
-[line 475] Error at '': Unterminated string.
-[line 545] Error at '': Unterminated string.
-Errors for customermenu.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CWBWCOBX.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CWBWDATE.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CWBWSUBC.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CWKTCOBX.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CWKTDATE.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CWKTDB2X.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CWKTSUBC.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CWXTCOB.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CWXTDATE.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for CWXTSUBC.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d01a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d01b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d02a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d02b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d03a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d03b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d04a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d04b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d05a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d05b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d06a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d06b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d07a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d07b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d08a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d08b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d09a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d09b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d10a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d10b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d11a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d11b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d12a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d12b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d13a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d13b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d14a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d14b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d15a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d15b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d16a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d16b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d17a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d17b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d21a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d22a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d23a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d23b.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for d25a.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for DanglingElse_V1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for DateAndTime.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for DD-ScreenHeader.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for demo.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for demo1.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for DFSIVA34.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for DFSIVP34.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for didzorchcancelmovienight.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for display_action_history.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for display_debug.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for display_help.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for draw_dynamic_screen_data.cbl:
-[line 112] Error at '': Unterminated string.
-Errors for draw_tile_character.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for DTAR020.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for DTAR107.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ecblunit.cbl:
-[line 5] Error at '@': Unexpected character.
-[line 6] Error at '@': Unexpected character.
-[line 8] Error at ';': Unexpected character.
-[line 10] Error at ';': Unexpected character.
-[line 14] Error at ';': Unexpected character.
-[line 19] Error at ';': Unexpected character.
-Errors for ECS001.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ed000010.cob:
-[line 7] Error at '$': Unexpected character.
-[line 13] Error at '': Unterminated string.
-[line 73] Error at '?': Unexpected character.
-[line 87] Error at '?': Unexpected character.
-[line 104] Error at '$': Unexpected character.
-Errors for EDPR010.cob:
-[line 7] Error at '$': Unexpected character.
-[line 9] Error at '': Unterminated string.
-[line 50] Error at '$': Unexpected character.
-Errors for EDUCPY.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for EDUPGM.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for EFITA3B8.cob:
-[line 15] Error at '': Unterminated string.
-[line 16] Error at '': Unterminated string.
-Errors for EFITA3N8.cob:
-[line 16] Error at '': Unterminated string.
-[line 17] Error at '': Unterminated string.
-Errors for EFITAUX2.cob:
-[line 41] Error at '': Unterminated string.
-[line 42] Error at '': Unterminated string.
-Errors for eleve.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for EMPREAD.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for EMPWRITE.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ENCERRANDOMENU.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for epscmort.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for epscsmrd.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for epscsmrt.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for epsmlist.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for epsmpmt.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for epsnbrvl.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for equals-test.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for error-printscr.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for EvaluteVerb.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for EX01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for EXCLUINDOREGISTROS.cbl:
-[line 11] Error at '': Unterminated string.
-Errors for ExportAttendees.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for factorial.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FAKADDR.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FAKBANK.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FAKCOMP.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FAKER.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FAKERGEN.cob:
-[line 85] Error at '': Unterminated string.
-Errors for FAKERTST.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FAKPERS.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FAKPHON.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FAKRAND.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FAKTXID.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FETCHTBL.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for fibonacci.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for fielded_to_linear.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for fizzbuzz.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for floor-div.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for floor-divmod.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for FMSTAU2.cob:
-[line 6] Error at '': Unterminated string.
-[line 7] Error at '': Unterminated string.
-Errors for ForLoop.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for Form1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for format-number.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for fortrand.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for function1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for function2.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for fxsort.cbl:
-[line 40] Error at '$': Unexpected character.
-[line 40] Error at '$': Unexpected character.
-[line 40] Error at '$': Unexpected character.
-[line 40] Error at '$': Unexpected character.
-[line 40] Error at '$': Unexpected character.
-[line 40] Error at '$': Unexpected character.
-[line 40] Error at '$': Unexpected character.
-[line 46] Error at '$': Unexpected character.
-[line 46] Error at '$': Unexpected character.
-[line 46] Error at '$': Unexpected character.
-[line 46] Error at '$': Unexpected character.
-[line 46] Error at '$': Unexpected character.
-[line 46] Error at '$': Unexpected character.
-[line 46] Error at '$': Unexpected character.
-[line 52] Error at '$': Unexpected character.
-[line 52] Error at '$': Unexpected character.
-[line 52] Error at '$': Unexpected character.
-[line 52] Error at '$': Unexpected character.
-[line 52] Error at '$': Unexpected character.
-[line 52] Error at '$': Unexpected character.
-[line 52] Error at '$': Unexpected character.
-[line 58] Error at '$': Unexpected character.
-[line 58] Error at '$': Unexpected character.
-[line 58] Error at '$': Unexpected character.
-[line 58] Error at '$': Unexpected character.
-[line 58] Error at '$': Unexpected character.
-[line 58] Error at '$': Unexpected character.
-[line 58] Error at '$': Unexpected character.
-[line 64] Error at '$': Unexpected character.
-[line 64] Error at '$': Unexpected character.
-[line 64] Error at '$': Unexpected character.
-[line 64] Error at '$': Unexpected character.
-[line 64] Error at '$': Unexpected character.
-[line 64] Error at '$': Unexpected character.
-[line 64] Error at '$': Unexpected character.
-[line 70] Error at '$': Unexpected character.
-[line 70] Error at '$': Unexpected character.
-[line 70] Error at '$': Unexpected character.
-[line 70] Error at '$': Unexpected character.
-[line 70] Error at '$': Unexpected character.
-[line 70] Error at '$': Unexpected character.
-[line 70] Error at '$': Unexpected character.
-Errors for GAM0VDB.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GAM0VII.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GAM0VMI.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GAM0VMM.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GAM0VSI.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for game.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for gcblunit.cbl:
-[line 8] Error at ';': Unexpected character.
-[line 10] Error at ';': Unexpected character.
-[line 14] Error at ';': Unexpected character.
-[line 19] Error at ';': Unexpected character.
-Errors for geekcode.cob:
-[line 192] Error at '': Unterminated string.
-[line 195] Error at '': Unterminated string.
-[line 198] Error at '': Unterminated string.
-[line 201] Error at '': Unterminated string.
-[line 204] Error at '': Unterminated string.
-[line 207] Error at '': Unterminated string.
-[line 210] Error at '': Unterminated string.
-[line 213] Error at '': Unterminated string.
-[line 216] Error at '': Unterminated string.
-[line 219] Error at '': Unterminated string.
-[line 222] Error at '': Unterminated string.
-[line 225] Error at '': Unterminated string.
-[line 228] Error at '': Unterminated string.
-[line 231] Error at '': Unterminated string.
-[line 234] Error at '': Unterminated string.
-[line 237] Error at '': Unterminated string.
-[line 328] Error at '': Unterminated string.
-[line 331] Error at '': Unterminated string.
-[line 421] Error at '': Unterminated string.
-[line 424] Error at '': Unterminated string.
-[line 504] Error at '': Unterminated string.
-[line 507] Error at '': Unterminated string.
-[line 571] Error at '': Unterminated string.
-[line 574] Error at '': Unterminated string.
-[line 637] Error at '': Unterminated string.
-[line 640] Error at '': Unterminated string.
-[line 713] Error at '': Unterminated string.
-[line 716] Error at '': Unterminated string.
-[line 764] Error at '': Unterminated string.
-[line 767] Error at '': Unterminated string.
-[line 834] Error at '': Unterminated string.
-[line 837] Error at '': Unterminated string.
-[line 879] Error at '': Unterminated string.
-[line 882] Error at '': Unterminated string.
-[line 885] Error at '': Unterminated string.
-[line 928] Error at '': Unterminated string.
-[line 931] Error at '': Unterminated string.
-[line 950] Error at '': Unterminated string.
-[line 1023] Error at '': Unterminated string.
-[line 1026] Error at '': Unterminated string.
-[line 1088] Error at '': Unterminated string.
-[line 1091] Error at '': Unterminated string.
-[line 1096] Error at '': Unterminated string.
-[line 1103] Error at '': Unterminated string.
-[line 1150] Error at '': Unterminated string.
-[line 1153] Error at '': Unterminated string.
-[line 1158] Error at '': Unterminated string.
-[line 1161] Error at '': Unterminated string.
-[line 1164] Error at '': Unterminated string.
-[line 1227] Error at '': Unterminated string.
-[line 1230] Error at '': Unterminated string.
-[line 1233] Error at '': Unterminated string.
-[line 1237] Error at '': Unterminated string.
-[line 1240] Error at '': Unterminated string.
-[line 1243] Error at '': Unterminated string.
-[line 1246] Error at '': Unterminated string.
-[line 1249] Error at '': Unterminated string.
-[line 1252] Error at '': Unterminated string.
-[line 1255] Error at '': Unterminated string.
-[line 1258] Error at '': Unterminated string.
-[line 1261] Error at '': Unterminated string.
-[line 1266] Error at '': Unterminated string.
-[line 1270] Error at '': Unterminated string.
-[line 1274] Error at '': Unterminated string.
-[line 1323] Error at '': Unterminated string.
-[line 1326] Error at '': Unterminated string.
-[line 1329] Error at '': Unterminated string.
-[line 1396] Error at '': Unterminated string.
-[line 1399] Error at '': Unterminated string.
-[line 1402] Error at '': Unterminated string.
-[line 1405] Error at '': Unterminated string.
-[line 1408] Error at '': Unterminated string.
-[line 1413] Error at '': Unterminated string.
-[line 1416] Error at '': Unterminated string.
-[line 1419] Error at '': Unterminated string.
-[line 1423] Error at '': Unterminated string.
-[line 1426] Error at '': Unterminated string.
-[line 1429] Error at '': Unterminated string.
-[line 1433] Error at '': Unterminated string.
-[line 1436] Error at '': Unterminated string.
-[line 1441] Error at '': Unterminated string.
-[line 1444] Error at '': Unterminated string.
-[line 1493] Error at '': Unterminated string.
-[line 1496] Error at '': Unterminated string.
-[line 1499] Error at '': Unterminated string.
-[line 1502] Error at '': Unterminated string.
-[line 1505] Error at '': Unterminated string.
-[line 1508] Error at '': Unterminated string.
-[line 1511] Error at '': Unterminated string.
-[line 1514] Error at '': Unterminated string.
-[line 1517] Error at '': Unterminated string.
-[line 1520] Error at '': Unterminated string.
-[line 1523] Error at '': Unterminated string.
-[line 1527] Error at '': Unterminated string.
-[line 1530] Error at '': Unterminated string.
-[line 1534] Error at '': Unterminated string.
-[line 1537] Error at '': Unterminated string.
-[line 1541] Error at '': Unterminated string.
-[line 1591] Error at '': Unterminated string.
-[line 1594] Error at '': Unterminated string.
-[line 1598] Error at '': Unterminated string.
-[line 1601] Error at '': Unterminated string.
-[line 1604] Error at '': Unterminated string.
-[line 1609] Error at '': Unterminated string.
-[line 1612] Error at '': Unterminated string.
-[line 1615] Error at '': Unterminated string.
-[line 1618] Error at '': Unterminated string.
-[line 1623] Error at '': Unterminated string.
-[line 1626] Error at '': Unterminated string.
-[line 1630] Error at '': Unterminated string.
-[line 1684] Error at '': Unterminated string.
-[line 1687] Error at '': Unterminated string.
-[line 1690] Error at '': Unterminated string.
-[line 1693] Error at '': Unterminated string.
-[line 1696] Error at '': Unterminated string.
-[line 1701] Error at '': Unterminated string.
-[line 1704] Error at '': Unterminated string.
-[line 1707] Error at '': Unterminated string.
-[line 1710] Error at '': Unterminated string.
-[line 1715] Error at '': Unterminated string.
-[line 1718] Error at '': Unterminated string.
-[line 1722] Error at '': Unterminated string.
-[line 1774] Error at '': Unterminated string.
-[line 1777] Error at '': Unterminated string.
-[line 1781] Error at '': Unterminated string.
-[line 1784] Error at '': Unterminated string.
-[line 1787] Error at '': Unterminated string.
-[line 1790] Error at '': Unterminated string.
-[line 1793] Error at '': Unterminated string.
-[line 1796] Error at '': Unterminated string.
-[line 1801] Error at '': Unterminated string.
-[line 1855] Error at '': Unterminated string.
-[line 1858] Error at '': Unterminated string.
-[line 1861] Error at '': Unterminated string.
-[line 1864] Error at '': Unterminated string.
-[line 1867] Error at '': Unterminated string.
-[line 1872] Error at '': Unterminated string.
-[line 1877] Error at '': Unterminated string.
-[line 1880] Error at '': Unterminated string.
-[line 1883] Error at '': Unterminated string.
-[line 1886] Error at '': Unterminated string.
-[line 1889] Error at '': Unterminated string.
-[line 1892] Error at '': Unterminated string.
-[line 1895] Error at '': Unterminated string.
-[line 1898] Error at '': Unterminated string.
-[line 1901] Error at '': Unterminated string.
-[line 1946] Error at '': Unterminated string.
-[line 1949] Error at '': Unterminated string.
-[line 1952] Error at '': Unterminated string.
-[line 1955] Error at '': Unterminated string.
-[line 1958] Error at '': Unterminated string.
-[line 1965] Error at '': Unterminated string.
-[line 1968] Error at '': Unterminated string.
-[line 1971] Error at '': Unterminated string.
-[line 2029] Error at '': Unterminated string.
-[line 2032] Error at '': Unterminated string.
-[line 2095] Error at '': Unterminated string.
-[line 2098] Error at '': Unterminated string.
-[line 2101] Error at '': Unterminated string.
-[line 2104] Error at '': Unterminated string.
-[line 2108] Error at '': Unterminated string.
-[line 2111] Error at '': Unterminated string.
-[line 2115] Error at '': Unterminated string.
-[line 2120] Error at '': Unterminated string.
-[line 2123] Error at '': Unterminated string.
-[line 2126] Error at '': Unterminated string.
-[line 2129] Error at '': Unterminated string.
-[line 2132] Error at '': Unterminated string.
-[line 2137] Error at '': Unterminated string.
-[line 2140] Error at '': Unterminated string.
-[line 2143] Error at '': Unterminated string.
-[line 2146] Error at '': Unterminated string.
-[line 2151] Error at '': Unterminated string.
-[line 2200] Error at '': Unterminated string.
-[line 2203] Error at '': Unterminated string.
-[line 2206] Error at '': Unterminated string.
-[line 2209] Error at '': Unterminated string.
-[line 2213] Error at '': Unterminated string.
-[line 2216] Error at '': Unterminated string.
-[line 2219] Error at '': Unterminated string.
-[line 2222] Error at '': Unterminated string.
-[line 2225] Error at '': Unterminated string.
-[line 2228] Error at '': Unterminated string.
-[line 2274] Error at '': Unterminated string.
-[line 2277] Error at '': Unterminated string.
-[line 2280] Error at '': Unterminated string.
-[line 2287] Error at '': Unterminated string.
-[line 2290] Error at '': Unterminated string.
-[line 2293] Error at '': Unterminated string.
-[line 2296] Error at '': Unterminated string.
-[line 2342] Error at '': Unterminated string.
-[line 2345] Error at '': Unterminated string.
-[line 2348] Error at '': Unterminated string.
-[line 2353] Error at '': Unterminated string.
-[line 2356] Error at '': Unterminated string.
-[line 2359] Error at '': Unterminated string.
-[line 2370] Error at '': Unterminated string.
-[line 2419] Error at '': Unterminated string.
-[line 2422] Error at '': Unterminated string.
-[line 2426] Error at '': Unterminated string.
-[line 2429] Error at '': Unterminated string.
-[line 2432] Error at '': Unterminated string.
-[line 2435] Error at '': Unterminated string.
-[line 2439] Error at '': Unterminated string.
-[line 2442] Error at '': Unterminated string.
-[line 2447] Error at '': Unterminated string.
-[line 2450] Error at '': Unterminated string.
-[line 2454] Error at '': Unterminated string.
-[line 2457] Error at '': Unterminated string.
-[line 2507] Error at '': Unterminated string.
-[line 2510] Error at '': Unterminated string.
-[line 2513] Error at '': Unterminated string.
-[line 2516] Error at '': Unterminated string.
-[line 2519] Error at '': Unterminated string.
-[line 2522] Error at '': Unterminated string.
-[line 2526] Error at '': Unterminated string.
-[line 2529] Error at '': Unterminated string.
-[line 2532] Error at '': Unterminated string.
-[line 2535] Error at '': Unterminated string.
-[line 2538] Error at '': Unterminated string.
-[line 2543] Error at '': Unterminated string.
-[line 2546] Error at '': Unterminated string.
-[line 2552] Error at '': Unterminated string.
-[line 2555] Error at '': Unterminated string.
-[line 2600] Error at '': Unterminated string.
-[line 2603] Error at '': Unterminated string.
-[line 2606] Error at '': Unterminated string.
-[line 2609] Error at '': Unterminated string.
-[line 2612] Error at '': Unterminated string.
-[line 2616] Error at '': Unterminated string.
-[line 2619] Error at '': Unterminated string.
-[line 2622] Error at '': Unterminated string.
-[line 2625] Error at '': Unterminated string.
-[line 2630] Error at '': Unterminated string.
-[line 2635] Error at '': Unterminated string.
-[line 2638] Error at '': Unterminated string.
-[line 2641] Error at '': Unterminated string.
-[line 2646] Error at '': Unterminated string.
-[line 2649] Error at '': Unterminated string.
-[line 2698] Error at '': Unterminated string.
-[line 2701] Error at '': Unterminated string.
-[line 2704] Error at '': Unterminated string.
-[line 2707] Error at '': Unterminated string.
-[line 2710] Error at '': Unterminated string.
-[line 2715] Error at '': Unterminated string.
-[line 2722] Error at '': Unterminated string.
-[line 2725] Error at '': Unterminated string.
-[line 2728] Error at '': Unterminated string.
-[line 2732] Error at '': Unterminated string.
-[line 2736] Error at '': Unterminated string.
-[line 2741] Error at '': Unterminated string.
-[line 2794] Error at '': Unterminated string.
-[line 2797] Error at '': Unterminated string.
-[line 2800] Error at '': Unterminated string.
-[line 2803] Error at '': Unterminated string.
-[line 2806] Error at '': Unterminated string.
-[line 2811] Error at '': Unterminated string.
-[line 2816] Error at '': Unterminated string.
-[line 2866] Error at '': Unterminated string.
-[line 2869] Error at '': Unterminated string.
-[line 2872] Error at '': Unterminated string.
-[line 2875] Error at '': Unterminated string.
-[line 2878] Error at '': Unterminated string.
-[line 2883] Error at '': Unterminated string.
-[line 2886] Error at '': Unterminated string.
-[line 2890] Error at '': Unterminated string.
-[line 2893] Error at '': Unterminated string.
-[line 2896] Error at '': Unterminated string.
-[line 2900] Error at '': Unterminated string.
-[line 2903] Error at '': Unterminated string.
-[line 2906] Error at '': Unterminated string.
-[line 2909] Error at '': Unterminated string.
-[line 2912] Error at '': Unterminated string.
-[line 2915] Error at '': Unterminated string.
-[line 2918] Error at '': Unterminated string.
-[line 2921] Error at '': Unterminated string.
-[line 2924] Error at '': Unterminated string.
-[line 2978] Error at '': Unterminated string.
-[line 2981] Error at '': Unterminated string.
-[line 2984] Error at '': Unterminated string.
-[line 2987] Error at '': Unterminated string.
-[line 2991] Error at '': Unterminated string.
-[line 2996] Error at '': Unterminated string.
-[line 2999] Error at '': Unterminated string.
-[line 3049] Error at '': Unterminated string.
-[line 3052] Error at '': Unterminated string.
-[line 3055] Error at '': Unterminated string.
-[line 3058] Error at '': Unterminated string.
-[line 3061] Error at '': Unterminated string.
-[line 3064] Error at '': Unterminated string.
-[line 3067] Error at '': Unterminated string.
-[line 3116] Error at '': Unterminated string.
-[line 3119] Error at '': Unterminated string.
-[line 3122] Error at '': Unterminated string.
-[line 3125] Error at '': Unterminated string.
-[line 3128] Error at '': Unterminated string.
-[line 3131] Error at '': Unterminated string.
-[line 3134] Error at '': Unterminated string.
-[line 3139] Error at '': Unterminated string.
-[line 3143] Error at '': Unterminated string.
-[line 3146] Error at '': Unterminated string.
-[line 3201] Error at '': Unterminated string.
-[line 3204] Error at '': Unterminated string.
-[line 3207] Error at '': Unterminated string.
-[line 3210] Error at '': Unterminated string.
-[line 3213] Error at '': Unterminated string.
-[line 3216] Error at '': Unterminated string.
-[line 3219] Error at '': Unterminated string.
-[line 3222] Error at '': Unterminated string.
-[line 3225] Error at '': Unterminated string.
-[line 3228] Error at '': Unterminated string.
-[line 3231] Error at '': Unterminated string.
-[line 3235] Error at '': Unterminated string.
-[line 3238] Error at '': Unterminated string.
-[line 3242] Error at '': Unterminated string.
-[line 3247] Error at '': Unterminated string.
-[line 3297] Error at '': Unterminated string.
-[line 3300] Error at '': Unterminated string.
-[line 3303] Error at '': Unterminated string.
-[line 3308] Error at '': Unterminated string.
-[line 3315] Error at '': Unterminated string.
-[line 3320] Error at '': Unterminated string.
-[line 3323] Error at '': Unterminated string.
-[line 3326] Error at '': Unterminated string.
-[line 3329] Error at '': Unterminated string.
-[line 3332] Error at '': Unterminated string.
-[line 3335] Error at '': Unterminated string.
-[line 3338] Error at '': Unterminated string.
-[line 3341] Error at '': Unterminated string.
-[line 3396] Error at '': Unterminated string.
-[line 3399] Error at '': Unterminated string.
-[line 3402] Error at '': Unterminated string.
-[line 3406] Error at '': Unterminated string.
-[line 3410] Error at '': Unterminated string.
-[line 3413] Error at '': Unterminated string.
-[line 3419] Error at '': Unterminated string.
-[line 3424] Error at '': Unterminated string.
-[line 3427] Error at '': Unterminated string.
-[line 3431] Error at '': Unterminated string.
-[line 3484] Error at '': Unterminated string.
-[line 3487] Error at '': Unterminated string.
-[line 3490] Error at '': Unterminated string.
-[line 3495] Error at '': Unterminated string.
-[line 3498] Error at '': Unterminated string.
-[line 3501] Error at '': Unterminated string.
-[line 3504] Error at '': Unterminated string.
-[line 3509] Error at '': Unterminated string.
-[line 3512] Error at '': Unterminated string.
-[line 3515] Error at '': Unterminated string.
-[line 3518] Error at '': Unterminated string.
-[line 3523] Error at '': Unterminated string.
-[line 3528] Error at '': Unterminated string.
-[line 3580] Error at '': Unterminated string.
-[line 3583] Error at '': Unterminated string.
-[line 3586] Error at '': Unterminated string.
-[line 3589] Error at '': Unterminated string.
-[line 3596] Error at '': Unterminated string.
-[line 3599] Error at '': Unterminated string.
-[line 3603] Error at '': Unterminated string.
-[line 3658] Error at '': Unterminated string.
-[line 3661] Error at '': Unterminated string.
-[line 3668] Error at '': Unterminated string.
-[line 3672] Error at '': Unterminated string.
-[line 3675] Error at '': Unterminated string.
-[line 3678] Error at '': Unterminated string.
-[line 3685] Error at '': Unterminated string.
-[line 3688] Error at '': Unterminated string.
-[line 3740] Error at '': Unterminated string.
-[line 3743] Error at '': Unterminated string.
-[line 3750] Error at '': Unterminated string.
-[line 3753] Error at '': Unterminated string.
-[line 3756] Error at '': Unterminated string.
-[line 3764] Error at '': Unterminated string.
-[line 3813] Error at '': Unterminated string.
-[line 3816] Error at '': Unterminated string.
-[line 3859] Error at '': Unterminated string.
-[line 3862] Error at '': Unterminated string.
-[line 3865] Error at '': Unterminated string.
-[line 3868] Error at '': Unterminated string.
-[line 3871] Error at '': Unterminated string.
-[line 3876] Error at '': Unterminated string.
-[line 3879] Error at '': Unterminated string.
-[line 3883] Error at '': Unterminated string.
-[line 3886] Error at '': Unterminated string.
-[line 3889] Error at '': Unterminated string.
-[line 3894] Error at '': Unterminated string.
-[line 3897] Error at '': Unterminated string.
-[line 3900] Error at '': Unterminated string.
-[line 3903] Error at '': Unterminated string.
-[line 4126] Error at '': Unterminated string.
-[line 4129] Error at '': Unterminated string.
-[line 4132] Error at '': Unterminated string.
-Errors for genrand.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GERANDORELATORIO.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GERANDORELATORIOS.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for get-post-value.cbl:
-[line 8] Error at '%': Unexpected character.
-[line 8] Error at '%': Unexpected character.
-[line 150] Error at 'å': Unexpected character.
-[line 150] Error at 'ä': Unexpected character.
-[line 150] Error at 'ö': Unexpected character.
-[line 150] Error at 'Å': Unexpected character.
-[line 150] Error at 'Ä': Unexpected character.
-[line 150] Error at 'Ö': Unexpected character.
-[line 154] Error at 'å': Unexpected character.
-[line 157] Error at 'ä': Unexpected character.
-[line 160] Error at 'ö': Unexpected character.
-[line 163] Error at 'Å': Unexpected character.
-[line 166] Error at 'Ä': Unexpected character.
-[line 169] Error at 'Ö': Unexpected character.
-Errors for GETADDR.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GETLOAN.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GETNAME.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GETPOL.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GETSPND.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for Global.asax.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for GRPHMENU.cbl:
-[line 12] Error at '#': Unexpected character.
-[line 13] Error at '#': Unexpected character.
-[line 206] Error at '$': Unexpected character.
-Errors for guess.cob:
-[line 74] Error at '': Unterminated string.
-Errors for guicobol.cbl:
-[line 834] Error at '&': Unexpected character.
-[line 1332] Error at '&': Unexpected character.
-Errors for HCAPDB01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCAPDB02.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCATDB01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCAVDB01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCAZERRS.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCAZMENU.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCIMDB01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCIPDB01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCITDB01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCIVDB01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCM1BI01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCM1PL01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCMABA01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCMADB01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCMADB02.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCMAPL01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCMRESTW.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCP1BA01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCP1BI01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCP1BU01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCP1PL01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCPRESTW.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCT1BA01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCT1BI01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCT1PL01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCTRESTW.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCV1BA01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCV1BI01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HCV1PL01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for hello.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for hello.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for hellocbl.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for hellotso.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HelloWorld.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HelloWorldPunchcard_V1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for HELLOWORLD_INCOBOL.cbl:
-[line 5] Error at ';': Unexpected character.
-[line 6] Error at '': Unterminated string.
-Errors for HelloWorld_V1.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for Hello_SQLITE.cbl:
-[line 87] Error at '&': Unexpected character.
-[line 191] Error at '&': Unexpected character.
-[line 204] Error at '&': Unexpected character.
-[line 205] Error at '&': Unexpected character.
-[line 206] Error at '&': Unexpected character.
-[line 220] Error at '&': Unexpected character.
-[line 221] Error at '&': Unexpected character.
-[line 222] Error at '&': Unexpected character.
-Errors for holidays.cbl:
-[line 205] Error at ';': Unexpected character.
-Errors for HWTHXCB1.cbl:
-[line 362] Error at '|': Unexpected character.
-[line 362] Error at '|': Unexpected character.
-[line 363] Error at '|': Unexpected character.
-[line 363] Error at '|': Unexpected character.
-[line 364] Error at '|': Unexpected character.
-[line 364] Error at '|': Unexpected character.
-[line 365] Error at '|': Unexpected character.
-[line 365] Error at '|': Unexpected character.
-[line 366] Error at '|': Unexpected character.
-[line 366] Error at '|': Unexpected character.
-[line 367] Error at '|': Unexpected character.
-[line 367] Error at '|': Unexpected character.
-[line 368] Error at '|': Unexpected character.
-[line 368] Error at '|': Unexpected character.
-[line 369] Error at '|': Unexpected character.
-[line 369] Error at '|': Unexpected character.
-[line 370] Error at '|': Unexpected character.
-[line 370] Error at '|': Unexpected character.
-[line 388] Error at '|': Unexpected character.
-[line 388] Error at '|': Unexpected character.
-[line 389] Error at '|': Unexpected character.
-[line 389] Error at '|': Unexpected character.
-[line 390] Error at '|': Unexpected character.
-[line 390] Error at '|': Unexpected character.
-[line 413] Error at '|': Unexpected character.
-[line 413] Error at '|': Unexpected character.
-[line 414] Error at '|': Unexpected character.
-[line 414] Error at '|': Unexpected character.
-[line 415] Error at '|': Unexpected character.
-[line 415] Error at '|': Unexpected character.
-[line 416] Error at '|': Unexpected character.
-[line 416] Error at '|': Unexpected character.
-[line 417] Error at '|': Unexpected character.
-[line 417] Error at '|': Unexpected character.
-[line 436] Error at '|': Unexpected character.
-[line 436] Error at '|': Unexpected character.
-[line 437] Error at '|': Unexpected character.
-[line 437] Error at '|': Unexpected character.
-[line 438] Error at '|': Unexpected character.
-[line 438] Error at '|': Unexpected character.
-[line 439] Error at '|': Unexpected character.
-[line 439] Error at '|': Unexpected character.
-[line 440] Error at '|': Unexpected character.
-[line 440] Error at '|': Unexpected character.
-[line 441] Error at '|': Unexpected character.
-[line 441] Error at '|': Unexpected character.
-[line 442] Error at '|': Unexpected character.
-[line 442] Error at '|': Unexpected character.
-[line 519] Error at '|': Unexpected character.
-[line 519] Error at '|': Unexpected character.
-[line 520] Error at '|': Unexpected character.
-[line 520] Error at '|': Unexpected character.
-[line 521] Error at '|': Unexpected character.
-[line 521] Error at '|': Unexpected character.
-[line 522] Error at '|': Unexpected character.
-[line 522] Error at '|': Unexpected character.
-[line 523] Error at '|': Unexpected character.
-[line 523] Error at '|': Unexpected character.
-[line 542] Error at '|': Unexpected character.
-[line 542] Error at '|': Unexpected character.
-[line 543] Error at '|': Unexpected character.
-[line 543] Error at '|': Unexpected character.
-[line 544] Error at '|': Unexpected character.
-[line 544] Error at '|': Unexpected character.
-[line 545] Error at '|': Unexpected character.
-[line 545] Error at '|': Unexpected character.
-[line 546] Error at '|': Unexpected character.
-[line 546] Error at '|': Unexpected character.
-[line 618] Error at '|': Unexpected character.
-[line 618] Error at '|': Unexpected character.
-[line 619] Error at '|': Unexpected character.
-[line 619] Error at '|': Unexpected character.
-[line 620] Error at '|': Unexpected character.
-[line 620] Error at '|': Unexpected character.
-[line 621] Error at '|': Unexpected character.
-[line 621] Error at '|': Unexpected character.
-[line 622] Error at '|': Unexpected character.
-[line 622] Error at '|': Unexpected character.
-[line 623] Error at '|': Unexpected character.
-[line 623] Error at '|': Unexpected character.
-[line 650] Error at '|': Unexpected character.
-[line 650] Error at '|': Unexpected character.
-[line 651] Error at '|': Unexpected character.
-[line 651] Error at '|': Unexpected character.
-[line 652] Error at '|': Unexpected character.
-[line 652] Error at '|': Unexpected character.
-[line 653] Error at '|': Unexpected character.
-[line 653] Error at '|': Unexpected character.
-[line 654] Error at '|': Unexpected character.
-[line 654] Error at '|': Unexpected character.
-[line 655] Error at '|': Unexpected character.
-[line 655] Error at '|': Unexpected character.
-[line 673] Error at '|': Unexpected character.
-[line 673] Error at '|': Unexpected character.
-[line 674] Error at '|': Unexpected character.
-[line 674] Error at '|': Unexpected character.
-[line 675] Error at '|': Unexpected character.
-[line 675] Error at '|': Unexpected character.
-[line 676] Error at '|': Unexpected character.
-[line 676] Error at '|': Unexpected character.
-[line 677] Error at '|': Unexpected character.
-[line 677] Error at '|': Unexpected character.
-[line 678] Error at '|': Unexpected character.
-[line 678] Error at '|': Unexpected character.
-[line 698] Error at '|': Unexpected character.
-[line 698] Error at '|': Unexpected character.
-[line 699] Error at '|': Unexpected character.
-[line 699] Error at '|': Unexpected character.
-[line 700] Error at '|': Unexpected character.
-[line 700] Error at '|': Unexpected character.
-[line 701] Error at '|': Unexpected character.
-[line 701] Error at '|': Unexpected character.
-[line 702] Error at '|': Unexpected character.
-[line 702] Error at '|': Unexpected character.
-[line 703] Error at '|': Unexpected character.
-[line 703] Error at '|': Unexpected character.
-[line 731] Error at '|': Unexpected character.
-[line 731] Error at '|': Unexpected character.
-[line 732] Error at '|': Unexpected character.
-[line 732] Error at '|': Unexpected character.
-[line 733] Error at '|': Unexpected character.
-[line 733] Error at '|': Unexpected character.
-[line 734] Error at '|': Unexpected character.
-[line 734] Error at '|': Unexpected character.
-[line 735] Error at '|': Unexpected character.
-[line 735] Error at '|': Unexpected character.
-[line 736] Error at '|': Unexpected character.
-[line 736] Error at '|': Unexpected character.
-[line 737] Error at '|': Unexpected character.
-[line 737] Error at '|': Unexpected character.
-[line 758] Error at '|': Unexpected character.
-[line 758] Error at '|': Unexpected character.
-[line 759] Error at '|': Unexpected character.
-[line 759] Error at '|': Unexpected character.
-[line 760] Error at '|': Unexpected character.
-[line 760] Error at '|': Unexpected character.
-[line 761] Error at '|': Unexpected character.
-[line 761] Error at '|': Unexpected character.
-[line 762] Error at '|': Unexpected character.
-[line 762] Error at '|': Unexpected character.
-[line 763] Error at '|': Unexpected character.
-[line 763] Error at '|': Unexpected character.
-[line 764] Error at '|': Unexpected character.
-[line 764] Error at '|': Unexpected character.
-[line 1030] Error at '|': Unexpected character.
-[line 1030] Error at '|': Unexpected character.
-[line 1031] Error at '|': Unexpected character.
-[line 1031] Error at '|': Unexpected character.
-[line 1032] Error at '|': Unexpected character.
-[line 1032] Error at '|': Unexpected character.
-[line 1033] Error at '|': Unexpected character.
-[line 1033] Error at '|': Unexpected character.
-[line 1034] Error at '|': Unexpected character.
-[line 1034] Error at '|': Unexpected character.
-[line 1090] Error at '|': Unexpected character.
-[line 1090] Error at '|': Unexpected character.
-[line 1091] Error at '|': Unexpected character.
-[line 1091] Error at '|': Unexpected character.
-[line 1092] Error at '|': Unexpected character.
-[line 1092] Error at '?': Unexpected character.
-[line 1092] Error at '|': Unexpected character.
-[line 1093] Error at '|': Unexpected character.
-[line 1093] Error at '|': Unexpected character.
-[line 1218] Error at '?': Unexpected character.
-Errors for IB4OP01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ImportAttendees.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for imsclaim.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for INCLUINDOREGISTRO.cbl:
-[line 11] Error at '': Unterminated string.
-Errors for INCLUSAODADOS.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for index.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for index.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for init-cobc.cob:
-[line 298] Error at '': Unterminated string.
-[line 409] Error at '': Unterminated string.
-[line 542] Error at '': Unterminated string.
-Errors for INITIATE_V1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for InsertSort.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for INSERTTBL.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ISBN.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for isleapyear.cbl:
-[line 11] Error at '': Unterminated string.
-[line 12] Error at '': Unterminated string.
-Errors for isvaliddate.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ITEMRECD.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ITGENE.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for json-parse.cbl:
-[line 65] Error at '$': Unexpected character.
-[line 65] Error at '$': Unexpected character.
-[line 65] Error at '$': Unexpected character.
-[line 78] Error at '$': Unexpected character.
-[line 78] Error at '$': Unexpected character.
-[line 78] Error at '$': Unexpected character.
-Errors for knuth-shuffle.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for ledger.cob:
-[line 121] Error at '$': Unexpected character.
-[line 121] Error at '$': Unexpected character.
-[line 121] Error at '$': Unexpected character.
-[line 121] Error at '$': Unexpected character.
-[line 121] Error at '$': Unexpected character.
-[line 121] Error at '$': Unexpected character.
-[line 121] Error at '$': Unexpected character.
-[line 121] Error at '$': Unexpected character.
-[line 121] Error at '$': Unexpected character.
-[line 142] Error at '$': Unexpected character.
-[line 142] Error at '$': Unexpected character.
-[line 142] Error at '$': Unexpected character.
-[line 142] Error at '$': Unexpected character.
-[line 142] Error at '$': Unexpected character.
-[line 142] Error at '$': Unexpected character.
-[line 142] Error at '$': Unexpected character.
-[line 142] Error at '$': Unexpected character.
-[line 142] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 226] Error at '$': Unexpected character.
-[line 264] Error at '$': Unexpected character.
-[line 264] Error at '$': Unexpected character.
-[line 264] Error at '$': Unexpected character.
-[line 264] Error at '$': Unexpected character.
-[line 264] Error at '$': Unexpected character.
-[line 264] Error at '$': Unexpected character.
-[line 264] Error at '$': Unexpected character.
-[line 264] Error at '$': Unexpected character.
-[line 264] Error at '$': Unexpected character.
-[line 289] Error at '$': Unexpected character.
-[line 289] Error at '$': Unexpected character.
-[line 289] Error at '$': Unexpected character.
-[line 289] Error at '$': Unexpected character.
-[line 289] Error at '$': Unexpected character.
-[line 289] Error at '$': Unexpected character.
-[line 289] Error at '$': Unexpected character.
-[line 289] Error at '$': Unexpected character.
-[line 289] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-[line 298] Error at '$': Unexpected character.
-Errors for Level77_V1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for Level88_V1.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for libcobcurses.cob:
-[line 329] Error at '&': Unexpected character.
-[line 488] Error at '&': Unexpected character.
-[line 1051] Error at '': Unterminated string.
-[line 1177] Error at '': Unterminated string.
-[line 1545] Error at '': Unterminated string.
-[line 1832] Error at '$': Unexpected character.
-[line 1832] Error at '{': Unexpected character.
-[line 1832] Error at '}': Unexpected character.
-[line 1982] Error at '?': Unexpected character.
-[line 2030] Error at '': Unterminated string.
-[line 2395] Error at '': Unterminated string.
-Errors for libcobcurses_codegen.cob:
-[line 1561] Error at '': Unterminated string.
-Errors for libcobcursex.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for life.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for linear_to_fielded.cbl:
-[line 90] Error at '{': Unexpected character.
-[line 90] Error at '}': Unexpected character.
-[line 91] Error at '}': Unexpected character.
-Errors for lisp.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for loadtm.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for load_map_data.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for log-deck.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for log-kitty.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for log-player.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for logger.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for main.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for main.cob:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for main2.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for mandelbrotset.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for MENU01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for MENU02.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
-Errors for MENURECD.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
 Errors for MENUREF.cbl:
 [line 5] Error at '$': Unexpected character.
 [line 5] Error at '{': Unexpected character.
@@ -2905,7 +15,8 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for modelo.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for mscmtics.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 601] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for mybarInt.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for mybarStr.cob:
@@ -2913,7 +24,8 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for MyFirstClass.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for NegatedCondition.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 17] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for NestedStatement_V1.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for node-exec-path.cbl:
@@ -3071,7 +183,8 @@ Errors for numeric-dump.cob:
 [line 163] Error at '@': Unexpected character.
 [line 163] Error at '@': Unexpected character.
 Errors for ok-printscr.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 22] Error at 'if': Expect expression.
+Syntax error: undefined
 Errors for OOP_V1.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for OpenFileRecordKey.cbl:
@@ -3081,21 +194,29 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for OtherDataLevels1_V1.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for paul.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 25] Error at 'CONCATENATE': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for pbs.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for PGM.cbl:
 [line 49] Error at '': Unterminated string.
 [line 53] Error at '': Unterminated string.
 [line 90] Error at '': Unterminated string.
+[line 41] Error at '0100': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for phone.cob:
 [line 80] Error at '': Unterminated string.
+[line 286] Error at end: Expect 'END-IF' after IF block.
+Syntax error: undefined
 Errors for player-turn.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 40] Error at end: Expect 'END-IF' after IF block.
+Syntax error: undefined
 Errors for PMMSSCHD.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 174] Error at '0001': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for PMMSSREP.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 164] Error at '0001': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for Pointer.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for ProcedureDivision_V1.cob:
@@ -3109,11 +230,13 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for PROGCOB04.cob:
 [line 23] Error at '$': Unexpected character.
 Errors for PROGCOB05.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 25] Error at 'WRK-NUM2': Expect 'TO' after value in ADD statement.
+Syntax error: undefined
 Errors for PROGCOB06.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for PROGCOB07.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 33] Error at end: Expect 'END-IF' after IF block.
+Syntax error: undefined
 Errors for PROGCOB08.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for PROGCOB09.cob:
@@ -3123,15 +246,20 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for PROGCOB11.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for PROGCOB12.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 18] Error at '0100': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for PROGCOB13.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 19] Error at '0100': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for PROGCOB14.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 19] Error at '0100': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for PROGCOB15.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 19] Error at '0100': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for PROGCOB16.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 22] Error at '0400': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for PROGCOB17.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for PROGCOBAUMENTOSALARIAL.cob:
@@ -3139,24 +267,31 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for PROGCOBCPF.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for PROGCOBDESAFIODANTE.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 41] Error at '0100': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for PROGCOBHELLOCOBOL.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for PROGCOBINVESTIMENTOFINANCEIRO.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 25] Error at '0100': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for PROGCOBSTRING.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for PROGCOBTEMPODECASAESTRUTURADO.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 26] Error at '0100': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for Program1.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for ProgramaPrincipal.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 37] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for ProgramaTemplate.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 28] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for project2.cbl:
 [line 138] Error at '$': Unexpected character.
 [line 152] Error at '$': Unexpected character.
+[line 170] Error at '125': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for PROJECT4.cbl:
 [line 228] Error at '$': Unexpected character.
 [line 275] Error at '$': Unexpected character.
@@ -3199,16 +334,21 @@ Errors for PROJECT4.cbl:
 [line 294] Error at '$': Unexpected character.
 [line 294] Error at '$': Unexpected character.
 [line 294] Error at '$': Unexpected character.
+[line 311] Error at '105': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for PROJECT_LANG_1.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for prova.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for RandomBingo.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 57] Error at 'RANDOM': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for RandomNumbers.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 27] Error at 'RANDOM': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for readtbltort.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 91] Error at '050': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for recursion.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for RelationCondition.cbl:
@@ -3216,14 +356,19 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for RELATORIOEMDISCO.cbl:
 [line 11] Error at '': Unterminated string.
 [line 18] Error at '': Unterminated string.
+[line 90] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for RELATORIOEMTELA01.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 75] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for RELATORIOEMTELA02.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 78] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for remove_rss_record.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for REPCNTRY.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 221] Error at '0001': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for ReportReader_V1.cob:
 [line 15] Error at '$': Unexpected character.
 [line 15] Error at '$': Unexpected character.
@@ -3232,40 +377,56 @@ Errors for ReportReader_V1.cob:
 Errors for ReportWriter_V1.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for reset_files.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 155] Error at 'concatenate': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for Resources.Designer.cbl:
 [line 44] Error at '#': Unexpected character.
 [line 45] Error at '#': Unexpected character.
 Errors for rss_downloader.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 95] Error at 'lower-case': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for rss_parser.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 165] Error at 'trim': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for rss_reader_add_feed.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 85] Error at 'rss-downloader': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for rss_reader_configuration.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 266] Error at 'concatenate': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for rss_reader_delete_feed.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 93] Error at 'concatenate': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for rss_reader_export_feed.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 95] Error at 'concatenate': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for rss_reader_help.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 215] Error at 'concatenate': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for rss_reader_menu.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 442] Error at 'rss-downloader': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for rss_reader_view_feed.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 193] Error at 'titles': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for rss_reader_view_item.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 124] Error at 'get-config': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for rss_report_writer.cbl:
 [line 288] Error at '': Unterminated string.
+[line 280] Error at 'current-date': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for runner.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 25] Error at 'CONCATENATE': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for Salary_Sheet.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for sam2020.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for SAM2021.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for SAMPC001.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for SAMPC002.cob:
@@ -3295,28 +456,38 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for sd002000.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for sd002010.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 115] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sd002020.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 39] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sd002030.cob:
 [line 4] Error at '$': Unexpected character.
 [line 10] Error at '[': Unexpected character.
 [line 10] Error at ']': Unexpected character.
 [line 374] Error at '$': Unexpected character.
 Errors for sd002033.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 54] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sd002035.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 84] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sd002040.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 117] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sd002050.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 81] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sd002060.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 72] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sd002070.cob:
 [line 13] Error at '&': Unexpected character.
+[line 78] Error at '5000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sd002080.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 70] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sd002085.cob:
 [line 141] Error at '?': Unexpected character.
 [line 188] Error at '?': Unexpected character.
@@ -3340,11 +511,13 @@ Errors for sd002085.cob:
 [line 526] Error at '?': Unexpected character.
 [line 561] Error at '': Unterminated string.
 Errors for sd002090.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sdbackup.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for sdgenerate.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 106] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for sdgenfiles.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for sdload.cob:
@@ -3353,7 +526,8 @@ Errors for sdload.cob:
 [line 361] Error at '?': Unexpected character.
 [line 362] Error at '': Unterminated string.
 Errors for SelectSort.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 78] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for SEQPNT.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for SequentialRead.cbl:
@@ -3361,9 +535,11 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for server.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for servicemenu.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 301] Error at 'UPPER-CASE': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for set-tile-effect.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 108] Error at 'end-if': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for Settings.Designer.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for setup-tile-effect.cbl:
@@ -3371,17 +547,23 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for set_map_exploration.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for SHA512.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 481] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for shlibtest.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for showname.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 29] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for showsum.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 37] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for sieveoferathostenes.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 39] Error at 'i': Expect 'TO' after value in ADD statement.
+Syntax error: undefined
 Errors for sign-guest-book.cbl:
 [line 197] Error at ';': Unexpected character.
+[line 128] Error at 'get-param-value': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for SignCondition.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for SimpleCalculator.cbl:
@@ -3405,30 +587,40 @@ Errors for SimpleCalculator.cbl:
 [line 25] Error at '”': Unexpected character.
 [line 27] Error at '“': Unexpected character.
 [line 27] Error at '”': Unexpected character.
+[line 17] Error at '-': Expect expression.
+Syntax error: undefined
 Errors for snake.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 160] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for sqlca.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for sqllog.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 73] Error at 'CURRENT-DATE': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for StatusCode.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for stop-printscr.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 63] Error at 'if': Expect expression.
+Syntax error: undefined
 Errors for strategy-max.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 30] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for strategy-nearest.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 44] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for strategy-next.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 27] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for String.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for string_helpers.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 48] Error at 'length': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for Struct.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for SUBMENU.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 36] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for submit-invoices.cbl:
 [line 203] Error at '': Unterminated string.
 [line 275] Error at '': Unterminated string.
@@ -3479,11 +671,14 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for test.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for test001.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 49] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test002.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 50] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test003.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 45] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test004.cob:
 [line 45] Error at '$': Unexpected character.
 [line 46] Error at '$': Unexpected character.
@@ -3491,22 +686,32 @@ Errors for test004.cob:
 [line 51] Error at '$': Unexpected character.
 [line 65] Error at '$': Unexpected character.
 [line 66] Error at '$': Unexpected character.
+[line 89] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test005.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 61] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test006.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 40] Error at '5000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test007.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 40] Error at '5000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test008.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 36] Error at '5000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test009.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 36] Error at '5000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test010.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 32] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test011.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 47] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for test012.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 47] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for Test1.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for Test10.cbl:
@@ -3576,42 +781,57 @@ Errors for tests.cbl:
 Errors for themain.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for TicTacTOBOL.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 223] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for tile_effect_handler.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 132] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for today.cbl:
 [line 2] Error at '': Unterminated string.
 [line 158] Error at ';': Unexpected character.
 Errors for tokenizer.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 103] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for toolchaindisplaytest.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for toolchaintest.cbl:
 [line 70] Error at '?': Unexpected character.
 Errors for topaccts.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'CURRENT-DATE': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for TOTCNTRY.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 73] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for TPROG01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 91] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TPROG01B.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 91] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TPROG03.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 91] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TPROG04.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 91] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TPROG05.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 91] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TPROG06.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 94] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TPROG07.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 91] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TPROG08.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 91] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TPROG09.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 93] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TPROG10.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 91] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TS000001.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for TS000002.cob:
@@ -3619,25 +839,35 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for TS000003.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for TSUBR01.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 71] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TSUBR02.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TSUBR03.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TSUBR04.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TSUBR05.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TSUBR06.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TSUBR07.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TSUBR08.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TSUBR09.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for TSUBR10.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 68] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for unloadtm.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for UPDCSDB.cbl:
@@ -3671,8 +901,11 @@ Errors for url-charconv.cbl:
 [line 102] Error at ']': Unexpected character.
 [line 104] Error at '}': Unexpected character.
 [line 106] Error at '}': Unexpected character.
+[line 49] Error at ''c3a5'': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for VALIDANDOESCOLHAMENU.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 39] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for VariableExamples.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for Variaveis.cbl:
@@ -3683,34 +916,48 @@ Errors for view-guest-book.cbl:
 [line 89] Error at ';': Unexpected character.
 [line 95] Error at ';': Unexpected character.
 [line 106] Error at ';': Unexpected character.
+[line 160] Error at end: Expect 'END-IF' after IF block.
+Syntax error: undefined
 Errors for waro.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 94] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wbgcash.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 178] Error at 'OF': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wbgetacc.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 168] Error at 'OF': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wbgetbal.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 161] Error at 'OF': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wbgstmt.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 176] Error at 'OF': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wbvalusr.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 165] Error at 'OF': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wbxfer.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 214] Error at 'OF': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for web-helpers.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 82] Error at 'trim': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for WebForm1.aspx.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for WebForm2.aspx.cob:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for WEBHOME.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 220] Error at '3': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for wgrvadda.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 254] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wgrvaddc.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 183] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wgrvcusl.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 213] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wgrvgacc.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for wgrvgbal.cbl:
@@ -3722,29 +969,37 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for While.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for Window1.xaml.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 201] Error at end: Expect 'END-IF' after IF block.
+Syntax error: undefined
 Errors for WLPCTRLW.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 183] Error at 'NOT': Expect expression.
+Syntax error: undefined
 Errors for worker.cob:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 46] Error at '3': Expect identifier after 'BY'.
+Syntax error: undefined
 Errors for write-post-string.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 87] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for write_map_data.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 107] Error at '(': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wtiadda.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for wtiaddc.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 291] Error at 'USER-DATA': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wtigacc.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for wtigbal.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for wtigcusi.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 124] Error at 'CUSTOMER-RECORD': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wtigstmt.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for wtiscusi.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 173] Error at 'USER-DATA': Expect 'TO' after value in MOVE statement.
+Syntax error: undefined
 Errors for wui-end-html.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for wui-print-header.cbl:
@@ -3754,10 +1009,14 @@ Unknown syntax error: hadError was set but no error message was logged.
 Errors for zconcbl.cbl:
 Unknown syntax error: hadError was set but no error message was logged.
 Errors for ZECS000.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 238] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for ZECS001.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 458] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for ZECS003.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 177] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined
 Errors for ZECSPLT.cbl:
-Unknown syntax error: hadError was set but no error message was logged.
+[line 66] Error at '1000': Expect identifier after PERFORM.
+Syntax error: undefined

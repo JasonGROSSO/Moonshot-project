@@ -21,7 +21,6 @@ export class Parser {
             } else if (this.match(TokenType.PROCEDURE_DIVISION)) {
                 statements.push(this.procedureDivision());
             } else {
-                // Skip unknown tokens
                 this.advance();
             }
         }
@@ -98,13 +97,23 @@ export class Parser {
         const divisionToken = this.previous();
         const statements: Stmt[] = [];
         while (!this.isAtEnd() && !this.check(TokenType.IDENTIFICATION_DIVISION) && !this.check(TokenType.ENVIRONMENT_DIVISION) && !this.check(TokenType.DATA_DIVISION) && !this.check(TokenType.PROCEDURE_DIVISION)) {
-            statements.push(this.cobolStatement());
+            // Parse a statement, then consume a DOT (period) if present (COBOL statement terminator)
+            const stmt = this.cobolStatement();
+            // Only add non-null statements
+            if (stmt !== null) statements.push(stmt);
+            // COBOL: Each statement should end with a DOT
+            if (this.match(TokenType.DOT)) {
+                // Successfully consumed DOT, continue
+            } else {
+                // If not a DOT, skip to next token or statement
+                // Optionally, could throw an error or warning here
+            }
         }
         return new Stmt.Division(divisionToken, statements);
     }
 
     // Parse essential COBOL statements
-    private cobolStatement(): Stmt {
+    private cobolStatement(): Stmt | null {
         if (this.match(TokenType.MOVE)) { return this.moveStatement(); }
         if (this.match(TokenType.ADD)) { return this.addStatement(); }
         if (this.match(TokenType.SUBTRACT)) { return this.subtractStatement(); }
@@ -114,9 +123,9 @@ export class Parser {
         if (this.match(TokenType.PERFORM)) { return this.performStatement(); }
         if (this.match(TokenType.DISPLAY)) { return this.displayStatement(); }
         if (this.match(TokenType.STOP)) { return this.stopStatement(); }
-        // Unknown statement, skip
+        // Unknown or empty statement, skip token and do not emit a statement
         this.advance();
-        return new Stmt.Display(new Expr.Literal(null));
+        return null;
     }
 
     // Example: MOVE statement
@@ -180,7 +189,8 @@ export class Parser {
         const condition = this.expression();
         const thenStatements: Stmt[] = [];
         while (!this.check(TokenType.END_IF) && !this.isAtEnd()) {
-            thenStatements.push(this.cobolStatement());
+            const stmt = this.cobolStatement();
+            if (stmt !== null) thenStatements.push(stmt);
         }
         this.consume(TokenType.END_IF, "Expect 'END-IF' after IF block.");
         return new Stmt.If(condition, thenStatements);
