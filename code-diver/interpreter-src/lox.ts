@@ -88,12 +88,17 @@ export class Lox {
         const scanner = new Scanner(source);
         const tokens = scanner.scanTokens();
 
-        console.log("Tokens scanned:");
-        for (const token of tokens) {
-            console.log(`  ${token.type} (${token.lexeme})`);
-        }
-
         const parser = new Parser(tokens);
+
+        // Debugging: print the tokens
+        // for (const token of tokens) {
+        //     if (token.type === TokenType.EOF) {
+        //         console.log("End of file reached.");
+        //     } else {
+        //         console.log(`Token: ${token.type} - ${token.lexeme}`);
+        //     }
+        // }
+
         let statements: any = undefined;
         try {
             statements = parser.parse();
@@ -103,6 +108,14 @@ export class Lox {
             console.error(msg);
             Lox.errorLog.push(msg);
         }
+
+        // Debugging: print the list of statements
+        // if (statements) {
+        //     console.log("Parsed statements:");
+        //     for (const stmt of statements) {
+        //         console.log(stmt);
+        //     }
+        // }
 
         // Stop if there was a syntax error.
         if (Lox.hadError) {

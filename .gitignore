@@ -401,5 +401,6 @@ out/
 # test files
 test-files/
 *.cbl
+test-errorlog.txt
 =======
 
