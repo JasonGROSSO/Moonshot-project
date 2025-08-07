@@ -15,182 +15,103 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         this.interpreter = interpreter;
     }
 
-    public visitBlockStmt(stmt: Stmt.Block): null {
+    visitAddStmt(stmt: Stmt.Add): void {
+        this.declare(stmt.target);
+        this.define(stmt.target);
+        this.resolveExpr(stmt.value);
+    }
+
+    visitDisplayStmt(stmt: Stmt.Display): void {
+        this.resolveExpr(stmt.value);
+    }
+
+    visitDivideStmt(stmt: Stmt.Divide): void {
+        this.declare(stmt.target);
+        this.define(stmt.target);
+        this.resolveExpr(stmt.value);
+    }
+
+    visitDivisionStmt(stmt: Stmt.Division): void {
         this.beginScope();
-        this.resolve(stmt.statements);
+        for (const section of stmt.sectionsOrStatements) {
+            this.resolveStmt(section);
+        }
         this.endScope();
-        return null;
     }
 
-    public visitClassStmt(stmt: Stmt.Class): null {
+    visitIfStmt(stmt: Stmt.If): void {
+        this.resolveExpr(stmt.condition);
+        this.resolve(stmt.thenStatements);
+    }
 
-        let enclosingClass: ClassType = currentClass;
-        currentClass = ClassType.CLASS;
+    visitMoveStmt(stmt: Stmt.Move): void {
+        this.declare(stmt.target);
+        this.define(stmt.target);
+        this.resolveExpr(stmt.value);
+    }
 
-        this.declare(stmt.name);
-        this.define(stmt.name);
+    visitMultiplyStmt(stmt: Stmt.Multiply): void {
+        this.declare(stmt.target);
+        this.define(stmt.target);
+        this.resolveExpr(stmt.value);
+    }
 
-        if (stmt.superclass !== null &&
-            stmt.name.lexeme === stmt.superclass.name.lexeme) {
-            Lox.error(stmt.superclass.name,
-                "A class can't inherit from itself.");
-        }
+    visitPerformStmt(stmt: Stmt.Perform): void {
+        this.resolveExpr(stmt.value);
+    }
 
-        if (stmt.superclass !== null) {
-            currentClass = ClassType.SUBCLASS;
-            this.resolveExpr(stmt.superclass);
-        }
-
-        if (stmt.superclass !== null) {
-            this.beginScope();
-            this.scopes[this.scopes.length - 1].set("super", true);
-        }
-
+    visitSectionStmt(stmt: Stmt.Section): void {
         this.beginScope();
-        this.scopes[this.scopes.length - 1].set("this", true);
-
-        for (const method of stmt.methods) {
-            let declaration: FunctionType = FunctionType.METHOD;
-            this.resolveFunction(method, declaration);
+        for (const section of stmt.statements) {
+            this.resolveStmt(section);
         }
-
         this.endScope();
-
-        if (stmt.superclass !== null) { this.endScope(); }
-
-        currentClass = enclosingClass;
-
-        return null;
     }
 
-    public visitExpressionStmt(stmt: Stmt.Expression): null {
-        this.resolveExpr(stmt.expression);
-        return null;
+    visitAssignExpr(expr: Expr.Assign): void {
+        throw new Error("Method not implemented.");
+    }
+    visitBinaryExpr(expr: Expr.Binary): void {
+        throw new Error("Method not implemented.");
+    }
+    visitCallExpr(expr: Expr.Call): void {
+        throw new Error("Method not implemented.");
+    }
+    visitGetExpr(expr: Expr.Get): void {
+        throw new Error("Method not implemented.");
+    }
+    visitGroupingExpr(expr: Expr.Grouping): void {
+        throw new Error("Method not implemented.");
+    }
+    visitLiteralExpr(expr: Expr.Literal): void {
+        throw new Error("Method not implemented.");
+    }
+    visitLogicalExpr(expr: Expr.Logical): void {
+        throw new Error("Method not implemented.");
+    }
+    visitSetExpr(expr: Expr.Set): void {
+        throw new Error("Method not implemented.");
+    }
+    visitSuperExpr(expr: Expr.Super): void {
+        throw new Error("Method not implemented.");
+    }
+    visitThisExpr(expr: Expr.This): void {
+        throw new Error("Method not implemented.");
+    }
+    visitUnaryExpr(expr: Expr.Unary): void {
+        throw new Error("Method not implemented.");
+    }
+    visitVariableExpr(expr: Expr.Variable): void {
+        throw new Error("Method not implemented.");
     }
 
-    public visitFunctionStmt(stmt: Stmt.Function): null {
-        this.declare(stmt.name);
-        this.define(stmt.name);
-
-        this.resolveFunction(stmt, FunctionType.FUNCTION);
-        return null;
+    visitStopStmt(stmt: Stmt.Stop): void {
     }
 
-    public visitIfStmt(stmt: Stmt.If): null {
-        this.resolveExpr(stmt.condition);
-        this.resolveStmt(stmt.thenBranch);
-        if (stmt.elseBranch !== null) { this.resolveStmt(stmt.elseBranch); }
-        return null;
-    }
-
-    public visitPrintStmt(stmt: Stmt.Print): null {
-        this.resolveExpr(stmt.expression);
-        return null;
-    }
-
-    public visitReturnStmt(stmt: Stmt.Return): null {
-        if (this.currentFunction === FunctionType.NONE) {
-            Lox.error(stmt.keyword, "Can't return from top-level code.");
-        }
-        if (stmt.value !== null) {
-            if (this.currentFunction === FunctionType.INITIALIZER) {
-                Lox.error(stmt.keyword,
-                    "Can't return a value from an initializer.");
-            }
-
-            this.resolveExpr(stmt.value);
-        }
-
-        return null;
-    }
-
-    public visitVarStmt(stmt: Stmt.Var): null {
-        this.declare(stmt.name);
-        if (stmt.initializer !== null) {
-            this.resolveExpr(stmt.initializer);
-        }
-        this.define(stmt.name);
-        return null;
-    }
-
-    public visitWhileStmt(stmt: Stmt.While): null {
-        this.resolveExpr(stmt.condition);
-        this.resolveStmt(stmt.body);
-        return null;
-    }
-
-    public visitVariableExpr(expr: Expr.Variable): null {
-        if (this.scopes.length > 0 &&
-            this.scopes[this.scopes.length - 1].get(expr.name.lexeme) === false) {
-            Lox.error(expr.name,
-                "Can't read local variable in its own initializer.");
-        }
-
-        this.resolveLocal(expr, expr.name);
-        return null;
-    }
-
-    public visitAssignExpr(expr: Expr.Assign): null {
-        this.resolveExpr(expr.value);
-        this.resolveLocal(expr, expr.name);
-        return null;
-    }
-
-    public visitBinaryExpr(expr: Expr.Binary): null {
-        this.resolveExpr(expr.left);
-        this.resolveExpr(expr.right);
-        return null;
-    }
-
-    public visitCallExpr(expr: Expr.Call): null {
-        this.resolveExpr(expr.callee);
-
-        for (const argument of expr.args) {
-            this.resolveExpr(argument);
-        }
-
-        return null;
-    }
-
-    public visitGetExpr(expr: Expr.Get): null {
-        this.resolveExpr(expr.object);
-        return null;
-    }
-
-    public visitGroupingExpr(expr: Expr.Grouping): null {
-        this.resolveExpr(expr.expression);
-        return null;
-    }
-
-    public visitLiteralExpr(expr: Expr.Literal): null {
-        return null;
-    }
-
-    public visitLogicalExpr(expr: Expr.Logical): null {
-        this.resolveExpr(expr.left);
-        this.resolveExpr(expr.right);
-        return null;
-    }
-
-    public visitSetExpr(expr: Expr.Set): null {
-        this.resolveExpr(expr.value);
-        this.resolveExpr(expr.object);
-        return null;
-    }
-
-    public visitThisExpr(expr: Expr.This): null {
-        if (currentClass === ClassType.NONE) {
-            Lox.error(expr.keyword,
-                "Can't use 'this' outside of a class.");
-            return null;
-        }
-        this.resolveLocal(expr, expr.keyword);
-        return null;
-    }
-
-    public visitUnaryExpr(expr: Expr.Unary): null {
-        this.resolveExpr(expr.right);
-        return null;
+    visitSubtractStmt(stmt: InstanceType<typeof Stmt.Subtract>): void {
+        this.declare(stmt.target);
+        this.define(stmt.target);
+        this.resolveExpr(stmt.value);
     }
 
     resolve(statements: Stmt[]): void {
@@ -205,32 +126,6 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
 
     private resolveExpr(expr: Expr): void {
         expr.accept(this);
-    }
-
-    public visitSuperExpr(expr: Expr.Super): null {
-        if (currentClass === ClassType.NONE) {
-            Lox.error(expr.keyword,
-                "Can't use 'super' outside of a class.");
-        } else if (currentClass !== ClassType.SUBCLASS) {
-            Lox.error(expr.keyword,
-                "Can't use 'super' in a class with no superclass.");
-        }
-        this.resolveLocal(expr, expr.keyword);
-        return null;
-    }
-
-    private resolveFunction(func: Stmt.Function, type: FunctionType): null {
-        let enclosingFunction: FunctionType = this.currentFunction;
-        this.currentFunction = type;
-        this.beginScope();
-        for (const param of func.params) {
-            this.declare(param);
-            this.define(param);
-        }
-        this.resolve(func.statement);
-        this.endScope();
-        this.currentFunction = enclosingFunction;
-        return null;
     }
 
     private beginScope(): void {
@@ -276,13 +171,4 @@ enum FunctionType {
     INITIALIZER,
     METHOD
 }
-
-enum ClassType {
-    NONE,
-    CLASS,
-    SUBCLASS
-}
-
-let currentClass: ClassType = ClassType.NONE;
-
 

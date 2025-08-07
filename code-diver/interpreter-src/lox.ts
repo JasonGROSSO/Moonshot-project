@@ -131,8 +131,8 @@ export class Lox {
             return;
         }
 
-        // let resolver: Resolver = new Resolver(Lox.interpreter);
-        // resolver.resolve(statements);
+        let resolver: Resolver = new Resolver(Lox.interpreter);
+        resolver.resolve(statements);
 
         // Stop if there was a resolution error.
         if (Lox.hadError) {
@@ -147,7 +147,7 @@ export class Lox {
             return;
         }
 
-        // Lox.interpreter.interpret(statements);
+        Lox.interpreter.interpret(statements);
 
     }
 
