@@ -15,6 +15,70 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         this.interpreter = interpreter;
     }
 
+    public visitAssignExpr(expr: Expr.Assign): null {
+        this.resolveExpr(expr.value);
+        this.resolveLocal(expr, expr.name);
+        return null;
+    }
+
+    public visitBinaryExpr(expr: Expr.Binary): null {
+        this.resolveExpr(expr.left);
+        this.resolveExpr(expr.right);
+        return null;
+    }
+
+    public visitCallExpr(expr: Expr.Call): null {
+        this.resolveExpr(expr.callee);
+
+        for (const argument of expr.args) {
+            this.resolveExpr(argument);
+        }
+
+        return null;
+    }
+
+    public visitGetExpr(expr: Expr.Get): null {
+        this.resolveExpr(expr.object);
+        return null;
+    }
+
+    public visitGroupingExpr(expr: Expr.Grouping): null {
+        this.resolveExpr(expr.expression);
+        return null;
+    }
+
+    public visitLiteralExpr(expr: Expr.Literal): null {
+        return null;
+    }
+
+    public visitLogicalExpr(expr: Expr.Logical): null {
+        this.resolveExpr(expr.left);
+        this.resolveExpr(expr.right);
+        return null;
+    }
+
+    public visitSetExpr(expr: Expr.Set): null {
+        this.resolveExpr(expr.value);
+        this.resolveExpr(expr.object);
+        return null;
+    }
+
+    public visitUnaryExpr(expr: Expr.Unary): null {
+        this.resolveExpr(expr.right);
+        return null;
+    }
+
+    public visitVariableExpr(expr: Expr.Variable): null {
+        if (this.scopes.length > 0 &&
+            this.scopes[this.scopes.length - 1].get(expr.name.lexeme) === false) {
+            Lox.error(expr.name,
+                "Can't read local variable in its own initializer.");
+        }
+
+        this.resolveLocal(expr, expr.name);
+        return null;
+    }
+
     visitAddStmt(stmt: Stmt.Add): void {
         this.declare(stmt.target);
         this.define(stmt.target);
@@ -57,7 +121,6 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     visitPerformStmt(stmt: Stmt.Perform): void {
-        this.resolveExpr(stmt.value);
     }
 
     visitSectionStmt(stmt: Stmt.Section): void {
@@ -66,43 +129,6 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
             this.resolveStmt(section);
         }
         this.endScope();
-    }
-
-    visitAssignExpr(expr: Expr.Assign): void {
-        throw new Error("Method not implemented.");
-    }
-    visitBinaryExpr(expr: Expr.Binary): void {
-        throw new Error("Method not implemented.");
-    }
-    visitCallExpr(expr: Expr.Call): void {
-        throw new Error("Method not implemented.");
-    }
-    visitGetExpr(expr: Expr.Get): void {
-        throw new Error("Method not implemented.");
-    }
-    visitGroupingExpr(expr: Expr.Grouping): void {
-        throw new Error("Method not implemented.");
-    }
-    visitLiteralExpr(expr: Expr.Literal): void {
-        throw new Error("Method not implemented.");
-    }
-    visitLogicalExpr(expr: Expr.Logical): void {
-        throw new Error("Method not implemented.");
-    }
-    visitSetExpr(expr: Expr.Set): void {
-        throw new Error("Method not implemented.");
-    }
-    visitSuperExpr(expr: Expr.Super): void {
-        throw new Error("Method not implemented.");
-    }
-    visitThisExpr(expr: Expr.This): void {
-        throw new Error("Method not implemented.");
-    }
-    visitUnaryExpr(expr: Expr.Unary): void {
-        throw new Error("Method not implemented.");
-    }
-    visitVariableExpr(expr: Expr.Variable): void {
-        throw new Error("Method not implemented.");
     }
 
     visitStopStmt(stmt: Stmt.Stop): void {

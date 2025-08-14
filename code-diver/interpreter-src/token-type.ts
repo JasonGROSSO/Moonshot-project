@@ -19,7 +19,7 @@ export enum TokenType {
     PIC, VALUE, TO, FROM, USING, BY, AT, OF,
 
     // Boolean and relational
-    EQUALS, GREATER_THAN, LESS_THAN, GREATER_EQUAL, LESS_EQUAL, NOT,
+    EQUALS, GREATER_THAN, LESS_THAN, GREATER_EQUAL, LESS_EQUAL, NOT, OR,
 
     // End of file
     EOF

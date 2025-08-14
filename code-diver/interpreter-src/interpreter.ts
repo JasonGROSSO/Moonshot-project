@@ -2,8 +2,6 @@ import { Environment } from "./environment";
 import { Expr } from "./expr";
 import { Lox } from "./lox";
 import { LoxCallable } from "./lox-callable";
-import { LoxClass } from "./lox-class";
-import { LoxFunction } from "./lox-function";
 import { LoxInstance } from "./lox-instance";
 import { Return } from "./return";
 import { RuntimeError } from "./runtime-error";
@@ -68,13 +66,13 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         let right: any = this.evaluate(expr.right) ?? {};
 
         switch (expr.operator.type as unknown as TokenType) {
-            case TokenType.GREATER:
+            case TokenType.GREATER_THAN:
                 this.checkNumberOperands(expr.operator, left, right);
                 return Number(left) > Number(right);
             case TokenType.GREATER_EQUAL:
                 this.checkNumberOperands(expr.operator, left, right);
                 return Number(left) >= Number(right);
-            case TokenType.LESS:
+            case TokenType.LESS_THAN:
                 this.checkNumberOperands(expr.operator, left, right);
                 return Number(left) < Number(right);
             case TokenType.LESS_EQUAL:
@@ -98,8 +96,8 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
             case TokenType.STAR:
                 this.checkNumberOperands(expr.operator, left, right);
                 return Number(left) * Number(right);
-            case TokenType.BANG_EQUAL: return !this.isEqual(left, right);
-            case TokenType.EQUAL_EQUAL: return this.isEqual(left, right);
+            case TokenType.NOT: return !this.isEqual(left, right);
+            case TokenType.EQUALS: return this.isEqual(left, right);
         }
 
         // Unreachable.
@@ -161,32 +159,6 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         (object as LoxInstance).set(expr.name, value);
         return value;
     }
-    public visitSuperExpr(expr: Expr.Super): Object {
-        let distance: number | undefined = this.locals.get(expr);
-        if (distance === undefined) {
-            throw new RuntimeError(expr.method, "Undefined variable distance.");
-        }
-        let superclass: LoxClass = this.environment.getAt(
-            distance, "super") as LoxClass;
-        let object: LoxInstance = this.environment.getAt(
-            distance - 1, "this") as LoxInstance;
-
-        let method: LoxFunction | null = superclass.findMethod(expr.method.lexeme);
-        if (method === null) {
-            throw new RuntimeError(expr.method, "Undefined property '" + expr.method.lexeme + "'.");
-        }
-
-        if (method === null) {
-            throw new RuntimeError(expr.method,
-                "Undefined property '" + expr.method.lexeme + "'.");
-
-        }
-
-        return method.bind(object);
-    }
-    public visitThisExpr(expr: Expr.This): Object {
-        return this.lookUpVariable(expr.keyword, expr);
-    }
     public visitUnaryExpr(expr: Expr.Unary): any {
         let right: any = this.evaluate(expr.right) ?? {};
 
@@ -194,7 +166,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
             case TokenType.MINUS:
                 this.checkNumberOperand(expr.operator, right);
                 return -Number(right);
-            case TokenType.BANG:
+            case TokenType.NOT:
                 return !this.isTruthy(right);
         }
 
@@ -215,12 +187,6 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         } else {
             return this.globals.get(name);
         }
-    }
-    public visitWhileStmt(stmt: Stmt.While): null {
-        while (this.isTruthy(this.evaluate(stmt.condition))) {
-            this.execute(stmt.body);
-        }
-        return null;
     }
     private isTruthy(object: any): boolean {
         if (object === null) { return false; }
@@ -263,86 +229,119 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
             this.environment = previous;
         }
     }
-    public visitBlockStmt(stmt: Stmt.Block): null {
-        this.executeBlock(stmt.statements, new Environment(this.environment));
-        return null;
-    }
-    public visitClassStmt(stmt: Stmt.Class): null {
-
-        let superclass: Object | null = null;
-        if (stmt.superclass !== null) {
-            superclass = this.evaluate(stmt.superclass);
-            if (!(superclass instanceof LoxClass)) {
-                throw new RuntimeError(stmt.superclass.name,
-                    "Superclass must be a class.");
-            }
-        }
-
-        this.environment.define(stmt.name.lexeme, {});
-
-        if (stmt.superclass !== null) {
-            this.environment = new Environment(this.environment);
-            if (superclass !== null) {
-                this.environment.define("super", superclass);
-            }
-        }
-
-        let methods: Map<String, LoxFunction> = new Map();
-        for (const method of stmt.methods) {
-            let func: LoxFunction = new LoxFunction(method, this.environment, false);
-            methods.set(method.name.lexeme, func);
-        }
-
-        let klass: LoxClass = new LoxClass(stmt.name.lexeme,
-            superclass as LoxClass, methods);
-
-        if (superclass !== null) {
-            if (this.environment.enclosing !== null) {
-                this.environment = this.environment.enclosing;
-            } else {
-                throw new Error("Enclosing environment is null.");
-            }
-        }
-
-        this.environment.assign(stmt.name, klass);
-        return null;
-    }
-    public visitExpressionStmt(stmt: Stmt.Expression): null {
-        this.evaluate(stmt.expression);
-        return null;
-    }
-    public visitFunctionStmt(stmt: Stmt.Function): null {
-        let functionLox: LoxFunction = new LoxFunction(stmt, this.environment, stmt.name.lexeme === "init");
-        this.environment.define(stmt.name.lexeme, functionLox);
-        return null;
-    }
-    public visitIfStmt(stmt: Stmt.If): null {
-        if (this.isTruthy(this.evaluate(stmt.condition))) {
-            this.execute(stmt.thenBranch);
-        } else if (stmt.elseBranch !== null) {
-            this.execute(stmt.elseBranch);
+    public visitAddStmt(stmt: Stmt.Add): null {
+        // ADD value TO target
+        const value = this.evaluate(stmt.value);
+        const current = this.globals.get(stmt.target);
+        if (typeof current === "number" && typeof value === "number") {
+            this.globals.assign(stmt.target, current + value);
+        } else {
+            Lox.runtimeError(new RuntimeError(stmt.target, `ADD: Operands must be numbers. Got ${typeof current} and ${typeof value}`));
         }
         return null;
     }
-    public visitPrintStmt(stmt: Stmt.Print): null {
-        let value: Object = this.evaluate(stmt.expression);
+    public visitDisplayStmt(stmt: Stmt.Display): null {
+        let value: Object = this.evaluate(stmt.value);
         console.log(this.stringify(value));
         return null;
     }
-    public visitReturnStmt(stmt: Stmt.Return): null {
-        let value: Object | null = null;
-        if (stmt.value !== null) { value = this.evaluate(stmt.value); }
-
-        throw new Return(value ?? {});
-    }
-    public visitVarStmt(stmt: Stmt.Var): null {
-        let value: Object | null = null;
-        if (stmt.initializer !== null) {
-            value = this.evaluate(stmt.initializer);
+    public visitDivideStmt(stmt: Stmt.Divide): null {
+        // DIVIDE value BY target
+        const value = this.evaluate(stmt.value);
+        const targetName = stmt.target.lexeme;
+        let current = this.globals.get(stmt.target);
+        if (typeof current === "number" && typeof value === "number") {
+            this.globals.assign(stmt.target, current / value);
+        } else {
+            Lox.runtimeError(new RuntimeError(stmt.target, `DIVIDE: Operands must be numbers. Got ${typeof current} and ${typeof value}`));
         }
-        this.environment.define(stmt.name.lexeme, value ?? {});
-        if (this.componentType === 'variable' && stmt.name.lexeme === this.componentName) {
-            console.log(`Tracked variable '${stmt.name.lexeme}' initialized with value:`, value);
+        return null;
+    }
+    public visitDivisionStmt(stmt: Stmt.Division): null {
+        // Execute all statements in the division
+        for (const s of stmt.sectionsOrStatements) {
+            this.execute(s);
+        }
+        return null;
+    }
+    public visitIfStmt(stmt: Stmt.If): null {
+        // IF condition ... END-IF
+        const cond = this.evaluate(stmt.condition);
+        if (cond) {
+            for (const s of stmt.thenStatements) {
+                this.execute(s);
+            }
+        }
+        return null;
+    }
+    public visitMoveStmt(stmt: Stmt.Move): null {
+        // MOVE value TO target (PROCEDURE DIVISION)
+        let value = null;
+        if (stmt.value instanceof Expr.Assign) {
+            value = this.evaluate(stmt.value.value);
+        } else if (stmt.value instanceof Expr.Literal) {
+            value = stmt.value.value;
+        } else {
+            value = this.evaluate(stmt.value);
+        }
+        // Only assign if variable exists
+        if (this.globals['values'].has(stmt.target.lexeme)) {
+            this.globals.assign(stmt.target, value);
+        } else {
+            Lox.runtimeError(new RuntimeError(stmt.target, `MOVE: Variable '${stmt.target.lexeme}' not defined.`));
+        }
+        return null;
+    }
+    public visitMultiplyStmt(stmt: Stmt.Multiply): null {
+        // MULTIPLY value BY target
+        const value = this.evaluate(stmt.value);
+        const targetName = stmt.target.lexeme;
+        let current = this.globals.get(stmt.target);
+        if (typeof current === "number" && typeof value === "number") {
+            this.globals.assign(stmt.target, current * value);
+        } else {
+            Lox.runtimeError(new RuntimeError(stmt.target, `MULTIPLY: Operands must be numbers. Got ${typeof current} and ${typeof value}`));
+        }
+        return null;
+    }
+    public visitPerformStmt(stmt: Stmt.Perform): null {
+        // PERFORM target (not implemented)
+        // Could call a procedure by name if implemented
+        return null;
+    }
+    public visitSectionStmt(stmt: Stmt.Section): null {
+        for (const s of stmt.statements) {
+            if (s instanceof Stmt.Move) {
+                let value = null;
+                if (s.value instanceof Expr.Literal) {
+                    value = s.value.value; // <-- always unwrap here!
+                } else if (s.value instanceof Expr.Assign) {
+                    value = this.evaluate(s.value.value);
+                } else {
+                    value = this.evaluate(s.value);
+                }
+                this.globals.define(s.target.lexeme, value);
+            } else {
+                this.execute(s);
+            }
+        }
+        return null;
+    }
+
+    public visitStopStmt(stmt: Stmt.Stop): null {
+        // STOP RUN (terminate execution)
+        process.exit(0);
+        return null;
+    }
+    public visitSubtractStmt(stmt: Stmt.Subtract): null {
+        // SUBTRACT value FROM target
+        const value = this.evaluate(stmt.value);
+        const targetName = stmt.target.lexeme;
+        let current = this.globals.get(stmt.target);
+        if (typeof current === "number" && typeof value === "number") {
+            this.globals.assign(stmt.target, current - value);
+        } else {
+            Lox.runtimeError(new RuntimeError(stmt.target, `SUBTRACT: Operands must be numbers. Got ${typeof current} and ${typeof value}`));
         }
         return null;
     }

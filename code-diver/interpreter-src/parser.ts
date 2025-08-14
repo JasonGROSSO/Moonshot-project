@@ -1,3 +1,4 @@
+import { assert } from "console";
 import { Expr } from "./expr";
 import { Lox } from "./lox";
 import { Stmt } from "./stmt";
@@ -20,7 +21,8 @@ export class Parser {
             } else if (this.match(TokenType.DATA_DIVISION)) {
                 statements.push(this.division(TokenType.DATA_DIVISION));
             } else if (this.match(TokenType.PROCEDURE_DIVISION)) {
-                statements.push(this.procedureDivision());
+                const procDiv = this.procedureDivision();
+                statements.push(procDiv);
             } else {
                 // If we encounter an unknown token at the top level, log an error
                 const token = this.peek();
@@ -190,14 +192,21 @@ export class Parser {
     private variableDeclarationWithName(nameToken: Token): Stmt {
         // PIC should be the previous token
         const picToken = this.previous();
-        // Optionally parse VALUE
+        // Advance until VALUE token is found or DOT/end
         let value: Expr | null = null;
+        while (!this.check(TokenType.VALUE) && !this.isAtEnd() && !this.check(TokenType.DOT)) {
+            this.advance();
+        }
         if (this.match(TokenType.VALUE)) {
             if (this.match(TokenType.STRING, TokenType.NUMBER)) {
                 value = new Expr.Literal(this.previous().literal);
             }
         }
-        return new Stmt.Move(new Expr.Literal(value), nameToken); // Use Move for variable declaration for now
+        // If no VALUE clause, default to null
+        if (value === null) {
+            value = new Expr.Literal(null);
+        }
+        return new Stmt.Move(value, nameToken); // Use Move for variable declaration for now
     }
 
     // Parse variable declaration (DATA DIVISION)
@@ -205,14 +214,21 @@ export class Parser {
         const picToken = this.previous();
         // Expect identifier before PIC
         const nameToken = this.tokens[this.current - 2];
-        // Optionally parse VALUE
+        // Advance until VALUE token is found or DOT/end
         let value: Expr | null = null;
+        while (!this.check(TokenType.VALUE) && !this.isAtEnd() && !this.check(TokenType.DOT)) {
+            this.advance();
+        }
         if (this.match(TokenType.VALUE)) {
             if (this.match(TokenType.STRING, TokenType.NUMBER)) {
                 value = new Expr.Literal(this.previous().literal);
             }
         }
-        return new Stmt.Move(new Expr.Literal(value), nameToken); // Use Move for variable declaration for now
+        // If no VALUE clause, default to null
+        if (value === null) {
+            value = new Expr.Literal(null);
+        }
+        return new Stmt.Move(value, nameToken); // Use Move for variable declaration for now
     }
 
     // Parse PROCEDURE DIVISION (statements)
@@ -221,7 +237,6 @@ export class Parser {
         const statements: Stmt[] = [];
         this.advance();
         while (!this.isAtEnd() && !this.check(TokenType.IDENTIFICATION_DIVISION) && !this.check(TokenType.ENVIRONMENT_DIVISION) && !this.check(TokenType.DATA_DIVISION) && !this.check(TokenType.PROCEDURE_DIVISION)) {
-            console.log("Mango");
             const stmt = this.cobolStatement();
             // Only add non-null statements
             if (stmt !== null) statements.push(stmt);
@@ -274,7 +289,6 @@ export class Parser {
                 this.advance();
                 return this.stopStatement();
             default:
-                console.log("Apple");
                 const unknownToken = this.peek();
                 if (unknownToken.type !== TokenType.DOT && unknownToken.type !== TokenType.EOF) {
                     // Log debug info here

@@ -1,4 +1,4 @@
-//import { Interpreter } from "./interpreter";
+import { Interpreter } from "./interpreter";
 import { Parser } from "./parser";
 import { RuntimeError } from "./runtime-error";
 import { Resolver } from "./resolver";
@@ -10,7 +10,7 @@ import { TokenType } from "./token-type";
 export class Lox {
 
     // Single interpreter instance for the program
-    // private static interpreter: Interpreter = new Interpreter();
+    private static interpreter: Interpreter = new Interpreter();
     static hadError: boolean = false;
     static hadRuntimeError: boolean = false;
     public static errorLog: string[] = [];
