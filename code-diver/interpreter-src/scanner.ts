@@ -128,7 +128,6 @@ export class Scanner {
                 break;
             case '\n':
                 this.line++;
-                console.log("New line:", this.line);
                 break;
             case '"': this.string(); break;
             case "'": this.string(); break;

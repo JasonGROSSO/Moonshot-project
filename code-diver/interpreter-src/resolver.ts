@@ -132,6 +132,7 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     visitStopStmt(stmt: Stmt.Stop): void {
+        // No specific resolution needed for STOP statement
     }
 
     visitSubtractStmt(stmt: InstanceType<typeof Stmt.Subtract>): void {

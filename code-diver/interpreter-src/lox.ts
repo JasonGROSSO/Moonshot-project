@@ -104,7 +104,16 @@ export class Lox {
             statements = parser.parse();
         } catch (e) {
             Lox.hadError = true;
-            const msg = e instanceof Error ? "Syntax error: " + e.message : "Syntax error: " + String(e);
+            let msg = "";
+            if (e instanceof Error && e.message) {
+                msg = "Syntax error: " + e.message;
+            } else if (typeof e === "string" && e.length > 0) {
+                msg = "Syntax error: " + e;
+            } else if (e && typeof e === "object" && "toString" in e) {
+                msg = "Syntax error: " + e.toString();
+            } else {
+                msg = "Syntax error: Unknown error object caught by parser.";
+            }
             console.error(msg);
             Lox.errorLog.push(msg);
         }

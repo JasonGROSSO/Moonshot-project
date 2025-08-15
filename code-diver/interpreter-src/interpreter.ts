@@ -330,7 +330,8 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
     public visitStopStmt(stmt: Stmt.Stop): null {
         // STOP RUN (terminate execution)
-        process.exit(0);
+        // process.exit(0);
+        // Optionally set a flag or just return
         return null;
     }
     public visitSubtractStmt(stmt: Stmt.Subtract): null {

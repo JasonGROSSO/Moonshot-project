@@ -13,30 +13,53 @@ export class Parser {
         const statements: Stmt[] = [];
         let errorLogged = false;
         while (!this.isAtEnd()) {
-            // Parse COBOL divisions and sections
-            if (this.match(TokenType.IDENTIFICATION_DIVISION)) {
-                statements.push(this.division(TokenType.IDENTIFICATION_DIVISION));
-            } else if (this.match(TokenType.ENVIRONMENT_DIVISION)) {
-                statements.push(this.division(TokenType.ENVIRONMENT_DIVISION));
-            } else if (this.match(TokenType.DATA_DIVISION)) {
-                statements.push(this.division(TokenType.DATA_DIVISION));
-            } else if (this.match(TokenType.PROCEDURE_DIVISION)) {
-                const procDiv = this.procedureDivision();
-                statements.push(procDiv);
-            } else {
-                // If we encounter an unknown token at the top level, log an error
-                const token = this.peek();
-                if (token.type !== TokenType.EOF) {
-                    Lox.error(token, `Unexpected token '${token.lexeme}' at top level.`);
-                    errorLogged = true;
-                }
-                this.advance();
+            switch (this.peek().type) {
+                case TokenType.IDENTIFICATION_DIVISION:
+                    this.advance();
+                    statements.push(this.division(TokenType.IDENTIFICATION_DIVISION));
+                    break;
+                case TokenType.ENVIRONMENT_DIVISION:
+                    this.advance();
+                    statements.push(this.division(TokenType.ENVIRONMENT_DIVISION));
+                    break;
+                case TokenType.DATA_DIVISION:
+                    this.advance();
+                    statements.push(this.division(TokenType.DATA_DIVISION));
+                    break;
+                case TokenType.PROCEDURE_DIVISION:
+                    this.advance();
+                    const procDiv = this.procedureDivision();
+                    statements.push(procDiv);
+                    break;
+                case TokenType.EOF:
+                    console.log("Reached end of file while parsing.");
+                    break;
+                default:
+                    const token = this.peek();
+                    if (token.type !== TokenType.EOF) {
+                        Lox.error(token, `Unexpected token '${token.lexeme}' at top level.`);
+                        errorLogged = true;
+                    }
+                    this.advance();
+                    break;
             }
         }
-        // Fallback: Always log a generic error if hadError is set and no error was logged
+        // Only log an error for EOF if the parser ended in the middle of a statement (not after a DOT)
         const token = this.peek();
-        if ((Lox as any).hadError && !errorLogged) {
-            Lox.error(token, "Unknown syntax error: hadError was set but no error message was logged (parser final fallback).");
+        if ((Lox as any).hadError && Lox.errorLog.length === 0) {
+            let contextMsg = `Parser ended at token '${token.lexeme}' (type ${token.type}) on line ${token.line}.`;
+            if (token.type === TokenType.EOF) {
+                // If the previous token was DOT, do not log an error
+                const prevToken = this.previous();
+                if (prevToken && prevToken.type === TokenType.DOT) {
+                    // Clear hadError, no error to log
+                    (Lox as any).hadError = false;
+                } else {
+                    Lox.error(token, `Unexpected end of file. Parsing stopped at EOF. Context: ${contextMsg}`);
+                }
+            } else {
+                Lox.error(token, `Unknown syntax error: hadError was set but no error message was logged (parser final fallback). Context: ${contextMsg}`);
+            }
         }
         return statements;
     }
@@ -67,6 +90,10 @@ export class Parser {
         const divisionToken = this.previous();
         const sections: Stmt[] = [];
         while (!this.isAtEnd() && !this.check(TokenType.IDENTIFICATION_DIVISION) && !this.check(TokenType.ENVIRONMENT_DIVISION) && !this.check(TokenType.DATA_DIVISION) && !this.check(TokenType.PROCEDURE_DIVISION)) {
+            if (this.check(TokenType.EOF)) {
+                Lox.error(this.peek(), `Unexpected end of file in division '${divisionToken.lexeme}'. Division may be incomplete.`);
+                break;
+            }
             // Handle PROGRAM-ID and program name in IDENTIFICATION DIVISION
             if (type === TokenType.IDENTIFICATION_DIVISION && this.match(TokenType.IDENTIFIER)) {
                 // PROGRAM-ID or other identifier
@@ -102,6 +129,10 @@ export class Parser {
             && !this.check(TokenType.ENVIRONMENT_DIVISION)
             && !this.check(TokenType.DATA_DIVISION)
             && !this.check(TokenType.PROCEDURE_DIVISION)) {
+            if (this.check(TokenType.EOF)) {
+                Lox.error(this.peek(), `Unexpected end of file in WORKING-STORAGE SECTION. Section may be incomplete.`);
+                break;
+            }
             // Try to match COBOL variable declaration: level number, identifier, PIC ...
             if (this.match(TokenType.NUMBER)) {
                 const levelToken = this.previous();
@@ -237,23 +268,28 @@ export class Parser {
         const statements: Stmt[] = [];
         this.advance();
         while (!this.isAtEnd() && !this.check(TokenType.IDENTIFICATION_DIVISION) && !this.check(TokenType.ENVIRONMENT_DIVISION) && !this.check(TokenType.DATA_DIVISION) && !this.check(TokenType.PROCEDURE_DIVISION)) {
+            if (this.check(TokenType.EOF)) {
+                Lox.error(this.peek(), `Unexpected end of file in PROCEDURE DIVISION. Division may be incomplete.`);
+                break;
+            }
             const stmt = this.cobolStatement();
-            // Only add non-null statements
             if (stmt !== null) statements.push(stmt);
             // If we are not at a DOT, log error and advance to DOT
             if (!this.check(TokenType.DOT)) {
-                // Log error for any tokens between statement and DOT
                 while (!this.check(TokenType.DOT) && !this.isAtEnd()) {
                     const token = this.peek();
                     if (token.type !== TokenType.EOF) {
-                        Lox.error(token, `Unexpected token '${token.lexeme}' '${token.type}' after statement in PROCEDURE DIVISION. Expected '.'`);
+                        Lox.error(token, `Unexpected token '${token.lexeme}' after statement in PROCEDURE DIVISION. Expected '.'`);
                     }
                     this.advance();
                 }
             }
             // Now consume the DOT if present
             this.match(TokenType.DOT);
+            // If at EOF after DOT, break
+            if (this.check(TokenType.EOF)) break;
         }
+
         return new Stmt.Division(divisionToken, statements);
     }
 
