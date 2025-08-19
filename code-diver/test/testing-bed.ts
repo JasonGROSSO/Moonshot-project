@@ -7,6 +7,7 @@ function tests() {
     const COBOL_Files = readdirSync("test-files").filter(file => file.endsWith(".cob") || file.endsWith(".cbl"));
     console.log(`Found ${COBOL_Files.length} COBOL files.`);
     let successCount = 0;
+    let successFiles = new Set<string>();
     // Clear previous error log
     writeFileSync('test-error-log.txt', '');
     for (const file of COBOL_Files) {
@@ -22,6 +23,7 @@ function tests() {
         if (!Lox.hadError && !Lox.hadRuntimeError && !caughtError) {
             console.log(`Test passed for ${file}`);
             successCount++;
+            successFiles.add(file);
         } else {
             console.error(`Test failed for ${file}`);
             // Log errors to file
@@ -38,11 +40,15 @@ function tests() {
         }
     }
     console.log("Testing completed.");
-    console.log(`Total tests passed: ${successCount} out of ${COBOL_Files.length}`);
-
-    let minimal = readFileSync(join("test-files", "minimal.cob"), "utf-8"); 
-    Lox.run(minimal);
-
+    console.log(`Total tests passed: ${successCount} out of ${COBOL_Files.length}`)
+    if (successFiles.size > 0) {
+        console.log("Successfully passed files:");
+        for (const file of successFiles) {
+            console.log(`- ${file}`);
+        }
+    } else {
+        console.log("No files passed the tests.");
+    }
 }   
 
 tests();
