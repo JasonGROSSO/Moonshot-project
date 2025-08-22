@@ -392,8 +392,38 @@ export class Parser {
 
     // Example: IF statement
     private ifStatement(): Stmt {
-        // IF condition ... END-IF
-        const condition = this.expression();
+        // IF <variable> <comparison> <variable|number|boolean> ... END-IF
+        // Example: IF X < Y ... END-IF
+        let left: Expr;
+        if (this.match(TokenType.IDENTIFIER)) {
+            left = new Expr.Variable(this.previous());
+        } else {
+            throw Lox.error(this.peek(), "Expect variable as left operand in IF condition.");
+        }
+
+        // Comparison operator
+        let operator: Token;
+        if (this.match(TokenType.LESS_THAN, TokenType.GREATER_THAN, TokenType.EQUALS, TokenType.GREATER_EQUAL, TokenType.LESS_EQUAL, TokenType.NOT)) {
+            operator = this.previous();
+        } else {
+            throw Lox.error(this.peek(), "Expect comparison operator in IF condition.");
+        }
+
+        // Right operand
+        let right: Expr;
+        if (this.match(TokenType.IDENTIFIER)) {
+            right = new Expr.Variable(this.previous());
+        } else if (this.match(TokenType.NUMBER, TokenType.STRING)) {
+            right = new Expr.Literal(this.previous().literal);
+            // COBOL does not use boolean literals TRUE/FALSE as tokens
+        } else {
+            throw Lox.error(this.peek(), "Expect variable, number, or boolean as right operand in IF condition.");
+        }
+
+        // Build condition as a binary expression
+        const condition = new Expr.Binary(left, operator, right);
+
+        // Parse THEN statements until END-IF
         const thenStatements: Stmt[] = [];
         while (!this.check(TokenType.END_IF) && !this.isAtEnd()) {
             const stmt = this.cobolStatement();
