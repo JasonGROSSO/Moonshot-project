@@ -1,5 +1,0 @@
-var name = "James";
-var lastName = "John";
-var name = "Jack";
-print name;
-print lastName;

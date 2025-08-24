@@ -141,6 +141,14 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         this.resolveExpr(stmt.value);
     }
 
+    visitVarStmt(stmt: Stmt.Var): void {
+        this.declare(stmt.name);
+        if (stmt.initializer !== null) {
+            this.resolveExpr(stmt.initializer);
+        }
+        this.define(stmt.name);
+    }
+
     resolve(statements: Stmt[]): void {
         for (const statement of statements) {
             this.resolveStmt(statement);

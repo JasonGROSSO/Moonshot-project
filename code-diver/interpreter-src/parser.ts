@@ -500,8 +500,6 @@ export class Parser {
 
     // Parse variable declaration with explicit name (for COBOL style)
     private variableDeclarationWithName(nameToken: Token): Stmt {
-        // PIC should be the previous token
-        const picToken = this.previous();
         // Advance until VALUE token is found or DOT/end
         let value: Expr | null = null;
         while (!this.check(TokenType.VALUE) && !this.isAtEnd() && !this.check(TokenType.DOT)) {
@@ -516,12 +514,11 @@ export class Parser {
         if (value === null) {
             value = new Expr.Literal(null);
         }
-        return new Stmt.Move(value, nameToken); // Use Move for variable declaration for now
+        return new Stmt.Var(nameToken, value);
     }
 
     // Parse variable declaration (DATA DIVISION)
     private variableDeclaration(): Stmt {
-        const picToken = this.previous();
         // Expect identifier before PIC
         const nameToken = this.tokens[this.current - 2];
         // Advance until VALUE token is found or DOT/end
@@ -538,6 +535,6 @@ export class Parser {
         if (value === null) {
             value = new Expr.Literal(null);
         }
-        return new Stmt.Move(value, nameToken); // Use Move for variable declaration for now
+        return new Stmt.Var(nameToken, value);
     }
 }

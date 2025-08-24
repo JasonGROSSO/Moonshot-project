@@ -138,6 +138,21 @@ export abstract class Stmt {
         }
     };
 
+    static Var = class extends Stmt {
+        name: Token;
+        initializer: Expr | null;
+
+        constructor(name: Token, initializer: Expr | null) {
+            super();
+            this.name = name;
+            this.initializer = initializer;
+        }
+
+        accept<R>(visitor: Stmt.Visitor<R>): R {
+            return visitor.visitVarStmt(this);
+        }
+    }
+
     abstract accept<R>(visitor: Stmt.Visitor<R>): R;
 }
 
@@ -154,6 +169,7 @@ export namespace Stmt {
         visitSectionStmt(stmt: InstanceType<typeof Stmt.Section>): R;
         visitStopStmt(stmt: InstanceType<typeof Stmt.Stop>): R;
         visitSubtractStmt(stmt: InstanceType<typeof Stmt.Subtract>): R;
+        visitVarStmt(stmt: InstanceType<typeof Stmt.Var>): R;
     }
     export type Add = InstanceType<typeof Stmt.Add>;
     export type Display = InstanceType<typeof Stmt.Display>;
@@ -166,4 +182,5 @@ export namespace Stmt {
     export type Section = InstanceType<typeof Stmt.Section>;
     export type Stop = InstanceType<typeof Stmt.Stop>;
     export type Subtract = InstanceType<typeof Stmt.Subtract>;
+    export type Var = InstanceType<typeof Stmt.Var>;
 }

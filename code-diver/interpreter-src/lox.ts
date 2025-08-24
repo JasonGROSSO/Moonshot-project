@@ -27,7 +27,7 @@ export class Lox {
             console.log(`Running script: ${path}`);
             console.log(`Component type: ${componentType}`);
             console.log(`Component name: ${componentName}`);
-            // this.runFileWithComponent(path, componentType, componentName);
+            this.runFileWithComponent(path, componentType, componentName);
         } else if (args.length === 1) {
             // One argument: just the script path
             console.log(`Running script: ${args[0]}`);
@@ -48,14 +48,14 @@ export class Lox {
     }
 
     // Run a Lox script from a file, tracking a specific component
-    // private static runFileWithComponent(path: string, componentType: string, componentName: string): void {
-    //     const bytes = require('fs').readFileSync(path);
-    //      // Set the component tracking in the interpreter
-    //     this.interpreter.setComponentTracking(componentType, componentName);
-    //     this.run(bytes.toString());
-    //     if (Lox.hadError) { process.exit(65); }
-    //     if (Lox.hadRuntimeError) { process.exit(70); }
-    // }
+    private static runFileWithComponent(path: string, componentType: string, componentName: string): void {
+        const bytes = require('fs').readFileSync(path);
+         // Set the component tracking in the interpreter
+        this.interpreter.setComponentTracking(componentType, componentName);
+        this.run(bytes.toString());
+        if (Lox.hadError) { process.exit(65); }
+        if (Lox.hadRuntimeError) { process.exit(70); }
+    }
 
     // Start a REPL (interactive prompt)
     private static runPrompt(): void {

@@ -356,6 +356,18 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         }
         return null;
     }
+    public visitVarStmt(stmt: Stmt.Var): null {
+        let value: Object | null = null;
+        if (stmt.initializer !== null) {
+            value = this.evaluate(stmt.initializer);
+        }
+        this.environment.define(stmt.name.lexeme, value ?? {});
+        if (this.componentType === 'variable' && stmt.name.lexeme === this.componentName) {
+            console.log(`Tracked variable '${stmt.name.lexeme}' initialized with value:`, value);
+        }
+        return null;
+
+    }
     private stringify(object: any): String {
         if (object === null) { return "nil"; }
 
