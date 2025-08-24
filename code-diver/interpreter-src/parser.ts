@@ -1,9 +1,9 @@
-import { assert } from "console";
 import { Expr } from "./expr";
 import { Lox } from "./lox";
 import { Stmt } from "./stmt";
 import { Token } from "./token";
 import { TokenType } from "./token-type";
+import { Interpreter } from "./interpreter";
 
 export class Parser {
     private tokens: Token[];
@@ -119,6 +119,53 @@ export class Parser {
         return new Stmt.Division(divisionToken, sections);
     }
 
+    // Parse a COBOL section (PROCEDURE DIVISION section)
+    private section(): Stmt {
+        // Support IDENTIFIER + SECTION as section header
+        let sectionToken: Token;
+        if (this.match(TokenType.IDENTIFIER) && this.match(TokenType.SECTION)) {
+            // Combine the IDENTIFIER and SECTION into a single section token
+            const identifierToken = this.tokens[this.current - 2];
+            const sectionName = identifierToken.lexeme;
+            sectionToken = new Token(TokenType.SECTION, sectionName, sectionName, identifierToken.line);
+        } else if (this.match(TokenType.SECTION)) {
+            sectionToken = this.previous();
+        } else {
+            sectionToken = this.peek();
+        }
+        const statements: Stmt[] = [];
+        while (!this.isAtEnd() && !this.check(TokenType.SECTION) && !this.check(TokenType.IDENTIFICATION_DIVISION) && !this.check(TokenType.ENVIRONMENT_DIVISION) && !this.check(TokenType.DATA_DIVISION) && !this.check(TokenType.PROCEDURE_DIVISION)) {
+            // Skip variable declaration tokens in PROCEDURE DIVISION sections
+            if (this.check(TokenType.NUMBER) || this.check(TokenType.PIC) || this.check(TokenType.VALUE)) {
+                // Advance until DOT or next statement
+                while (!this.check(TokenType.DOT) && !this.isAtEnd()) {
+                    this.advance();
+                }
+                if (this.check(TokenType.DOT)) {
+                    this.advance();
+                }
+                continue;
+            }
+            const stmt = this.cobolStatement();
+            if (stmt !== null) statements.push(stmt);
+            // If we are not at a DOT, log error and advance to DOT
+            if (!this.check(TokenType.DOT)) {
+                while (!this.check(TokenType.DOT) && !this.isAtEnd()) {
+                    const token = this.peek();
+                    if (token.type !== TokenType.EOF) {
+                        Lox.error(token, `Unexpected token '${token.lexeme}' after statement in SECTION. Expected '.'`);
+                    }
+                    this.advance();
+                }
+            }
+            // Always advance past the DOT if present
+            if (this.check(TokenType.DOT)) {
+                this.advance();
+            }
+        }
+        return new Stmt.Section(sectionToken, statements);
+    }
+
     // Parse WORKING-STORAGE SECTION (COBOL variable declarations)
     private workingStorageSection(): Stmt {
         const sectionToken = this.previous();
@@ -174,94 +221,6 @@ export class Parser {
         return new Stmt.Section(sectionToken, statements);
     }
 
-    // Parse a COBOL section (WORKING-STORAGE, etc.)
-    private section(): Stmt {
-        const sectionToken = this.previous();
-        const statements: Stmt[] = [];
-        while (!this.isAtEnd() && !this.check(TokenType.SECTION) && !this.check(TokenType.IDENTIFICATION_DIVISION) && !this.check(TokenType.ENVIRONMENT_DIVISION) && !this.check(TokenType.DATA_DIVISION) && !this.check(TokenType.PROCEDURE_DIVISION)) {
-            // Try to match COBOL variable declaration: level number, identifier, PIC ...
-            if (this.match(TokenType.NUMBER)) {
-                const levelToken = this.previous();
-                if (this.match(TokenType.IDENTIFIER)) {
-                    const nameToken = this.previous();
-                    if (this.match(TokenType.PIC)) {
-                        statements.push(this.variableDeclarationWithName(nameToken));
-                        // Consume all tokens up to and including the DOT
-                        while (!this.check(TokenType.DOT) && !this.isAtEnd()) this.advance();
-                        this.match(TokenType.DOT);
-                        continue;
-                    } else {
-                        // Error: expected PIC after identifier in variable declaration
-                        Lox.error(this.peek(), `Expected 'PIC' after identifier '${nameToken.lexeme}' in variable declaration.`);
-                        this.advance();
-                        continue;
-                    }
-                } else {
-                    // Error: expected identifier after level number
-                    Lox.error(this.peek(), `Expected identifier after level number '${levelToken.lexeme}' in variable declaration.`);
-                    this.advance();
-                    continue;
-                }
-            }
-            // For DATA DIVISION, parse variable declarations that start with PIC (legacy support)
-            if (this.match(TokenType.PIC)) {
-                statements.push(this.variableDeclaration());
-                while (!this.check(TokenType.DOT) && !this.isAtEnd()) this.advance();
-                this.match(TokenType.DOT);
-            } else {
-                // Log error for any unrecognized token in section
-                const token = this.peek();
-                if (token.type !== TokenType.EOF && token.type !== TokenType.DOT) {
-                    Lox.error(token, `Unexpected token '${token.lexeme}' in WORKING-STORAGE SECTION.`);
-                }
-                this.advance();
-            }
-        }
-        return new Stmt.Section(sectionToken, statements);
-    }
-    // Parse variable declaration with explicit name (for COBOL style)
-    private variableDeclarationWithName(nameToken: Token): Stmt {
-        // PIC should be the previous token
-        const picToken = this.previous();
-        // Advance until VALUE token is found or DOT/end
-        let value: Expr | null = null;
-        while (!this.check(TokenType.VALUE) && !this.isAtEnd() && !this.check(TokenType.DOT)) {
-            this.advance();
-        }
-        if (this.match(TokenType.VALUE)) {
-            if (this.match(TokenType.STRING, TokenType.NUMBER)) {
-                value = new Expr.Literal(this.previous().literal);
-            }
-        }
-        // If no VALUE clause, default to null
-        if (value === null) {
-            value = new Expr.Literal(null);
-        }
-        return new Stmt.Move(value, nameToken); // Use Move for variable declaration for now
-    }
-
-    // Parse variable declaration (DATA DIVISION)
-    private variableDeclaration(): Stmt {
-        const picToken = this.previous();
-        // Expect identifier before PIC
-        const nameToken = this.tokens[this.current - 2];
-        // Advance until VALUE token is found or DOT/end
-        let value: Expr | null = null;
-        while (!this.check(TokenType.VALUE) && !this.isAtEnd() && !this.check(TokenType.DOT)) {
-            this.advance();
-        }
-        if (this.match(TokenType.VALUE)) {
-            if (this.match(TokenType.STRING, TokenType.NUMBER)) {
-                value = new Expr.Literal(this.previous().literal);
-            }
-        }
-        // If no VALUE clause, default to null
-        if (value === null) {
-            value = new Expr.Literal(null);
-        }
-        return new Stmt.Move(value, nameToken); // Use Move for variable declaration for now
-    }
-
     // Parse PROCEDURE DIVISION (statements)
     private procedureDivision(): Stmt {
         const divisionToken = this.previous();
@@ -271,6 +230,26 @@ export class Parser {
             if (this.check(TokenType.EOF)) {
                 Lox.error(this.peek(), `Unexpected end of file in PROCEDURE DIVISION. Division may be incomplete.`);
                 break;
+            }
+            // Recognize IDENTIFIER + SECTION as section header
+            if (this.check(TokenType.IDENTIFIER) && this.tokens[this.current + 1] && this.tokens[this.current + 1].type === TokenType.SECTION) {
+                // Combine IDENTIFIER and SECTION into a single section token
+                const identifierToken = this.peek();
+                const sectionName = identifierToken.lexeme;
+                this.advance(); // consume IDENTIFIER
+                this.advance(); // consume SECTION
+                // Create a section token with the section name
+                const sectionToken = new Token(TokenType.SECTION, identifierToken.lexeme, identifierToken.lexeme, identifierToken.line);
+                // Call section parser with this token
+                const sectionStmt = this.sectionFromToken(sectionToken);
+                statements.push(sectionStmt);
+                continue;
+            }
+            // Recognize SECTION as section header
+            if (this.check(TokenType.SECTION)) {
+                this.advance();
+                statements.push(this.section());
+                continue;
             }
             const stmt = this.cobolStatement();
             if (stmt !== null) statements.push(stmt);
@@ -289,8 +268,33 @@ export class Parser {
             // If at EOF after DOT, break
             if (this.check(TokenType.EOF)) break;
         }
-
         return new Stmt.Division(divisionToken, statements);
+    }
+
+    // Helper to parse a section from a given section token
+    private sectionFromToken(sectionToken: Token): Stmt {
+        this.advance();
+        const statements: Stmt[] = [];
+        while (!this.isAtEnd() && !this.check(TokenType.SECTION) && !this.check(TokenType.IDENTIFICATION_DIVISION) && !this.check(TokenType.ENVIRONMENT_DIVISION) && !this.check(TokenType.DATA_DIVISION) && !this.check(TokenType.PROCEDURE_DIVISION)) {
+            const stmt = this.cobolStatement();
+            if (stmt !== null) statements.push(stmt);
+            if (!this.check(TokenType.DOT)) {
+                while (!this.check(TokenType.DOT) && !this.isAtEnd()) {
+                    const token = this.peek();
+                    if (token.type !== TokenType.EOF) {
+                        Lox.error(token, `Unexpected token '${token.lexeme}' after statement in SECTION. Expected '.'`);
+                    }
+                    this.advance();
+                }
+            }
+            if (this.check(TokenType.DOT)) {
+                this.advance();
+            }
+        }
+        let section = new Stmt.Section(sectionToken, statements);
+        Interpreter.sectionRegistry.set(sectionToken.lexeme, section);
+        
+        return section;
     }
 
     // Parse essential COBOL statements
@@ -327,8 +331,7 @@ export class Parser {
             default:
                 const unknownToken = this.peek();
                 if (unknownToken.type !== TokenType.DOT && unknownToken.type !== TokenType.EOF) {
-                    // Log debug info here
-                    console.log(`Skipping unknown statement token: ${unknownToken.lexeme}`);
+                    Lox.error(unknownToken, `Unexpected token '${unknownToken.lexeme}' in PROCEDURE DIVISION.`);
                 }
                 this.advance(); // Always advance at least one token
                 return null;
@@ -493,5 +496,48 @@ export class Parser {
 
     private previous(): Token {
         return this.tokens[this.current - 1];
+    }
+
+    // Parse variable declaration with explicit name (for COBOL style)
+    private variableDeclarationWithName(nameToken: Token): Stmt {
+        // PIC should be the previous token
+        const picToken = this.previous();
+        // Advance until VALUE token is found or DOT/end
+        let value: Expr | null = null;
+        while (!this.check(TokenType.VALUE) && !this.isAtEnd() && !this.check(TokenType.DOT)) {
+            this.advance();
+        }
+        if (this.match(TokenType.VALUE)) {
+            if (this.match(TokenType.STRING, TokenType.NUMBER)) {
+                value = new Expr.Literal(this.previous().literal);
+            }
+        }
+        // If no VALUE clause, default to null
+        if (value === null) {
+            value = new Expr.Literal(null);
+        }
+        return new Stmt.Move(value, nameToken); // Use Move for variable declaration for now
+    }
+
+    // Parse variable declaration (DATA DIVISION)
+    private variableDeclaration(): Stmt {
+        const picToken = this.previous();
+        // Expect identifier before PIC
+        const nameToken = this.tokens[this.current - 2];
+        // Advance until VALUE token is found or DOT/end
+        let value: Expr | null = null;
+        while (!this.check(TokenType.VALUE) && !this.isAtEnd() && !this.check(TokenType.DOT)) {
+            this.advance();
+        }
+        if (this.match(TokenType.VALUE)) {
+            if (this.match(TokenType.STRING, TokenType.NUMBER)) {
+                value = new Expr.Literal(this.previous().literal);
+            }
+        }
+        // If no VALUE clause, default to null
+        if (value === null) {
+            value = new Expr.Literal(null);
+        }
+        return new Stmt.Move(value, nameToken); // Use Move for variable declaration for now
     }
 }

@@ -22,6 +22,8 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     private environment: Environment = this.globals;
     // Map for resolving variable scopes
     private locals: Map<Expr, number> = new Map();
+    // Registry for COBOL sections by name
+    static sectionRegistry: Map<string, Stmt.Section> = new Map();
 
     // Constructor: defines native functions (e.g., clock)
     constructor() {
@@ -305,8 +307,16 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return null;
     }
     public visitPerformStmt(stmt: Stmt.Perform): null {
-        // PERFORM target (not implemented)
-        // Could call a procedure by name if implemented
+        // PERFORM <section>
+        const sectionName = stmt.target.lexeme.trim().toUpperCase();
+        const section = Interpreter.sectionRegistry.get(sectionName);
+        if (section) {
+            for (const s of section.statements) {
+                this.execute(s);
+            }
+        } else {
+            Lox.runtimeError(new RuntimeError(stmt.target, `PERFORM: Section '${sectionName}' not found.`));
+        }
         return null;
     }
     public visitSectionStmt(stmt: Stmt.Section): null {
@@ -314,7 +324,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
             if (s instanceof Stmt.Move) {
                 let value = null;
                 if (s.value instanceof Expr.Literal) {
-                    value = s.value.value; // <-- always unwrap here!
+                    value = s.value.value;
                 } else if (s.value instanceof Expr.Assign) {
                     value = this.evaluate(s.value.value);
                 } else {
@@ -330,9 +340,9 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
     public visitStopStmt(stmt: Stmt.Stop): null {
         // STOP RUN (terminate execution)
-        // process.exit(0);
-        // Optionally set a flag or just return
-        return null;
+        process.exit(0);
+        // For testing purposes, we won't actually exit
+        // return null;
     }
     public visitSubtractStmt(stmt: Stmt.Subtract): null {
         // SUBTRACT value FROM target
