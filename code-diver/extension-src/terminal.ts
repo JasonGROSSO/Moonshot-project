@@ -17,7 +17,7 @@ function main() {
         });
     });
 
-    // ./OneDrive/Documents/GitHub/Moonshot-project/code-diver/interpreter-src/main.lox
+    // ./OneDrive/Documents/GitHub/Moonshot-project/code-diver/test/test-files/minimal.cob
 
 }
 

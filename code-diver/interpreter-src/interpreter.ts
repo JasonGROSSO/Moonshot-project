@@ -2,8 +2,6 @@ import { Environment } from "./environment";
 import { Expr } from "./expr";
 import { Lox } from "./lox";
 import { LoxCallable } from "./lox-callable";
-import { LoxInstance } from "./lox-instance";
-import { Return } from "./return";
 import { RuntimeError } from "./runtime-error";
 import { Stmt } from "./stmt";
 import { Token } from "./token";
@@ -123,14 +121,14 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         }
         return functionCallee.call(this, args);
     }
-    public visitGetExpr(expr: Expr.Get): Object {
-        let object: Object = this.evaluate(expr.object);
-        if (object instanceof LoxInstance) {
-            return (object as LoxInstance).get(expr.name);
-        }
+    public visitGetExpr(expr: Expr.Get) {
+        // let object: Object = this.evaluate(expr.object);
+        // if (object instanceof LoxInstance) {
+        //     return (object as LoxInstance).get(expr.name);
+        // }
 
-        throw new RuntimeError(expr.name,
-            "Only instances have properties.");
+        // throw new RuntimeError(expr.name,
+        //     "Only instances have properties.");
     }
     public visitGroupingExpr(expr: Expr.Grouping): any {
         return this.evaluate(expr.expression) ?? {};
@@ -149,17 +147,17 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
         return this.evaluate(expr.right);
     }
-    public visitSetExpr(expr: Expr.Set): Object {
-        let object: Object = this.evaluate(expr.object);
+    public visitSetExpr(expr: Expr.Set) {
+        // let object: Object = this.evaluate(expr.object);
 
-        if (!(object instanceof LoxInstance)) {
-            throw new RuntimeError(expr.name,
-                "Only instances have fields.");
-        }
+        // if (!(object instanceof LoxInstance)) {
+        //     throw new RuntimeError(expr.name,
+        //         "Only instances have fields.");
+        // }
 
-        let value: Object = this.evaluate(expr.value);
-        (object as LoxInstance).set(expr.name, value);
-        return value;
+        // let value: Object = this.evaluate(expr.value);
+        // (object as LoxInstance).set(expr.name, value);
+        // return value;
     }
     public visitUnaryExpr(expr: Expr.Unary): any {
         let right: any = this.evaluate(expr.right) ?? {};
@@ -357,6 +355,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return null;
     }
     public visitVarStmt(stmt: Stmt.Var): null {
+        // Variable declaration
         let value: Object | null = null;
         if (stmt.initializer !== null) {
             value = this.evaluate(stmt.initializer);
