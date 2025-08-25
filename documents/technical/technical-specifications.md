@@ -30,7 +30,7 @@
 
 ### Programming Language
 
-For the main programming language of this project, there was two options available: JavaScript and TypeScript; as these two languages that are used to build VS Code extensions, with TypeScript being recommended by VS Code.
+For the main programming language of this project, there were two options available: JavaScript and TypeScript; as these two languages are used to build VS Code extensions, with TypeScript being recommended by VS Code.
 Thus this project was programmed into TypeScript.
 
 ### Extension
@@ -50,7 +50,7 @@ Thus this project was programmed into TypeScript.
   - **Purpose**
     - The VS Code Extension Generator is a Yeoman generator specifically designed to scaffold the initial structure of a Visual Studio Code extension project. It provides all the essential files, configuration, and sample code needed to start developing an extension.
   - **Details**
-    - When run (typically via yo code), the generator prompts the user for details such as extension name, display name, description, and language (TypeScript or JavaScript). It then creates a ready-to-build VS Code extension project, including package.json, extension activation code, sample commands, and recommended configuration files. The generator supports different extension types (e.g., command, webview, color theme) and integrates with VS Code's recommended development workflow.
+    - When run (typically via yo code), the generator prompts the user for details such as extension name, display name, description, and language (TypeScript or JavaScript). It then creates a ready-to-build VS Code extension project, including package.json, extension activation code, sample commands, and recommended configuration files. The generator supports different extension types (e.g., command, web view, colour theme) and integrates with VS Code's recommended development workflow.
   - **Benefits**
     - Accelerates the creation of new VS Code extensions by providing a working template.
     - Reduces setup errors and ensures compliance with VS Code extension guidelines.
@@ -68,19 +68,18 @@ Thus this project was programmed into TypeScript.
   - Provides detailed insights into the lifecycle and usage of software components.
 - - Modular design facilitates future enhancements and debugging.
 
-### Lox
+### COBOL
 
 - **Purpose**
-  - Lox is a simple, dynamically-typed programming language created for educational purposes. It serves as the target language for the interpreter in this project, providing a controlled environment for demonstrating code analysis and interpretation.
+  - COBOL (Common Business-Oriented Language) is a high-level programming language designed for business applications. It is widely used in legacy systems, particularly in banking, finance, and government sectors, due to its strong data processing capabilities and readability.
 - **Details**
-  - Lox features a straightforward syntax and semantics, making it ideal for learning about interpreters and compilers. It supports variables, functions, control flow, and basic data types. The language specification is well-documented in "Crafting Interpreters" and is widely used in programming language courses and tutorials.
+  - COBOL features a verbose syntax that emphasizes clarity and self-documentation. It supports structured programming, file handling, and extensive data types suitable for business logic. COBOL programs are typically compiled into machine code for execution on mainframe computers or other enterprise systems.
 - **Benefits**
-  - Simplifies the process of building and testing interpreters.
+  - Extensive source code base in legacy systems, making it relevant for maintenance and modernization projects.
   - Provides a clear and consistent language model for analysis.
-  - Reduces complexity, allowing focus on interpreter logic rather than language intricacies.
   - Well-supported by educational resources and community examples.
 
-### Developement Tools
+### Development Tools
 
 - GitHub
   - **Purpose**
@@ -120,7 +119,7 @@ Thus this project was programmed into TypeScript.
 
 ## Architecture
 
-As Code Diver is a 2 part program, the source code is divided in two folders and configuration/launching files:
+As Code Diver is a 2 part program, the source code is divided into two folders and configuration/launching files:
 
 ```md
 📁 code-diver
@@ -244,13 +243,19 @@ graph TD
 
 > Tree-walk execution: A Tree-walk execution is an interpretation strategy where the interpreter recursively traverses (or "walks") the Abstract Syntax Tree (AST) generated from the source code, evaluating each node according to its type. This approach directly executes the program structure as represented by the AST, making it simple to implement and well-suited for educational interpreters and small languages like Lox.
 
-### The Lox Language
+### The COBOL Language
 
-The Lox language was created by Robert NYSTROM for his book "Crafting Interpreters" it is a little language, it is a compact object oriented language with dynamic typing and automatic memory management, it's primary use is to serve as a basis for the interpreters of the book.
-
-Here you can find a breakdown of the grammar / syntax of Lox .[Link to the grammar](lox.md)
+COBOL (Common Business-Oriented Language) is a high-level programming language designed for business applications. It is widely used in legacy systems, particularly in banking, finance, and government sectors, due to its strong data processing capabilities and readability.
 
 ---
+
+## Testing Startegy
+
+- Test Driven Development (TTD) was used to develop the interpreter.
+- The Testing bed runs a suit of tests and outputs the results in the terminal; the errors are kept in a log file for easier debugging.
+- Tests cover core functionalities: scanning, parsing, interpreting, and component tracking.
+- Tests are located in the interpreter-src/tests folder.
+- Tests files used come from the COBOL file archive: [X-COBOL](https://zenodo.org/records/7968845).
 
 ## Build and Development Workflow
 
@@ -272,16 +277,16 @@ Here you can find a breakdown of the grammar / syntax of Lox .[Link to the gramm
 ## Dependencies
 
 - The project relies on the following key dependencies:
-  - vscode: Provides the API for extension development and integration with the editor.
-  - typescript: Enables static typing and modern JavaScript features.
-  - eslint: Enforces code quality and style guidelines.
+  - **vscode**: Provides the API for extension development and integration with the editor.
+  - **typescript**: Enables static typing and modern JavaScript features.
+  - **eslint**: Enforces code quality and style guidelines.
 - All dependencies are managed via npm and locked using package-lock.json for reproducible builds.
 
 ---
 
 ## Extensibility and Maintainability
 
-- The codebase is modular, with clear separation between extension logic and interpreter logic.
+- The codebase is modular, with a clear separation between extension logic and interpreter logic.
 - New features (such as additional language support or UI enhancements) can be added by extending the relevant modules in extension-src/ or interpreter-src/.
 - Documentation is provided in the documents directory, including functional and technical specifications, to support future development and onboarding.
 
@@ -292,5 +297,3 @@ Here you can find a breakdown of the grammar / syntax of Lox .[Link to the gramm
 - The extension validates user input and does not execute arbitrary code, minimizing security risks.
 - No user data or file paths are transmitted outside the local machine.
 - The project adheres to open-source licenses and VS Code Marketplace policies.
-
----

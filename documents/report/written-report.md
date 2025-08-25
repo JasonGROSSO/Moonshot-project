@@ -438,16 +438,15 @@ Thus this project was programmed into TypeScript.
   - Provides detailed insights into the lifecycle and usage of software components.
 - - Modular design facilitates future enhancements and debugging.
 
-#### Lox
+#### COBOL
 
 - **Purpose**
-  - Lox is a simple, dynamically typed programming language created for educational purposes. It serves as the target language for the interpreter in this project, providing a controlled environment for demonstrating code analysis and interpretation.
+  - COBOL (Common Business-Oriented Language) is a high-level programming language designed for business applications. It is widely used in legacy systems, particularly in banking, finance, and government sectors, due to its strong data processing capabilities and readability.
 - **Details**
-  - Lox features a straightforward syntax and semantics, making it ideal for learning about interpreters and compilers. It supports variables, functions, control flow, and basic data types. The language specification is well-documented in "Crafting Interpreters" and is widely used in programming language courses and tutorials.
+  - COBOL features a verbose syntax that emphasizes clarity and self-documentation. It supports structured programming, file handling, and extensive data types suitable for business logic. COBOL programs are typically compiled into machine code for execution on mainframe computers or other enterprise systems.
 - **Benefits**
-  - Simplifies the process of building and testing interpreters.
+  - Extensive source code base in legacy systems, making it relevant for maintenance and modernization projects.
   - Provides a clear and consistent language model for analysis.
-  - Reduces complexity, allowing focus on interpreter logic rather than language intricacies.
   - Well-supported by educational resources and community examples.
 
 #### Development Tools
@@ -614,13 +613,19 @@ graph TD
 
 > Tree-walk execution: A Tree-walk execution is an interpretation strategy where the interpreter recursively traverses (or "walks") the Abstract Syntax Tree (AST) generated from the source code, evaluating each node according to its type. This approach directly executes the program structure as represented by the AST, making it simple to implement and well-suited for educational interpreters and small languages like Lox.
 
-#### The Lox Language
+#### The COBOL Language
 
-The Lox language was created by Robert NYSTROM for his book "Crafting Interpreters".It is a little language, it is a compact object-oriented language with dynamic typing and automatic memory management, its primary use is to serve as a basis for the interpreters of the book.
-
-Here you can find a breakdown of the grammar/syntax of Lox.[Link to the grammar](../technical/lox.md)
+COBOL (Common Business-Oriented Language) is a high-level programming language designed for business applications. It is widely used in legacy systems, particularly in banking, finance, and government sectors, due to its strong data processing capabilities and readability.
 
 ---
+
+### Testing Startegy
+
+- Test Driven Development (TTD) was used to develop the interpreter.
+- The Testing bed runs a suit of tests and outputs the results in the terminal; the errors are kept in a log file for easier debugging.
+- Tests cover core functionalities: scanning, parsing, interpreting, and component tracking.
+- Tests are located in the interpreter-src/tests folder.
+- Tests files used come from the COBOL file archive: [X-COBOL](https://zenodo.org/records/7968845).
 
 ### Build and Development Workflow
 
@@ -710,7 +715,7 @@ This architecture ensures a clear separation of concerns, allowing each part to 
 ### 5. Design Choices and Rationale
 
 - **TypeScript**: Chosen for its type safety, maintainability, and first-class support in VS Code extension development.
-- **Lox Language**: Selected for its simplicity and suitability for demonstrating interpreter concepts and component analysis.
+- **COBOL Language**: Selected for its relevance as a legacy language, providing a practical use case for the interpreter.
 - **Tree-walk Interpreter**: Enables dynamic, real-time analysis of code, providing insights that static analysis tools may miss.
 - **VS Code Integration**: Ensures the tool is accessible where developers already work, minimizing context switching.
 - **Modular Codebase**: Facilitates future enhancements, such as support for additional languages or more advanced analysis features.
@@ -718,7 +723,7 @@ This architecture ensures a clear separation of concerns, allowing each part to 
 ### 6. Risk Assessment and Mitigation
 
 - **Technical Complexity**: Building both an interpreter and a VS Code extension introduces complexity. Mitigated by following established patterns (e.g., "Crafting Interpreters") and leveraging scaffolding tools (Yeoman, VS Code Extension Generator).
-- **Limited Language Support**: Initially supports only Lox, which may limit adoption. The modular design allows for future language support.
+- **Limited Language Support**: Focus on COBOL may limit user base. Mitigated by designing the interpreter for extensibility to support additional languages in the future.
 - **User Experience**: The risk of poor usability is addressed by adhering to VS Code UI/UX guidelines and iterative user testing.
 - **Compliance and Security**: Ensured by validating user input, avoiding execution of arbitrary code, and complying with open-source licenses and Marketplace policies.
 
