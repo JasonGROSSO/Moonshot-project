@@ -160,7 +160,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     public visitVariableExpr(expr: Expr.Variable): Object {
         const value = this.lookUpVariable(expr.name, expr);
         if (this.componentType === 'variable' && expr.name.lexeme === this.componentName) {
-            console.log(`Tracked variable '${expr.name.lexeme}' accessed at line: ${expr.name.line} with value: '${value}'`);
+            console.log(`Tracked variable '${expr.name.lexeme}' accessed at line: '${expr.name.line}', with value: '${value}'`);
             this.componentCount = (this.componentCount ?? 0) + 1;
         }
         return value;
@@ -221,7 +221,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         if (typeof current === "number" && typeof value === "number") {
             this.globals.assign(stmt.target, current + value);
             if (this.componentType === 'variable' && stmt.target.lexeme === this.componentName) {
-                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in ADD Statement at line: '${stmt.target.line}' with value:'${current}'; new value: '${current + value}'`);
+                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in ADD Statement at line: '${stmt.target.line}', with value:'${current}', new value: '${current + value}'`);
                 this.componentCount = (this.componentCount ?? 0) + 1;
             }
         } else {
@@ -241,7 +241,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         if (typeof current === "number" && typeof value === "number") {
             this.globals.assign(stmt.target, current / value);
             if (this.componentType === 'variable' && stmt.target.lexeme === this.componentName) {
-                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in DiVIDE Statement at line: '${stmt.target.line}' with value:'${current}'; new value: '${current / value}'`);
+                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in DiVIDE Statement at line: '${stmt.target.line}', with value:'${current}', new value: '${current / value}'`);
                 this.componentCount = (this.componentCount ?? 0) + 1;
             }
         } else {
@@ -280,7 +280,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         if (this.globals['values'].has(stmt.target.lexeme)) {
             this.globals.assign(stmt.target, value);
             if (this.componentType === 'variable' && stmt.target.lexeme === this.componentName) {
-                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in MOVE Statement at line: '${stmt.target.line}' with new value: '${value}'`);
+                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in MOVE Statement at line: '${stmt.target.line}', with new value: '${value}'`);
                 this.componentCount = (this.componentCount ?? 0) + 1;
             }
         } else {
@@ -296,7 +296,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         if (typeof current === "number" && typeof value === "number") {
             this.globals.assign(stmt.target, current * value);
             if (this.componentType === 'variable' && stmt.target.lexeme === this.componentName) {
-                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in MULTIPLY Statement at line '${stmt.target.line}' with value:'${current}'; new value: '${current * value}'`);
+                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in MULTIPLY Statement at line '${stmt.target.line}', with value:'${current}', new value: '${current * value}'`);
                 this.componentCount = (this.componentCount ?? 0) + 1;
             }
         } else {
@@ -354,7 +354,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         if (typeof current === "number" && typeof value === "number") {
             this.globals.assign(stmt.target, current - value);
             if (this.componentType === 'variable' && stmt.target.lexeme === this.componentName) {
-                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in SUBTRACT Statement at line '${stmt.target.line}' with value:'${current}'; new value: '${current - value}'`);
+                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in SUBTRACT Statement at line '${stmt.target.line}', with value:'${current}', new value: '${current - value}'`);
                 this.componentCount = (this.componentCount ?? 0) + 1;
             }
         } else {
