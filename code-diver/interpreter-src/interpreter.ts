@@ -13,6 +13,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     // Type and name of the component to track (e.g., variable)
     public componentType?: string;
     public componentName?: string;
+    public componentCount?: number = 0;
 
     // Global environment (top-level scope)
     public globals: Environment = new Environment();
@@ -122,13 +123,6 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return functionCallee.call(this, args);
     }
     public visitGetExpr(expr: Expr.Get) {
-        // let object: Object = this.evaluate(expr.object);
-        // if (object instanceof LoxInstance) {
-        //     return (object as LoxInstance).get(expr.name);
-        // }
-
-        // throw new RuntimeError(expr.name,
-        //     "Only instances have properties.");
     }
     public visitGroupingExpr(expr: Expr.Grouping): any {
         return this.evaluate(expr.expression) ?? {};
@@ -148,16 +142,6 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return this.evaluate(expr.right);
     }
     public visitSetExpr(expr: Expr.Set) {
-        // let object: Object = this.evaluate(expr.object);
-
-        // if (!(object instanceof LoxInstance)) {
-        //     throw new RuntimeError(expr.name,
-        //         "Only instances have fields.");
-        // }
-
-        // let value: Object = this.evaluate(expr.value);
-        // (object as LoxInstance).set(expr.name, value);
-        // return value;
     }
     public visitUnaryExpr(expr: Expr.Unary): any {
         let right: any = this.evaluate(expr.right) ?? {};
@@ -176,7 +160,8 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     public visitVariableExpr(expr: Expr.Variable): Object {
         const value = this.lookUpVariable(expr.name, expr);
         if (this.componentType === 'variable' && expr.name.lexeme === this.componentName) {
-            console.log(`Tracked variable '${expr.name.lexeme}' accessed with value:`, value);
+            console.log(`Tracked variable '${expr.name.lexeme}' accessed at line: ${expr.name.line} with value: '${value}'`);
+            this.componentCount = (this.componentCount ?? 0) + 1;
         }
         return value;
     }
@@ -235,6 +220,10 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         const current = this.globals.get(stmt.target);
         if (typeof current === "number" && typeof value === "number") {
             this.globals.assign(stmt.target, current + value);
+            if (this.componentType === 'variable' && stmt.target.lexeme === this.componentName) {
+                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in ADD Statement at line: '${stmt.target.line}' with value:'${current}'; new value: '${current + value}'`);
+                this.componentCount = (this.componentCount ?? 0) + 1;
+            }
         } else {
             Lox.runtimeError(new RuntimeError(stmt.target, `ADD: Operands must be numbers. Got ${typeof current} and ${typeof value}`));
         }
@@ -248,10 +237,13 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     public visitDivideStmt(stmt: Stmt.Divide): null {
         // DIVIDE value BY target
         const value = this.evaluate(stmt.value);
-        const targetName = stmt.target.lexeme;
         let current = this.globals.get(stmt.target);
         if (typeof current === "number" && typeof value === "number") {
             this.globals.assign(stmt.target, current / value);
+            if (this.componentType === 'variable' && stmt.target.lexeme === this.componentName) {
+                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in DiVIDE Statement at line: '${stmt.target.line}' with value:'${current}'; new value: '${current / value}'`);
+                this.componentCount = (this.componentCount ?? 0) + 1;
+            }
         } else {
             Lox.runtimeError(new RuntimeError(stmt.target, `DIVIDE: Operands must be numbers. Got ${typeof current} and ${typeof value}`));
         }
@@ -287,6 +279,10 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         // Only assign if variable exists
         if (this.globals['values'].has(stmt.target.lexeme)) {
             this.globals.assign(stmt.target, value);
+            if (this.componentType === 'variable' && stmt.target.lexeme === this.componentName) {
+                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in MOVE Statement at line: '${stmt.target.line}' with new value: '${value}'`);
+                this.componentCount = (this.componentCount ?? 0) + 1;
+            }
         } else {
             Lox.runtimeError(new RuntimeError(stmt.target, `MOVE: Variable '${stmt.target.lexeme}' not defined.`));
         }
@@ -299,6 +295,10 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         let current = this.globals.get(stmt.target);
         if (typeof current === "number" && typeof value === "number") {
             this.globals.assign(stmt.target, current * value);
+            if (this.componentType === 'variable' && stmt.target.lexeme === this.componentName) {
+                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in MULTIPLY Statement at line '${stmt.target.line}' with value:'${current}'; new value: '${current * value}'`);
+                this.componentCount = (this.componentCount ?? 0) + 1;
+            }
         } else {
             Lox.runtimeError(new RuntimeError(stmt.target, `MULTIPLY: Operands must be numbers. Got ${typeof current} and ${typeof value}`));
         }
@@ -338,6 +338,10 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
     public visitStopStmt(stmt: Stmt.Stop): null {
         // STOP RUN (terminate execution)
+        if (this.componentType && this.componentName) {
+            console.log(`Final value of component '${this.componentName}':`, this.globals['values'].get(this.componentName));
+            console.log(`Component ${this.componentName} has been accessed ${this.componentCount} times.`);
+        }
         process.exit(0);
         // For testing purposes, we won't actually exit
         // return null;
@@ -349,6 +353,10 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         let current = this.globals.get(stmt.target);
         if (typeof current === "number" && typeof value === "number") {
             this.globals.assign(stmt.target, current - value);
+            if (this.componentType === 'variable' && stmt.target.lexeme === this.componentName) {
+                console.log(`Tracked variable '${stmt.target.lexeme}' accessed in SUBTRACT Statement at line '${stmt.target.line}' with value:'${current}'; new value: '${current - value}'`);
+                this.componentCount = (this.componentCount ?? 0) + 1;
+            }
         } else {
             Lox.runtimeError(new RuntimeError(stmt.target, `SUBTRACT: Operands must be numbers. Got ${typeof current} and ${typeof value}`));
         }
@@ -383,5 +391,6 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     setComponentTracking(type: string, name: string) {
         this.componentType = type;
         this.componentName = name;
+        this.componentCount = 0;
     }
 }
