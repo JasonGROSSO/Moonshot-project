@@ -35,6 +35,7 @@ export class Scanner {
         ["COMPUTE", TokenType.COMPUTE],
         ["CALL", TokenType.CALL],
         ["GOTO", TokenType.GOTO],
+        ["GOBACK", TokenType.GOBACK],
 
         // Data declaration
         ["PIC", TokenType.PIC],
@@ -107,8 +108,14 @@ export class Scanner {
             case '+': this.addToken(TokenType.PLUS); break;
             case '*': this.addToken(TokenType.STAR); break;
             case '/': this.addToken(TokenType.SLASH); break;
-            case '<': this.addToken(TokenType.LESS_THAN); break;
-            case '>': this.addToken(TokenType.GREATER_THAN); break;
+            case '<': if (this.peekNext() === '=') {
+                this.advance();
+                this.addToken(TokenType.LESS_EQUAL);
+            } else { this.addToken(TokenType.LESS_THAN) }; break;
+            case '>': if (this.peekNext() === '=') {
+                this.advance();
+                this.addToken(TokenType.GREATER_EQUAL);
+            } else { this.addToken(TokenType.GREATER_THAN) }; break;
             case '=': this.addToken(TokenType.EQUAL); break;
             case '(': this.addToken(TokenType.LPAREN); break;
             case ')': this.addToken(TokenType.RPAREN); break;

@@ -13,7 +13,7 @@ export enum TokenType {
     MOVE, ADD, SUBTRACT, MULTIPLY, DIVIDE,
     IF, ELSE, END_IF,
     PERFORM, DISPLAY, STOP, RUN,
-    ACCEPT, COMPUTE, CALL, GOTO,
+    ACCEPT, COMPUTE, CALL, GOTO, GOBACK,
 
     // Data declaration
     PIC, VALUE, TO, FROM, USING, BY, AT, OF,

@@ -18,6 +18,7 @@ function main() {
     });
 
     // ./OneDrive/Documents/GitHub/Moonshot-project/code-diver/test/test-files/minimal.cob
+    // ./OneDrive/Documents/GitHub/Moonshot-project/code-diver/test/test-files/product.cob
 
 }
 

@@ -275,7 +275,14 @@ export class Parser {
     private sectionFromToken(sectionToken: Token): Stmt {
         this.advance();
         const statements: Stmt[] = [];
+        // parse statements until GOBACK, SECTION, or end of division
         while (!this.isAtEnd() && !this.check(TokenType.SECTION) && !this.check(TokenType.IDENTIFICATION_DIVISION) && !this.check(TokenType.ENVIRONMENT_DIVISION) && !this.check(TokenType.DATA_DIVISION) && !this.check(TokenType.PROCEDURE_DIVISION)) {
+            if (this.check(TokenType.GOBACK)) {
+                this.advance();
+                // Consume DOT if present
+                this.match(TokenType.DOT);
+                break;
+            }
             const stmt = this.cobolStatement();
             if (stmt !== null) statements.push(stmt);
             if (!this.check(TokenType.DOT)) {
@@ -293,7 +300,7 @@ export class Parser {
         }
         let section = new Stmt.Section(sectionToken, statements);
         Interpreter.sectionRegistry.set(sectionToken.lexeme, section);
-        
+
         return section;
     }
 
@@ -331,7 +338,7 @@ export class Parser {
             default:
                 const unknownToken = this.peek();
                 if (unknownToken.type !== TokenType.DOT && unknownToken.type !== TokenType.EOF) {
-                    Lox.error(unknownToken, `Unexpected token '${unknownToken.lexeme}' in PROCEDURE DIVISION.`);
+                    Lox.error(unknownToken, `Unexpected token '${unknownToken.type}' in PROCEDURE DIVISION.`);
                 }
                 this.advance(); // Always advance at least one token
                 return null;
@@ -362,8 +369,14 @@ export class Parser {
         // ADD expr TO identifier
         const value = this.expression();
         this.consume(TokenType.TO, "Expect 'TO' after value in ADD statement.");
-        const target = this.consume(TokenType.IDENTIFIER, "Expect identifier after 'TO'.");
-        return new Stmt.Add(value, target);
+        if (this.check(TokenType.IDENTIFIER)) {
+            const target = this.consume(TokenType.IDENTIFIER, "Expect identifier after 'BY'.");
+            return new Stmt.Add(value, target);
+        } else if (this.check(TokenType.NUMBER)) {
+            const target = this.consume(TokenType.NUMBER, "Expect number after 'BY'.");
+            return new Stmt.Add(value, target);
+        }
+        throw Lox.error(this.peek(), "Expect identifier or number after 'BY' in ADD statement.");
     }
 
     // Example: SUBTRACT statement
@@ -371,26 +384,54 @@ export class Parser {
         // SUBTRACT expr FROM identifier
         const value = this.expression();
         this.consume(TokenType.FROM, "Expect 'FROM' after value in SUBTRACT statement.");
-        const target = this.consume(TokenType.IDENTIFIER, "Expect identifier after 'FROM'.");
-        return new Stmt.Subtract(value, target);
+        if (this.check(TokenType.IDENTIFIER)) {
+            const target = this.consume(TokenType.IDENTIFIER, "Expect identifier after 'BY'.");
+            return new Stmt.Subtract(value, target);
+        } else if (this.check(TokenType.NUMBER)) {
+            const target = this.consume(TokenType.NUMBER, "Expect number after 'BY'.");
+            return new Stmt.Subtract(value, target);
+        }
+        throw Lox.error(this.peek(), "Expect identifier or number after 'BY' in SUBTRACT statement.");
     }
 
     // Example: MULTIPLY statement
     private multiplyStatement(): Stmt {
         // MULTIPLY expr BY identifier
-        const value = this.expression();
-        this.consume(TokenType.BY, "Expect 'BY' after value in MULTIPLY statement.");
-        const target = this.consume(TokenType.IDENTIFIER, "Expect identifier after 'BY'.");
-        return new Stmt.Multiply(value, target);
+        if (this.check(TokenType.IDENTIFIER)) {
+            const target = this.consume(TokenType.IDENTIFIER, "Expect identifier after 'BY'.");
+            this.consume(TokenType.BY, "Expect 'BY' after value in MULTIPLY statement.");
+            const value = this.expression();
+            return new Stmt.Multiply(value, target);
+
+        } else if (this.check(TokenType.NUMBER)) {
+            const target = this.consume(TokenType.NUMBER, "Expect number after 'BY'.");
+            this.consume(TokenType.BY, "Expect 'BY' after value in MULTIPLY statement.");
+            const value = this.expression();
+            return new Stmt.Multiply(value, target);
+
+        }
+
+        throw Lox.error(this.peek(), "Expect identifier or number after 'BY' in MULTIPLY statement.");
     }
 
     // Example: DIVIDE statement
     private divideStatement(): Stmt {
         // DIVIDE expr BY identifier
-        const value = this.expression();
-        this.consume(TokenType.BY, "Expect 'BY' after value in DIVIDE statement.");
-        const target = this.consume(TokenType.IDENTIFIER, "Expect identifier after 'BY'.");
-        return new Stmt.Divide(value, target);
+        if (this.check(TokenType.IDENTIFIER)) {
+            const target = this.consume(TokenType.IDENTIFIER, "Expect identifier after 'BY'.");
+            this.consume(TokenType.BY, "Expect 'BY' after value in DIVIDE statement.");
+            const value = this.expression();
+            return new Stmt.Divide(value, target);
+
+        } else if (this.check(TokenType.NUMBER)) {
+            const target = this.consume(TokenType.NUMBER, "Expect number after 'BY'.");
+            this.consume(TokenType.BY, "Expect 'BY' after value in DIVIDE statement.");
+            const value = this.expression();
+            return new Stmt.Divide(value, target);
+
+        }
+        throw Lox.error(this.peek(), "Expect identifier or number after 'BY' in DIVIDE statement.");
+
     }
 
     // Example: IF statement
@@ -406,7 +447,7 @@ export class Parser {
 
         // Comparison operator
         let operator: Token;
-        if (this.match(TokenType.LESS_THAN, TokenType.GREATER_THAN, TokenType.EQUALS, TokenType.GREATER_EQUAL, TokenType.LESS_EQUAL, TokenType.NOT)) {
+        if (this.match(TokenType.LESS_THAN, TokenType.GREATER_THAN, TokenType.EQUAL, TokenType.GREATER_EQUAL, TokenType.LESS_EQUAL, TokenType.NOT)) {
             operator = this.previous();
         } else {
             throw Lox.error(this.peek(), "Expect comparison operator in IF condition.");

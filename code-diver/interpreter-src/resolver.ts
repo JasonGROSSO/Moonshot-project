@@ -80,7 +80,6 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     visitAddStmt(stmt: Stmt.Add): void {
-        this.declare(stmt.target);
         this.define(stmt.target);
         this.resolveExpr(stmt.value);
     }
@@ -90,7 +89,6 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     visitDivideStmt(stmt: Stmt.Divide): void {
-        this.declare(stmt.target);
         this.define(stmt.target);
         this.resolveExpr(stmt.value);
     }
@@ -109,13 +107,11 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     visitMoveStmt(stmt: Stmt.Move): void {
-        this.declare(stmt.target);
         this.define(stmt.target);
         this.resolveExpr(stmt.value);
     }
 
     visitMultiplyStmt(stmt: Stmt.Multiply): void {
-        this.declare(stmt.target);
         this.define(stmt.target);
         this.resolveExpr(stmt.value);
     }
@@ -136,7 +132,6 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     }
 
     visitSubtractStmt(stmt: InstanceType<typeof Stmt.Subtract>): void {
-        this.declare(stmt.target);
         this.define(stmt.target);
         this.resolveExpr(stmt.value);
     }

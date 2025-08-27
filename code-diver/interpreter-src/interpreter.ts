@@ -291,7 +291,6 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
     public visitMultiplyStmt(stmt: Stmt.Multiply): null {
         // MULTIPLY value BY target
         const value = this.evaluate(stmt.value);
-        const targetName = stmt.target.lexeme;
         let current = this.globals.get(stmt.target);
         if (typeof current === "number" && typeof value === "number") {
             this.globals.assign(stmt.target, current * value);
@@ -344,12 +343,11 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         }
         process.exit(0);
         // For testing purposes, we won't actually exit
-        // return null;
+        //  return null;
     }
     public visitSubtractStmt(stmt: Stmt.Subtract): null {
         // SUBTRACT value FROM target
         const value = this.evaluate(stmt.value);
-        const targetName = stmt.target.lexeme;
         let current = this.globals.get(stmt.target);
         if (typeof current === "number" && typeof value === "number") {
             this.globals.assign(stmt.target, current - value);
