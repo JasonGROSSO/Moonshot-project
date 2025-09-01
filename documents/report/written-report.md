@@ -627,6 +627,18 @@ COBOL (Common Business-Oriented Language) is a high-level programming language d
 - Tests are located in the interpreter-src/tests folder.
 - Tests files used come from the COBOL file archive: [X-COBOL](https://zenodo.org/records/7968845).
 
+Table of recurrent errors found during testing:
+
+| Recurent Error | Cause | Solution |
+| --- | --- | --- |
+| Unexpected Character |	Characters not in the scanner |	Add support in scanner |
+| Unexpected Token at top level |	Unsupported COBOL Sections / Divisions |	Add Sections / Division in parser |
+| Unexpected Token after statement in Section |	Unsupported variation of a COBOL keyword |	Implement unsupported variations |
+| Unexpected Token after statement in Section |	Unsupported COBOL Keyword |	Add keyword support to parser |
+| Unexpected Token after statement in Section	| HTML code |	Add HTML recognition to ignore it |
+| Unexpected Token after statement in Section	| Comments not ignored by the scanner |	Improve comment detection in the scanner |
+| Expected PIC after Identifier in variable declaration |	Unsupported data declarations |	Implement complete data declaration recognition |
+
 ### Build and Development Workflow
 
 - The project uses TypeScript for both the extension and interpreter, ensuring type safety and maintainability.

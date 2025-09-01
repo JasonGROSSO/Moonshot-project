@@ -4,6 +4,7 @@ import { Lox } from "./lox";
 import { Stmt } from "./stmt";
 import { Token } from "./token";
 
+// Resolver class to perform static analysis and resolve variable scopes
 
 export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
 
@@ -14,6 +15,8 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
     constructor(interpreter: Interpreter) {
         this.interpreter = interpreter;
     }
+
+    // Expression visitor methods
 
     public visitAssignExpr(expr: Expr.Assign): null {
         this.resolveExpr(expr.value);
@@ -79,6 +82,8 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         return null;
     }
 
+    // Statement visitor methods
+
     visitAddStmt(stmt: Stmt.Add): void {
         this.define(stmt.target);
         this.resolveExpr(stmt.value);
@@ -143,6 +148,8 @@ export class Resolver implements Expr.Visitor<void>, Stmt.Visitor<void> {
         }
         this.define(stmt.name);
     }
+
+    // Helper methods
 
     resolve(statements: Stmt[]): void {
         for (const statement of statements) {

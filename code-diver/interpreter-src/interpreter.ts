@@ -53,6 +53,9 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
             }
         }
     }
+
+    /* Expression Visitors */
+
     public visitAssignExpr(expr: Expr.Assign): Object {
         let value: Object = this.evaluate(expr.value);
         let distance: number | undefined = this.locals.get(expr);
@@ -165,6 +168,9 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         }
         return value;
     }
+
+    /* Helper Methods for Expression Evaluation */
+
     private lookUpVariable(name: Token, expr: Expr): Object {
         let distance: number | undefined = this.locals.get(expr);
         if (distance !== undefined) {
@@ -214,6 +220,9 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
             this.environment = previous;
         }
     }
+
+    /* Statement Visitors */
+
     public visitAddStmt(stmt: Stmt.Add): null {
         // ADD value TO target
         const value = this.evaluate(stmt.value);
@@ -230,6 +239,7 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return null;
     }
     public visitDisplayStmt(stmt: Stmt.Display): null {
+        // DISPLAY value
         let value: Object = this.evaluate(stmt.value);
         console.log(this.stringify(value));
         return null;
@@ -373,6 +383,9 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
         return null;
 
     }
+
+    /* Helper Methods for Statement Execution */
+
     private stringify(object: any): String {
         if (object === null) { return "nil"; }
 
@@ -386,6 +399,9 @@ export class Interpreter implements Expr.Visitor<any>, Stmt.Visitor<void> {
 
         return object.toString();
     }
+
+    // Method to set the component tracking parameters
+
     setComponentTracking(type: string, name: string) {
         this.componentType = type;
         this.componentName = name;

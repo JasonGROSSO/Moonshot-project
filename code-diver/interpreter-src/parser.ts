@@ -9,11 +9,15 @@ export class Parser {
     private tokens: Token[];
     private current: number = 0;
 
+
+    // Main entry point for parsing
+
     parse(): Stmt[] {
         const statements: Stmt[] = [];
         let errorLogged = false;
         while (!this.isAtEnd()) {
             switch (this.peek().type) {
+                // Parse divisions
                 case TokenType.IDENTIFICATION_DIVISION:
                     this.advance();
                     statements.push(this.division(TokenType.IDENTIFICATION_DIVISION));

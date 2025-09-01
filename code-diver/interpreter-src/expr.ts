@@ -1,6 +1,10 @@
 import { Token } from "./token";
 
+// Abstract base class for all expression types
+
 export abstract class Expr {
+
+    // Expression subclasses
 
     static Assign = class extends Expr {
         name: Token;
@@ -147,6 +151,8 @@ export abstract class Expr {
 
     abstract accept<R>(visitor: Expr.Visitor<R>): R;
 }
+
+// Visitor interface and type aliases for each expression subclass
 
 export namespace Expr {
     export interface Visitor<R> {

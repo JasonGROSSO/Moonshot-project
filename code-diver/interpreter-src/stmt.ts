@@ -1,7 +1,11 @@
 import { Expr } from "./expr";
 import { Token } from "./token";
 
+// Abstract base class for all statement types
+
 export abstract class Stmt {
+
+    // Statement subclasses
 
     static Add = class extends Stmt {
         value: Expr;
@@ -155,6 +159,8 @@ export abstract class Stmt {
 
     abstract accept<R>(visitor: Stmt.Visitor<R>): R;
 }
+
+// Visitor interface and type aliases for statements
 
 export namespace Stmt {
     export interface Visitor<R> {
